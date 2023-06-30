@@ -10,11 +10,6 @@
 <title>ProteinDigest</title>
 <polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-363.2 439,-363.2 439,4 -4,4"/>
 <text text-anchor="start" x="146.9582" y="-8.2" font-family="Times,serif" font-size="14.00" fill="#000000">含氮物质在瘤胃内的消化</text>
-<g id="clust4" class="cluster">
-<title>cluster_3</title>
-<polygon fill="none" stroke="#000000" points="8,-32.8 8,-109.6 298,-109.6 298,-32.8 8,-32.8"/>
-<text text-anchor="middle" x="153" y="-93" font-family="Times,serif" font-size="14.00" fill="#000000">离开瘤胃</text>
-</g>
 <g id="clust1" class="cluster">
 <title>cluster_0</title>
 <polygon fill="none" stroke="#000000" points="49,-274.4 49,-351.2 425,-351.2 425,-274.4 49,-274.4"/>
@@ -29,6 +24,11 @@
 <title>cluster_2</title>
 <polygon fill="none" stroke="#000000" points="357,-32.8 357,-109.6 427,-109.6 427,-32.8 357,-32.8"/>
 <text text-anchor="middle" x="392" y="-93" font-family="Times,serif" font-size="14.00" fill="#000000">血液</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_3</title>
+<polygon fill="none" stroke="#000000" points="8,-32.8 8,-109.6 298,-109.6 298,-32.8 8,-32.8"/>
+<text text-anchor="middle" x="153" y="-93" font-family="Times,serif" font-size="14.00" fill="#000000">离开瘤胃</text>
 </g>
 <!-- 饲料蛋白质 -->
 <g id="node1" class="node">
