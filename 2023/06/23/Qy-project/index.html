@@ -113,7 +113,7 @@
   <header class="post-head">
     <h1 class="post-title">
       <a class="title" href="/2023/06/23/Qy-project/">
-        【暂时弃坑】关于 Qy 计划的介绍
+        Qy 计划的介绍
       </a>
     </h1>
   </header>
@@ -137,7 +137,7 @@
     <div class="post-word-count">
       
 
-本文共690字。
+本文共2256字。
 
     </div>
   
@@ -155,7 +155,7 @@
     <div class="post-widget">
         <nav class="post-toc-wrap" id="post-toc" data-expand="true">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%97%A9%E6%9C%9F%E6%83%B3%E6%B3%95"><span class="post-toc-number">1.</span> <span class="post-toc-text">早期想法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF"><span class="post-toc-number">2.</span> <span class="post-toc-text">核心思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%9B%9B%E5%A4%A7%E6%94%AF%E6%9F%B1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">四大支柱</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%97%A9%E6%9C%9F%E6%83%B3%E6%B3%95"><span class="post-toc-number">1.</span> <span class="post-toc-text">早期想法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF"><span class="post-toc-number">2.</span> <span class="post-toc-text">核心思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%9B%9B%E5%A4%A7%E6%94%AF%E6%9F%B1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">四大支柱</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#text-to-voice"><span class="post-toc-number">3.</span> <span class="post-toc-text">Text-To-Voice</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%89%B9%E5%BE%81"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">特征</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%90%86%E8%AE%BA%E5%81%87%E8%AE%BE"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">理论假设</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%8F%A6%E4%B8%80%E7%A7%8D%E8%AF%B4%E6%B3%95"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">另一种说法</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%A0%94%E7%A9%B6%E8%AE%A1%E5%88%92"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">研究计划</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%A1%86%E6%9E%B6"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">模型框架</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">数据采集</span></a></li></ol></li></ol></li></ol>
         </nav>
         <a class="post-toc-toggle" onclick="toggleToc(this, expend, collapse);" href="javascript:;">
             展开
@@ -200,8 +200,119 @@ RNN
 <li>对应着上文的「互动」</li>
 </ul></li>
 </ul>
-<p>找不到资料了，未完待续</p>
 <hr />
+<h3 id="text-to-voice">Text-To-Voice</h3>
+<p>能够生成动作与音频的多步生成文本转语音模型。</p>
+<p>下文主要于 19 年夏天所写。</p>
+<h4 id="特征">特征</h4>
+<ul>
+<li>通过对人类的发声过程进行重现来生成</li>
+<li>具备单独的情感表达</li>
+<li>多参数输出</li>
+<li>可对中间参数进行修改</li>
+<li>跨语言，跨方言合成</li>
+</ul>
+<h4 id="理论假设">理论假设</h4>
+<ul>
+<li>言语（声音上的）的本质是发声器官的动作在复杂的物理体系下的呈现（复杂的意思是“难以在当前条件下精确的描述或仿真”）</li>
+<li>依据事物发展的原理而复现其机理在结果上是自然，该方法也是可实现的</li>
+</ul>
+<h5 id="另一种说法">另一种说法</h5>
+<p>從意圖的產生，到引起空氣震動，再到影響另一個個體的思維活動的過程，雖然及其復雜，但是仍然還是可以根據其規律和聯系而建立起模型。</p>
+<p>我們可以將行爲大致看成以下幾個部分（在該部分中把研究對象看成系統，其他爲環境）：</p>
+<ol type="1">
+<li>行爲(發聲)意圖的產生/改變</li>
+<li>意圖的執行</li>
+<li>執行行爲所引發的環境改變</li>
+<li>過程 3. 引發的過程 1.，周而复始</li>
+</ol>
+<p>所以要能夠完整地重現行爲，我們應該收集以下幾個方面的：</p>
+<ul>
+<li>神經活動（中樞）</li>
+<li>肌肉活動（效應器）</li>
+<li>聲道的狀態×</li>
+<li>音頻</li>
+</ul>
+<p><em>注：包括口型/胸廓/膈肌（其中後者以腹部隆起程度來間接觀察）</em>
+-&gt; <strong>所以別吃得那麼多誒！</strong></p>
+<p><strong>但是，現在的科技發展及對人腦的研究程度，並不足以完整的重現整個過程。所以應該對相當多的部分應該予以簡化處理。</strong></p>
+<h4 id="研究计划">研究计划</h4>
+<p>大致分成七个阶段：</p>
+<ul>
+<li>整体架构与接口的设计</li>
+<li>前端模型的实现（将文字等符号予以转化）</li>
+<li>呼吸模型的实现</li>
+<li>喉部数据的获取及发声模型与呼吸模型的整合</li>
+<li>调音机制数据采集（及唇，齿，舌，软腭部位等）及模型的建立与前两个模型的整合</li>
+<li>感情模型的导入（新的数据库）</li>
+<li>和其他部分的整合</li>
+</ul>
+<p>不同模型的安排并不是按照“气流机制 -&gt; 发声 -&gt; 调音”
+的机制来进行的，而是按照部位（胸腹腔、咽喉、口鼻、唇）安排的。</p>
+<h5 id="模型框架">模型框架</h5>
+<p>输入特征：</p>
+<ul>
+<li>以段为单位，而不是句子（因其机制）</li>
+<li>并不严格要求时间上的对齐
+<ul>
+<li>“时间上的对齐”的意思是：在第几秒说哪个字，发哪个音</li>
+</ul></li>
+<li>情感的<u>定量</u>输入(PAD model)，但标注并不是基于时间而是基于事件
+<ul>
+<li>存疑：对于<u>情感模块的界限</u>的定义——每一部分应该承担的作用</li>
+</ul></li>
+</ul>
+<p>输入的例子（仅仅是展示，并不是实际的输入）：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">voice:</span></span><br><span class="line">  <span class="attr">uuid:</span> <span class="string">d8727c04-7bb4-43af-a842-8d662ac36a76</span></span><br><span class="line">  <span class="attr">speaker:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">&quot;Cookie&quot;</span></span><br><span class="line">    <span class="attr">meta:</span></span><br><span class="line">      <span class="attr">param:</span> [<span class="string">&quot;default&quot;</span>]</span><br><span class="line">      <span class="attr">gender:</span> <span class="string">&quot;female&quot;</span></span><br><span class="line">      <span class="attr">language:</span> <span class="string">&quot;cmn-Hans&quot;</span></span><br><span class="line">  <span class="attr">label:</span></span><br><span class="line">    <span class="attr">text:</span> <span class="string">&quot;各位下午好。&quot;</span></span><br><span class="line">    <span class="attr">ext:</span></span><br><span class="line">      <span class="attr">breath:</span> <span class="string">&quot;quick&quot;</span></span><br><span class="line">      <span class="attr">emotion:</span></span><br><span class="line">        <span class="attr">global:</span> [<span class="number">0.2</span>, <span class="number">0.02</span>, <span class="number">0.1</span>]</span><br><span class="line">        <span class="attr">local:</span> <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+<p>附加输入：</p>
+<ul>
+<li>每时每刻需要存在的输入，可以理解为「世界」给模型的反馈</li>
+</ul>
+<p>输出：</p>
+<ul>
+<li>音频波形文件（*.wav） Frq:14400Herz</li>
+<li>器官在每一刻的状态（单位：帧）</li>
+</ul>
+<p>模型的中间参数：</p>
+<p>“中间参数”为模型间传递的数据</p>
+<p>单纯的“模型”一词就隐含着以下部分条件：</p>
+<ul>
+<li>通用的</li>
+<li>可复现</li>
+</ul>
+<p>这也就要求这模型的中间参数是可迁移的，或者说是能够转移对象的（比如把郭乐乐在嗯♂啊时声道的动作直接作为另一个模型的输入）。换言之，对模型间的参数的定义及设计，必须要消除，或者说是削减，语料库中的个体差异。</p>
+<p>但是，人与人的差异极大（比如说是在对于a的定义etc.），所以：</p>
+<ol type="1">
+<li>设计一个新标准或是新协议，就显得尤为重要。</li>
+<li>我们可以采用多人标注的方法来减小这个影响，产生各个参数的分布，e.g.
+<code>[... t = 12.52 : "a" = 0.89, "o" = 0.09,"e" = 0.02; ...]</code>。</li>
+</ol>
+<h5 id="数据采集">数据采集</h5>
+<p>安排</p>
+<p>录音阶段（除阶段1,2，暂定各5个小时）：</p>
+<ol type="1">
+<li>[允许情感注入] 呼吸，佩带除了麦克风外的所有传感器</li>
+<li>[无感情的]-[无韵律的] IPA发音</li>
+<li>[无感情的]-[有韵律的] 念该语言的句子</li>
+<li>[小学生念课文的那种感情]-[有韵律的] 念课文</li>
+<li>[允许情感注入] 情景对话</li>
+<li>[允许情感注入] 意识流内容输出</li>
+</ol>
+<p>**注：“允许情感注入”是允许志愿者自由的表达感情；而“有感情的
+”，及“小学生念课文的那种感情 ”的情感表达为受控的*</p>
+<p>内容：</p>
+<p>略</p>
+<p>多次录音（阶段2,3,4）：</p>
+<ul>
+<li>正常</li>
+<li>耳语</li>
+<li>闭气，只动口型</li>
+</ul>
+<p>后期标注（阶段2,3,4,5,6）：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">voice:</span> <span class="meta">&amp;demo</span></span><br><span class="line">  <span class="attr">meta:</span></span><br><span class="line">    <span class="attr">stage:</span> <span class="number">0</span> <span class="comment"># Int, 1~6</span></span><br><span class="line">    <span class="attr">id:</span> <span class="literal">null</span> <span class="comment"># UUID</span></span><br><span class="line">    <span class="attr">time:</span>  <span class="comment"># begin and end, Timestamp</span></span><br><span class="line">      <span class="attr">begin:</span> <span class="number">2023-04-17T15:02:31+08:00</span></span><br><span class="line">      <span class="attr">end:</span> <span class="number">2023-04-17T15:02:39+08:00</span></span><br><span class="line">    <span class="attr">speaker:</span></span><br><span class="line">      <span class="attr">id:</span> <span class="number">0</span> <span class="comment"># Hex</span></span><br><span class="line">      <span class="attr">sexual:</span> <span class="literal">null</span> <span class="comment"># String, &quot;M&quot; or &quot;F&quot;</span></span><br><span class="line">      <span class="attr">age:</span> <span class="number">0</span> <span class="comment"># Int</span></span><br><span class="line">  <span class="attr">body:</span>  <span class="comment"># ALL child node from here.</span></span><br><span class="line">    <span class="attr">label:</span> <span class="literal">null</span></span><br><span class="line"><span class="comment">#      wav:</span></span><br><span class="line"><span class="comment">#      act:</span></span><br><span class="line"><span class="comment">#      air:</span></span><br><span class="line">    <span class="attr">ext:</span></span><br><span class="line">      <span class="attr">emt:</span> <span class="literal">null</span> <span class="comment"># Emotion</span></span><br><span class="line"><span class="comment">#        gsr:</span></span><br><span class="line"><span class="comment">#        femg:  # Facial EMG</span></span><br><span class="line"><span class="comment">#        pl:  # Heartbeat</span></span><br><span class="line">      <span class="attr">lgt:</span> <span class="literal">null</span> <span class="comment"># Language</span></span><br><span class="line"><span class="comment">#        lang:</span></span><br><span class="line"><span class="comment">#        phoneme:</span></span><br><span class="line"><span class="comment">#        word:</span></span><br><span class="line"><span class="comment">#        sentence:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Stage I：</span></span><br><span class="line"></span><br><span class="line"><span class="attr">voice:</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*demo</span></span><br><span class="line">  <span class="attr">meta:</span></span><br><span class="line">    <span class="attr">stage:</span> <span class="number">1</span></span><br><span class="line">    <span class="attr">id:</span> <span class="string">152bab47-f462-4326-ab6f-3450160983e1</span></span><br><span class="line">    <span class="attr">time:</span></span><br><span class="line">      <span class="attr">begin:</span> <span class="number">2023-04-15T19:06:10+08:00</span></span><br><span class="line">      <span class="attr">end:</span> <span class="number">2023-04-15T19:08:30+08:00</span></span><br><span class="line">    <span class="attr">speaker:</span></span><br><span class="line">      <span class="attr">id:</span> <span class="number">0x0e5a</span></span><br><span class="line">      <span class="attr">sexual:</span> <span class="string">&quot;F&quot;</span></span><br><span class="line">      <span class="attr">age:</span> <span class="number">19</span></span><br><span class="line">  <span class="attr">body:</span></span><br><span class="line">    <span class="attr">label:</span></span><br><span class="line">      <span class="attr">wav:</span> <span class="string">&quot;/wave/152bab47-f462-4326-ab6f-3450160983e1.wav&quot;</span></span><br><span class="line">      <span class="attr">act:</span> <span class="string">&quot;/br/act/152bab47-f462-4326-ab6f-3450160983e1/&quot;</span></span><br><span class="line">      <span class="attr">air:</span> <span class="string">&quot;/br/ar/152bab47-f462-4326-ab6f-3450160983e1.edf&quot;</span></span><br><span class="line">    <span class="attr">ext:</span></span><br><span class="line">      <span class="attr">emt:</span></span><br><span class="line">        <span class="attr">gsr:</span> <span class="string">&quot;/emt/sc/152bab47-f462-4326-ab6f-3450160983e1.edf&quot;</span></span><br><span class="line">        <span class="attr">femg:</span> <span class="string">&quot;/emt/fcm/152bab47-f462-4326-ab6f-3450160983e1/&quot;</span></span><br><span class="line">        <span class="attr">pl:</span> <span class="string">&quot;/emt/pl/152bab47-f462-4326-ab6f-3450160983e1.edf&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Stage II:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">voice:</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*demo</span></span><br><span class="line">  <span class="attr">meta:</span></span><br><span class="line">    <span class="attr">stage:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">id:</span> <span class="string">b81a189c-f4a0-476e-90f8-7f3811396f30</span></span><br><span class="line">    <span class="attr">time:</span></span><br><span class="line">      <span class="attr">begin:</span> <span class="number">2023-05-07T09:45:23+08:00</span></span><br><span class="line">      <span class="attr">end:</span> <span class="number">2023-05-07T09:57:05+08:00</span></span><br><span class="line">    <span class="attr">speaker:</span></span><br><span class="line">      <span class="attr">id:</span> <span class="number">0x0e5a</span></span><br><span class="line">      <span class="attr">sexual:</span> <span class="string">&quot;F&quot;</span></span><br><span class="line">      <span class="attr">age:</span> <span class="number">19</span></span><br><span class="line">  <span class="attr">body:</span></span><br><span class="line">    <span class="attr">label:</span></span><br><span class="line">      <span class="attr">wav:</span> <span class="string">&quot;/wave/b81a189c-f4a0-476e-90f8-7f3811396f30.wav&quot;</span></span><br><span class="line">      <span class="attr">act:</span> <span class="string">&quot;/br/act/b81a189c-f4a0-476e-90f8-7f3811396f30/&quot;</span></span><br><span class="line">      <span class="attr">air:</span> <span class="string">&quot;/br/ar/b81a189c-f4a0-476e-90f8-7f3811396f30.edf&quot;</span></span><br><span class="line">    <span class="attr">ext:</span></span><br><span class="line">      <span class="attr">lgt:</span></span><br><span class="line">        <span class="attr">phoneme:</span> <span class="string">&quot;/lgn/pht/b81a189c-f4a0-476e-90f8-7f3811396f30&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Stage III:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">voice:</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*demo</span></span><br><span class="line">  <span class="attr">meta:</span></span><br><span class="line">    <span class="attr">stage:</span> <span class="number">3</span></span><br><span class="line">    <span class="attr">id:</span> <span class="string">a7cbee8e-07ad-4ce7-a915-58aa6f256fde</span></span><br><span class="line">    <span class="attr">time:</span></span><br><span class="line">      <span class="attr">begin:</span> <span class="number">2023-04-17T09:45:56+08:00</span></span><br><span class="line">      <span class="attr">end:</span> <span class="number">2023-04-17T09:57:00+08:00</span></span><br><span class="line">    <span class="attr">speaker:</span></span><br><span class="line">      <span class="attr">id:</span> <span class="number">0x0e5a</span></span><br><span class="line">      <span class="attr">sexaul:</span> <span class="string">&quot;F&quot;</span></span><br><span class="line">      <span class="attr">age:</span> <span class="number">19</span></span><br><span class="line">  <span class="attr">body:</span></span><br><span class="line">    <span class="attr">label:</span></span><br><span class="line">      <span class="string">...</span></span><br><span class="line">    <span class="attr">ext:</span></span><br><span class="line">      <span class="attr">lgt:</span></span><br><span class="line">        <span class="attr">lang:</span> <span class="string">&quot;cmn-Hans&quot;</span></span><br><span class="line">        <span class="string">...</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## ...</span></span><br></pre></td></tr></table></figure>
+<p>情感（PAD模型）</p>
+<p>拼音</p>
+<p>汉字，句子成分</p>
 
   </div>
 </article>
