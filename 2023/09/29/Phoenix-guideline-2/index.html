@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>自留地 - 记录学习生活的大小事</title>
+    
+      <link rel="icon" href="/img/favicon.ico">
+    
+    <meta name="keyword"  content="">
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+      
+<link rel="stylesheet" href="/css/helpers.css">
+    
+    
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  <div class="loading-wrapper" data-loading="true">
+    <div class="loading">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div class="page" data-filter="true">
+    <div class="head" data-show="true">
+      <header class="head-header">
+  <div class="head-author">
+    <a href="/" class="head-author-link">
+      自留地</a>
+    </div>
+  <div class="head-right">
+    <!-- <div class="head-search">
+      <input class="head-searchK"></input>
+      <span class="head-searchT">
+        Search</span>
+    </div> -->
+    <button class="bar-wrap" id="bar-wrap-toggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <div class="head-about" id="head-about">
+      
+      <a class="head-about-link" href="/about">
+        关于</a>
+      
+    </div>
+  </div>
+</header>
+
+    </div>
+    <div class="main">
+      
+
+<div class="menu-bar-head" id="menu-bar" data-show="false">
+  <ul class="menu-bar-ul">
+    
+      
+      <li class="menu-bar-item ">
+          
+              <a href="/categories/%E7%95%9C%E7%89%A7/">
+          
+              <span>关于养猪羊牛马只因</span>
+            </a>
+      </li>
+    
+      
+      <li class="menu-bar-item ">
+          
+              <a href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%BE/">
+          
+              <span>啊，他妈的</span>
+            </a>
+      </li>
+    
+      
+      <li class="menu-bar-item  border ">
+          
+            <a href="/archives">
+          
+              <span>归档</span>
+            </a>
+      </li>
+    
+      
+      <li class="menu-bar-item ">
+          
+            <a href="/tags">
+          
+              <span>标签</span>
+            </a>
+      </li>
+    
+    
+      <li class="menu-bar-item">
+        <a href="/about">
+          <span>关于</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+      <article class="post" id="post">
+  <header class="post-head">
+    <h1 class="post-title">
+      <a class="title" href="/2023/09/29/Phoenix-guideline-2/">
+        萌新所写的Phoenix入门指南（二）
+      </a>
+    </h1>
+  </header>
+  <div class="post-datetag">
+    <div class="post-date">
+      <time class="post-time" title="2023-09-29 13:16:21" datetime="2023-09-29T05:16:21.000Z" itemprop="datePublished">
+  2023-09-29</time>
+    </div>
+    |
+    <div class="post-tag">
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix%E6%A1%86%E6%9E%B6/" rel="tag">Phoenix框架</a></li></ul>
+
+    </div>
+    |
+    
+
+  </div>
+
+  
+    <div class="post-word-count">
+      
+
+本文共2970字。
+
+    </div>
+  
+
+  
+    <div class="post-cc">
+      版权声明：
+      
+        署名-非商业性使用-相同方式共享 | <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/">CC BY-NC-SA 3.0 CN</a>
+      
+    </div>
+  
+
+  
+    <div class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc" data-expand="true">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#phoenix-%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E9%95%BF%E5%BE%97%E5%AE%8C%E5%85%A8%E4%B8%80%E6%A0%B7"><span class="post-toc-number">1.</span> <span class="post-toc-text">Phoenix 项目目录长得完全一样</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#config-%E7%94%A8%E4%BA%8E%E8%AF%BB%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">config
+用于读取程序的配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#build_-%E4%BB%A5%E5%8F%8A-deps-%E5%88%86%E5%88%AB%E5%AD%98%E6%94%BE%E7%BC%96%E8%AF%91%E4%BA%A7%E7%89%A9%E4%BB%A5%E5%8F%8A%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%8E%AF%E5%A2%83%E4%B9%8B%E4%BE%9D%E8%B5%96%E9%A1%B9"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">build_
+以及 deps 分别存放编译产物以及项目的「环境」之依赖项</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#lib-%E5%8C%85%E5%90%AB%E4%BA%86%E5%BA%94%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%BA%94%E7%94%A8%E7%BD%91%E7%BB%9C%E4%B8%A4%E4%B8%AA%E6%A8%A1%E5%9D%97"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">lib
+包含了应用以及应用网络两个模块</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#test-%E4%B8%BA%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">test 为测试代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#assets-%E4%BB%A5%E5%8F%8A-priv-%E7%94%A8%E4%BA%8E%E5%AD%98%E6%94%BE%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">assets 以及
+priv 用于存放项目相关资源</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%8E%E9%85%8D%E7%BD%AE%E5%BC%80%E5%A7%8B%E6%98%AF%E8%A7%A3%E5%89%96%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%A5%BD%E5%8A%9E%E6%B3%95"><span class="post-toc-number">2.</span> <span class="post-toc-text">从配置开始是解剖程序的好办法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%B8%BB%E8%A6%81%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6config.exs"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">主要的配置文件（config.exs）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E7%BD%91%E7%BB%9C%E7%AB%AF%E7%82%B9%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">网络端点的配置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%89%8D%E7%AB%AF%E8%B5%84%E6%BA%90%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">前端资源的配置</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%97%A5%E5%BF%97"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">日志</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%85%B6%E4%BB%96"><span class="post-toc-number">2.1.4.</span> <span class="post-toc-text">其他</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%AF%BC%E5%85%A5%E5%85%B6%E4%BB%96%E6%96%87%E4%BB%B6"><span class="post-toc-number">2.1.5.</span> <span class="post-toc-text">导入其他文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">开发环境</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E8%BF%98%E6%98%AF%E7%AB%AF%E7%82%B9"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">还是端点</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%85%B6%E4%BB%96-1"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">其他</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">测试环境</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">生产环境</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">运行时的配置</span></a></li></ol></li></ol>
+        </nav>
+        <a class="post-toc-toggle" onclick="toggleToc(this, expend, collapse);" href="javascript:;">
+            展开
+        </a>
+    </div>
+   
+
+
+  <div class="article-entry" itemprop="articleBody">
+    <h3 id="phoenix-项目目录长得完全一样">Phoenix 项目目录长得完全一样</h3>
+<h4 id="config-用于读取程序的配置"><code>config</code>
+用于读取程序的配置</h4>
+<h4
+id="build_-以及-deps-分别存放编译产物以及项目的环境之依赖项"><code>build_</code>
+以及 <code>deps</code> 分别存放编译产物以及项目的「环境」之依赖项</h4>
+<h4 id="lib-包含了应用以及应用网络两个模块"><code>lib</code>
+包含了应用以及应用网络两个模块</h4>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~/demo_app$ tree lib</span><br><span class="line">lib</span><br><span class="line">├─demo_app</span><br><span class="line">└─demo_app_web</span><br><span class="line">    ├─components</span><br><span class="line">    │  └─layouts</span><br><span class="line">    └─controllers</span><br><span class="line">        └─page_html</span><br></pre></td></tr></table></figure>
+<h4 id="test-为测试代码"><code>test</code> 为测试代码</h4>
+<h4 id="assets-以及-priv-用于存放项目相关资源"><code>assets</code> 以及
+<code>priv</code> 用于存放项目相关资源</h4>
+<h3 id="从配置开始是解剖程序的好办法">从配置开始是解剖程序的好办法</h3>
+<p>如果玩过游戏都知道，要想修改游戏，相比于解包逆向，最简单直接的方法就是修改设置。同样，配置文件就是程序的「设置」。</p>
+<p>我们就从项目的配置目录入手：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">config</span><br><span class="line">├─config.exs</span><br><span class="line">├─dev.exs</span><br><span class="line">├─pro.exs</span><br><span class="line">├─runtime.exs</span><br><span class="line">└─test.exs</span><br></pre></td></tr></table></figure>
+<p>其中的 <code>dev</code> 、 <code>prod</code> 、 <code>test</code>
+分别是「开发」、「生产」以及「测试」，<code>runtime</code>
+为运行时。</p>
+<p>以下是之前没有提到的 <code>config.exs</code> 的内容：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># config/config.exs</span></span><br><span class="line"><span class="comment"># This file is responsible for configuring your application</span></span><br><span class="line"><span class="comment"># and its dependencies with the aid of the Config module.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># This configuration file is loaded before any dependency and</span></span><br><span class="line"><span class="comment"># is restricted to this project.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># General application configuration</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Config</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Configures the endpoint</span></span><br><span class="line">config <span class="symbol">:demo_app</span>, <span class="title class_">DemoAppWeb</span>.<span class="title class_">Endpoint</span>,</span><br><span class="line">  <span class="symbol">url:</span> [<span class="symbol">host:</span> <span class="string">&quot;localhost&quot;</span>],</span><br><span class="line">  <span class="symbol">render_errors:</span> [</span><br><span class="line">    <span class="symbol">formats:</span> [<span class="symbol">html:</span> <span class="title class_">DemoAppWeb</span>.<span class="title class_">ErrorHTML</span>, <span class="symbol">json:</span> <span class="title class_">DemoAppWeb</span>.<span class="title class_">ErrorJSON</span>],</span><br><span class="line">    <span class="symbol">layout:</span> <span class="literal">false</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="symbol">pubsub_server:</span> <span class="title class_">DemoApp</span>.<span class="title class_">PubSub</span>,</span><br><span class="line">  <span class="symbol">live_view:</span> [<span class="symbol">signing_salt:</span> <span class="string">&quot;1PBBjgPi&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Configure esbuild (the version is required)</span></span><br><span class="line">config <span class="symbol">:esbuild</span>,</span><br><span class="line">  <span class="symbol">version:</span> <span class="string">&quot;0.17.11&quot;</span>,</span><br><span class="line">  <span class="symbol">default:</span> [</span><br><span class="line">    <span class="symbol">args:</span></span><br><span class="line">      <span class="string">~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*)</span>,</span><br><span class="line">    <span class="symbol">cd:</span> <span class="title class_">Path</span>.expand(<span class="string">&quot;../assets&quot;</span>, __DIR__),</span><br><span class="line">    <span class="symbol">env:</span> %&#123;<span class="string">&quot;NODE_PATH&quot;</span> =&gt; <span class="title class_">Path</span>.expand(<span class="string">&quot;../deps&quot;</span>, __DIR__)&#125;</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Configure tailwind (the version is required)</span></span><br><span class="line">config <span class="symbol">:tailwind</span>,</span><br><span class="line">  <span class="symbol">version:</span> <span class="string">&quot;3.2.7&quot;</span>,</span><br><span class="line">  <span class="symbol">default:</span> [</span><br><span class="line">    <span class="symbol">args:</span> <span class="string">~w(</span></span><br><span class="line"><span class="string">      --config=tailwind.config.js</span></span><br><span class="line"><span class="string">      --input=css/app.css</span></span><br><span class="line"><span class="string">      --output=../priv/static/assets/app.css</span></span><br><span class="line"><span class="string">    )</span>,</span><br><span class="line">    <span class="symbol">cd:</span> <span class="title class_">Path</span>.expand(<span class="string">&quot;../assets&quot;</span>, __DIR__)</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Configures Elixir&#x27;s Logger</span></span><br><span class="line">config <span class="symbol">:logger</span>, <span class="symbol">:console</span>,</span><br><span class="line">  <span class="symbol">format:</span> <span class="string">&quot;$time $metadata[$level] $message\n&quot;</span>,</span><br><span class="line">  <span class="symbol">metadata:</span> [<span class="symbol">:request_id</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Use Jason for JSON parsing in Phoenix</span></span><br><span class="line">config <span class="symbol">:phoenix</span>, <span class="symbol">:json_library</span>, <span class="title class_">Jason</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Import environment specific config. This must remain at the bottom</span></span><br><span class="line"><span class="comment"># of this file so it overrides the configuration defined above.</span></span><br><span class="line">import_config <span class="string">&quot;<span class="subst">#&#123;config_env()&#125;</span>.exs&quot;</span></span><br></pre></td></tr></table></figure>
+<p>大家看到这段代码可能觉得有点发怵，但是不要紧张，一是开发的时候并不需要记住这些，而是在接下来的部分，我会慢慢带大家解读。</p>
+<p>另外，以下的所有文件的首行都有 <code>import Config</code>
+，这告诉程序我在这个文件里要用到这个叫做 <code>Config</code>
+的模块。</p>
+<h4
+id="主要的配置文件config.exs">主要的配置文件（<code>config.exs</code>）</h4>
+<p>以下是开头注释的中文翻译：</p>
+<blockquote>
+<p>此文件负责配置你的应用程序，其依赖于 Config 模块的帮助。</p>
+<p>此配置文件在任何依赖项之前加载，并且仅限于此项目。</p>
+</blockquote>
+<p>也就是说「配置」是在程序运行初期，依赖项被加载前的阶段。<code>Config</code>
+是 Elixir 内、基于键值来保存配置的模块。</p>
+<blockquote>
+<p>「键值对」是一种存储及表示数据的方式，其中每个元素都由两部分组成：一个键（key）和一个与之相关联的值（value）。这种表示方式非常类似于字典或映射的结构，其中键用于唯一标识值，而值则用于存储相关联的数据。</p>
+<p>这种术语的起源主要是为了描述在计算机科学和编程中常见的数据结构和数据存储方式。在这些数据结构中，键（key）通常用于查找或检索与之关联的值（value）。例如，在哈希表中，键被用作索引来查找存储在该键下的值。在编程语言中，键值对经常用于创建关联数组、字典、散列表等数据结构。</p>
+<p>总之，「键值对」这个术语的名称是为了强调这种数据表示方式中的两个关键部分：键和与之相关联的值，它们一起构成了数据的基本单元。</p>
+</blockquote>
+<h5 id="网络端点的配置">网络端点的配置</h5>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置端点</span></span><br><span class="line">config <span class="symbol">:demo_app</span>, <span class="title class_">DemoAppWeb</span>.<span class="title class_">Endpoint</span>,</span><br><span class="line">  <span class="symbol">url:</span> [<span class="symbol">host:</span> <span class="string">&quot;localhost&quot;</span>],</span><br><span class="line">  <span class="symbol">render_errors:</span> [</span><br><span class="line">    <span class="symbol">formats:</span> [</span><br><span class="line">      <span class="symbol">html:</span> <span class="title class_">DemoAppWeb</span>.<span class="title class_">ErrorHTML</span>, <span class="symbol">json:</span> <span class="title class_">DemoAppWeb</span>.<span class="title class_">ErrorJSON</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="symbol">layout:</span> <span class="literal">false</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="symbol">pubsub_server:</span> <span class="title class_">DemoApp</span>.<span class="title class_">PubSub</span>,</span><br><span class="line">  <span class="symbol">live_view:</span> [<span class="symbol">signing_salt:</span> <span class="string">&quot;1PBBjgPi&quot;</span>]</span><br></pre></td></tr></table></figure>
+<p>网络端点为是指在一个网络服务或应用程序中，可以通过网络访问的东西，可能是某位置或
+URL（统一资源定位符）。</p>
+<p><code>Config.config/3</code>（注意大小写）是 <code>Config</code>
+模块下用于加载配置的函数。</p>
+<p>在本文件中，其表现为
+<code>config(root_key, key, opts)</code>，也就是配置
+<code>:demo_app</code> 下的 <code>DemoAppWeb.Endpoint</code> 。</p>
+<p>那么对于 <code>DemoAppWeb.Endpoint</code>，我们主要使其：</p>
+<ul>
+<li>URL
+<ul>
+<li>主机（host）地址为（<code>localhost</code>）</li>
+</ul></li>
+<li>错误信息的渲染
+<ul>
+<li>格式
+<ul>
+<li>HTML 信息通过 <code>DemoAppWeb.ErrorHTML</code> 模块</li>
+<li>JSON 信息通过 <code>DemoAppWeb.ErrorJSON</code> 模块</li>
+</ul></li>
+<li>不通过 layout</li>
+</ul></li>
+<li>PubSub 服务器</li>
+<li>LiveView 配置
+<ul>
+<li>用于对需要认证的信息进行签名操作的盐</li>
+</ul></li>
+</ul>
+<p>LiveView 是 Phoenix 框架的一个新功能。</p>
+<h5 id="前端资源的配置">前端资源的配置</h5>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置 esbuild （需要版本）</span></span><br><span class="line">config <span class="symbol">:esbuild</span>,</span><br><span class="line">  <span class="symbol">version:</span> <span class="string">&quot;0.17.11&quot;</span>,</span><br><span class="line">  <span class="symbol">default:</span> [</span><br><span class="line">    <span class="symbol">args:</span></span><br><span class="line">      <span class="string">~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*)</span>,</span><br><span class="line">    <span class="symbol">cd:</span> <span class="title class_">Path</span>.expand(<span class="string">&quot;../assets&quot;</span>, __DIR__),</span><br><span class="line">    <span class="symbol">env:</span> %&#123;<span class="string">&quot;NODE_PATH&quot;</span> =&gt; <span class="title class_">Path</span>.expand(<span class="string">&quot;../deps&quot;</span>, __DIR__)&#125;</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 tailwind （需要特定版本）</span></span><br><span class="line">config <span class="symbol">:tailwind</span>,</span><br><span class="line">  <span class="symbol">version:</span> <span class="string">&quot;3.2.7&quot;</span>,</span><br><span class="line">  <span class="symbol">default:</span> [</span><br><span class="line">    <span class="symbol">args:</span> <span class="string">~w(</span></span><br><span class="line"><span class="string">      --config=tailwind.config.js</span></span><br><span class="line"><span class="string">      --input=css/app.css</span></span><br><span class="line"><span class="string">      --output=../priv/static/assets/app.css</span></span><br><span class="line"><span class="string">    )</span>,</span><br><span class="line">    <span class="symbol">cd:</span> <span class="title class_">Path</span>.expand(<span class="string">&quot;../assets&quot;</span>, __DIR__)</span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
+<p>可以注意到这里的 <code>Config.config/2</code> 只有
+<code>root_key</code> 以及 <code>opts</code>
+两个参数，这当然也是可以的。</p>
+<p>另外，不管是 <code>esbuild</code> 还是 <code>tailwind</code>（指
+Elixir 包），都是对已有的程序进行包装。如果此前没有安装过的话，你可以在
+<code>build_</code> 中就可以看到对应的应用程序。</p>
+<p>因此，在这段配置中，主要是程序所在目录以及调用程序的参数。</p>
+<h5 id="日志">日志</h5>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置 Elixir 日志</span></span><br><span class="line">config <span class="symbol">:logger</span>, <span class="symbol">:console</span>,</span><br><span class="line">  <span class="symbol">format:</span> <span class="string">&quot;$time $metadata[$level] $message\n&quot;</span>,</span><br><span class="line">  <span class="symbol">metadata:</span> [<span class="symbol">:request_id</span>]</span><br></pre></td></tr></table></figure>
+<p>日志通过命令行，格式为
+<code>"$&#123;时间&#125; $metadata[$&#123;等级&#125;] $&#123;信息&#125;\n"</code>，<code>\n</code>意味换行。元数据为请求的
+ID 。（至于为啥这个格式和你最开始看到的不一样，看下文）</p>
+<h5 id="其他">其他</h5>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 Phoenix 中使用 Jason 来实现对 JSON 的解析</span></span><br><span class="line">config <span class="symbol">:phoenix</span>, <span class="symbol">:json_library</span>, <span class="title class_">Jason</span></span><br></pre></td></tr></table></figure>
+<p>除了 JSON
+解析库外，还有数据库、多语言、邮件等等配置，但本系列目前只考虑最简单的情况，因此并未写入。</p>
+<h5 id="导入其他文件">导入其他文件</h5>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入特定环境的配置。该部分一定一直在本文件的最后，</span></span><br><span class="line"><span class="comment"># 这样其他的特定配置才可以覆写以上的内容。</span></span><br><span class="line">import_config <span class="string">&quot;<span class="subst">#&#123;config_env()&#125;</span>.exs&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Elixir 会执行字符串的 <code>#&#123;&#125;</code>
+内的代码，我们不难看出，这是一个用于返回配置环境的函数。<code>import_config/1</code>
+得到字符串就是新环境的文件名（<code>*.exs</code>
+为脚本文件，可以被直接调用）。</p>
+<h4 id="开发环境">开发环境</h4>
+<p>开发环境相比于其他环境，最重要的几点是：</p>
+<ul>
+<li>不需要将程序编译、链接、打包</li>
+<li>不需要启动复杂的鉴权</li>
+<li>最好快点看到修改代码后的成果（启动快，如果能够重载更好）</li>
+<li>能够 Debug</li>
+<li>如果遇到错误可以快速定位到（日志要有 StackTrace）</li>
+</ul>
+<h5 id="还是端点">还是端点</h5>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在开发时，我们禁用了缓存，并且启用了 Debug 及代码重载。</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 监视器（watchers）配置可以用于运行应用外部的 watchers。</span></span><br><span class="line"><span class="comment"># 比方说，我们用它以及 esbuild 来包装 .js 以及</span></span><br><span class="line"><span class="comment"># .css 资源。</span></span><br><span class="line">config <span class="symbol">:demo_app</span>, <span class="title class_">DemoAppWeb</span>.<span class="title class_">Endpoint</span>,</span><br><span class="line">  <span class="comment"># 绑定到环回 ipv4 地址可防止其他机器访问。</span></span><br><span class="line">  <span class="comment"># 如果想要其他设备访问请更改为 `ip: &#123;0, 0, 0, 0&#125;`。</span></span><br><span class="line">  <span class="symbol">http:</span> [<span class="symbol">ip:</span> &#123;<span class="number">127</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>&#125;, <span class="symbol">port:</span> <span class="number">4000</span>],</span><br><span class="line">  <span class="symbol">check_origin:</span> <span class="literal">false</span>,</span><br><span class="line">  <span class="symbol">code_reloader:</span> <span class="literal">true</span>,</span><br><span class="line">  <span class="symbol">debug_errors:</span> <span class="literal">true</span>,</span><br><span class="line">  <span class="symbol">secret_key_base:</span> <span class="string">&quot;yvbvb4brMziS7ubnOdRcXiHI68BWhd5UJSuOTB12FX1evr31pV8TCbWNafVcjiLB&quot;</span>,</span><br><span class="line">  <span class="symbol">watchers:</span> [</span><br><span class="line">    <span class="symbol">esbuild:</span> &#123;<span class="title class_">Esbuild</span>, <span class="symbol">:install_and_run</span>, [<span class="symbol">:default</span>, <span class="string">~w(--sourcemap=inline --watch)</span>]&#125;,</span><br><span class="line">    <span class="symbol">tailwind:</span> &#123;<span class="title class_">Tailwind</span>, <span class="symbol">:install_and_run</span>, [<span class="symbol">:default</span>, <span class="string">~w(--watch)</span>]&#125;</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line"><span class="comment"># ## SSL Support</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># In order to use HTTPS in development, a self-signed</span></span><br><span class="line"><span class="comment"># certificate can be generated by running the following</span></span><br><span class="line"><span class="comment"># Mix task:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#     mix phx.gen.cert</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Run `mix help phx.gen.cert` for more information.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># The `http:` config above can be replaced with:</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#     https: [</span></span><br><span class="line"><span class="comment">#       port: 4001,</span></span><br><span class="line"><span class="comment">#       cipher_suite: :strong,</span></span><br><span class="line"><span class="comment">#       keyfile: &quot;priv/cert/selfsigned_key.pem&quot;,</span></span><br><span class="line"><span class="comment">#       certfile: &quot;priv/cert/selfsigned.pem&quot;</span></span><br><span class="line"><span class="comment">#     ],</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># If desired, both `http:` and `https:` keys can be</span></span><br><span class="line"><span class="comment"># configured to run both http and https servers on</span></span><br><span class="line"><span class="comment"># different ports.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检测用于浏览器刷新重载的静态资源与模板。</span></span><br><span class="line">config <span class="symbol">:demo_app</span>, <span class="title class_">DemoAppWeb</span>.<span class="title class_">Endpoint</span>,</span><br><span class="line">  <span class="symbol">live_reload:</span> [</span><br><span class="line">    <span class="symbol">patterns:</span> [</span><br><span class="line">      <span class="regex">~r&quot;priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$&quot;</span>,</span><br><span class="line">      <span class="regex">~r&quot;lib/demo_app_web/(controllers|live|components)/.*(ex|heex)$&quot;</span></span><br><span class="line">    ]</span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
+<h5 id="其他-1">其他</h5>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启用关于开发用控制台以及邮箱的路由</span></span><br><span class="line"><span class="comment"># 我都没启用，我不知道...</span></span><br><span class="line">config <span class="symbol">:demo_app</span>, <span class="symbol">dev_routes:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 不要再开发环境的日志中导入元数据或是时间戳</span></span><br><span class="line">config <span class="symbol">:logger</span>, <span class="symbol">:console</span>, <span class="symbol">format:</span> <span class="string">&quot;[$level] $message\n&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开发期间的 stacktrace 可以设置的稍微高一点。</span></span><br><span class="line"><span class="comment"># 但是避免在开发环境下这么配置，因为如此多的 stacktraces 占用的资源可能会很昂贵。</span></span><br><span class="line">config <span class="symbol">:phoenix</span>, <span class="symbol">:stacktrace_depth</span>, <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 为加快开发编译速度在运行时初始化插件</span></span><br><span class="line">config <span class="symbol">:phoenix</span>, <span class="symbol">:plug_init_mode</span>, <span class="symbol">:runtime</span></span><br></pre></td></tr></table></figure>
+<h4 id="测试环境">测试环境</h4>
+<p>测试分为两种，一是单元测试，二是整体测试。在软件开发中，单元测试相交整体测试要多得多。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我们不在测试时运行服务器。</span></span><br><span class="line"><span class="comment"># 但你如果需要运行的话，可以在下文中启用。</span></span><br><span class="line">config <span class="symbol">:demo_app</span>, <span class="title class_">DemoAppWeb</span>.<span class="title class_">Endpoint</span>,</span><br><span class="line">  <span class="symbol">http:</span> [<span class="symbol">ip:</span> &#123;<span class="number">127</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>&#125;, <span class="symbol">port:</span> <span class="number">4002</span>],</span><br><span class="line">  <span class="symbol">secret_key_base:</span> <span class="string">&quot;7QEikQWi7B/nnHMsTC4NvKca9nrmZCaU+eLcM7I/qgXFt/DoavbAhU4kNqpkP0Jb&quot;</span>,</span><br><span class="line">  <span class="symbol">server:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试时只返回警告以及错误。</span></span><br><span class="line">config <span class="symbol">:logger</span>, <span class="symbol">level:</span> <span class="symbol">:warning</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 为加速测试时的编译，可选择在运行时初始化插件。</span></span><br><span class="line">config <span class="symbol">:phoenix</span>, <span class="symbol">:plug_init_mode</span>, <span class="symbol">:runtime</span></span><br></pre></td></tr></table></figure>
+<h4 id="生产环境">生产环境</h4>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生产环境下，不要忘了去配置有有效的主机 URL ，因为 Phoenix</span></span><br><span class="line"><span class="comment"># 生成 URLs 时会用到这些信息。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Note we also include the path to a cache manifest</span></span><br><span class="line"><span class="comment"># containing the digested version of static files. This</span></span><br><span class="line"><span class="comment"># manifest is generated by the `mix assets.deploy` task,</span></span><br><span class="line"><span class="comment"># which you should run after static files are built and</span></span><br><span class="line"><span class="comment"># before starting your production server.</span></span><br><span class="line">config <span class="symbol">:demo_app</span>, <span class="title class_">DemoAppWeb</span>.<span class="title class_">Endpoint</span>, <span class="symbol">cache_static_manifest:</span> <span class="string">&quot;priv/static/cache_manifest.json&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 不要再生产环境下打印 debug 信息</span></span><br><span class="line">config <span class="symbol">:logger</span>, <span class="symbol">level:</span> <span class="symbol">:info</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 包括环境变量的生产配置在 config/runtime.exs 里。</span></span><br></pre></td></tr></table></figure>
+<h4 id="运行时的配置">运行时的配置</h4>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在所有的环境中，都会执行 config/runtime.exs ，包括发布。</span></span><br><span class="line"><span class="comment"># 它在编译结束以及系统开启前执行，所以它经常被用到从环境变量中读取诸如生产环境、</span></span><br><span class="line"><span class="comment"># 加密相关信息的配置。不要在这里定义任何编译时配置，因为没用。</span></span><br><span class="line"><span class="comment"># 以下内容包括 prod specific 运行时配置。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ## 使用 releases</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 当你选择了 `mix release` 时，你需要显式地通过 PHX_SERVER=true 环境变量</span></span><br><span class="line"><span class="comment"># 来启动服务器：</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#     PHX_SERVER=true bin/demo_app start</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 作为替代的方式，你可以选择 `mix phx.gen.release` 去生成能够自动配置以上</span></span><br><span class="line"><span class="comment"># 环境变量的 `bin/server` 脚本。</span></span><br><span class="line"><span class="keyword">if</span> <span class="title class_">System</span>.get_env(<span class="string">&quot;PHX_SERVER&quot;</span>) <span class="keyword">do</span></span><br><span class="line">  config <span class="symbol">:demo_app</span>, <span class="title class_">DemoAppWeb</span>.<span class="title class_">Endpoint</span>, <span class="symbol">server:</span> <span class="literal">true</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> config_env() == <span class="symbol">:prod</span> <span class="keyword">do</span></span><br><span class="line">  <span class="comment"># The secret key base is used to sign/encrypt cookies and other secrets.</span></span><br><span class="line">  <span class="comment"># A default value is used in config/dev.exs and config/test.exs but you</span></span><br><span class="line">  <span class="comment"># want to use a different value for prod and you most likely don&#x27;t want</span></span><br><span class="line">  <span class="comment"># to check this value into version control, so we use an environment</span></span><br><span class="line">  <span class="comment"># variable instead.</span></span><br><span class="line">  secret_key_base =</span><br><span class="line">    <span class="title class_">System</span>.get_env(<span class="string">&quot;SECRET_KEY_BASE&quot;</span>) ||</span><br><span class="line">      <span class="keyword">raise</span> <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">      environment variable SECRET_KEY_BASE is missing.</span></span><br><span class="line"><span class="string">      You can generate one by calling: mix phx.gen.secret</span></span><br><span class="line"><span class="string">      &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">  host = <span class="title class_">System</span>.get_env(<span class="string">&quot;PHX_HOST&quot;</span>) || <span class="string">&quot;example.com&quot;</span></span><br><span class="line">  port = <span class="title class_">String</span>.to_integer(<span class="title class_">System</span>.get_env(<span class="string">&quot;PORT&quot;</span>) || <span class="string">&quot;4000&quot;</span>)</span><br><span class="line"></span><br><span class="line">  config <span class="symbol">:demo_app</span>, <span class="title class_">DemoAppWeb</span>.<span class="title class_">Endpoint</span>,</span><br><span class="line">    <span class="symbol">url:</span> [<span class="symbol">host:</span> host, <span class="symbol">port:</span> <span class="number">443</span>, <span class="symbol">scheme:</span> <span class="string">&quot;https&quot;</span>],</span><br><span class="line">    <span class="symbol">http:</span> [</span><br><span class="line">      <span class="comment"># 开启 IPv6 以及绑定所有接口。</span></span><br><span class="line">      <span class="comment"># 如果想仅仅在本地网络中访问，将其设置为 &#123;0, 0, 0, 0, 0, 0, 0, 1&#125; 。</span></span><br><span class="line">      <span class="comment"># 如果想要知悉关于使用 IPv6 或 IPv4 以及公共地址/回环地址的详细信息，</span></span><br><span class="line">      <span class="comment"># 请查看 https://hexdocs.pm/plug_cowboy/Plug.Cowboy.html 。</span></span><br><span class="line">      <span class="symbol">ip:</span> &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>&#125;,</span><br><span class="line">      <span class="symbol">port:</span> port</span><br><span class="line">    ],</span><br><span class="line">    <span class="symbol">secret_key_base:</span> secret_key_base</span><br><span class="line"></span><br><span class="line">  <span class="comment"># ## SSL 支持</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># 你需要在你的 endpoint 配置中添加 `https` 键来使 SSL 正常工作：</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment">#     config :demo_app, DemoApp.Endpoint,</span></span><br><span class="line">  <span class="comment">#       https: [</span></span><br><span class="line">  <span class="comment">#         ...,</span></span><br><span class="line">  <span class="comment">#         port: 443,</span></span><br><span class="line">  <span class="comment">#         cipher_suite: :strong,</span></span><br><span class="line">  <span class="comment">#         keyfile: System.get_env(&quot;SOME_APP_SSL_KEY_PATH&quot;),</span></span><br><span class="line">  <span class="comment">#         certfile: System.get_env(&quot;SOME_APP_SSL_CERT_PATH&quot;)</span></span><br><span class="line">  <span class="comment">#       ]</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># `cipher_suite`（密码套件）被设置为 `:strong` 以支持最新和更安全的</span></span><br><span class="line">  <span class="comment"># SSL 密码。这意味着可能不支持旧版浏览器和客户端。为获得更广泛的兼容性</span></span><br><span class="line">  <span class="comment"># 你可以将其设置为 `:compatible`。</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># `:keyfile` 以及 `:certfile` 最好是密钥以及认证文件在磁盘上的绝对路径</span></span><br><span class="line">  <span class="comment"># 或是在 priv 内的相对路径，比方说 &quot;/priv/ssl/server.key&quot;。</span></span><br><span class="line">  <span class="comment"># 对于关于 SLL 所支持的所有选项，参见：</span></span><br><span class="line">  <span class="comment"># https://hexdocs.pm/plug/Plug.SSL.html#configure/1</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># 我们也建议在你的端点内设置 `force_ssl`，以确保所有的 http 请求都被</span></span><br><span class="line">  <span class="comment"># 重定向至 https：</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment">#     config :chestnut, ChestnutWeb.Endpoint,</span></span><br><span class="line">  <span class="comment">#       force_ssl: [hsts: true]</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># 如果想要查看关于 `force_ssl` 的所有配置，请查看 `Plug.SSL`。</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+    </div>
+    <footer class="footer-nav">
+      <div class="footer">
+        <div class="back-top" id="back-top" title="Back to top">
+          <i class="icon icon-chevron-bar-up"></i>
+        </div>
+        <span class="footer-msg">
+  
+
+  
+
+  
+
+
+  Copyright &copy;
+  2023
+  
+  
+  GES233.
+  Power by
+  <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>
+  and
+  <a href="https://github.com/Cerallin/hexo-theme-yuzu"
+      target="_blank" rel="external nofollow" title="v2.4">
+    Theme Yuzu</a>.
+</span>
+
+      </div>
+    </footer>
+    
+
+
+<script src="/js/clipboard/clipboard.min.js"></script>
+
+
+<script src="/js/theme.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+
+  
+  <script>
+      expend = "展开";
+      collapse = "收起";
+  </script>
+  
+  
+<script src="/js/toc.js"></script>
+
+
+
+
+
+  </div>
+</body>
