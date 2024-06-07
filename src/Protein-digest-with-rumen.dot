@@ -1,0 +1,57 @@
+digraph ProteinDigest {
+    label = <含氮物质在瘤胃内的消化>;
+    node[fontname = "Consolas"];
+    edge[fontname = "Consolas", fontsize = 8];
+
+    // 食管
+    subgraph cluster_0 {
+        node[shape = box];
+
+        饲料蛋白质;
+        铵盐;
+        游离氨基酸;
+        尿素;
+
+        label = "食管";
+    };
+
+    // 瘤胃
+    subgraph cluster_1 {
+        node[shape = box];
+
+        未被微生物消化;
+        瘤胃中的游离氨基酸 -> 微生物蛋白质;
+        瘤胃中的游离氨基酸 -> NH3[dir = both];
+
+        label = "瘤胃";
+    };
+
+    subgraph cluster_2 {
+        node[shape = box];
+
+        氨;
+
+        label = "血液";
+    };
+
+    // 胃、肠道
+    subgraph cluster_3 {
+        node[shape = box];
+
+        过瘤胃蛋白;
+        微生物蛋白;
+        NPN;
+
+        label = "离开瘤胃";
+    };
+
+    饲料蛋白质 -> 未被微生物消化 -> 过瘤胃蛋白;
+    饲料蛋白质 -> 瘤胃中的游离氨基酸;
+    NH3 -> NPN;
+    微生物蛋白质 -> 微生物蛋白;
+    铵盐 -> NH3;
+    尿素 -> NH3;
+    游离氨基酸 -> 瘤胃中的游离氨基酸;
+    氨 -> 尿素;
+    NH3 -> 氨[dir = both];
+}
