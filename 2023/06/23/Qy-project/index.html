@@ -16,153 +16,109 @@
 <meta name="generator" content="Hexo 7.2.0"></head><body><div class="loading-wrapper" data-loading="data-loading"><div class="loading"><span></span><span></span><span></span></div></div><div class="page" data-filter="data-filter"><div class="head" data-show="data-show"><header class="head-header"><div class="head-author"><a class="head-author-link" href="/">自留地</a></div><div class="head-right"><button class="bar-wrap" id="bar-wrap-toggle"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button><div class="head-item"><a class="search-button head-item-link"><span>搜索</span>
 <i class="icon icon-search"></i></a></div><div class="head-item"><a class="head-item-link" href="/about">是什么？</a><a class="head-item-link" href="/">　</a><a class="head-item-link" href="/2023/07/04/Husbandry-essay-intro/">为什么？</a></div></div></header>
 <div class="menubar-head" id="menubar"><ul class="menubar-ul"><li class="menubar-item"><i class="icon icon-chevron-right"></i>
-<a class="menubar-link" href="/categories/after%20story/">旧事重提</a></li><li class="menubar-item"><i class="icon icon-chevron-right"></i>
+<a class="menubar-link" href="/categories/%E4%BB%A5%E5%89%8D/">旧事重提</a></li><li class="menubar-item"><i class="icon icon-chevron-right"></i>
 <a class="menubar-link" href="/categories/%E7%95%9C%E7%89%A7/">关于养猪羊牛马只因</a></li><li class="menubar-item"><i class="icon icon-chevron-right"></i>
 <a class="menubar-link" href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%BE/">啊，他妈的</a></li><li class="menubar-item" data-border="data-border"></li><li class="menubar-item"><i class="icon icon-archive"></i>
 <a class="menubar-link" href="/archives">归档</a></li><li class="menubar-item"><i class="icon icon-tags"></i>
 <a class="menubar-link" href="/tags">标签</a></li><li class="menubar-item" data-border="data-border"></li><li class="menubar-item"><a class="menubar-link" href="/about"><span>是什么？</span></a></li><li class="menubar-item"><a class="menubar-link" href="/"><span>　</span></a></li><li class="menubar-item"><a class="menubar-link" href="/2023/07/04/Husbandry-essay-intro/"><span>为什么？</span></a></li></ul><div class="menu-search-box search-button"><div>搜索</div>
 <i class="icon icon-search"></i></div></div></div><div class="main" data-page="post"><article class="post" id="post"><header class="post-head"><h1 class="post-title"><a class="title" href="/2023/06/23/Qy-project/">Qy 计划的介绍</a></h1></header><div class="post-meta"><div class="post-date"><time class="post-time" itemprop="datePublished" title="2023-06-23 20:00:27" datetime="2023-06-23T12:00:27.000Z">2023-06-23</time></div>|
 <div class="post-tag"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%8B%E7%BB%8D/" rel="tag">介绍</a></li></ul></div>
-</div><div class="post-info"><div class="post-word-count">本文共1,599字。阅读完需要约5分钟。</div>
+</div><div class="post-info"><div class="post-word-count">本文共1,581字。阅读完需要约5分钟。</div>
 <div class="post-cc">版权声明：署名-非商业性使用-相同方式共享
 
 |
-<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/">CC BY-NC-SA 3.0 CN</a></div></div><div class="article-entry" itemprop="articleBody"><p>Qy 是从 18 至 19
-年某几次头脑风暴催生出的的计划，即通过某种仿生的方式来使角色生成活灵活现的动作（包括但不限于声音、面部表情或身体上的动作）。</p>
+<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/">CC BY-NC-SA 3.0 CN</a></div></div><div class="article-entry" itemprop="articleBody"><p>Qy 是从 18 至 19 年某几次头脑风暴催生出的的计划，即通过某种仿生的方式来使角色生成活灵活现的动作（包括但不限于声音、面部表情或身体上的动作）。</p>
 <p>最原始的想法是想通过某种方法来尽可能的实现一个能够覆盖人类发声器官所能出现的绝大多数的声音的模型。</p>
 <span id="more"></span>
+
 <p><del>人话：做个会动会唱歌有表情的小姐姐。</del></p>
-<h3 id="早期想法">早期想法</h3>
-<blockquote><p>之前在看语音合成的相关资料的时候，想出了一个通过重现发声而不是对音频进行处理来生成音频的思路，并且试图再深入想了一下，但是因为对发声同时其他数据的采集的难度而暂时放弃。然后，今天刷知乎的时候，发现有人已经按照这个思路搞出来并且把论文发到
-Nature
-了，而且比我的想法更进一步：通过对发声相关的运动皮质的信号的采集，通过两个
-RNN
-模型（声道参数为其中间参量，其生成使用了其他大量的数据库）生成语音。生成的音质及准确率较以往的其他模型要好。</p>
+<h3 id="早期想法"><a href="#早期想法" class="headerlink" title="早期想法"></a>早期想法</h3><blockquote><p>之前在看语音合成的相关资料的时候，想出了一个通过重现发声而不是对音频进行处理来生成音频的思路，并且试图再深入想了一下，但是因为对发声同时其他数据的采集的难度而暂时放弃。然后，今天刷知乎的时候，发现有人已经按照这个思路搞出来并且把论文发到 Nature 了，而且比我的想法更进一步：通过对发声相关的运动皮质的信号的采集，通过两个 RNN 模型（声道参数为其中间参量，其生成使用了其他大量的数据库）生成语音。生成的音质及准确率较以往的其他模型要好。</p>
 <footer><strong>来自笔者的某条说说 2019年4月27日 22:29</strong></footer></blockquote>
+
 <p>最早的版本，仅仅局限于提出一种新的语音合成的思路罢了。按照原理来讲，它具有跨语言以及表达丰富且细腻的感情的潜能。</p>
 <p>在高中某天参加社团百无聊赖的时候，我忽然意识到这种中间状态的思路可以有很丰富的表现力。就比方说：你完全可以从话语变成语音以及此刻发声器官的样貌、舌头的位置、胸廓的张开程度等等方面的内容。换言之，其会拥有更加细腻的表达能力。因此这个想法就一直没有丢掉。</p>
-<h4 id="关于名字">关于名字</h4>
-<p>分成两部分说吧。Startwith <code>Q</code> and endaith
-<code>y</code>.</p>
-<p>前者主要是受别的老哥的影响。刷油管看到个 Logisim
-CPU（用数字电路模拟软件整的），有个老哥用这玩意儿做演示创建文件的时候就说：
-<code>This is a text file called "Q".</code></p>
-<p>后者是不想要太过张扬的名字像整个闭口呼<a href="#fn1"
-class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a>的发音。就敲定了 <code>i</code> 或
-<code>y</code> 。</p>
+<h4 id="关于名字"><a href="#关于名字" class="headerlink" title="关于名字"></a>关于名字</h4><p>分成两部分说吧。Startwith <code>Q</code> and endaith <code>y</code>.</p>
+<p>前者主要是受别的老哥的影响。刷油管看到个 Logisim CPU（用数字电路模拟软件整的），有个老哥用这玩意儿做演示创建文件的时候就说：<br><code>This is a text file called &quot;Q&quot;.</code></p>
+<p>后者是不想要太过张扬的名字像整个闭口呼<a href="%E6%B1%89%E8%AF%AD%E9%9F%B3%E9%9F%B5%E5%AD%A6%E4%B8%AD%EF%BC%8C%E6%9C%89%E5%9B%9B%E5%91%BC%EF%BC%8C%E5%88%86%E5%88%AB%E6%8C%87%E5%BC%80%E5%8F%A3%E5%91%BC%E3%80%81%E9%BD%90%E9%BD%BF%E5%91%BC%E3%80%81%E5%90%88%E5%8F%A3%E5%91%BC%E5%92%8C%E6%92%AE%E5%8F%A3%E5%91%BC%E3%80%82">^1</a>的发音。就敲定了 <code>i</code> 或 <code>y</code> 。</p>
 <p><code>Qi</code> 已经有了，大概是「气」的意思。那就另一个了。</p>
 <p>怎么念呢？</p>
-<p>别人怎么念我不会管太多，没什么是必须的。可以拼出来读，也可以按照qui-/ki-（音标[kʰwɪ]/[kʷɪ]/[kɪ]）读，或者可以按照汉语拼音的
-qí（注音［ㄑㄧˊ］）来念。</p>
-<h3 id="核心思路">核心思路</h3>
-<p><em>用自然的原理来重现某些生理特征的思路在结果上是自然的，方法本身也具有可实现性。</em></p>
+<p>别人怎么念我不会管太多，没什么是必须的。可以拼出来读，也可以按照qui-&#x2F;ki-（音标[kʰwɪ]&#x2F;[kʷɪ]&#x2F;[kɪ]）读，或者可以按照汉语拼音的 qí（注音［ㄑㄧˊ］）来念。</p>
+<h3 id="核心思路"><a href="#核心思路" class="headerlink" title="核心思路"></a>核心思路</h3><p><em>用自然的原理来重现某些生理特征的思路在结果上是自然的，方法本身也具有可实现性。</em></p>
 <p>说白了就是尽量细腻尽量精确的仿生能够产生非常自然细腻精细的动作。</p>
-<h4 id="四大支柱">四大支柱</h4>
-<ul>
-<li>就旁观者而言，动作的产生是由<strong>施加动作的主体与环境的互动</strong>所产生的结果
-<ul>
+<h4 id="四大支柱"><a href="#四大支柱" class="headerlink" title="四大支柱"></a>四大支柱</h4><ul>
+<li>就旁观者而言，动作的产生是由<strong>施加动作的主体与环境的互动</strong>所产生的结果<ul>
 <li>主体给予的是要执行动作时的「指令」，例如一系列相关运动神经元的放电</li>
 <li>以「文本转语音」（TTS）为例，主体与环境的互动指的是声带与气流的作用</li>
-</ul></li>
-<li>其中主体与环境的互动的部分机制<strong>难以<em>完全</em>复现</strong>
-<ul>
-<li>相关算法的研究进展以及数据采集的难度，限制了在计算机上完全地仿真主体与环境交互的能力</li>
-</ul></li>
-<li>动作的被施加存在<strong>意识可控</strong>和<strong>不可控</strong>的成分
-<ul>
-<li>意识无法极其精确地控制运动，意识也难以使主体完成其能力之外的动作，有道是「人力有穷尽，力所不能及」</li>
-</ul></li>
-<li>需要施加动作主体的<strong>当前状态</strong>作为感觉
-<ul>
-<li>对应着上文的「互动」</li>
-</ul></li>
 </ul>
-<h4 id="人话版本">人话版本</h4>
-<p>当时整出来这么一堆很奇怪的内容，已经让 ChatGPT
-翻译过的还是很难懂的。</p>
+</li>
+<li>其中主体与环境的互动的部分机制<strong>难以<em>完全</em>复现</strong><ul>
+<li>相关算法的研究进展以及数据采集的难度，限制了在计算机上完全地仿真主体与环境交互的能力</li>
+</ul>
+</li>
+<li>动作的被施加存在<strong>意识可控</strong>和<strong>不可控</strong>的成分<ul>
+<li>意识无法极其精确地控制运动，意识也难以使主体完成其能力之外的动作，有道是「人力有穷尽，力所不能及」</li>
+</ul>
+</li>
+<li>需要施加动作主体的<strong>当前状态</strong>作为感觉<ul>
+<li>对应着上文的「互动」</li>
+</ul>
+</li>
+</ul>
+<h4 id="人话版本"><a href="#人话版本" class="headerlink" title="人话版本"></a>人话版本</h4><p>当时整出来这么一堆很奇怪的内容，已经让 ChatGPT 翻译过的还是很难懂的。</p>
 <blockquote><p>动作的产生是由施加动作的主体与环境的互动所产生的结果，</p>
 <p>其中部分机制难以完全复现，而动作的施加则有可控和不可控的成分，</p>
 <p>需要施加动作主体的当前状态作为感觉。</p>
 <footer><strong>from ChatGPT</strong></footer></blockquote>
+
 <p>所以再在后面尝试用大白话逼叨逼叨。</p>
 <p>举个例子，比方说一个正在打篮球的鸡，啊呸，美男子（以下简称鸡哥）。</p>
 <p>我们希望鸡哥能够完成高难度的唱、跳、rap、篮球。</p>
-<p>那么我们看到的<del>铁山靠</del> <del>捂裆派</del>
-美妙的舞蹈就是来源于鸡哥在主观意识下对身体的控制与环境互动（包括但不限于重力、空气阻力、作为生物而被限制着的身体机能等等方面）的产物。</p>
+<p>那么我们看到的<del>铁山靠</del> <del>捂裆派</del> 美妙的舞蹈就是来源于鸡哥在主观意识下对身体的控制与环境互动（包括但不限于重力、空气阻力、作为生物而被限制着的身体机能等等方面）的产物。</p>
 <p>【TODO: 这块儿需要好好说道说道。</p>
-<h3 id="synapticstrings-是啥">SynapticStrings 是啥？</h3>
-<p>原来叫 <code>Generic-Qy</code> ，换了这个更酷的名字。</p>
-<p>整这出是因为笔者在这个夏天吃了不少虚拟歌姬圈子的瓜（<del>说句难听点的，小圈子逼事儿真多</del>）。所以选择将原来的
-Qy 拆分成两个内容，Qy 继续面向 ACGN
-偏应用；另一个是纯粹的技术（针对人类动物的那种），与 Qy
-受众不同，可能比较「枯燥」（说实话，两拨人本来就尿不到一壶去，能和睦相处的真不多，与其聚一块儿养蛊还不如分开）。</p>
+<h3 id="SynapticStrings-是啥？"><a href="#SynapticStrings-是啥？" class="headerlink" title="SynapticStrings 是啥？"></a>SynapticStrings 是啥？</h3><p>原来叫 <code>Generic-Qy</code> ，换了这个更酷的名字。</p>
+<p>整这出是因为笔者在这个夏天吃了不少虚拟歌姬圈子的瓜（<del>说句难听点的，小圈子逼事儿真多</del>）。所以选择将原来的 Qy 拆分成两个内容，Qy 继续面向 ACGN 偏应用；另一个是纯粹的技术（针对人类动物的那种），与 Qy 受众不同，可能比较「枯燥」（说实话，两拨人本来就尿不到一壶去，能和睦相处的真不多，与其聚一块儿养蛊还不如分开）。</p>
 <p>计划通过动物模型来构建原型以测试整个思路的可行性。</p>
-<h3 id="子计划">子计划</h3>
-<p>注：部分计划可能迁移到 <code>SynapticStrings</code> 中，
-<code>Qy</code> 更加专注 ACGN 领域。</p>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 22%" />
-<col style="width: 22%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-</colgroup>
+<h3 id="子计划"><a href="#子计划" class="headerlink" title="子计划"></a>子计划</h3><p>注：部分计划可能迁移到 <code>SynapticStrings</code> 中， <code>Qy</code> 更加专注 ACGN 领域。</p>
+<table>
 <thead>
-<tr class="header">
-<th style="text-align: center;">名字</th>
-<th style="text-align: center;">仓库名/包名</th>
-<th style="text-align: center;">语言</th>
-<th style="text-align: left;">描述</th>
-<th style="text-align: left;">进度</th>
+<tr>
+<th align="center">名字</th>
+<th align="center">仓库名&#x2F;包名</th>
+<th align="center">语言</th>
+<th align="left">描述</th>
+<th align="left">进度</th>
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">Vivid Puppet</td>
-<td style="text-align: center;"><code>vivid-puppet</code></td>
-<td style="text-align: center;">Elixir</td>
-<td style="text-align: left;">框架本身</td>
-<td style="text-align: left;">设计 &amp; slide</td>
+<tbody><tr>
+<td align="center">Vivid Puppet</td>
+<td align="center"><code>vivid-puppet</code></td>
+<td align="center">Elixir</td>
+<td align="left">框架本身</td>
+<td align="left">设计 &amp; slide</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">NSP (Neural Simulate Platform)</td>
-<td style="text-align: center;"><code>TaroPaste</code></td>
-<td style="text-align: center;">Elixir &amp; Rust</td>
-<td
-style="text-align: left;">提供可扩展的事件驱动平台，模拟神经活动使其实现仿生的动作</td>
-<td style="text-align: left;">原型(<a
-target="_blank" rel="noopener" href="https://github.com/GES233/Glowworm">Glowworm</a>)</td>
+<tr>
+<td align="center">NSP (Neural Simulate Platform)</td>
+<td align="center"><code>TaroPaste</code></td>
+<td align="center">Elixir &amp; Rust</td>
+<td align="left">提供可扩展的事件驱动平台，模拟神经活动使其实现仿生的动作</td>
+<td align="left">原型(<a target="_blank" rel="noopener" href="https://github.com/GES233/Glowworm">Glowworm</a>)</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">Visual Throat</td>
-<td style="text-align: center;">/</td>
-<td style="text-align: center;">Python</td>
-<td style="text-align: left;">基于 WaveNet
-的体外咽喉研究平台构建出的实时语音生成模型</td>
-<td style="text-align: left;">计划</td>
+<tr>
+<td align="center">Visual Throat</td>
+<td align="center">&#x2F;</td>
+<td align="center">Python</td>
+<td align="left">基于 WaveNet 的体外咽喉研究平台构建出的实时语音生成模型</td>
+<td align="left">计划</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">TTV</td>
-<td style="text-align: center;"><code>text2voice</code></td>
-<td style="text-align: center;">Python, Julia</td>
-<td style="text-align: left;">文本转声音（text-to-voice），依赖于 NSP
-以及 VisualThroat</td>
-<td style="text-align: left;">计划</td>
+<tr>
+<td align="center">TTV</td>
+<td align="center"><code>text2voice</code></td>
+<td align="center">Python, Julia</td>
+<td align="left">文本转声音（text-to-voice），依赖于 NSP 以及 VisualThroat</td>
+<td align="left">计划</td>
 </tr>
-</tbody>
-</table>
-<section id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
-<ol>
-<li
-id="fn1"><p>汉语音韵学中，有四呼，分别指开口呼、齐齿呼、合口呼和撮口呼。<a
-href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-</div></article><aside class="post-widget"><h4>目录</h4><nav class="post-toc-wrap" id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%97%A9%E6%9C%9F%E6%83%B3%E6%B3%95"><span class="post-toc-number">1.</span> <span class="post-toc-text">早期想法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%85%B3%E4%BA%8E%E5%90%8D%E5%AD%97"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">关于名字</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF"><span class="post-toc-number">2.</span> <span class="post-toc-text">核心思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%9B%9B%E5%A4%A7%E6%94%AF%E6%9F%B1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">四大支柱</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BA%BA%E8%AF%9D%E7%89%88%E6%9C%AC"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">人话版本</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#synapticstrings-%E6%98%AF%E5%95%A5"><span class="post-toc-number">3.</span> <span class="post-toc-text">SynapticStrings 是啥？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AD%90%E8%AE%A1%E5%88%92"><span class="post-toc-number">4.</span> <span class="post-toc-text">子计划</span></a></li></ol></nav></aside></div><footer class="footer-nav"><div class="footer"><div class="back-top" id="back-top" title="Back to top"><i class="icon icon-chevron-bar-up"></i></div><div class="footer-content">
+</tbody></table>
+</div></article><aside class="post-widget"><h4>目录</h4><nav class="post-toc-wrap" id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%97%A9%E6%9C%9F%E6%83%B3%E6%B3%95"><span class="post-toc-number">1.</span> <span class="post-toc-text">早期想法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%85%B3%E4%BA%8E%E5%90%8D%E5%AD%97"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">关于名字</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF"><span class="post-toc-number">2.</span> <span class="post-toc-text">核心思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%9B%9B%E5%A4%A7%E6%94%AF%E6%9F%B1"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">四大支柱</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BA%BA%E8%AF%9D%E7%89%88%E6%9C%AC"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">人话版本</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#SynapticStrings-%E6%98%AF%E5%95%A5%EF%BC%9F"><span class="post-toc-number">3.</span> <span class="post-toc-text">SynapticStrings 是啥？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AD%90%E8%AE%A1%E5%88%92"><span class="post-toc-number">4.</span> <span class="post-toc-text">子计划</span></a></li></ol></nav></aside></div><footer class="footer-nav"><div class="footer"><div class="back-top" id="back-top" title="Back to top"><i class="icon icon-chevron-bar-up"></i></div><div class="footer-content">
 
 Copyright &copy;
 2023<span class="time-divide">-</span>2024
