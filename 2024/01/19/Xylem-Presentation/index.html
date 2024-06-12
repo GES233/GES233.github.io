@@ -23,70 +23,46 @@
 <a class="menubar-link" href="/tags">标签</a></li><li class="menubar-item" data-border="data-border"></li><li class="menubar-item"><a class="menubar-link" href="/about"><span>是什么？</span></a></li><li class="menubar-item"><a class="menubar-link" href="/"><span>　</span></a></li><li class="menubar-item"><a class="menubar-link" href="/2023/07/04/Husbandry-essay-intro/"><span>为什么？</span></a></li></ul><div class="menu-search-box search-button"><div>搜索</div>
 <i class="icon icon-search"></i></div></div></div><div class="main" data-page="post"><article class="post" id="post"><header class="post-head"><h1 class="post-title"><a class="title" href="/2024/01/19/Xylem-Presentation/">管信课上的汇报</a></h1></header><div class="post-meta"><div class="post-date"><time class="post-time" itemprop="datePublished" title="2024-01-19 16:30:47" datetime="2024-01-19T08:30:47.000Z">2024-01-19</time></div>|
 <div class="post-tag"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" rel="tag">碎碎念</a></li></ul></div>
-<div class="post-visit"><span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span>访问</span></div></div><div class="post-info"><div class="post-word-count">本文共1,947字。阅读完需要约6分钟。</div>
+<div class="post-visit"><span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span>访问</span></div></div><div class="post-info"><div class="post-word-count">本文共1,940字。阅读完需要约6分钟。</div>
 <div class="post-cc">版权声明：署名-非商业性使用-相同方式共享
 
 |
-<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/">CC BY-NC-SA 3.0 CN</a></div></div><div class="article-entry" itemprop="articleBody"><h3 id="dddlibrary">DDDLibrary</h3>
-<p>这个得从第一次上课开始说。当时老师说想看有人开发系统来展示，因为之前没人这么干过。</p>
-<p>我最开始是想用 DDD
-（领域驱动设计）大法。因为比较摩登，再加上可以适用于更加复杂的情况。</p>
+<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/">CC BY-NC-SA 3.0 CN</a></div></div><div class="article-entry" itemprop="articleBody"><h3 id="DDDLibrary"><a href="#DDDLibrary" class="headerlink" title="DDDLibrary"></a>DDDLibrary</h3><p>这个得从第一次上课开始说。当时老师说想看有人开发系统来展示，因为之前没人这么干过。</p>
+<p>我最开始是想用 DDD （领域驱动设计）大法。因为比较摩登，再加上可以适用于更加复杂的情况。</p>
 <p>而且我对于经常用于实现这个设计范式的整洁架构也充满着好感（来源于未知的那种）。所以在我搞明白之前，我一直都保持着兴趣。</p>
 <p>从各种网站上整点实战项目，再买了本书，就叫做《领域驱动设计》。</p>
 <p>就准备开干。</p>
-<p>从 22 年开始，我在很多框架下，尝试了很多语言来写网络项目。原因是 22
-年的年初被一个小圈子驱逐出来了。所以想要建一个自己的网站，不搞独裁的那种。</p>
+<p>从 22 年开始，我在很多框架下，尝试了很多语言来写网络项目。原因是 22 年的年初被一个小圈子驱逐出来了。所以想要建一个自己的网站，不搞独裁的那种。</p>
 <p>从设计到实现都是自己完成，加上很多为小圈子考虑的细节巴拉巴拉。</p>
 <p>就像〇〇圈之前的那个<del>〇〇〇〇</del>（现在已经寄了）一样。</p>
 <p>其实这件事儿说远了也可以写篇博文出来，但是这篇就是从前两天写的第一学期的经历出来的。再开坑挺累的。</p>
 <p>扯远了。</p>
-<p>最开始，我准备用 <a
-target="_blank" rel="noopener" href="https://www.phoenixframework.org/">Phoenix</a>
-写个图书馆管理系统，叫做 <code>DDDLibrary</code>
-。有管理，也可以学新语言新技术，等展示的时候美美装一波波一。</p>
-<p>之后，打开电脑，在前两天新建的一个叫做 <code>elixir_playgournd</code>
-文件夹里，打开传说黑框框（终端）：</p>
+<p>最开始，我准备用 <a target="_blank" rel="noopener" href="https://www.phoenixframework.org/">Phoenix</a> 写个图书馆管理系统，叫做 <code>DDDLibrary</code> 。有管理，也可以学新语言新技术，等展示的时候美美装一波波一。</p>
+<p>之后，打开电脑，在前两天新建的一个叫做 <code>elixir_playgournd</code> 文件夹里，打开传说黑框框（终端）：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mix phx.new --module DDDLibrary</span><br></pre></td></tr></table></figure>
+
 <p>用 phoenix 的命令一把梭整出来，搭个脚手架。</p>
 <p>对了，还有数据库。</p>
-<p>又打开 PostgreSQL ，新建了个叫做 <code>ddd_library</code>
-数据库。</p>
+<p>又打开 PostgreSQL ，新建了个叫做 <code>ddd_library</code> 数据库。</p>
 <p>接下来就是安装编译依赖，下载需要运行的内容巴拉巴拉。</p>
 <p>欸？ TailwindCSS 下不了吗？算了，直接从别的地儿丢过来。</p>
-<p>最后随着输入 <code>mix phx.server</code>
-命令后打开浏览器终于看到的那句 <em>Peace of mind from prototype to
-production</em>
-的欢迎页面，对于不到五分钟攒出来的这个原型，我真的安心了。</p>
-<figure>
-<img
-src="https://hexdocs.pm/phoenix/assets/images/welcome-to-phoenix.png"
-alt="Phoenix 框架的欢迎页面" />
-<figcaption aria-hidden="true">Phoenix 框架的欢迎页面</figcaption>
-</figure>
-<h4
-id="领域驱动设计在函数式编程语言的实作">领域驱动设计在函数式编程语言的实作</h4>
-<p>按照之前不知道在那里看到的关于领域驱动设计的文章，好像是关于战略设计（Strategic
-Design）的部分。</p>
-<p>但这个好像用在 Java 、 Python 之类的传统 OOP
-（面对对象编程语言）更多一些。</p>
+<p>最后随着输入 <code>mix phx.server</code> 命令后打开浏览器终于看到的那句 <em>Peace of mind from prototype to production</em> 的欢迎页面，对于不到五分钟攒出来的这个原型，我真的安心了。</p>
+<p><img src="https://hexdocs.pm/phoenix/assets/images/welcome-to-phoenix.png" alt="Phoenix 框架的欢迎页面"></p>
+<h4 id="领域驱动设计在函数式编程语言的实作"><a href="#领域驱动设计在函数式编程语言的实作" class="headerlink" title="领域驱动设计在函数式编程语言的实作"></a>领域驱动设计在函数式编程语言的实作</h4><p>按照之前不知道在那里看到的关于领域驱动设计的文章，好像是关于战略设计（Strategic Design）的部分。</p>
+<p>但这个好像用在 Java 、 Python 之类的传统 OOP （面对对象编程语言）更多一些。</p>
 <p>对于 Elixir 这个函数式编程语言，并没有什么深入研究的专项资料。</p>
 <p>遇事不决问 GPT 。</p>
 <p>【TODO: 问问 GPT</p>
 <p>【TODO: 需要用到 OTP 的分层监控吗？</p>
-<h4 id="defmodule-status-do">defmodule Status do</h4>
-<p>【TODO: 好耶我竟然用上 Meta-programming 写模块了！</p>
+<h4 id="defmodule-Status-do"><a href="#defmodule-Status-do" class="headerlink" title="defmodule Status do"></a>defmodule Status do</h4><p>【TODO: 好耶我竟然用上 Meta-programming 写模块了！</p>
 <!--<script src="https://gist.github.com/GES233/736bd725f982542e02438091c0f4579a.js"></script>-->
-<h4 id="真不行真不行真不行">真不行真不行真不行</h4>
-<p>【TODO: 你之前是学啥的？我教的公管的同学里只有你一个会写代码的</p>
+
+<h4 id="真不行真不行真不行"><a href="#真不行真不行真不行" class="headerlink" title="真不行真不行真不行"></a>真不行真不行真不行</h4><p>【TODO: 你之前是学啥的？我教的公管的同学里只有你一个会写代码的</p>
 <p>【TODO: 写不动啊，还是用顺手的 Python 吧</p>
-<h3 id="chestnut">Chestnut</h3>
-<p>这是一个去年写的项目，当时受 AI 绘图影响，自己也想写一个 WebUI
-出来，原来叫 PicoUI ，后来改成了 TinyUI ，最后改了个「栗子」的名字。</p>
-<p>当时想写一个像 Flask 一样简单易懂可以带小白的文档，但是看着…
-不咋地只能说。</p>
+<h3 id="Chestnut"><a href="#Chestnut" class="headerlink" title="Chestnut"></a>Chestnut</h3><p>这是一个去年写的项目，当时受 AI 绘图影响，自己也想写一个 WebUI 出来，原来叫 PicoUI ，后来改成了 TinyUI ，最后改了个「栗子」的名字。</p>
+<p>当时想写一个像 Flask 一样简单易懂可以带小白的文档，但是看着… 不咋地只能说。</p>
 <p>项目在这儿（如果您在中国大陆不使用特殊信道访问链接的话，可能会失败）：</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/GES233/Chestnut">GES233/Chestnut -
-Scaffold for building demostration and presentation.</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/GES233/Chestnut">GES233&#x2F;Chestnut - Scaffold for building demostration and presentation.</a></p>
 <p>截至去年夏天，还有一点点修修改改。</p>
 <p>那就直接拿来用吧。</p>
 <p>第一步，当然是去掉那些和管理系统无关的库，像是 arrow lib 之类的。</p>
@@ -97,66 +73,47 @@ Scaffold for building demostration and presentation.</a></p>
 <p>【TODO: 成功注册！</p>
 <p>【TODO: 鉴权是什么？能吃吗？</p>
 <p>【TODO: 毁灭吧，操</p>
-<h3 id="别现写了太难了">别现写了，太难了</h3>
-<p>【TODO: 直接展示 discord 行吗？我不会 RoR 啊！</p>
+<h3 id="别现写了，太难了"><a href="#别现写了，太难了" class="headerlink" title="别现写了，太难了"></a>别现写了，太难了</h3><p>【TODO: 直接展示 discord 行吗？我不会 RoR 啊！</p>
 <p>【TODO: 要不要我把 22 年写的那玩意儿拿出来？</p>
 <p>【TODO: uvicorn 怎么在 Windows 上运行来着？</p>
 <p>【TODO: 可咋整啊</p>
-<h3 id="瞎掰扯">瞎掰扯</h3>
-<h4
-id="接龙小说完颜慧德与长江黄河不会倒流">接龙小说、完颜慧德与「长江黄河不会倒流」</h4>
-<p>看到那个应该是周五上午来上课的时候。</p>
+<h3 id="瞎掰扯"><a href="#瞎掰扯" class="headerlink" title="瞎掰扯"></a>瞎掰扯</h3><h4 id="接龙小说、完颜慧德与「长江黄河不会倒流」"><a href="#接龙小说、完颜慧德与「长江黄河不会倒流」" class="headerlink" title="接龙小说、完颜慧德与「长江黄河不会倒流」"></a>接龙小说、完颜慧德与「长江黄河不会倒流」</h4><p>看到那个应该是周五上午来上课的时候。</p>
 <p>【TODO: 小说接龙？妙啊</p>
 <p>当时那几天正好赶上前国务院总理离世，因为一系列的事情以及信号让人浮想联翩。那句他曾经说过的改革开放如「长江黄河不会倒流」的句子，也成为了一种暗号。</p>
 <p>就像白色康乃馨、茉莉花、民主女神、A4纸一样的对什么的什么什么。</p>
-<p>关于这个我不想做什么评价，私以为，我的政治观念还太过稚嫩，不对这句话做表达。虽然说作为公共事业管理专业的学生，我们与之深入交流甚至是入身其中的对象就是什么，所以就算知道是啥意思也要假装不知道。但是这种暗号总有人能对上，对上了就建立了共识，从公共部门的角度来讲，这种不可控的自组织性就挺可怕的，虽然影响的范围确实很有限，带的节奏就像
-49 中的事儿一样，没几天就消停了（当然，也有可能是别的因素的介入）。</p>
-<p>为什么要说这么一嘴，就是因为我听 ysy
-（同班同学）说，最开始那个接龙小说里就有人用这句话影射那位大人，然后那张纸直接消失了（所以说
-22 年底白纸的意象真的是沾点，本土化没做好是这样的）。</p>
+<p>关于这个我不想做什么评价，私以为，我的政治观念还太过稚嫩，不对这句话做表达。虽然说作为公共事业管理专业的学生，我们与之深入交流甚至是入身其中的对象就是什么，所以就算知道是啥意思也要假装不知道。但是这种暗号总有人能对上，对上了就建立了共识，从公共部门的角度来讲，这种不可控的自组织性就挺可怕的，虽然影响的范围确实很有限，带的节奏就像 49 中的事儿一样，没几天就消停了（当然，也有可能是别的因素的介入）。</p>
+<p>为什么要说这么一嘴，就是因为我听 ysy （同班同学）说，最开始那个接龙小说里就有人用这句话影射那位大人，然后那张纸直接消失了（所以说 22 年底白纸的意象真的是沾点，本土化没做好是这样的）。</p>
 <p>现在有的这个好像是第二张。</p>
 <p>回到这个汇报的主题，就是如果有人搞事有人乳了，怎么办？</p>
-<p>我算不上是一个完完全全的自由主义者，再加上这是当众的汇报，所以一定要符合主流价值观，一定程度上的
-content censorship 还是有必要的。</p>
+<p>我算不上是一个完完全全的自由主义者，再加上这是当众的汇报，所以一定要符合主流价值观，一定程度上的 content censorship 还是有必要的。</p>
 <p>但是这个度又是一个问题了。</p>
 <p>【TODO: 关于汇报 -&gt; UGC 平台的内容审查</p>
 <p>【TODO: 关于小说接龙 -&gt; 请问在群里能接吗？</p>
-<h4 id="边写边理">边写边理</h4>
-<p>大致的确定了一些问题画了 E-R
-图就开始准备写了，周五还是周六，我忘记了。</p>
+<h4 id="边写边理"><a href="#边写边理" class="headerlink" title="边写边理"></a>边写边理</h4><p>大致的确定了一些问题画了 E-R 图就开始准备写了，周五还是周六，我忘记了。</p>
 <p>不想整啥演讲稿汇报逐字稿啥的，就拿个 ppt 上去一同瞎说就行。</p>
-<p>形式就选择最简单的，之前毕设的那个模板， Beamer + Metropolis + Minted
-。</p>
-<p>语言是 LaTeX ，幻灯片选用 <code>Beamer</code> ，模板是
-<code>Metropolis</code> ，意思是大都市。 <code>minted</code>
-用来渲染代码。配色和毕设的汇报是同款，不同的是没有背景图了。（其实也改了几组，但还是原来的最好）</p>
+<p>形式就选择最简单的，之前毕设的那个模板， Beamer + Metropolis + Minted 。</p>
+<p>语言是 LaTeX ，幻灯片选用 <code>Beamer</code> ，模板是 <code>Metropolis</code> ，意思是大都市。<br><code>minted</code> 用来渲染代码。配色和毕设的汇报是同款，不同的是没有背景图了。（其实也改了几组，但还是原来的最好）</p>
 <p>编辑器，简简单单，Visual Studio Code 。</p>
 <p>【TODO: 树形结构、树形结构、还是树形结构</p>
 <p>【TODO: 怎么和管理挂上钩？</p>
 <p>【TODO: 用 Phoenix 还是 Plug ？</p>
 <p>【TODO: 算了，纯讲吧就</p>
-<h3 id="汇报">汇报</h3>
-<p>已经要开始了，得在周一周三两天的课讲完。</p>
+<h3 id="汇报"><a href="#汇报" class="headerlink" title="汇报"></a>汇报</h3><p>已经要开始了，得在周一周三两天的课讲完。</p>
 <p>很幸运，我不在前面，这意味着我有更多的机会去打磨。</p>
-<h4 id="原来你也写代码">原来你也写代码？</h4>
-<p>在正儿八经报告前，还出了个小插曲。</p>
-<p>关于此君的故事，可以参见<a
-href="/2024/01/16/Review-1st-term-at-CAU/#第一次接触">第一次接触</a>。</p>
+<h4 id="原来你也写代码？"><a href="#原来你也写代码？" class="headerlink" title="原来你也写代码？"></a>原来你也写代码？</h4><p>在正儿八经报告前，还出了个小插曲。</p>
+<p>关于此君的故事，可以参见<a href="/2024/01/16/Review-1st-term-at-CAU/#%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%8E%A5%E8%A7%A6">第一次接触</a>。</p>
 <p>【TODO: “哇是code！”</p>
 <p>【TODO: 给你看</p>
 <p>【TODO: 其实完全可以让 cq 上去，那么社牛讲起来肯定很有意思</p>
 <p>【TODO: 补植是啥？股票又是啥？</p>
 <p>【TODO: 她参加竞赛我可不能帮她做了</p>
-<h4 id="前">前</h4>
-<p>【TODO: 怎么有点发烧，是不是阳了，还只是应激罢了</p>
+<h4 id="前"><a href="#前" class="headerlink" title="前"></a>前</h4><p>【TODO: 怎么有点发烧，是不是阳了，还只是应激罢了</p>
 <p>【TODO: 你先上吧，我有点不舒服</p>
-<h4 id="中">中</h4>
-<p>【TODO: 想必大家都看不懂吧</p>
+<h4 id="中"><a href="#中" class="headerlink" title="中"></a>中</h4><p>【TODO: 想必大家都看不懂吧</p>
 <p>【TODO: 讲快点！</p>
-<h4 id="后">后</h4>
-<p>【TODO: 怎么都在拉票啊这</p>
+<h4 id="后"><a href="#后" class="headerlink" title="后"></a>后</h4><p>【TODO: 怎么都在拉票啊这</p>
 <p>【TODO: 咱互投吧</p>
-</div></article><aside class="post-widget"><h4>目录</h4><nav class="post-toc-wrap" id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#dddlibrary"><span class="post-toc-number">1.</span> <span class="post-toc-text">DDDLibrary</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E5%9C%A8%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E5%AE%9E%E4%BD%9C"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">领域驱动设计在函数式编程语言的实作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#defmodule-status-do"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">defmodule Status do</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%9C%9F%E4%B8%8D%E8%A1%8C%E7%9C%9F%E4%B8%8D%E8%A1%8C%E7%9C%9F%E4%B8%8D%E8%A1%8C"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">真不行真不行真不行</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#chestnut"><span class="post-toc-number">2.</span> <span class="post-toc-text">Chestnut</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%AB%E7%8E%B0%E5%86%99%E4%BA%86%E5%A4%AA%E9%9A%BE%E4%BA%86"><span class="post-toc-number">3.</span> <span class="post-toc-text">别现写了，太难了</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%9E%8E%E6%8E%B0%E6%89%AF"><span class="post-toc-number">4.</span> <span class="post-toc-text">瞎掰扯</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%8E%A5%E9%BE%99%E5%B0%8F%E8%AF%B4%E5%AE%8C%E9%A2%9C%E6%85%A7%E5%BE%B7%E4%B8%8E%E9%95%BF%E6%B1%9F%E9%BB%84%E6%B2%B3%E4%B8%8D%E4%BC%9A%E5%80%92%E6%B5%81"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">接龙小说、完颜慧德与「长江黄河不会倒流」</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%BE%B9%E5%86%99%E8%BE%B9%E7%90%86"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">边写边理</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%B1%87%E6%8A%A5"><span class="post-toc-number">5.</span> <span class="post-toc-text">汇报</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8E%9F%E6%9D%A5%E4%BD%A0%E4%B9%9F%E5%86%99%E4%BB%A3%E7%A0%81"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">原来你也写代码？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%89%8D"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">前</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%B8%AD"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">中</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%90%8E"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">后</span></a></li></ol></li></ol></nav></aside></div><footer class="footer-nav"><div class="footer"><div class="back-top" id="back-top" title="Back to top"><i class="icon icon-chevron-bar-up"></i></div><div class="footer-content"><div><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv">?</span>
+</div></article><aside class="post-widget"><h4>目录</h4><nav class="post-toc-wrap" id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DDDLibrary"><span class="post-toc-number">1.</span> <span class="post-toc-text">DDDLibrary</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%E5%9C%A8%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E5%AE%9E%E4%BD%9C"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">领域驱动设计在函数式编程语言的实作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#defmodule-Status-do"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">defmodule Status do</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%9C%9F%E4%B8%8D%E8%A1%8C%E7%9C%9F%E4%B8%8D%E8%A1%8C%E7%9C%9F%E4%B8%8D%E8%A1%8C"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">真不行真不行真不行</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Chestnut"><span class="post-toc-number">2.</span> <span class="post-toc-text">Chestnut</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%AB%E7%8E%B0%E5%86%99%E4%BA%86%EF%BC%8C%E5%A4%AA%E9%9A%BE%E4%BA%86"><span class="post-toc-number">3.</span> <span class="post-toc-text">别现写了，太难了</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%9E%8E%E6%8E%B0%E6%89%AF"><span class="post-toc-number">4.</span> <span class="post-toc-text">瞎掰扯</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%8E%A5%E9%BE%99%E5%B0%8F%E8%AF%B4%E3%80%81%E5%AE%8C%E9%A2%9C%E6%85%A7%E5%BE%B7%E4%B8%8E%E3%80%8C%E9%95%BF%E6%B1%9F%E9%BB%84%E6%B2%B3%E4%B8%8D%E4%BC%9A%E5%80%92%E6%B5%81%E3%80%8D"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">接龙小说、完颜慧德与「长江黄河不会倒流」</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%BE%B9%E5%86%99%E8%BE%B9%E7%90%86"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">边写边理</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%B1%87%E6%8A%A5"><span class="post-toc-number">5.</span> <span class="post-toc-text">汇报</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8E%9F%E6%9D%A5%E4%BD%A0%E4%B9%9F%E5%86%99%E4%BB%A3%E7%A0%81%EF%BC%9F"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">原来你也写代码？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%89%8D"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">前</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%B8%AD"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">中</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%90%8E"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">后</span></a></li></ol></li></ol></nav></aside></div><footer class="footer-nav"><div class="footer"><div class="back-top" id="back-top" title="Back to top"><i class="icon icon-chevron-bar-up"></i></div><div class="footer-content"><div><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv">?</span>
 PV
 </span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv">?</span>
 UV</span></div>
