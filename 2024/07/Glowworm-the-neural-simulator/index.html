@@ -33,12 +33,13 @@ simulation model.</a></p>
 <span id="more"></span>
 <p>这类领域的内容写起来比较耗脑子，最近精神状态不大好，休息一段时间。</p>
 <p>——待写——</p>
-<h3 id="comments">留言评论</h3><div id="gitalk-comments"></div><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"/><script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script><script>window.gitalk = new Gitalk({
+<h3 id="comments">留言评论</h3><div id="gitalk-comments"></div><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"/><script src="https://rawgit.com/qhh0205/78e9e0b1f3114db6737f3ed8cdd51d3a/raw/3894c5be5aa2378336b1f5ee0f296fa0b22d06e9/md5.min.js"> </script><script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script><script>window.gitalk = new Gitalk({
   clientID: 'Ov23lix7MuO7I04fa5Jd',
   clientSecret: 'b992088340e08af51f4ec54880194f2bbca1a155',
   repo: 'GES233.github.io',
   owner: 'GES233',
   admin: 'GES233'.split(','),
+  id: md5(location.pathname),
   distractionFreeMode: false  // Facebook-like distraction free mode
 });
 window.gitalk.render('gitalk-comments'); // Render Gitalk in the element with ID 'gitalk-container'</script></div></article></div><footer class="footer-nav"><div class="footer"><div class="back-top" id="back-top" title="Back to top"><i class="icon icon-chevron-bar-up"></i></div><div class="footer-content"><div><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv">?</span>
