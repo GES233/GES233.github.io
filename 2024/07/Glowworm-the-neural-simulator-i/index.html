@@ -1,4 +1,4 @@
-<html lang="zh"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content="Contemplate the marvel that is existence, and rejoice that you are able to do so."/><meta name="keyword"/><title>萤火虫🪲——神经仿真的概念验证模型
+<html lang="zh"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content="Contemplate the marvel that is existence, and rejoice that you are able to do so."/><meta name="keyword"/><title>萤火虫🪲——神经仿真的概念验证模型（一）
 -
 自留地
 -
@@ -21,9 +21,9 @@
 <a class="menubar-link" href="/categories/%E4%B8%93%E4%B8%9A%E8%AF%BE/">啊，他妈的</a></li><li class="menubar-item" data-border="data-border"></li><li class="menubar-item"><i class="icon icon-archive"></i>
 <a class="menubar-link" href="/archives">归档</a></li><li class="menubar-item"><i class="icon icon-tags"></i>
 <a class="menubar-link" href="/tags">标签</a></li><li class="menubar-item" data-border="data-border"></li><li class="menubar-item"><a class="menubar-link" href="/about"><span>是什么？</span></a></li><li class="menubar-item"><a class="menubar-link" href="/"><span>　</span></a></li><li class="menubar-item"><a class="menubar-link" href="/2023/07/04/Intro/"><span>为什么？</span></a></li></ul><div class="menu-search-box search-button"><div>搜索</div>
-<i class="icon icon-search"></i></div></div></div><div class="main" data-page="post"><article class="post" id="post"><header class="post-head"><h1 class="post-title"><a class="title" href="/2024/07/Glowworm-the-neural-simulator/">萤火虫🪲——神经仿真的概念验证模型</a></h1></header><div class="post-meta"><div class="post-date"><time class="post-time" itemprop="datePublished" title="2024-07-03 10:01:49" datetime="2024-07-03T02:01:49.000Z">2024-07-03</time></div>|
-<div class="post-tag"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Elixir/" rel="tag">Elixir</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Rust/" rel="tag">Rust</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SNN/" rel="tag">SNN</a></li></ul></div>
-<div class="post-visit"><span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span>访问</span></div></div><div class="post-info"><div class="post-word-count">本文共42字。阅读完需要约1分钟。</div>
+<i class="icon icon-search"></i></div></div></div><div class="main" data-page="post"><article class="post" id="post"><header class="post-head"><h1 class="post-title"><a class="title" href="/2024/07/Glowworm-the-neural-simulator-i/">萤火虫🪲——神经仿真的概念验证模型（一）</a></h1></header><div class="post-meta"><div class="post-date"><time class="post-time" itemprop="datePublished" title="2024-07-03 10:01:49" datetime="2024-07-03T02:01:49.000Z">2024-07-03</time></div>|
+<div class="post-tag"><ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SNN/" rel="tag">SNN</a></li></ul></div>
+<div class="post-visit"><span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span>访问</span></div></div><div class="post-info"><div class="post-word-count">本文共26字。阅读完需要约1分钟。</div>
 <div class="post-cc">版权声明：署名-非商业性使用-相同方式共享 4.0 国际
 
 |
@@ -31,8 +31,12 @@
 target="_blank" rel="noopener" href="https://github.com/GES233/Glowworm">GES233/Glowworm: Simple neural
 simulation model.</a></p>
 <span id="more"></span>
-<p>这类领域的内容写起来比较耗脑子，最近精神状态不大好，休息一段时间。</p>
-<p>——待写——</p>
+<h3 id="缘起">缘起</h3>
+<h4 id="spikingnn">spikingnn</h4>
+<h4 id="分层架构">分层架构</h4>
+<h3 id="扳机">扳机</h3>
+<h4 id="elixir-forum-上的贴子">Elixir-forum 上的贴子</h4>
+<p>——完——</p>
 <h3 id="comments">留言评论</h3><div id="gitalk-comments"></div><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"/><script src="https://rawgit.com/qhh0205/78e9e0b1f3114db6737f3ed8cdd51d3a/raw/3894c5be5aa2378336b1f5ee0f296fa0b22d06e9/md5.min.js"> </script><script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script><script>window.gitalk = new Gitalk({
   clientID: 'Ov23lix7MuO7I04fa5Jd',
   clientSecret: 'b992088340e08af51f4ec54880194f2bbca1a155',
@@ -42,7 +46,7 @@ simulation model.</a></p>
   id: md5(location.pathname),
   distractionFreeMode: false  // Facebook-like distraction free mode
 });
-window.gitalk.render('gitalk-comments'); // Render Gitalk in the element with ID 'gitalk-container'</script></div></article></div><footer class="footer-nav"><div class="footer"><div class="back-top" id="back-top" title="Back to top"><i class="icon icon-chevron-bar-up"></i></div><div class="footer-content"><div><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv">?</span>
+window.gitalk.render('gitalk-comments'); // Render Gitalk in the element with ID 'gitalk-container'</script></div></article><aside class="post-widget"><h4>目录</h4><nav class="post-toc-wrap" id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BC%98%E8%B5%B7"><span class="post-toc-number">1.</span> <span class="post-toc-text">缘起</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#spikingnn"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">spikingnn</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">分层架构</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%89%B3%E6%9C%BA"><span class="post-toc-number">2.</span> <span class="post-toc-text">扳机</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#elixir-forum-%E4%B8%8A%E7%9A%84%E8%B4%B4%E5%AD%90"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Elixir-forum 上的贴子</span></a></li></ol></li></ol></nav></aside></div><footer class="footer-nav"><div class="footer"><div class="back-top" id="back-top" title="Back to top"><i class="icon icon-chevron-bar-up"></i></div><div class="footer-content"><div><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv">?</span>
 PV
 </span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv">?</span>
 UV</span></div>
