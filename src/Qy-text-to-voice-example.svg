@@ -15,15 +15,15 @@
 <polygon fill="none" stroke="#000000" points="64,-36.5 64,-113.3 134,-113.3 134,-36.5 64,-36.5"/>
 <text text-anchor="start" x="75.2224" y="-96.7" font-family="Times,serif" font-size="14.00" fill="#000000">气流机制</text>
 </g>
-<g id="clust2" class="cluster">
-<title>cluster_1</title>
-<polygon fill="none" stroke="#000000" points="142,-36.5 142,-113.3 212,-113.3 212,-36.5 142,-36.5"/>
-<text text-anchor="start" x="171.75" y="-96.7" font-family="Times,serif" font-size="14.00" fill="#000000">喉</text>
-</g>
 <g id="clust3" class="cluster">
 <title>cluster_2</title>
 <polygon fill="none" stroke="#000000" points="220,-36.5 220,-113.3 290,-113.3 290,-36.5 220,-36.5"/>
 <text text-anchor="start" x="236.9204" y="-96.7" font-family="Times,serif" font-size="14.00" fill="#000000">调音</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_1</title>
+<polygon fill="none" stroke="#000000" points="142,-36.5 142,-113.3 212,-113.3 212,-36.5 142,-36.5"/>
+<text text-anchor="start" x="171.75" y="-96.7" font-family="Times,serif" font-size="14.00" fill="#000000">喉</text>
 </g>
 <!-- Prompt -->
 <g id="node1" class="node">

@@ -15,15 +15,15 @@
 <polygon fill="none" stroke="#000000" points="49,-274.4 49,-351.2 425,-351.2 425,-274.4 49,-274.4"/>
 <text text-anchor="middle" x="237" y="-334.6" font-family="Times,serif" font-size="14.00" fill="#000000">食管</text>
 </g>
-<g id="clust3" class="cluster">
-<title>cluster_2</title>
-<polygon fill="none" stroke="#000000" points="357,-32.8 357,-109.6 427,-109.6 427,-32.8 357,-32.8"/>
-<text text-anchor="middle" x="392" y="-93" font-family="Times,serif" font-size="14.00" fill="#000000">血液</text>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_1</title>
 <polygon fill="none" stroke="#000000" points="14,-117.6 14,-266.4 298,-266.4 298,-117.6 14,-117.6"/>
 <text text-anchor="middle" x="156" y="-249.8" font-family="Times,serif" font-size="14.00" fill="#000000">瘤胃</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_2</title>
+<polygon fill="none" stroke="#000000" points="357,-32.8 357,-109.6 427,-109.6 427,-32.8 357,-32.8"/>
+<text text-anchor="middle" x="392" y="-93" font-family="Times,serif" font-size="14.00" fill="#000000">血液</text>
 </g>
 <g id="clust4" class="cluster">
 <title>cluster_3</title>
