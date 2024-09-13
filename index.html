@@ -89,10 +89,12 @@
             <header>
                 <h3>评论区</h3>
             </header>
+            <div id="gitalk-container"></div>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
             <script
                 src="https://rawgit.com/qhh0205/78e9e0b1f3114db6737f3ed8cdd51d3a/raw/3894c5be5aa2378336b1f5ee0f296fa0b22d06e9/md5.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js">
+            <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+            <script>
                 var gitalk = new Gitalk({
                     clientID: 'Ov23lix7MuO7I04fa5Jd',
                     clientSecret: 'b992088340e08af51f4ec54880194f2bbca1a155',
@@ -105,7 +107,6 @@
 
                 gitalk.render('gitalk-container');
             </script>
-            <div id="gitalk-container"></div>
         </article>
     </main>
 </body>
