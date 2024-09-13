@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>企划/项目 - GES233 的博客</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <meta name="description" content="GES233's blog(deprecated)">
+</head>
+
+<body>
+    <header class="container">
+        <nav>
+            <ul>
+                <li><kbd>GES233</kbd><strong>的博客</strong></li>
+                <li><a href="/">首页</a></li>
+            </ul>
+            <ul>
+                <li><a class="contrast" href="https://github.com/GES233">Github</a></li>
+                <li><a class="contrast" href="https://space.bilibili.com/29413461">哔哩哔哩</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <article id="sheets">
+            <header>
+                <hgroup>
+                    <h2>谱子</h2>
+                    <h3>扒的或抄的</h3>
+                </hgroup>
+                <div style="text-align:right">
+                    <span><a href="https://github.com/GES233"><small>GES233</small></a></span>
+                    <span><small>创建于 2024 年 9 月 13 日</small><br></span>
+                    <span><small>编辑于 2024 年 9 月 13 日</small></span>
+                </div>
+            </header>
+            <p>本页面使用了<a href="https://mozilla.github.io/pdf.js/">PDF.js</a></p>
+            <h3>歌曲</h3>
+            <hgroup>
+                <h4>名字</h4>
+                <h5>简单描述</h5>
+            </hgroup>
+            <p>TODO: 嵌入相关的<code>iframe</code></p>
+            <!--<iframe src="/dist/pdf_js/web/viewer.html?file="></iframe>-->
+            <hr />
+            <p style="text-align:center">——完——</p>
+        </article>
+        <article>
+            <header>
+                <h3>评论区</h3>
+            </header>
+            <div id="gitalk-container"></div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+            <script
+                src="https://rawgit.com/qhh0205/78e9e0b1f3114db6737f3ed8cdd51d3a/raw/3894c5be5aa2378336b1f5ee0f296fa0b22d06e9/md5.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+            <script>
+                var gitalk = new Gitalk({
+                    clientID: 'Ov23lix7MuO7I04fa5Jd',
+                    clientSecret: 'b992088340e08af51f4ec54880194f2bbca1a155',
+                    repo: 'GES233.github.io',
+                    owner: 'GES233',
+                    admin: ['GES233'],
+                    id: md5(location.pathname),      // Ensure uniqueness and length less than 50 唯一值，如果和其他页面一样，则两个页面显示的评论都一样
+                    distractionFreeMode: false  // Facebook-like distraction free mode})gitalk.render('gitalk-container') 这里具体功能我还不清楚，到时候懂了再告诉大家，不如我天true
+                });
+
+                gitalk.render('gitalk-container');
+            </script>
+        </article>
+    </main>
+</body>
+
+<footer>
+    <div class="container">
+
+        <nav>
+            <aside>
+                <ul>
+                    <li>
+                        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                        <span id="busuanzi_container_site_pv"><small>本站总访问量<span
+                                    id="busuanzi_value_site_pv"></span>次</small></span>
+                    </li>
+                    <li>
+                        <span><small>Made with hand-write HTML and <a
+                                    href="https://picocss.com">PicoCSS.</a></small></span>
+                    </li>
+                </ul>
+            </aside>
+            <ul>
+                <span><small>GES233@2024</small></span>
+            </ul>
+        </nav>
+    </div>
+</footer>
+
+</html>
