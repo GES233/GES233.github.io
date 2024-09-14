@@ -43,21 +43,27 @@
                 <h5>Mili</h5>
             </hgroup>
             <p><code>world.exexute(me);</code></p>
-            <iframe src="/dist/pdf_js/web/viewer.html?file=/archive/world_execute_me.pdf"></iframe>
+            <div class="aspect-ratio">
+                <iframe src="/dist/pdf_js/web/viewer.html?file=/archive/world_execute_me.pdf"></iframe>
+            </div>
             <hr />
             <hgroup>
                 <h4>雨后甜点</h4>
                 <h5>砂糖协会</h5>
             </hgroup>
             <p>我逼自己喜欢上了一首第一眼并不是很喜欢的歌。</p>
-            <iframe src="/dist/pdf_js/web/viewer.html?file=/archive/雨后甜点.pdf"></iframe>
+            <div class="aspect-ratio">
+                <iframe src="/dist/pdf_js/web/viewer.html?file=/archive/雨后甜点.pdf"></iframe>
+            </div>
             <hr />
             <hgroup>
                 <h4>兔子洞</h4>
                 <h5>词曲作者</h5>
             </hgroup>
             <p>很喜欢这种很逆天的歌。</p>
-            <iframe src="/dist/pdf_js/web/viewer.html?file=/archive/ラビットホール(Rabbit Hole).pdf"></iframe>
+            <div class="aspect-ratio">
+                <iframe src="/dist/pdf_js/web/viewer.html?file=/archive/ラビットホール(Rabbit Hole).pdf"></iframe>
+            </div>
             <hr />
             <p style="text-align:center">——完——</p>
         </article>
@@ -85,30 +91,49 @@
             </script>
         </article>
     </main>
-</body>
+    <style>
+        /* Reference: https://www.webhek.com/post/responsive-video-iframes-keeping-aspect-ratio-with-only-css/ */
+        /* 这个规则规定了iframe父元素容器的尺寸，我们要去它的宽高比应该是 25:14 */
+        .aspect-ratio {
+            position: relative;
+            width: 80%;
+            height: 0;
+            padding-bottom: 56%;
+            /* 高度应该是宽度的56% */
+        }
 
-<footer>
-    <div class="container">
+        /* 设定iframe的宽度和高度，让iframe占满整个父元素容器 */
+        .aspect-ratio iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <footer>
+        <div class="container">
 
-        <nav>
-            <aside>
+            <nav>
+                <aside>
+                    <ul>
+                        <li>
+                            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                            <span id="busuanzi_container_site_pv"><small>本站总访问量<span
+                                        id="busuanzi_value_site_pv"></span>次</small></span>
+                        </li>
+                        <li>
+                            <span><small>Made with hand-write HTML and <a
+                                        href="https://picocss.com">PicoCSS.</a></small></span>
+                        </li>
+                    </ul>
+                </aside>
                 <ul>
-                    <li>
-                        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-                        <span id="busuanzi_container_site_pv"><small>本站总访问量<span
-                                    id="busuanzi_value_site_pv"></span>次</small></span>
-                    </li>
-                    <li>
-                        <span><small>Made with hand-write HTML and <a
-                                    href="https://picocss.com">PicoCSS.</a></small></span>
-                    </li>
+                    <span><small>GES233@2024</small></span>
                 </ul>
-            </aside>
-            <ul>
-                <span><small>GES233@2024</small></span>
-            </ul>
-        </nav>
-    </div>
-</footer>
+            </nav>
+        </div>
+    </footer>
+</body>
 
 </html>
