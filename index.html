@@ -36,15 +36,87 @@
             </p>
             <hr />
             <div>
+                <!--TODO: Add a process bar here.-->
                 <p>扣 1 为博客助力，打赢复活赛。</p>
-                <p style="text-align:center"><button>111111</button></p>
+                <p style="text-align:center"><button id="trigger-button">111111</button></p>
+                <div>
+                    <dialog id="help-dialog">
+                        <article>
+                            <header>
+                                <h4>【喜报】</h4>
+                            </header>
+                            <main>
+                                <p>助力成功！</p>
+                                <p style="text-align: right;">哦耶~！</p>
+                            </main>
+                            <footer>
+                                <button id="cancel">知道啦~</button>
+                            </footer>
+                        </article>
+                    </dialog>
+                </div>
+                <script>
+                    // Implement alpha synapse with clear function.
+
+                    const e = 2.7183;
+                    const TIMESTEP = 0.1;
+                    // Param: tau, g_amp
+                    // Param: a, b, c, d, threshold
+
+                    // State: (g, h), (u, v)
+
+                    function dg(g, h, tau) {
+                        (E * h - g) / tau
+                    }
+
+                    function dh(h, tau) { h / tau }
+
+                    function dv(v, u, i) { 0.04 * v * v + 5.0 * v + 140.0 - u + i }
+
+                    function du(v, u, a, b) { a * (b * v - u) }
+
+                    function nextstep() { }
+
+                    // receive pulse from button
+                    function callback_for_synapse(prev_h, h_0) { prev_h + h_0 }
+
+                    function soma_peak(v, threshold) { v >= threshold }
+
+                    // send pulse from neuron
+                    function callback_for_soma(u, c, d) { (c, u + d) } // v, u
+
+                    // When soma_g == 0 or peak
+                    function clear() { }
+
+                    (function () {
+                        // TODO: 注册仿真循环
+
+                        var helpButton = document.getElementById("trigger-button");
+
+                        var cancelButton = document.getElementById("cancel");
+
+                        helpButton.addEventListener("click",
+                            // TODO: 注册到 set-pulse
+                            function () {
+                                // TODO: 使 Soma 的 pulse 事件与此以及 reset/clear 连接
+                                var helpDialog = document.getElementById("help-dialog");
+                                helpDialog.showModal();
+                            });
+
+                        cancelButton.addEventListener("click", function () {
+                            document.getElementById("help-dialog").close();
+                        });
+                    })();
+                </script>
                 <div>
                     <footer>
                         <div style="text-align:right">
                             <p><a href="https://github.com/GES233">GES233</a></p>
-                            <p>2024 年 9 月 13 日</p>
+                            <span><small>创建于 2024 年 9 月 13 日</small><br></span>
+                            <span><small>编辑于 2024 年 9 月 16 日<i>（添加了按钮的动画）</i></small></span>
                         </div>
                     </footer>
+                </div>
         </article>
         <article id="rescue-blog">
             <hgroup>
@@ -58,12 +130,14 @@
                 新的技术栈可能采用：
             </p>
             <ul>
+                <li><a href="https://mx-space.js.org/">Mix Space</a> <small>约等于开箱即用</small></li>
                 <li><a href="https://phoenixframework.org">Phoenix</a> <small>借此学门新语言不好嘛？</small></li>
                 <li><a href="https://www.sqlite.org/">SQLite</a> <small>相比 PostgreSQL 好移动些</small></li>
                 <li><i>多媒体服务怎么选择以及实现？</i></li>
                 <li><i>学术写作应该怎么实现？</i></li>
             </ul>
-            <p>可能选择的域名：<code>*.moe</code> <small>大约一百元人民币每年</small></p>
+            <p>可能选择的域名：<code>*.moe</code> <small>大约一百元人民币每年</small> + <code>*.top</code><small> 大约几十人民币每年 <i>（作为后端的 API）</i></small></p>
+            <p>可能选择的服务器：大约几百人民币每年</p>
             <footer>
                 <div style="text-align:right">
                     <p>2024 年 9 月 13 日</p>
