@@ -134,7 +134,54 @@
                     </hgroup>
                     <p>这一部分主要是通过绿房子看见的什么吧。</p>
                 </section>
+                <p>——未完待续——</p>
             </div>
         </article>
+        <article>
+            <header>
+                <h3>评论区</h3>
+            </header>
+            <div id="gitalk-container"></div>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+            <script
+                src="https://rawgit.com/qhh0205/78e9e0b1f3114db6737f3ed8cdd51d3a/raw/3894c5be5aa2378336b1f5ee0f296fa0b22d06e9/md5.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+            <script>
+                var gitalk = new Gitalk({
+                    clientID: 'Ov23lix7MuO7I04fa5Jd',
+                    clientSecret: 'b992088340e08af51f4ec54880194f2bbca1a155',
+                    repo: 'GES233.github.io',
+                    owner: 'GES233',
+                    admin: ['GES233'],
+                    id: md5(location.pathname), // Ensure uniqueness and length less than 50
+                    distractionFreeMode: false
+                });
+
+                gitalk.render('gitalk-container');
+            </script>
+        </article>
     </main>
+    <footer>
+        <div class="container">
+    
+            <nav>
+                <aside>
+                    <ul>
+                        <li>
+                            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                            <span id="busuanzi_container_site_pv"><small>本站总访问量<span
+                                        id="busuanzi_value_site_pv"></span>次</small></span>
+                        </li>
+                        <li>
+                            <span><small>Made with hand-write HTML and <a
+                                        href="https://picocss.com">PicoCSS.</a></small></span>
+                        </li>
+                    </ul>
+                </aside>
+                <ul>
+                    <span><small>GES233@2024</small></span>
+                </ul>
+            </nav>
+        </div>
+    </footer>
 </body>
