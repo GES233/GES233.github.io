@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charaset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>
+    【长期施工中】论文翻译：无先验知识下激发的思维层次
+  </title>
+  <script src="/assets/phoenix_html.js"></script>
+<link rel ="stylesheet" href="/assets/picocss.min.css" >
+<link rel="stylesheet" href="/assets/heti.min.css">
+<script src="/assets/hti-addon.min.js"></script>
+<script>
+  const heti = new Heti('.heti');
+  heti.autoSpacing();
+</script>
+
+<link rel="stylesheet" href="/assets/code-highlighting.css">
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <header class="container">
+    <nav>
+      <ul>
+        <li><b><kbd>GES233</kbd>'s Blog</b></li>
+      </ul>
+      <ul>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <article class="heti">
+
+<header class="heti-skip">
+    <h2>【长期施工中】论文翻译：无先验知识下激发的思维层次</h2>
+    <!--可以改成一个小的表格-->
+    <div class="grid">
+      <div class="grid">
+        <div>
+          <small>
+          <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+          2023-10-21
+          </small>
+        </div>
+        <div>
+          <small>
+          <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+          </svg>
+          2025-03-11
+          </small>
+        </div>
+      </div>
+      <div>
+        <small>进度</small>
+        <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+</svg><small>15%</small>
+
+      </div>
+    </div>
+    <div class="pico">
+      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+</svg>
+<small>论文</small>
+
+<svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+</svg>
+<small>翻译</small>
+
+<svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+</svg>
+<small>先验知识</small>
+
+    </div>
+  </header>
+
+
+      <main>
+        
+          <div>
+            <ul>
+<li><a href="#摘要" id="toc-摘要">摘要</a></li>
+<li><a href="#正文" id="toc-正文">正文</a></li>
+<li><a href="#附录" id="toc-附录">附录</a></li>
+</ul>
+
+          </div>
+        
+        <div>
+
+
+<p>Source: <a href="https://arxiv.org/abs/2109.10619">[2109.10619]
+Eliciting Thinking Hierarchy without a Prior (arxiv.org)</a></p>
+<!--more-->
+<h3 id="摘要">摘要</h3>
+<blockquote>
+<p>当我们运用群众的智慧时，一般是根据答案的受欢迎程度进行排名，尤其是在我们无法验证答案的情况下。然而，这在大多数人成体系的犯错的时候非常危险。这就产生了一个根本的（fundamental）问题：我们能够在没有任何的先验知识情况下根据回答的排序建立一个体系（hierarchy），其中排序并不取决于大多数，而取决于更老练（sophisticated）的人？为解决（address）该问题，我们提出（propose）了
+1) 一个描述人们思维层级（thinking hierarchy）的新模型（novel model）；2)
+两个为了在没有任何先验知识的情况下得到认知层次的算法；3)
+基于以上理论框架一个新的基于开放回答的群智感知（crowdsourcing <a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>
+）方法。除了理论依据（justifications）外，我们进行（conduct）了四个实证的（empirical）群智感知研究，结果表明：
+a) 我们的研究的排名结果的准确度比基于简单多数票法（plurality voting<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>）要高很多（在一个问题中，多数回答有
+74 人的赞同（respondents）但正确回答仅有 3
+人赞同。我们的方法在没有先验知识的情况下把后者设为了最高）；b)
+我们的模型有很好的拟合优度（goodness-of-fit <a href="#fn3"
+class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a>），尤其是对于我们的排名首位的回答是正确的问题。据我们所知（To
+the best of our
+knowledge），我们第一个提出有在一般问题解决场景进行实证验证（validation）思维层级模型，也第一个提出在基于实证开放回答的方法，这种方法在没有任何先验知识的情况下击败了多数投票。</p>
+</blockquote>
+<h3 id="正文">正文</h3>
+<h4 id="引言">引言</h4>
+<p>群体的智慧比个体的在解决问题以及做决策上更好得到了广泛验证，尤其是在我们没有足够的先验知识去区分专家个体的情况下<span
+class="citation"
+data-cites="surowiecki2005wisdom budescu2015identifying weller2007cultural"><sup>[1–3]</sup></span>。多数表决是最常见的整合（aggregate）群体意见的方法。群体内的意见通常按照持有者的人数排名。然而，这在大多数人存在系统性偏见（systematically
+biased）的情况下非常危险。以下是我们进行的真实世界工作。我们问了来自顶级大学<a
+href="#fn4" class="footnote-ref" id="fnref4"
+role="doc-noteref"><sup>4</sup></a>的学生们以下的问题。</p>
+<blockquote>
+<p>圆 A 的半径是圆 B 的三分之一。圆 A 绕圆 B 转一圈，试问圆 A
+转了几圈。（为避免翻译不清搬出原文：The radius of Circle A is 1/3 the
+radius of Circle B. Circle A rolls around Circle B one trip back to its
+starting point. How many times will Circle A revolve in total?）</p>
+</blockquote>
+<p>我们收集到了以下回答：「1（11 人）、2（8 人）、3（134 人）、4（16
+人）以及6（27 人）」。如果按照多数投票的答案是 3
+，是大小球的半径之比。然而，正确答案是仅有 16 人回答的 4<a href="#fn5"
+class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a>。</p>
+<p>在有像是来自每个回答者的专业水平的先验知识的情况下，我们或许就能找出正确答案。然而，有时获取（obtain）先验知识的成本很高、难度很大，尤其是在新领域下。</p>
+<p>为了弄清楚以上的问题，Prelec 等<span class="citation"
+data-cites="prelec2017solution"><sup>[4]</sup></span>提出了一个出乎意料很受欢迎的（surprisingly
+popular）新方法。他们准备了很多问题，让应答者（respondents）选择一个选项，更重要的是，他们还让应答者预测其他人有多大可能选择什么回答。他们用这些应答者给出的预测值去构造一个关于回答的先验分布（prior
+distribution），再关于选择那些比先验（回答）更加受欢迎的回答来最为修正（do
+sth. such that the bias is
+corrected）。很多其他的工作发展了这个通过使用先验或预测回答来纠正错误的想法。</p>
+<p>然而，首先，这对于从前面的方法纳入运行实例的实操是不可应用的，因为那些研究依赖先验知识来设计出选项。这对得到应答者关于所有选项的整体分布情况（whole
+distribution）特别费力。</p>
+<p>第二，此前的研究专注于使用预测去修正错误，本质上（intrinsically）有趣的是，这是用他们的预测去构建思维层次。这也导致了层次在答案之间（amaong）存在。知名的认知层次理论（cognitive
+hierarchy theory, CHT）<span class="citation"
+data-cites="camerer2004cognitive stahl1993evolution stahl1995players"><sup>[5–7]</sup></span>在人们玩游戏的场景中构建了思维层次，我们可以因此了解到玩家的行为背后不同的老练等级（熟悉程度？原文是
+the actions of players of different sophistication
+levels）。然而（Nevertheless），CHT 只为博弈论环境（game-theoretic
+setting）而被设计的。</p>
+<p>我们关于设计一个通用的问题解决场景的思维理论很好奇。其中关键是更复杂的人们知道处在更低思维层次的人是什么想的，反之不亦然（简单来说就是思维的向下兼容）<span
+class="citation"
+data-cites="camerer2004cognitive kong2018eliciting"><sup>[5,8]</sup></span>。我们想要应用这种洞察力（insight）在没有先验知识的情况下了解不同思维复杂程度的人的答案，谓之<em>思维层次</em>（thinking
+hierarchy）。</p>
+<p><strong>关键问题</strong>
+我们打算去搭建在<em>没有先验知识</em>的情况下了解到思维层次的一个方法论。基于思维层次，我们可以</p>
+<p><strong>我们的办法</strong></p>
+<h5 id="相关工作">相关工作</h5>
+<h4 id="学习思维的层次">学习思维的层次</h4>
+<h5 id="思维层次">思维层次</h5>
+<h5 id="non-negative-congruence-triangularization-nct">（Non-negative
+Congruence Triangularization, NCT）</h5>
+<h5
+id="利用答案-预测联合分布answer-prediction-joint-distribution-mathrmm推断思维层次">利用答案-预测联合分布（answer-prediction
+joint distribution, <span
+class="math inline">\(\mathrm{M}\)</span>）推断思维层次</h5>
+<h5 id="答案-预测联合分布-mathrmm-的中间值proxy-var">答案-预测联合分布
+<span class="math inline">\(\mathrm{M}\)</span> 的中间值（proxy
+var）</h5>
+<h4 id="工作">工作</h4>
+<h5 id="结果">结果</h5>
+<h4 id="讨论">讨论</h4>
+<h4 id="致谢">致谢</h4>
+<h3 id="附录">附录</h3>
+<h4 id="数据收集">数据收集</h4>
+<h4 id="回答排名算法">回答排名算法</h4>
+<h4 id="证明">证明</h4>
+<h4 class="unnumbered" id="实证结果的详细解释">实证结果的详细解释</h4>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0"
+role="list">
+<div id="ref-surowiecki2005wisdom" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div
+class="csl-right-inline">SUROWIECKI J. The Wisdom of Crowds/James
+Surowiecki[J]. NY.: Anchor, 2005. </div>
+</div>
+<div id="ref-budescu2015identifying" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div
+class="csl-right-inline">BUDESCU D V, CHEN E. Identifying expertise to
+extract the wisdom of crowds[J]. Management science, 2015,61(2):267–280.
+</div>
+</div>
+<div id="ref-weller2007cultural" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div
+class="csl-right-inline">WELLER S C. Cultural consensus theory:
+Applications and frequently asked questions[J]. Field methods,
+2007,19(4):339–368. </div>
+</div>
+<div id="ref-prelec2017solution" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div
+class="csl-right-inline">PRELEC D, SEUNG H S, MCCOY J. A solution to the
+single-question crowd wisdom problem[J]. Nature, 2017,541(7638):532–535.
+</div>
+</div>
+<div id="ref-camerer2004cognitive" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div
+class="csl-right-inline">CAMERER C F, HO T-H, CHONG J-K. A cognitive
+hierarchy model of games[J]. The Quarterly Journal of Economics,
+2004,119(3):861–898. </div>
+</div>
+<div id="ref-stahl1993evolution" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div
+class="csl-right-inline">STAHL D O. Evolution of smartn players[J].
+Games and Economic Behavior, 1993,5(4):604–617. </div>
+</div>
+<div id="ref-stahl1995players" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div
+class="csl-right-inline">STAHL D O, WILSON P W. On players′ models of
+other players: Theory and experimental evidence[J]. Games and Economic
+Behavior, 1995,10(1):218–254. </div>
+</div>
+<div id="ref-kong2018eliciting" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div><div
+class="csl-right-inline">KONG Y, SCHOENEBECK G. Eliciting expertise
+without verification[C]//Proceedings of the 2018 ACM Conference on
+Economics and Computation. </div>
+</div>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li
+id="fn1"><p>也可以翻译成「众包」（群众外包）。可以粗暴的理解为一大群携带智能设备的人，协作完成某项任务。<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li
+id="fn2"><p>指在选举制度中，一个候选者（可以是人、项目等等）的结果超过其他任何候选者（即获得复数（plurality））即可被选中。<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>一个统计模型的拟合优度意味着它能够多么拟合观测值。<a
+href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>作者来自清华大学。<a href="#fnref4"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>关于该问题的讨论可以参见<a
+href="https://math.stackexchange.com/questions/1351058/circle-revolutions-rolling-around-another-circle">geometry
+- Circle revolutions rolling around another circle - Mathematics Stack
+Exchange</a> 。<a href="#fnref5" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+        <div style="text-align:center">
+            ——亟待更新——
+          </div>
+        </div>
+      </main>
+    </article>
+  <main>
+  <footer>
+    <div class="container">
+    </div>
+  </footer>
+</body>
+
+</html>
