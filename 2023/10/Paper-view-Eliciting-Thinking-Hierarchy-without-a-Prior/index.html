@@ -53,7 +53,7 @@
           <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
           </svg>
-          2025-03-11
+          2025-03-12
           </small>
         </div>
       </div>
@@ -95,6 +95,7 @@
 <li><a href="#摘要" id="toc-摘要">摘要</a></li>
 <li><a href="#正文" id="toc-正文">正文</a></li>
 <li><a href="#附录" id="toc-附录">附录</a></li>
+<li><a href="#glossary" id="toc-glossary">Glossary</a></li>
 </ul>
 
           </div>
@@ -107,13 +108,13 @@ Eliciting Thinking Hierarchy without a Prior (arxiv.org)</a></p>
 <!--more-->
 <h3 id="摘要">摘要</h3>
 <blockquote>
-<p>当我们运用群众的智慧时，一般是根据答案的受欢迎程度进行排名，尤其是在我们无法验证答案的情况下。然而，这在大多数人成体系的犯错的时候非常危险。这就产生了一个根本的（fundamental）问题：我们能够在没有任何的先验知识情况下根据回答的排序建立一个体系（hierarchy），其中排序并不取决于大多数，而取决于更老练（sophisticated）的人？为解决（address）该问题，我们提出（propose）了
-1) 一个描述人们思维层级（thinking hierarchy）的新模型（novel model）；2)
+<p>当我们运用群众的智慧时，一般是根据答案的受欢迎程度进行排名，尤其是在我们无法验证答案的情况下。然而，这在大多数人成体系的犯错的时候非常危险。这就产生了一个根本的问题：我们能够在没有任何的先验知识情况下根据回答的排序建立一个体系，其中排序并不取决于大多数，而取决于更老练的人？为解决该问题，我们提出了
+1) 一个描述人们思维层级（thinking hierarchy）的新模型；2)
 两个为了在没有任何先验知识的情况下得到认知层次的算法；3)
 基于以上理论框架一个新的基于开放回答的群智感知（crowdsourcing <a
 href="#fn1" class="footnote-ref" id="fnref1"
 role="doc-noteref"><sup>1</sup></a>
-）方法。除了理论依据（justifications）外，我们进行（conduct）了四个实证的（empirical）群智感知研究，结果表明：
+）方法。除了理论依据（justifications）外，我们进行（conduct）了四个实证的群智感知研究，结果表明：
 a) 我们的研究的排名结果的准确度比基于简单多数票法（plurality voting<a
 href="#fn2" class="footnote-ref" id="fnref2"
 role="doc-noteref"><sup>2</sup></a>）要高很多（在一个问题中，多数回答有
@@ -123,13 +124,13 @@ role="doc-noteref"><sup>2</sup></a>）要高很多（在一个问题中，多数
 class="footnote-ref" id="fnref3"
 role="doc-noteref"><sup>3</sup></a>），尤其是对于我们的排名首位的回答是正确的问题。据我们所知（To
 the best of our
-knowledge），我们第一个提出有在一般问题解决场景进行实证验证（validation）思维层级模型，也第一个提出在基于实证开放回答的方法，这种方法在没有任何先验知识的情况下击败了多数投票。</p>
+knowledge），我们第一个提出有在一般问题解决场景进行实证验证思维层级模型，也第一个提出在基于实证开放回答的方法，这种方法在没有任何先验知识的情况下击败了多数投票。</p>
 </blockquote>
 <h3 id="正文">正文</h3>
 <h4 id="引言">引言</h4>
 <p>群体的智慧比个体的在解决问题以及做决策上更好得到了广泛验证，尤其是在我们没有足够的先验知识去区分专家个体的情况下<span
 class="citation"
-data-cites="surowiecki2005wisdom budescu2015identifying weller2007cultural"><sup>[1–3]</sup></span>。多数表决是最常见的整合（aggregate）群体意见的方法。群体内的意见通常按照持有者的人数排名。然而，这在大多数人存在系统性偏见（systematically
+data-cites="surowiecki2005wisdom budescu2015identifying weller2007cultural"><sup>[1–3]</sup></span>。多数表决是最常见的整合群体意见的方法。群体内的意见通常按照持有者的人数排名。然而，这在大多数人存在系统性偏见（systematically
 biased）的情况下非常危险。以下是我们进行的真实世界工作。我们问了来自顶级大学<a
 href="#fn4" class="footnote-ref" id="fnref4"
 role="doc-noteref"><sup>4</sup></a>的学生们以下的问题。</p>
@@ -153,7 +154,7 @@ sth. such that the bias is
 corrected）。很多其他的工作发展了这个通过使用先验或预测回答来纠正错误的想法。</p>
 <p>然而，首先，这对于从前面的方法纳入运行实例的实操是不可应用的，因为那些研究依赖先验知识来设计出选项。这对得到应答者关于所有选项的整体分布情况（whole
 distribution）特别费力。</p>
-<p>第二，此前的研究专注于使用预测去修正错误，本质上（intrinsically）有趣的是，这是用他们的预测去构建思维层次。这也导致了层次在答案之间（amaong）存在。知名的认知层次理论（cognitive
+<p>第二，此前的研究专注于使用预测去修正错误，本质上有趣的是，这是用他们的预测去构建思维层次。这也导致了层次在答案之间（amaong）存在。知名的认知层次理论（cognitive
 hierarchy theory, CHT）<span class="citation"
 data-cites="camerer2004cognitive stahl1993evolution stahl1995players"><sup>[5–7]</sup></span>在人们玩游戏的场景中构建了思维层次，我们可以因此了解到玩家的行为背后不同的老练等级（熟悉程度？原文是
 the actions of players of different sophistication
@@ -186,7 +187,69 @@ var）</h5>
 <h4 id="数据收集">数据收集</h4>
 <h4 id="回答排名算法">回答排名算法</h4>
 <h4 id="证明">证明</h4>
-<h4 class="unnumbered" id="实证结果的详细解释">实证结果的详细解释</h4>
+<h4 id="实证结果的详细解释">实证结果的详细解释</h4>
+<h3 id="glossary">Glossary</h3>
+<p>（我考虑是单独用这个还是用脚注。）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">原文</th>
+<th style="text-align: center;">翻译</th>
+<th style="text-align: center;">含义</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<details>
+<summary>
+<h3>
+生词
+</h3>
+</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">原文</th>
+<th style="text-align: center;">翻译</th>
+<th style="text-align: center;">原文</th>
+<th style="text-align: center;">翻译</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">aggregate</td>
+<td style="text-align: center;">整合</td>
+<td style="text-align: center;">fundamental</td>
+<td style="text-align: center;">根本的；基本的</td>
+</tr>
+<tr>
+<td style="text-align: center;">hierarchy</td>
+<td style="text-align: center;">层级；体系</td>
+<td style="text-align: center;">sophisticated</td>
+<td style="text-align: center;">老练的</td>
+</tr>
+<tr>
+<td style="text-align: center;">address</td>
+<td style="text-align: center;">处理；解决（尝试了）</td>
+<td style="text-align: center;">propose</td>
+<td style="text-align: center;">提出</td>
+</tr>
+<tr>
+<td style="text-align: center;">novel</td>
+<td style="text-align: center;">小说；新颖的；新奇的</td>
+<td style="text-align: center;">validation</td>
+<td style="text-align: center;">检验；认证</td>
+</tr>
+<tr>
+<td style="text-align: center;">empirical</td>
+<td style="text-align: center;">实证的</td>
+<td style="text-align: center;">intrinsically</td>
+<td style="text-align: center;">本质上</td>
+</tr>
+</tbody>
+</table>
+</details>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0"
 role="list">
 <div id="ref-surowiecki2005wisdom" class="csl-entry" role="listitem">
