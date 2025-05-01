@@ -53,15 +53,15 @@
           <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
           </svg>
-          2025-04-28
+          2025-05-01
           </small>
         </div>
       </div>
       <div>
         <small>进度</small>
         <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-</svg><small>100%</small>
+  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+</svg><small>15%</small>
 
       </div>
     </div>
@@ -117,23 +117,20 @@ id="toc-plug.router"><code>Plug.Router</code></a></li>
 应用，就是允许开发者可以根据编写/组织对连接进行一系列操作的 plugs
 编写其自己的网络应用。</p>
 <h4 id="plog.conn"><code>%Plog.Conn{}</code></h4>
+<p>一个典型的基于 FP 开发的应用，基本上可以这么看待：</p>
+<pre class="text"><code>result = data |&gt; func1() |&gt; func2 |&gt; ...</code></pre>
 <p>主要依照文档的划分依据进行讲解。</p>
 <h5 id="请求相关">请求相关</h5>
-<p>一个典型的 HTTP 请求长这样：</p>
-<pre class="text"><code></code></pre>
 <h5 id="响应相关">响应相关</h5>
-<h5 id="misc">Misc</h5>
-<ul>
-<li><code>TODO</code> 介绍各种参数
-<ul>
-<li>获取相关
+<h5
+id="响应请求过程的生命周期要用到的">响应请求过程的生命周期要用到的</h5>
+<p>上下文管理（Session 与 Assigns）</p>
+<h5 id="获取相关">获取相关</h5>
 <ul>
 <li><code>%Plug.Conn.Unfetched{}</code></li>
-</ul></li>
-<li>连接相关（可以理解为 Plug 独到的）</li>
-<li>上下文管理（Session 与 Assigns）</li>
-</ul></li>
 </ul>
+<h5 id="连接相关">连接相关</h5>
+<p>可以理解为 Plug 独到的</p>
 <h4 id="plug"><code>Plug</code></h4>
 <ul>
 <li><code>TODO</code> Plug 存在函数以及模块两种形式
@@ -149,7 +146,7 @@ id="toc-plug.router"><code>Plug.Router</code></a></li>
 
 
         <div style="text-align:center">
-            ——完——
+            ——亟待更新——
           </div>
         </div>
       </main>
