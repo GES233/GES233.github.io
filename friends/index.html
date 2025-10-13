@@ -49,6 +49,7 @@
           <div>
             <ul>
 <li><a href="#友链" id="toc-友链">友链</a></li>
+<li><a href="#请求" id="toc-请求">请求</a></li>
 </ul>
 
           </div>
@@ -57,42 +58,134 @@
 
 
 <h3 id="友链">友链</h3>
+<style>
+.friend-card {
+  display: flex;
+  align-items: flex-start;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.friend-card:hover {
+  border-color: #3498db;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.1);
+}
+
+.friend-avatar {
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+}
+
+.friend-avatar img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f1f3f4;
+}
+
+.friend-content {
+  flex: 1;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .friend-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .friend-avatar {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .friend-avatar img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* 网格布局容器样式 */
+.heti-skip {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+</style>
 <div class="heti-skip">
-<h4 id="ponyjun-的雅舍">PONYJUN 的雅舍</h4>
-<figure>
-<img
-src="https://q2.qlogo.cn/headimg_dl?dst_uin=1504322099&amp;spec=100"
-alt="https://p.cnedge.net" />
-<figcaption aria-hidden="true">https://p.cnedge.net</figcaption>
-</figure>
-<p><em>灯火阑珊处，无人知晓的低语是什么？独行的我，是谁在默默陪伴？</em></p>
-<hr>
-<h4 id="yangs-blog">Yang’s Blog</h4>
-<figure>
-<img
-src="http://q.qlogo.cn/headimg_dl?dst_uin=2958445350&amp;spec=640&amp;img_type=jpg"
-alt="https://kaeshi.top" />
-<figcaption aria-hidden="true">https://kaeshi.top</figcaption>
-</figure>
-<p><em>Make a dent in the universe.</em></p>
-<hr>
-<h4 id="kulipai-home">KuLiPai Home</h4>
-<figure>
-<img src="https://kulipai.top/favicon.png"
-alt="https://doc.kulipai.top" />
-<figcaption aria-hidden="true">https://doc.kulipai.top</figcaption>
-</figure>
-<p><em><code>nil</code></em></p>
-<hr>
+<div class="friend-card">
+<div class="friend-avatar">
+<p><img src="https://q2.qlogo.cn/headimg_dl?dst_uin=1504322099&spec=100" alt="PONYJUN 的雅舍" loading="lazy"></p>
+</div>
+<div class="friend-content">
+<hgroup>
+<h3>
+PONYJUN 的雅舍
+</h3>
+<p>
+灯火阑珊处，无人知晓的低语是什么？独行的我，是谁在默默陪伴？
+</p>
+</hgroup>
+<p><button class="outline"><a href="https://p.cnedge.net" target="_blank" rel="noopener">让我访问！</a></button></p>
+</div>
+</div>
+<div class="friend-card">
+<div class="friend-avatar">
+<p><img src="http://q.qlogo.cn/headimg_dl?dst_uin=2958445350&spec=640&img_type=jpg" alt="Yang's Blog" loading="lazy"></p>
+</div>
+<div class="friend-content">
+<hgroup>
+<h3>
+Yang’s Blog
+</h3>
+<p>
+Make a dent in the universe.
+</p>
+</hgroup>
+<p><button class="outline"><a href="https://kaeshi.top" target="_blank" rel="noopener">让我访问！</a></button></p>
+</div>
+</div>
+<div class="friend-card">
+<div class="friend-avatar">
+<p><img src="https://kulipai.top/favicon.png" alt="KuLiPai Home" loading="lazy"></p>
+</div>
+<div class="friend-content">
+<h3>
+KuLiPai Home
+</h3>
+<p><button class="outline"><a href="https://doc.kulipai.top" target="_blank" rel="noopener">让我访问！</a></button></p>
+</div>
+</div>
 </div>
 <h3 id="请求">请求</h3>
 <p>暂不接受邮件。</p>
 <h4 id="本站信息">本站信息</h4>
+<div class="heti-skip">
+<div class="friend-card">
+<div class="friend-avatar">
+<p><img src="https://avatars.githubusercontent.com/u/30802664?v=4" alt="自留地 - GES233's Blog" loading="lazy"></p>
+</div>
+<div class="friend-content">
+<hgroup>
+<h3>
+自留地 - GES233’s Blog
+</h3>
+<p>
+得以存在便是一个奇迹，能够思考就是一件乐事。
+</p>
+</hgroup>
+<p><button disabled class="outline"><a href="https://ges233.github.io" target="_blank" rel="noopener">就是这儿！</a></button></p>
+</div>
+</div>
 <ul>
 <li>站名：<code>自留地 - GES233's Blog</code></li>
-<li>链接：https://ges233.github.io</li>
+<li><a href="https://ges233.github.io">链接</a> 以及 <a
+href="https://avatars.githubusercontent.com/u/30802664?v=4">头像</a></li>
 <li>介绍：<code>得以存在便是一个奇迹，能够思考就是一件乐事。</code></li>
-<li>图标：https://avatars.githubusercontent.com/u/30802664?v=4</li>
 </ul>
 </div>
 
