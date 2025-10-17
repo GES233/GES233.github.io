@@ -63,7 +63,7 @@
           <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
           </svg>
-          2025-10-12
+          2025-10-17
           </small>
         </div>
       </div>
@@ -158,8 +158,13 @@ data-cites="friston2010free"><sup>[1]</sup></span>。 FEP
 从这个角度看， FEP 是无可非议的：其数学完备性充分证明了作为原理的资格。
 我们在这里将会关注于其作为理论的资质，以及我们将单独花出一些精力在其在特定领域的实现上（过程模型）。</p>
 <h3 id="贝叶斯大脑假说">贝叶斯大脑假说</h3>
-<p>作为 FEP
-的引子，简要的说明下贝叶斯大脑的假说很有帮助，这个可以用神经科学家更加了解的说法来表达，以及其事实上等价于特定条件下的
+<p>作为 FEP 的引子，简要的说明下贝叶斯大脑的假说很有帮助[<span
+class="citation"
+data-cites="lee2003hierarchical"><sup>[2]</sup></span>]<span
+class="citation"
+data-cites="knill2004bayesian"><sup>[3]</sup></span><span
+class="citation"
+data-cites="doya2007bayesian"><sup>[4]</sup></span>，这个可以用神经科学家更加了解的说法来表达，以及其事实上等价于特定条件下的
 FEP （将在下一节详细展开）。
 贝叶斯脑的第一个主张是大脑配有周遭环境的内部模型（或生成模型），其指定了从隐藏状态（记作
 <span class="math inline">\(s\)</span>）到生成感官观察（记作 <span
@@ -170,7 +175,8 @@ class="math inline">\(o\)</span>）的“配方”。
 <span class="math inline">\(p(s)\)</span> 中被提取。
 比方说隐藏状态可能是一个物体表现的某线段的朝向，那么先验可能是偏向主方向而非斜向的分布<a
 href="#fn1" class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a>。
+role="doc-noteref"><sup>1</sup></a><span class="citation"
+data-cites="girshick2011cardinal"><sup>[5]</sup></span>。
 其次，感官观察从基于隐藏状态的观测分布 <span
 class="math inline">\(p(o|s)\)</span> 中得到。
 比方说，将隐藏线方向投影到视网膜上再被编码为视网膜神经节细胞的放电。
@@ -202,6 +208,10 @@ class="math inline">\(\mathcal{D}\)</span> 意为相对熵：</p>
 的式子就是“贝叶斯惊讶”，以及 <span class="math inline">\(s\)</span> 以及
 <span class="math inline">\(o\)</span> 之间是以 <span
 class="math inline">\(\pi\)</span> 为条件的交互信息。</p>
+<p>贝叶斯大脑假设能够被自然地扩展</p>
+<p><span class="math display">\[
+\mathcal{I}(\pi) = \sun_o
+\]</span></p>
 <h3 id="无约束自由能原理是贝叶斯推断">无约束自由能原理是贝叶斯推断</h3>
 <p>FEP
 的基本迹象时将贝叶斯推断转化为最优化问题（请参见以下【待施工】）</p>
@@ -457,6 +467,30 @@ role="list">
 <div class="csl-left-margin">[1] </div><div
 class="csl-right-inline">FRISTON K. The free-energy principle: a unified
 brain theory?[J]. Nature reviews neuroscience, 2010,11(2):127–138.
+</div>
+</div>
+<div id="ref-lee2003hierarchical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">LEE
+T S, MUMFORD D. Hierarchical Bayesian inference in the visual cortex[J].
+Journal of the Optical Society of America A, 2003,20(7):1434–1448.
+</div>
+</div>
+<div id="ref-knill2004bayesian" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div
+class="csl-right-inline">KNILL D C, POUGET A. The Bayesian brain: the
+role of uncertainty in neural coding and computation[J]. TRENDS in
+Neurosciences, 2004,27(12):712–719. </div>
+</div>
+<div id="ref-doya2007bayesian" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div
+class="csl-right-inline">DOYA K. Bayesian brain: Probabilistic
+approaches to neural coding[M]. MIT press,2007. </div>
+</div>
+<div id="ref-girshick2011cardinal" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div
+class="csl-right-inline">GIRSHICK A R, LANDY M S, SIMONCELLI E P.
+Cardinal rules: visual orientation perception reflects knowledge of
+environmental statistics[J]. Nature neuroscience, 2011,14(7):926–932.
 </div>
 </div>
 </div>
