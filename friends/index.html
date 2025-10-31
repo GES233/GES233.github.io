@@ -81,9 +81,9 @@
   const eventSource = new EventSource("/sse");
 
   eventSource.addEventListener("reload", (e) => {
-    console.log("Server sent reload event. Reloading page...");
+    // console.log("Server sent reload event. Reloading page...");
     window.location.reload();
-    console.log("Reload complete.");
+    // console.log("Reload complete.");
   });
 
   eventSource.onerror = (err) => {
