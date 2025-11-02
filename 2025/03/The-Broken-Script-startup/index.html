@@ -18,6 +18,8 @@
 </script>
 
 <link rel="stylesheet" href="/assets/code-highlighting.css">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 
 <script type="text/javascript">
   const eventSource = new EventSource("/sse");
@@ -35,7 +37,6 @@
 </script>
 
 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -103,14 +104,17 @@
 
       <main>
         
-          <div>
+        <div class="heti-skip">
+          <details class="dropdown">
+            <summary>目录</summary>
             <ul>
 <li><a href="#基本信息" id="toc-基本信息">基本信息</a></li>
 <li><a href="#safe-or-unsafe-version"
 id="toc-safe-or-unsafe-version">safe or UNsafe version</a></li>
 </ul>
 
-          </div>
+          </details>
+        </div>
         
         <div>
 
@@ -196,9 +200,10 @@ Wendigo 能从这件事中恢复过来。</p>
 完全失效。</p>
 
 
-        <div style="text-align:center">
-            ——无限期停止撰写——
-        </div>
+          <div style="text-align:center" class="heti">
+              ——无限期停止撰写——
+          
+          </div>
         </div>
       </main>
     </article>

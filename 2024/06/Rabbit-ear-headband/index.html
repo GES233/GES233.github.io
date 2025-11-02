@@ -18,6 +18,8 @@
 </script>
 
 <link rel="stylesheet" href="/assets/code-highlighting.css">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 
 <script type="text/javascript">
   const eventSource = new EventSource("/sse");
@@ -35,7 +37,6 @@
 </script>
 
 
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -103,14 +104,17 @@
 
       <main>
         
-          <div>
+        <div class="heti-skip">
+          <details class="dropdown">
+            <summary>目录</summary>
             <ul>
 <li><a href="#最开始的想法" id="toc-最开始的想法">最开始的想法</a></li>
 <li><a href="#研究现状" id="toc-研究现状"><del>研究</del>现状</a></li>
 <li><a href="#设计方案" id="toc-设计方案">设计方案</a></li>
 </ul>
 
-          </div>
+          </details>
+        </div>
         
         <div>
 
@@ -177,9 +181,10 @@
 </div>
 
 
-        <div style="text-align:center">
-            ——无限期停止撰写——
-        </div>
+          <div style="text-align:center" class="heti">
+              ——无限期停止撰写——
+          
+          </div>
         </div>
       </main>
     </article>
