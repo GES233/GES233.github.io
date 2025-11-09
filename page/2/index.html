@@ -9,14 +9,7 @@
     自留地 :: 第 2 页
   </title>
   <script src="/assets/phoenix_html.js"></script>
-<link rel ="stylesheet" href="/assets/picocss.min.css" >
-<link rel="stylesheet" href="/assets/heti.min.css">
-<script src="/assets/hti-addon.min.js"></script>
-<script>
-  const heti = new Heti('.heti');
-  heti.autoSpacing();
-</script>
-
+<link rel="stylesheet" href="/assets/css/app.css">
 <link rel="stylesheet" href="/assets/code-highlighting.css">
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
@@ -40,92 +33,100 @@
 </head>
 
 <body>
-  <header class="container">
-    <nav>
-      <ul>
-        <li><kbd>GES233</kbd>'s Blog</li>
-      </ul>
-      <ul>
-        <li>
-          <details class="dropdown">
-          <summary role="button">欢迎</summary>
-            <ul dir="rtl">
-              <li><a href="/about">关于</a></li>
-              <li><a href="/friends">友链</a></li>
-            </ul>
-          </details>
-        </li>
-      </ul>
-    </nav>
+  <header>
+    <div class="navbar bg-base-100 shadow-sm">
+      <div class="flex-1">
+        <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
+      </div>
+      <ul class="menu menu-horizontal px-1">
+      <li>
+        <details>
+          <summary>欢迎</summary>
+          <ul class="bg-base-100 rounded-t-none p-2">
+            <li><a href="/about">关于</a></li>
+            <li><a href="/friends">友链</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+    </div>
   </header>
 
-  <main class="container">
-    <article class="heti">
+  <main class="w-full bg-base-200 py-12 px-4">
+    <div class="mx-auto max-w-4xl rounded-lg shadow-sm p-8 sm:p-12">
 
       
-        <article>
-  <a href="/2024/07/Glowworm-the-neural-simulator-i"><h3>萤火虫🪲——神经仿真的概念验证模型（一）</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2024-07-03</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-</svg><small>20%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2024/07/Glowworm-the-neural-simulator-i"><h3 class="card-title text-lg">萤火虫🪲——神经仿真的概念验证模型（一）</h3></a>
+    <div class="prose">
+      
 <p>项目地址：<a
 href="https://github.com/GES233/Glowworm">GES233/Glowworm: Simple neural
 simulation model.</a></p>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2024-07-03
+      </div>
+      <div class="badge badge-info badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:20; --size:1rem; --thickness: 2px;" aria-valuenow="20" role="progressbar">
   </div>
-</article>
+  20%
+</div>
 
+    </div>
+  </div>
+</div>
+
+        </div>
       
-        <article>
-  <a href="/2024/07/Models-of-synaptic-conductance-ii"><h3>【翻译】基于突触电导的建模（二）</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2024-07-01</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-</svg><small>100%</small>
-</span>
-  </p>
-  <div>
-    <p>原文章：<a
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2024/07/Models-of-synaptic-conductance-ii"><h3 class="card-title text-lg">【翻译】基于突触电导的建模（二）</h3></a>
+    <div class="prose">
+      <p>原文章：<a
 href="https://www.tusharchauhan.com/writing/models-of-synaptic-conductance-ii/">Models
 of synaptic conductance II | Tushar Chauhan</a></p>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2024-07-01
+      </div>
+      <div class="badge badge-success badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:100; --size:1rem; --thickness: 2px;" aria-valuenow="100" role="progressbar">
   </div>
-</article>
+    100%
+</div>
 
+    </div>
+  </div>
+</div>
+
+        </div>
       
-        <article>
-  <a href="/2024/06/Rabbit-ear-headband"><h3>电动兔耳朵的设计（可能有实现）</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2024-06-23</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-</svg><small>20%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2024/06/Rabbit-ear-headband"><h3 class="card-title text-lg">电动兔耳朵的设计（可能有实现）</h3></a>
+    <div class="prose">
+      
 <style>
   /* Reference: https://www.webhek.com/post/responsive-video-iframes-keeping-aspect-ratio-with-only-css/ */
   /* 这个规则规定了iframe父元素容器的尺寸，我们要求它的宽高比应该是 25:14 */
@@ -152,48 +153,66 @@ of synaptic conductance II | Tushar Chauhan</a></p>
 <p>Love bluh bluh bluh bluh bluh bluh bluh.</p>
 </blockquote>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2024-06-23
+      </div>
+      <div class="badge badge-outline badge-ghost">
+  <svg class="size-[0.8rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:20; --size:1rem; --thickness: 2px;" aria-valuenow="20" role="progressbar">
   </div>
-</article>
+  20%
+</div>
 
+    </div>
+  </div>
+</div>
+
+        </div>
       
-        <article>
-  <a href="/2024/06/Interview-Note"><h3>访谈笔记：主体化与稳定的心智</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2024-06-18</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-</svg><small>20%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2024/06/Interview-Note"><h3 class="card-title text-lg">访谈笔记：主体化与稳定的心智</h3></a>
+    <div class="prose">
+      
 <p>关于昨天下午的访谈尝试写点啥。</p>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2024-06-18
+      </div>
+      <div class="badge badge-info badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:20; --size:1rem; --thickness: 2px;" aria-valuenow="20" role="progressbar">
   </div>
-</article>
+  20%
+</div>
 
+    </div>
+  </div>
+</div>
+
+        </div>
       
-        <article>
-  <a href="/2024/06/World-execute-me-lyrics-analyse"><h3>world.execute(me); 个人向歌词理解</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2024-06-11</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-</svg><small>45%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2024/06/World-execute-me-lyrics-analyse"><h3 class="card-title text-lg">world.execute(me); 个人向歌词理解</h3></a>
+    <div class="prose">
+      
 <style>
   /* Reference: https://www.webhek.com/post/responsive-video-iframes-keeping-aspect-ratio-with-only-css/ */
   /* 这个规则规定了iframe父元素容器的尺寸，我们要求它的宽高比应该是 25:14 */
@@ -219,189 +238,276 @@ of synaptic conductance II | Tushar Chauhan</a></p>
 <p><em>我陷入了一种不可知的、可能叫做爱的情感之中。</em></p>
 </blockquote>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2024-06-11
+      </div>
+      <div class="badge badge-info badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:45; --size:1rem; --thickness: 2px;" aria-valuenow="45" role="progressbar">
   </div>
-</article>
+  45%
+</div>
 
+    </div>
+  </div>
+</div>
+
+        </div>
       
-        <article>
-  <a href="/2024/06/VividPuppet-the-Noval-Framework"><h3>VividPuppet🎭：动作生成框架</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2024-06-10</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-</svg><small>1%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2024/06/VividPuppet-the-Noval-Framework"><h3 class="card-title text-lg">VividPuppet🎭：动作生成框架</h3></a>
+    <div class="prose">
+      
 <p><em>A generic simulation framework based on action
 emulating.</em></p>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2024-06-10
+      </div>
+      <div class="badge badge-info badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:1; --size:1rem; --thickness: 2px;" aria-valuenow="1" role="progressbar">
   </div>
-</article>
+  1%
+</div>
 
+    </div>
+  </div>
+</div>
+
+        </div>
       
-        <article>
-  <a href="/2024/01/Xylem-Presentation"><h3>管信课上的汇报</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2024-01-19</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-</svg><small>50%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2024/01/Xylem-Presentation"><h3 class="card-title text-lg">管信课上的汇报</h3></a>
+    <div class="prose">
+      
 <p>把关于和兴趣贴边的课程的报告单独拎出来。</p>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2024-01-19
+      </div>
+      <div class="badge badge-outline badge-ghost">
+  <svg class="size-[0.8rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:50; --size:1rem; --thickness: 2px;" aria-valuenow="50" role="progressbar">
   </div>
-</article>
+  50%
+</div>
 
+    </div>
+  </div>
+</div>
+
+        </div>
       
-        <article>
-  <a href="/2024/01/Review-1st-term-at-CAU"><h3>个人感悟：来中农烟院的第一学期</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2024-01-16</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-</svg><small>63%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2024/01/Review-1st-term-at-CAU"><h3 class="card-title text-lg">个人感悟：来中农烟院的第一学期</h3></a>
+    <div class="prose">
+      
 <ul>
 <li><code>🐭🐭 -&gt; 🐉🧱</code> =&gt;
 <code>🐭🐭 -&gt; 985✌</code>×</li>
 <li><code>🐭🐭 -&gt; 🐉</code> =&gt; <code>🐭🐭 -&gt; 🥬🐕</code>√</li>
 </ul>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2024-01-16
+      </div>
+      <div class="badge badge-outline badge-ghost">
+  <svg class="size-[0.8rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:63; --size:1rem; --thickness: 2px;" aria-valuenow="63" role="progressbar">
   </div>
-</article>
+  63%
+</div>
 
+    </div>
+  </div>
+</div>
+
+        </div>
       
-        <article>
-  <a href="/2023/10/Paper-view-Eliciting-Thinking-Hierarchy-without-a-Prior"><h3>【长期施工中】论文翻译：无先验知识下激发的思维层次</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2023-10-21</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-</svg><small>15%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2023/10/Paper-view-Eliciting-Thinking-Hierarchy-without-a-Prior"><h3 class="card-title text-lg">【长期施工中】论文翻译：无先验知识下激发的思维层次</h3></a>
+    <div class="prose">
+      
 <p>Source: <a href="https://arxiv.org/abs/2109.10619">[2109.10619]
 Eliciting Thinking Hierarchy without a Prior (arxiv.org)</a></p>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2023-10-21
+      </div>
+      <div class="badge badge-info badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:15; --size:1rem; --thickness: 2px;" aria-valuenow="15" role="progressbar">
   </div>
-</article>
+  15%
+</div>
 
+    </div>
+  </div>
+</div>
+
+        </div>
       
-        <article>
-  <a href="/2023/10/Excretory-system-learning"><h3>排泄系统相关</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2023-10-04</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-</svg><small>15%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2023/10/Excretory-system-learning"><h3 class="card-title text-lg">排泄系统相关</h3></a>
+    <div class="prose">
+      
 <p>通过与 ChatGPT 的交流来学习一个领域的实例，本篇是关于排泄系统的。</p>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2023-10-04
+      </div>
+      <div class="badge badge-outline badge-ghost">
+  <svg class="size-[0.8rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:15; --size:1rem; --thickness: 2px;" aria-valuenow="15" role="progressbar">
   </div>
-</article>
+  15%
+</div>
 
-      
-        <article>
-  <a href="/2023/08/Coagulantion"><h3>生理性止血</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2023-08-13</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-</svg><small>10%</small>
-</span>
-  </p>
-  <div>
-    
+    </div>
   </div>
-</article>
+</div>
 
+        </div>
       
-        <article>
-  <a href="/2023/07/Calculate-of-pI"><h3>等电点的计算</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2023-07-05</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-</svg><small>100%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2023/08/Coagulantion"><h3 class="card-title text-lg">生理性止血</h3></a>
+    <div class="prose">
+      
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2023-08-13
+      </div>
+      <div class="badge badge-outline badge-ghost">
+  <svg class="size-[0.8rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:10; --size:1rem; --thickness: 2px;" aria-valuenow="10" role="progressbar">
   </div>
-</article>
+  10%
+</div>
 
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2023/07/Calculate-of-pI"><h3 class="card-title text-lg">等电点的计算</h3></a>
+    <div class="prose">
+      
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2023-07-05
+      </div>
+      <div class="badge badge-success badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:100; --size:1rem; --thickness: 2px;" aria-valuenow="100" role="progressbar">
+  </div>
+    100%
+</div>
+
+    </div>
+  </div>
+</div>
+
+        </div>
       
 
-    </article>
+    </div>
   </main>
 
-  <footer>
-    <div align="center">
+  <footer class="mt-16 border-t py-8">
+    <div class="text-center my-4">
       
-        <button class="outline" onClick="window.location.href='/'">1</button>
+        <button class="btn btn-outline btn-primary" onClick="window.location.href='/'">1</button>
       
       
         
           
-            <button class="outline secondary" onClick="window.location.href='/page/2'">2</button>
+            <button class="btn btn-active btn-secondary" onClick="window.location.href='/page/2'">2</button>
           
         
           
-            <button class="outline" onClick="window.location.href='/page/3'">3</button>
+            <button class="btn btn-outline btn-primary" onClick="window.location.href='/page/3'">3</button>
           
         
         
     </div>
-    <div class="container">
-      <small>Powered by <a href="https://github.com/GES233/simple_blog_engine">GES233/simple_blog_engine</a></small>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm text-base-content">
+        (c) 2025 GES233
+      </p>
+      <p class="text-center text-sm text-base-content">
+        Powered by <a href="https://github.com/GES233/simple_blog_engine"><code>GES233/simple_blog_engine</code></a>
+      </p>
     </div>
   </footer>
 </body>

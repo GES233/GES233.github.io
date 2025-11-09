@@ -9,14 +9,7 @@
     友链 - 自留地
   </title>
   <script src="/assets/phoenix_html.js"></script>
-<link rel ="stylesheet" href="/assets/picocss.min.css" >
-<link rel="stylesheet" href="/assets/heti.min.css">
-<script src="/assets/hti-addon.min.js"></script>
-<script>
-  const heti = new Heti('.heti');
-  heti.autoSpacing();
-</script>
-
+<link rel="stylesheet" href="/assets/css/app.css">
 <link rel="stylesheet" href="/assets/code-highlighting.css">
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
@@ -99,107 +92,126 @@
 </head>
 
 <body>
-  <header class="container">
-    <nav>
-      <ul>
-        <li><a href="/"><kbd>GES233</kbd>'s Blog</a></li>
-      </ul>
-      <ul>
-        <li>
-          <details class="dropdown">
-          <summary role="button">欢迎</summary>
-            <ul dir="rtl">
-              <li><a href="/about">关于</a></li>
-              <li><a href="/friends">友链</a></li>
-            </ul>
-          </details>
-        </li>
-      </ul>
-    </nav>
+  <header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10">
+    <div class="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-8">
+      <div class="flex-1">
+        <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
+      </div>
+      <ul class="menu menu-horizontal px-1">
+      <li>
+        <details>
+          <summary>欢迎</summary>
+          <ul class="bg-base-100 rounded-t-none p-2">
+            <li><a href="/about">关于</a></li>
+            <li><a href="/friends">友链</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+    </div>
   </header>
-  <main class="container">
-    <article class="heti">
+  <main class="w-full bg-base-200 py-12 px-4">
+    <div class="mx-auto max-w-4xl bg-base-100 rounded-lg shadow-sm p-8 sm:p-12">
+      <div class="card">
 
-      <main>
-        
-        <div class="heti-skip">
+        <div class="card-body">
           <details class="dropdown">
-            <summary>目录</summary>
-            <ul>
+  <summary class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl btn-outline btn-secondary">
+    目录
+  </summary>
+    <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
 <li><a href="#友链" id="toc-友链">友链</a></li>
 <li><a href="#请求" id="toc-请求">请求</a></li>
 </ul>
 
-          </details>
-        </div>
-        
-        <div>
+</details>
+
+          <div class="card-body prose sm:prose-lg">
 
 
 <h3 id="友链">友链</h3>
-<div class="heti-skip">
-<div class="friend-card">
-<div class="friend-avatar">
-<p><img src="https://q2.qlogo.cn/headimg_dl?dst_uin=1504322099&spec=100" alt="PONYJUN 的雅舍" loading="lazy"></p>
-</div>
-<div class="friend-content">
-<hgroup>
-<h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+<div class="card lg:card-side lg:h-72 bg-base-100 shadow-sm shadow-xl">
+<figure>
+<img src="https://q2.qlogo.cn/headimg_dl?dst_uin=1504322099&spec=100" alt="PONYJUN 的雅舍" />
+</figure>
+<div class="card-body">
+<h2 class="card-title">
 PONYJUN 的雅舍
-</h3>
-<p>
+</h2>
+<p class="text-base-content/70">
 灯火阑珊处，无人知晓的低语是什么？独行的我，是谁在默默陪伴？
 </p>
-</hgroup>
-<p><button class="outline"><a href="https://p.cnedge.net" target="_blank" rel="noopener">让我访问！</a></button></p>
+<div class="card-actions justify-end">
+<p><a href="https://p.cnedge.net" target="_blank" rel="noopener" class="btn btn-primary">
+让我访问！
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+</svg> </a></p>
 </div>
 </div>
-<div class="friend-card">
-<div class="friend-avatar">
-<p><img src="http://q.qlogo.cn/headimg_dl?dst_uin=2958445350&spec=640&img_type=jpg" alt="Yang's Blog" loading="lazy"></p>
 </div>
-<div class="friend-content">
-<hgroup>
-<h3>
+<div class="card lg:card-side lg:h-72 bg-base-100 shadow-sm shadow-xl">
+<figure>
+<img src="http://q.qlogo.cn/headimg_dl?dst_uin=2958445350&spec=640&img_type=jpg" alt="Yang's Blog" />
+</figure>
+<div class="card-body">
+<h2 class="card-title">
 Yang’s Blog
-</h3>
-<p>
+</h2>
+<p class="text-base-content/70">
 Make a dent in the universe.
 </p>
-</hgroup>
-<p><button class="outline"><a href="https://kaeshi.top" target="_blank" rel="noopener">让我访问！</a></button></p>
+<div class="card-actions justify-end">
+<p><a href="https://kaeshi.top" target="_blank" rel="noopener" class="btn btn-primary">
+让我访问！
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+</svg> </a></p>
 </div>
 </div>
-<div class="friend-card">
-<div class="friend-avatar">
-<p><img src="https://kulipai.top/favicon.png" alt="KuLiPai Home" loading="lazy"></p>
 </div>
-<div class="friend-content">
-<h3>
+<div class="card lg:card-side lg:h-72 bg-base-100 shadow-sm shadow-xl">
+<figure>
+<img src="https://kulipai.top/favicon.png" alt="KuLiPai Home" />
+</figure>
+<div class="card-body">
+<h2 class="card-title">
 KuLiPai Home
-</h3>
-<p><button class="outline"><a href="https://doc.kulipai.top" target="_blank" rel="noopener">让我访问！</a></button></p>
+</h2>
+<div class="card-actions justify-end">
+<p><a href="https://doc.kulipai.top" target="_blank" rel="noopener" class="btn btn-primary">
+让我访问！
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+</svg> </a></p>
+</div>
 </div>
 </div>
 </div>
 <h3 id="请求">请求</h3>
 <p>暂不接受邮件。</p>
 <h4 id="本站信息">本站信息</h4>
-<div class="heti-skip">
-<div class="friend-card">
-<div class="friend-avatar">
-<p><img src="https://avatars.githubusercontent.com/u/30802664?v=4" alt="自留地 - GES233's Blog" loading="lazy"></p>
-</div>
-<div class="friend-content">
-<hgroup>
-<h3>
+<div class="gap-6 my-8">
+<div class="card lg:card-side lg:h-72 bg-base-100 shadow-sm shadow-xl">
+<figure>
+<img src="https://avatars.githubusercontent.com/u/30802664?v=4" alt="自留地 - GES233's Blog" />
+</figure>
+<div class="card-body">
+<h2 class="card-title">
 自留地 - GES233’s Blog
-</h3>
-<p>
+</h2>
+<p class="text-base-content/70">
 得以存在便是一个奇迹，能够思考就是一件乐事。
 </p>
-</hgroup>
-<p><button disabled class="outline"><a href="https://ges233.github.io" target="_blank" rel="noopener">就是这儿！</a></button></p>
+<div class="card-actions justify-end">
+<p><button disabled="disabled" class="btn btn-dash btn-secondary">
+就是这儿！
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+</svg> </button></p>
+</div>
+</div>
 </div>
 </div>
 <ul>
@@ -208,16 +220,21 @@ KuLiPai Home
 href="https://avatars.githubusercontent.com/u/30802664?v=4">头像</a></li>
 <li>介绍：<code>得以存在便是一个奇迹，能够思考就是一件乐事。</code></li>
 </ul>
-</div>
 
 
+          </div>
         </div>
-      </main>
-    </article>
+      </div>
+    </div>
   <main>
-  <footer>
-    <div class="container">
-      <small>Powered by <a href="https://github.com/GES233/simple_blog_engine">GES233/simple_blog_engine</a></small>
+  <footer class="mt-16 border-t py-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm text-base-content">
+        (c) 2025 GES233
+      </p>
+      <p class="text-center text-sm text-base-content">
+        Powered by <a href="https://github.com/GES233/simple_blog_engine"><code>GES233/simple_blog_engine</code></a>
+      </p>
     </div>
   </footer>
 </body>

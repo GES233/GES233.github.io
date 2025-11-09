@@ -9,14 +9,7 @@
     关于 - 自留地
   </title>
   <script src="/assets/phoenix_html.js"></script>
-<link rel ="stylesheet" href="/assets/picocss.min.css" >
-<link rel="stylesheet" href="/assets/heti.min.css">
-<script src="/assets/hti-addon.min.js"></script>
-<script>
-  const heti = new Heti('.heti');
-  heti.autoSpacing();
-</script>
-
+<link rel="stylesheet" href="/assets/css/app.css">
 <link rel="stylesheet" href="/assets/code-highlighting.css">
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
@@ -40,33 +33,34 @@
 </head>
 
 <body>
-  <header class="container">
-    <nav>
-      <ul>
-        <li><a href="/"><kbd>GES233</kbd>'s Blog</a></li>
-      </ul>
-      <ul>
-        <li>
-          <details class="dropdown">
-          <summary role="button">欢迎</summary>
-            <ul dir="rtl">
-              <li><a href="/about">关于</a></li>
-              <li><a href="/friends">友链</a></li>
-            </ul>
-          </details>
-        </li>
-      </ul>
-    </nav>
+  <header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10">
+    <div class="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-8">
+      <div class="flex-1">
+        <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
+      </div>
+      <ul class="menu menu-horizontal px-1">
+      <li>
+        <details>
+          <summary>欢迎</summary>
+          <ul class="bg-base-100 rounded-t-none p-2">
+            <li><a href="/about">关于</a></li>
+            <li><a href="/friends">友链</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+    </div>
   </header>
-  <main class="container">
-    <article class="heti">
+  <main class="w-full bg-base-200 py-12 px-4">
+    <div class="mx-auto max-w-4xl bg-base-100 rounded-lg shadow-sm p-8 sm:p-12">
+      <div class="card">
 
-      <main>
-        
-        <div class="heti-skip">
+        <div class="card-body">
           <details class="dropdown">
-            <summary>目录</summary>
-            <ul>
+  <summary class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl btn-outline btn-secondary">
+    目录
+  </summary>
+    <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
 <li><a href="#真关于" id="toc-真关于">真·关于</a>
 <ul>
 <li><a href="#关于博主" id="toc-关于博主">关于博主</a></li>
@@ -85,10 +79,9 @@ id="toc-博客重新复活前ppps">博客重新复活前（PPPS）</a></li>
 </ul></li>
 </ul>
 
-          </details>
-        </div>
-        
-        <div>
+</details>
+
+          <div class="card-body prose sm:prose-lg">
 
 
 <blockquote>
@@ -303,9 +296,7 @@ href="https://github.com/mozilla/pdf.js">PDF.js</a></td>
 <td style="text-align: left;">能够显示 pdf 文件</td>
 </tr>
 <tr>
-<td style="text-align: center;"><a
-href="https://picocss.com/">PicoCSS</a> 以及 <a
-href="https://github.com/sivan/heti">heti</a></td>
+<td style="text-align: center;">TailwindCSS 以及 DaisyUI</td>
 <td style="text-align: left;">美化页面</td>
 </tr>
 <tr>
@@ -396,13 +387,19 @@ id="更新再加上算是总结的东西postpostscript">更新再加上算是总
 <p>又加了些功能，现在看上去像一个正儿八经的博客了。</p>
 
 
+          </div>
         </div>
-      </main>
-    </article>
+      </div>
+    </div>
   <main>
-  <footer>
-    <div class="container">
-      <small>Powered by <a href="https://github.com/GES233/simple_blog_engine">GES233/simple_blog_engine</a></small>
+  <footer class="mt-16 border-t py-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm text-base-content">
+        (c) 2025 GES233
+      </p>
+      <p class="text-center text-sm text-base-content">
+        Powered by <a href="https://github.com/GES233/simple_blog_engine"><code>GES233/simple_blog_engine</code></a>
+      </p>
     </div>
   </footer>
 </body>

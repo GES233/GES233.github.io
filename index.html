@@ -9,14 +9,7 @@
     自留地 :: 首页
   </title>
   <script src="/assets/phoenix_html.js"></script>
-<link rel ="stylesheet" href="/assets/picocss.min.css" >
-<link rel="stylesheet" href="/assets/heti.min.css">
-<script src="/assets/hti-addon.min.js"></script>
-<script>
-  const heti = new Heti('.heti');
-  heti.autoSpacing();
-</script>
-
+<link rel="stylesheet" href="/assets/css/app.css">
 <link rel="stylesheet" href="/assets/code-highlighting.css">
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
@@ -40,256 +33,336 @@
 </head>
 
 <body>
-  <header class="container">
-    <nav>
-      <ul>
-        <li><kbd>GES233</kbd>'s Blog</li>
-      </ul>
-      <ul>
-        <li>
-          <details class="dropdown">
-          <summary role="button">欢迎</summary>
-            <ul dir="rtl">
-              <li><a href="/about">关于</a></li>
-              <li><a href="/friends">友链</a></li>
-            </ul>
-          </details>
-        </li>
-      </ul>
-    </nav>
+  <header>
+    <div class="navbar bg-base-100 shadow-sm">
+      <div class="flex-1">
+        <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
+      </div>
+      <ul class="menu menu-horizontal px-1">
+      <li>
+        <details>
+          <summary>欢迎</summary>
+          <ul class="bg-base-100 rounded-t-none p-2">
+            <li><a href="/about">关于</a></li>
+            <li><a href="/friends">友链</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+    </div>
   </header>
 
-  <main class="container">
-    <article class="heti">
+  <main class="w-full bg-base-200 py-12 px-4">
+    <div class="mx-auto max-w-4xl rounded-lg shadow-sm p-8 sm:p-12">
 
       
-        <article>
-  <a href="/2025/10/Illustrated-Modes-note-i"><h3>Illustrated Modes 学习笔记（一）</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2025-10-30</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-</svg><small>5%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2025/10/Illustrated-Modes-note-i"><h3 class="card-title text-lg">Illustrated Modes 学习笔记（一）</h3></a>
+    <div class="prose">
+      
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2025-10-30
+      </div>
+      <div class="badge badge-info badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:5; --size:1rem; --thickness: 2px;" aria-valuenow="5" role="progressbar">
   </div>
-</article>
+  5%
+</div>
 
-      
-        <article>
-  <a href="/2025/10/VariationsOfYesterday-Thoughts"><h3>游戏模组思考随想</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2025-10-12</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-</svg><small>60%</small>
-</span>
-  </p>
-  <div>
-    
+    </div>
   </div>
-</article>
+</div>
 
+        </div>
       
-        <article>
-  <a href="/2025/10/RabbitRabbitDance-Project"><h3>复建计划</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2025-10-12</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-</svg><small>5%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2025/10/VariationsOfYesterday-Thoughts"><h3 class="card-title text-lg">游戏模组思考随想</h3></a>
+    <div class="prose">
+      
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2025-10-12
+      </div>
+      <div class="badge badge-info badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:60; --size:1rem; --thickness: 2px;" aria-valuenow="60" role="progressbar">
+  </div>
+  60%
+</div>
+
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2025/10/RabbitRabbitDance-Project"><h3 class="card-title text-lg">复建计划</h3></a>
+    <div class="prose">
+      
 <p>这也是个大计划，但是和其他博文不同的是，我会尽力在现实层面去做。</p>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2025-10-12
+      </div>
+      <div class="badge badge-info badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:5; --size:1rem; --thickness: 2px;" aria-valuenow="5" role="progressbar">
   </div>
-</article>
+  5%
+</div>
 
-      
-        <article>
-  <a href="/2025/07/Lilypond-tricks"><h3>【暂时弃坑】个人向 Lilypond 使用技巧</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2025-07-02</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-</svg><small>0%</small>
-</span>
-  </p>
-  <div>
-    <p>因工作繁忙，相关功能搁置。</p>
-
+    </div>
   </div>
-</article>
+</div>
 
+        </div>
       
-        <article>
-  <a href="/2025/04/Plug-code-walkthrough"><h3>Plug 概览</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2025-04-25</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-</svg><small>15%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2025/07/Lilypond-tricks"><h3 class="card-title text-lg">【暂时弃坑】个人向 Lilypond 使用技巧</h3></a>
+    <div class="prose">
+      <p>因工作繁忙，相关功能搁置。</p>
+
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2025-07-02
+      </div>
+      <div class="badge badge-outline badge-ghost">
+  <svg class="size-[0.8rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:0; --size:1rem; --thickness: 2px;" aria-valuenow="0" role="progressbar">
   </div>
-</article>
+  0%
+</div>
 
+    </div>
+  </div>
+</div>
+
+        </div>
       
-        <article>
-  <a href="/2025/03/The-Broken-Script-startup"><h3>关于 The Broken Script 的一些信息</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2025-03-14</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-</svg><small>20%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2025/04/Plug-code-walkthrough"><h3 class="card-title text-lg">Plug 概览</h3></a>
+    <div class="prose">
+      
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2025-04-25
+      </div>
+      <div class="badge badge-info badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:15; --size:1rem; --thickness: 2px;" aria-valuenow="15" role="progressbar">
+  </div>
+  15%
+</div>
+
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2025/03/The-Broken-Script-startup"><h3 class="card-title text-lg">关于 The Broken Script 的一些信息</h3></a>
+    <div class="prose">
+      
 <p><code>&lt;o&gt;</code></p>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2025-03-14
+      </div>
+      <div class="badge badge-outline badge-ghost">
+  <svg class="size-[0.8rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:20; --size:1rem; --thickness: 2px;" aria-valuenow="20" role="progressbar">
   </div>
-</article>
+  20%
+</div>
 
+    </div>
+  </div>
+</div>
+
+        </div>
       
-        <article>
-  <a href="/2025/03/Qy-Editor-demo"><h3>在线编辑器的设计以及脚手架</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2025-03-12</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-</svg><small>10%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2025/03/Qy-Editor-demo"><h3 class="card-title text-lg">在线编辑器的设计以及脚手架</h3></a>
+    <div class="prose">
+      
 <p>Link: <a
 href="https://github.com/SynapticStrings/QyEditor">SynapticStrings/QyEditor:
 Lightweight synthesizer interface.</a></p>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2025-03-12
+      </div>
+      <div class="badge badge-info badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:10; --size:1rem; --thickness: 2px;" aria-valuenow="10" role="progressbar">
   </div>
-</article>
+  10%
+</div>
 
-      
-        <article>
-  <a href="/2024/10/After-URP"><h3>URP 参与感悟</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2024-10-22</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-</svg><small>50%</small>
-</span>
-  </p>
-  <div>
-    
+    </div>
   </div>
-</article>
+</div>
 
+        </div>
       
-        <article>
-  <a href="/2024/09/Sheet-Archive"><h3>整理的谱子</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2024-09-13</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-</svg><small>100%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2024/10/After-URP"><h3 class="card-title text-lg">URP 参与感悟</h3></a>
+    <div class="prose">
+      
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2024-10-22
+      </div>
+      <div class="badge badge-info badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:50; --size:1rem; --thickness: 2px;" aria-valuenow="50" role="progressbar">
   </div>
-</article>
+  50%
+</div>
 
+    </div>
+  </div>
+</div>
+
+        </div>
       
-        <article>
-  <a href="/2024/08/Wavenet-interpret"><h3>详解 WaveNet</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2024-08-09</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-</svg><small>20%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2024/09/Sheet-Archive"><h3 class="card-title text-lg">整理的谱子</h3></a>
+    <div class="prose">
+      
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2024-09-13
+      </div>
+      <div class="badge badge-outline badge-success">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:100; --size:1rem; --thickness: 2px;" aria-valuenow="100" role="progressbar">
+  </div>
+  100%
+</div>
+
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2024/08/Wavenet-interpret"><h3 class="card-title text-lg">详解 WaveNet</h3></a>
+    <div class="prose">
+      
 <p>本文章介绍了基于自回归的音频生成模型 WaveNet 。</p>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2024-08-09
+      </div>
+      <div class="badge badge-info badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:20; --size:1rem; --thickness: 2px;" aria-valuenow="20" role="progressbar">
   </div>
-</article>
+  20%
+</div>
 
+    </div>
+  </div>
+</div>
+
+        </div>
       
-        <article>
-  <a href="/2024/08/Gershman-free-energy"><h3>【翻译】关于我们的大脑，自由能告诉了我们什么？</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2024-08-07</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-</svg><small>20%</small>
-</span>
-  </p>
-  <div>
-    
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2024/08/Gershman-free-energy"><h3 class="card-title text-lg">【翻译】关于我们的大脑，自由能告诉了我们什么？</h3></a>
+    <div class="prose">
+      
 <p>Source: <a
 href="https://gershmanlab.com/pubs/free_energy.pdf">free_energy.pdf</a></p>
 <blockquote>
@@ -299,53 +372,86 @@ href="https://gershmanlab.com/pubs/free_energy.pdf">free_energy.pdf</a></p>
 </blockquote>
 <p>关键词：<strong>贝叶斯大脑</strong>；<strong>决策理论</strong>；<strong>变分推断</strong>；<strong>预测性编码</strong></p>
 
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2024-08-07
+      </div>
+      <div class="badge badge-info badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:20; --size:1rem; --thickness: 2px;" aria-valuenow="20" role="progressbar">
   </div>
-</article>
+  20%
+</div>
 
-      
-        <article>
-  <a href="/2024/07/Glowworm-the-neural-simulator-ii"><h3>萤火虫🪲——神经仿真的概念验证模型（二）</h3></a>
-  <p>
-    <span>
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-      <small>2024-07-21</small>
-    </span>
-    <span><svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-</svg><small>5%</small>
-</span>
-  </p>
-  <div>
-    
+    </div>
   </div>
-</article>
+</div>
 
+        </div>
+      
+        <div class="card bg-base-100 rounded-box grid my-6">
+        <div class="card rounded-box grid my-6">
+  <div class="card-body">
+    <a href="/2024/07/Glowworm-the-neural-simulator-ii"><h3 class="card-title text-lg">萤火虫🪲——神经仿真的概念验证模型（二）</h3></a>
+    <div class="prose">
+      
+    </div>
+    <div class="card-actions justify-end">
+      <div class="badge badge-dash badge-primary">
+        <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        2024-07-21
+      </div>
+      <div class="badge badge-info badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:5; --size:1rem; --thickness: 2px;" aria-valuenow="5" role="progressbar">
+  </div>
+  5%
+</div>
+
+    </div>
+  </div>
+</div>
+
+        </div>
       
 
-    </article>
+    </div>
   </main>
 
-  <footer>
-    <div align="center">
+  <footer class="mt-16 border-t py-8">
+    <div class="text-center my-4">
       
-        <button class="outline secondary" onClick="window.location.href='/'">1</button>
+        <button class="btn btn-active btn-secondary" onClick="window.location.href='/'">1</button>
       
       
         
           
-            <button class="outline" onClick="window.location.href='/page/2'">2</button>
+            <button class="btn btn-outline btn-primary" onClick="window.location.href='/page/2'">2</button>
           
         
           
-            <button class="outline" onClick="window.location.href='/page/3'">3</button>
+            <button class="btn btn-outline btn-primary" onClick="window.location.href='/page/3'">3</button>
           
         
         
     </div>
-    <div class="container">
-      <small>Powered by <a href="https://github.com/GES233/simple_blog_engine">GES233/simple_blog_engine</a></small>
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm text-base-content">
+        (c) 2025 GES233
+      </p>
+      <p class="text-center text-sm text-base-content">
+        Powered by <a href="https://github.com/GES233/simple_blog_engine"><code>GES233/simple_blog_engine</code></a>
+      </p>
     </div>
   </footer>
 </body>

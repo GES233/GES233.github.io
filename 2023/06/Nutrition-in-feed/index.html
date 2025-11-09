@@ -9,14 +9,7 @@
     家畜饲料中的营养物质及其消化流程 - 自留地
   </title>
   <script src="/assets/phoenix_html.js"></script>
-<link rel ="stylesheet" href="/assets/picocss.min.css" >
-<link rel="stylesheet" href="/assets/heti.min.css">
-<script src="/assets/hti-addon.min.js"></script>
-<script>
-  const heti = new Heti('.heti');
-  heti.autoSpacing();
-</script>
-
+<link rel="stylesheet" href="/assets/css/app.css">
 <link rel="stylesheet" href="/assets/code-highlighting.css">
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
@@ -40,86 +33,88 @@
 </head>
 
 <body>
-  <header class="container">
-    <nav>
-      <ul>
-        <li><a href="/"><kbd>GES233</kbd>'s Blog</a></li>
-      </ul>
-      <ul>
-        <li>
-          <details class="dropdown">
-          <summary role="button">欢迎</summary>
-            <ul dir="rtl">
-              <li><a href="/about">关于</a></li>
-              <li><a href="/friends">友链</a></li>
-            </ul>
-          </details>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main class="container">
-    <article class="heti">
-
-<header class="heti-skip">
-    <h2>家畜饲料中的营养物质及其消化流程</h2>
-    <!--可以改成一个小的表格-->
-    <div class="grid">
-      <div class="grid">
-        <div>
-          <small>
-          <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-          </svg>
-          2023-06-26
-          </small>
-        </div>
-        <div>
-          <small>
-          <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
-          </svg>
-          2025-03-07
-          </small>
-        </div>
+  <header>
+    <div class="navbar bg-base-100 shadow-sm">
+      <div class="flex-1">
+        <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
       </div>
-      <div>
-        <small>进度</small>
-        <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-</svg><small>100%</small>
-
-      </div>
-    </div>
-    <div class="pico">
-      <svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
-  <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
-</svg>
-<small>饲料</small>
-
-<svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
-  <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
-</svg>
-<small>营养物质</small>
-
-<svg width="14px" height="14px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
-  <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
-</svg>
-<small>消化</small>
-
+      <ul class="menu menu-horizontal px-1">
+      <li>
+        <details>
+          <summary>欢迎</summary>
+          <ul class="bg-base-100 rounded-t-none p-2">
+            <li><a href="/about">关于</a></li>
+            <li><a href="/friends">友链</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
     </div>
   </header>
+  <main class="w-full bg-base-200 py-12 px-4">
+    <div class="mx-auto max-w-4xl bg-base-100 rounded-lg shadow-sm p-8 sm:p-12">
+      <div class="card">
+
+<div>
+  <h2 class="card-title text-2xl">家畜饲料中的营养物质及其消化流程</h2>
+
+  <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-3 text-base-content/80 text-sm">
+    <span class="inline-flex items-center gap-1.5" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Zm.75-10.25a.75.75 0 0 0-1.5 0v2.5h-2.5a.75.75 0 0 0 0 1.5h2.5v2.5a.75.75 0 0 0 1.5 0v-2.5h2.5a.75.75 0 0 0 0-1.5h-2.5v-2.5Z" />
+      </svg>
+      <span>2023-06-26</span>
+    </span>
+    <span class="inline-flex items-center gap-1.5" title="更新日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+        <path d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L3.75 9.775a.75.75 0 0 0-.22.53l-.823 2.882a.75.75 0 0 0 .963.963l2.882-.823a.75.75 0 0 0 .53-.22l7.262-7.263a1.75 1.75 0 0 0 0-2.474ZM4.53 10.28l6.738-6.737a.25.25 0 0 1 .353 0l1.148 1.147a.25.25 0 0 1 0 .354L6.03 11.782l-1.77.506.506-1.77Z" />
+      </svg>
+      <span>2025-03-07</span>
+    </span>
+    <div>
+      <div class="badge badge-success badge-outline">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+  </svg>
+  <div title="进度" class="radial-progress text-info" style="--value:100; --size:1rem; --thickness: 2px;" aria-valuenow="100" role="progressbar">
+  </div>
+    100%
+</div>
+
+    </div>
+    <div class="badge badge-outline badge-secondary">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+  </svg>
+  <small>饲料</small>
+</div>
+
+<div class="badge badge-outline badge-secondary">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+  </svg>
+  <small>营养物质</small>
+</div>
+
+<div class="badge badge-outline badge-secondary">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+  </svg>
+  <small>消化</small>
+</div>
+
+  </div>
 
 
-      <main>
-        
-        <div class="heti-skip">
+        <div class="card-body">
           <details class="dropdown">
-            <summary>目录</summary>
-            <ul>
+  <summary class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl btn-outline btn-secondary">
+    目录
+  </summary>
+    <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
 <li><a href="#饲料与营养物质的分类"
 id="toc-饲料与营养物质的分类">饲料与营养物质的分类</a></li>
 <li><a href="#营养物质的功能"
@@ -132,10 +127,9 @@ id="toc-营养物质的消化">营养物质的消化</a></li>
 id="toc-营养物质之外饲料中的其他物质">营养物质之外：饲料中的其他物质</a></li>
 </ul>
 
-          </details>
-        </div>
-        
-        <div>
+</details>
+
+          <div class="card-body prose sm:prose-lg">
 
 
 <p>在上饲料学的第一堂课时，老师说饲料的本质是养分，因此对饲料的评定很大程度上就是对饲料所含养分的测量。正因如此，本文的脉络就是怎么对饲料的营养物质进行「提取」或是「测量」，以及对应的营养物质在体内是如何被消化以及吸收的。<!-- more -->当然，本文并不涉及代谢过程，等学到代谢生化时可能会详细说明。</p>
@@ -533,17 +527,23 @@ ChatGPT
 <p>在之前新冠爆发的时候，如果不幸中招，可能有机会体会到嗅觉/味觉丧失以及其带来的食欲减退。也因此可以看出，对于动物而言，饲料的风味能够显著改善采食量以及健康程度。</p>
 
 
-          <div style="text-align:center" class="heti">
-              ——完——
-            
+            <div style="text-align:center">
+                ——完——
+              
+            </div>
           </div>
         </div>
-      </main>
-    </article>
+      </div>
+    </div>
   <main>
-  <footer>
-    <div class="container">
-      <small>Powered by <a href="https://github.com/GES233/simple_blog_engine">GES233/simple_blog_engine</a></small>
+  <footer class="mt-16 border-t py-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm text-base-content">
+        (c) 2025 GES233
+      </p>
+      <p class="text-center text-sm text-base-content">
+        Powered by <a href="https://github.com/GES233/simple_blog_engine"><code>GES233/simple_blog_engine</code></a>
+      </p>
     </div>
   </footer>
 </body>
