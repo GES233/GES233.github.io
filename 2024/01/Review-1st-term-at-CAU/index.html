@@ -33,8 +33,8 @@
 </head>
 
 <body>
-  <header>
-    <div class="navbar bg-base-100 shadow-sm">
+  <header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10">
+    <div class="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-8">
       <div class="flex-1">
         <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
       </div>
@@ -72,14 +72,16 @@
       <span>2025-05-05</span>
     </span>
     <div>
-      <div class="badge badge-outline badge-ghost">
-  <svg class="size-[0.8rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-    <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-  </svg>
-  <div title="进度" class="radial-progress text-info" style="--value:63; --size:1rem; --thickness: 2px;" aria-valuenow="63" role="progressbar">
-  </div>
-  63%
-</div>
+      
+    <div class="badge badge-outline badge-ghost">
+      <svg class="size-[0.8rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+      </svg>
+      <div title="进度" class="radial-progress text-info" style="--value:63; --size:1rem; --thickness: 2px;" aria-valuenow="63" role="progressbar">
+      </div>
+      63%
+    </div>
+
 
     </div>
     <div class="badge badge-outline badge-secondary">
@@ -106,7 +108,7 @@
   <summary class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl btn-outline btn-secondary">
     目录
   </summary>
-    <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+  <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
 <li><a href="#年九月" id="toc-年九月">23年九月</a></li>
 <li><a href="#年十月" id="toc-年十月">23年十月</a></li>
 <li><a href="#年十一月" id="toc-年十一月">23年十一月</a></li>

@@ -33,8 +33,8 @@
 </head>
 
 <body>
-  <header>
-    <div class="navbar bg-base-100 shadow-sm">
+  <header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10">
+    <div class="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-8">
       <div class="flex-1">
         <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
       </div>
@@ -72,14 +72,17 @@
       <span>2025-10-11</span>
     </span>
     <div>
-      <div class="badge badge-outline badge-success">
-  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-  </svg>
-  <div title="进度" class="radial-progress text-info" style="--value:100; --size:1rem; --thickness: 2px;" aria-valuenow="100" role="progressbar">
-  </div>
-  100%
-</div>
+      
+    <div class="badge badge-outline badge-success">
+      <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+      </svg>
+      <div title="进度" class="radial-progress text-info" style="--value:100; --size:1rem; --thickness: 2px;" aria-valuenow="100" role="progressbar">
+      </div>
+      100%
+    </div>
+
+  
 
     </div>
     <div class="badge badge-outline badge-secondary">
@@ -98,7 +101,7 @@
   <summary class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl btn-outline btn-secondary">
     目录
   </summary>
-    <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+  <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
 <li><a href="#接下来的计划" id="toc-接下来的计划">接下来的计划</a></li>
 </ul>
 
