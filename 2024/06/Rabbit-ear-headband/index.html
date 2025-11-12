@@ -8,19 +8,22 @@
   <title>
     电动兔耳朵的设计（可能有实现） - 自留地
   </title>
-  <script src="/assets/phoenix_html.js"></script>
+  
 <link rel="stylesheet" href="/assets/css/app.css">
+
+
 <link rel="stylesheet" href="/assets/code-highlighting.css">
+
+
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 
 
 <script type="text/javascript">
   const eventSource = new EventSource("/sse");
 
   eventSource.addEventListener("reload", (e) => {
-    // console.log("Server sent reload event. Reloading page...");
     window.location.reload();
-    // console.log("Reload complete.");
   });
 
   eventSource.onerror = (err) => {
@@ -28,6 +31,14 @@
     eventSource.close();
   };
 </script>
+
+
+
+  
+  
+  
+
+
 
 
 </head>

@@ -8,21 +8,22 @@
   <title>
     Illustrated Modes 学习笔记（一） - 自留地
   </title>
-  <script src="/assets/phoenix_html.js"></script>
+  
 <link rel="stylesheet" href="/assets/css/app.css">
+
+
 <link rel="stylesheet" href="/assets/code-highlighting.css">
+
+
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-  <script src="/assets/abcjs-plugin-min.js"></script>
 
 
 <script type="text/javascript">
   const eventSource = new EventSource("/sse");
 
   eventSource.addEventListener("reload", (e) => {
-    // console.log("Server sent reload event. Reloading page...");
     window.location.reload();
-    // console.log("Reload complete.");
   });
 
   eventSource.onerror = (err) => {
@@ -30,6 +31,15 @@
     eventSource.close();
   };
 </script>
+
+
+
+  
+  
+  
+  
+
+
 
 
 </head>
@@ -71,7 +81,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
         <path d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L3.75 9.775a.75.75 0 0 0-.22.53l-.823 2.882a.75.75 0 0 0 .963.963l2.882-.823a.75.75 0 0 0 .53-.22l7.262-7.263a1.75 1.75 0 0 0 0-2.474ZM4.53 10.28l6.738-6.737a.25.25 0 0 1 .353 0l1.148 1.147a.25.25 0 0 1 0 .354L6.03 11.782l-1.77.506.506-1.77Z" />
       </svg>
-      <span>2025-11-02</span>
+      <span>2025-11-11</span>
     </span>
     <div>
       
@@ -110,6 +120,8 @@ id="toc-prerequiste-基本概念">Prerequiste &amp; 基本概念</a>
 <li><a href="#magic-glue" id="toc-magic-glue">Magic glue</a></li>
 <li><a href="#pedal-point" id="toc-pedal-point">Pedal point</a></li>
 <li><a href="#赋予和弦色彩" id="toc-赋予和弦色彩">赋予和弦色彩</a></li>
+<li><a href="#针对调式的展示"
+id="toc-针对调式的展示">针对调式的展示</a></li>
 </ul></li>
 </ul>
 
@@ -203,22 +215,37 @@ role="doc-noteref"><sup>4</sup></a>
 modulations 的学习，否则容易陷入独自造轮子的困境。
 简单来讲就是将其视为工具而非约束。</p>
 <h3 id="magic-glue">Magic glue</h3>
-<p>（等我想办法再举个例子，这个使为了测试 ABC notation 渲染）</p>
-<pre><code>X: 1
-T: Cooley&#39;s
-M: 4/4
-L: 1/8
-K: Emin
-|:D2|&quot;Em&quot;EB{c}BA B2 EB|~B2 AB dBAG|&quot;D&quot;FDAD BDAD|FDAD dAFD|
-&quot;Em&quot;EBBA B2 EB|B2 AB defg|&quot;D&quot;afe^c dBAF|&quot;Em&quot;DEFD E2:|
-|:gf|&quot;Em&quot;eB B2 efge|eB B2 gedB|&quot;D&quot;A2 FA DAFA|A2 FA defg|
-&quot;Em&quot;eB B2 eBgB|eB B2 defg|&quot;D&quot;afe^c dBAF|&quot;Em&quot;DEFD E2:|</code></pre>
+<p>（先等一下再考虑实现通过 Lilypond 渲染）</p>
 <h3 id="pedal-point">Pedal point</h3>
 <h3 id="赋予和弦色彩">赋予和弦色彩</h3>
 <blockquote>
 <p>作为可能对外访问的笔记，本笔记的方案与 Illustrated Modes
 的方案不会一致。</p>
 </blockquote>
+<p>韩信带进化，等到我会玩 DOT
+了再添加，目前搞了一套配色方案，但那只是一个风格的<del>，而调式音乐的配色可能需要全一点</del>。</p>
+<p>但书中的文字内容我还是转述下吧，等到后期再改一改。</p>
+<p>关于音：</p>
+<ul>
+<li>原书中，采用方形来表示音</li>
+<li>两个方形间，<code>1</code> 表示全音，<code>1/2</code> 表示半音</li>
+<li>这样一系列的音就可以构成一个 scale</li>
+</ul>
+<p>关于和弦：</p>
+<ul>
+<li>用圆来表示</li>
+<li>中间的内容是音名</li>
+<li>颜色代表和弦的属性
+<ul>
+<li>大和弦</li>
+<li>小和弦</li>
+<li>增和弦</li>
+<li>减和弦</li>
+<li>属和弦</li>
+</ul></li>
+</ul>
+<h3 id="针对调式的展示">针对调式的展示</h3>
+<p>建议看原书。</p>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
