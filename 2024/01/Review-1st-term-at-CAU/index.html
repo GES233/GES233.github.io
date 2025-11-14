@@ -19,19 +19,6 @@
 
 
 
-<script type="text/javascript">
-  const eventSource = new EventSource("/sse");
-
-  eventSource.addEventListener("reload", (e) => {
-    window.location.reload();
-  });
-
-  eventSource.onerror = (err) => {
-    console.error("EventSource failed:", err);
-    eventSource.close();
-  };
-</script>
-
 
 
   
@@ -1270,8 +1257,8 @@ id="不想谈恋爱那些小姑娘看起来呆呆的">不想谈恋爱，那些�
         </div>
       </div>
     </div>
-  <main>
-  <footer class="mt-16 border-t py-8">
+  </main>
+  <footer class="mt-16 py-8">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-center text-sm text-base-content">
         (c) 2025 GES233
