@@ -3,8 +3,7 @@
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
-    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    'Noto Color Emoji';
+    --font-sans: "ChillDIN", sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
     --color-slate-300: oklch(86.9% 0.022 252.894);
@@ -24,6 +23,12 @@
     --blur-sm: 8px;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --font-content-serif: /* Latin */
+    Alegreya, Merriweather, Palatino, Garamond, Baskerville, "Libre Baskerville", Georgia,
+    /* CJK */
+    "Noto Serif CJK SC",
+    /* End */
+    serif;
   }
 }
 @layer base {
@@ -868,6 +873,12 @@
     --tw-prose-quote-borders: var(--color-slate-300);
     --tw-prose-quotes: var(--color-muted-foreground);
     --tw-prose-code: var(--color-primary);
+    --tw-prose-body-font-family: /* Latin */
+    Merriweather, Palatino, Garamond, Baskerville, "Libre Baskerville", Georgia,
+    /* CJK */
+    "Noto Serif CJK SC",
+    /* End */
+    serif;
     code {
       &::before, &::after {
         display: none;
@@ -875,10 +886,16 @@
       text-wrap: nowrap;
     }
     blockquote {
+      p {
+        &:first-of-type::before, &:last-of-type::after {
+          display: none;
+        }
+      }
       font-weight: 400;
     }
     p {
       margin-block: calc(var(--spacing) * 2);
+      font-family: var(--font-content-serif);
     }
     h2 {
       margin-top: calc(var(--spacing) * 8);
@@ -2076,6 +2093,11 @@
         --size: calc(var(--size-field, 0.25rem) * 14);
       }
     }
+  }
+}
+@layer components {
+  div .csl-bib-body {
+    font-family: 'Alegreya'Merriweather, Palatino, Garamond, Baskerville, Libre Baskerville, Georgia, serif;
   }
 }
 @layer base {
