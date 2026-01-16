@@ -14,8 +14,16 @@
   
   
   
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar/index.global.min.js"></script>
-    <script src='/assets/calendar.js'></script>
+    <!-- https://fullcalendar.io/docs/initialize-browser-esm -->
+    <script type='importmap'>
+      {
+        "imports": {
+          "@fullcalendar/core": "https://cdn.skypack.dev/@fullcalendar/core@6.1.20",
+          "@fullcalendar/daygrid": "https://cdn.skypack.dev/@fullcalendar/daygrid@6.1.20"
+        }
+      }
+    </script>
+    <script type='module' src='/assets/calendar.js'></script>
   
 
 
