@@ -10,6 +10,19 @@
   </title>
   <link rel="stylesheet" href="/assets/css/app.css">
 
+<script type="text/javascript">
+  const eventSource = new EventSource("/sse");
+
+  eventSource.addEventListener("reload", (e) => {
+    window.location.reload();
+  });
+
+  eventSource.onerror = (err) => {
+    console.error("EventSource failed:", err);
+    eventSource.close();
+  };
+</script>
+
   
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
@@ -86,27 +99,21 @@
 
 
         <div class="card-body">
-          
-          <div class="card-body prose max-w-none">
-
-<!--SECTION_START:META-->
-{"autoEqnLabels":false,"autoSectionLabels":false,"ccsDelim":",","ccsLabelSep":"—","ccsTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[ccsLabelSep\\]</span><span class=\"math display\">\\[t\\]</span>","chapDelim":".","chapters":false,"chaptersDepth":"1","codeBlockCaptions":false,"cref":false,"crossrefYaml":"apps/pandox/priv/pandoc_cressref.yaml","csl":"d:/Blog/apps/pandox/priv/csl/GB7714.csl","eqLabels":"arabic","eqnBlockInlineMath":false,"eqnBlockTemplate":"<table>\n<colgroup>\n<col style=\"width: 90%\" />\n<col style=\"width: 10%\" />\n</colgroup>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><span class=\"math display\">\\[t\\]</span></td>\n<td style=\"text-align: right;\"><span class=\"math display\">\\[i\\]</span></td>\n</tr>\n</tbody>\n</table>","eqnDisplayTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnIndexTemplate":"<span class=\"math display\">\\[i\\]</span>","eqnInlineTableTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnInlineTemplate":"<span class=\"math display\">\\[e\\]</span><span class=\"math display\">\\[equationNumberTeX\\]</span>{<span class=\"math display\">\\[i\\]</span>}","eqnPrefix":"式","eqnPrefixTemplate":"<span class=\"math display\">\\[p\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTemplate":"<span class=\"math display\">\\[eqnTitle\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTitle":"式","equationNumberTeX":"\\tag","figLabels":"arabic","figPrefix":"图","figPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","figureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","figureTitle":"图","lastDelim":",","linkReferences":true,"listItemTitleDelim":".","listingTemplate":"<span class=\"math display\">\\[listingTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","listingTitle":"Listing","listings":false,"lofItemTemplate":"<span class=\"math display\">\\[lofItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lofItemTitle":"","lofTitle":"<h1>List of Figures</h1>","lolItemTemplate":"<span class=\"math display\">\\[lolItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lolItemTitle":"","lolTitle":"<h1>List of Listings</h1>","lotItemTemplate":"<span class=\"math display\">\\[lotItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lotItemTitle":"","lotTitle":"<h1>List of Tables</h1>","lstLabels":"arabic","lstPrefix":["lst.","lsts."],"lstPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","nameInLink":true,"numberSections":false,"pairDelim":",","rangeDelim":"-","refDelim":",","refIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span>","secHeaderDelim":"","secHeaderTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[secHeaderDelim[n]\\]</span><span class=\"math display\">\\[t\\]</span>","secLabels":"arabic","secPrefix":["sec.","secs."],"secPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","sectionsDepth":"0","subfigGrid":false,"subfigLabels":"alpha a","subfigureChildTemplate":"<span class=\"math display\">\\[i\\]</span>","subfigureRefIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span> (<span class=\"math display\">\\[s\\]</span>)","subfigureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>. <span class=\"math display\">\\[ccs\\]</span>","tableEqns":false,"tableTemplate":"<span class=\"math display\">\\[tableTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","tableTitle":"表","tblLabels":"arabic","tblPrefix":"表","tblPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","titleDelim":":"}
-<!--SECTION_END:META-->
-
-<!--SECTION_START:SUMMARY-->
-<!--SECTION_END:SUMMARY-->
-
-<!--SECTION_START:TOC-->
-<ul>
+          <details class="dropdown">
+  <summary class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl btn-secondary">
+    目  录
+  </summary>
+  <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
 <li><a href="#toxic-and-emotional-cascade"
 id="toc-toxic-and-emotional-cascade">Toxic and Emotional
 Cascade</a></li>
 <li><a href="#activate-at-field" id="toc-activate-at-field">Activate AT
 Field</a></li>
 </ul>
-<!--SECTION_END:TOC-->
+</details>
 
-<!--SECTION_START:BODY-->
+          <div class="card-body prose max-w-none">
+
 <h3 id="toxic-and-emotional-cascade">Toxic and Emotional Cascade</h3>
 <h4 id="group-observation">Group Observation</h4>
 <p>写这篇博文的动机就是视奸了很多群体，感觉精神负担有些大，因此赶紧吐出来恢复一下
@@ -124,9 +131,9 @@ political depression
 ，但是除了宣泄外也没有别的作用了——仅有在自我限定自我约束下愈加严重的心理创伤以及在心理创伤驱动下做出的不留余地的动作。</p>
 <p>没有有价值的思考，只有因为政治性抑郁或政治性创伤的应激产生的疯疯癫癫的言语。</p>
 <p>如果说到这几年，那就更带劲了，在社交媒体浸淫的年轻一代的观念整体极化。同温层效应这一块。</p>
-<p>我开始注意这种现象是因为对新二次元<a href="#fn1" class="footnote-ref"
-id="fnref1"
-role="doc-noteref"><sup>1</sup></a>群体的观察，这些群体对于「自己人」以及「外者」分的更加清楚，也正因为这种假设你不是自己人的嫉妒排斥与你背其视作自己人的接纳，也正是观念极化的体现——非黑即白，无法接受中间的灰色。</p>
+<p>我开始注意这种现象是因为对新二次元<sup><a href="#fn1" id="fnref1"
+class="footnote-ref"
+role="doc-noteref">1</a></sup>群体的观察，这些群体对于「自己人」以及「外者」分的更加清楚，也正因为这种假设你不是自己人的嫉妒排斥与你背其视作自己人的接纳，也正是观念极化的体现——非黑即白，无法接受中间的灰色。</p>
 <p>比方说什么公务员考试「电棍下乡」的梗，这些梗传播的如此广泛也体现了很多年轻人的心声——存在救不了自己无法接纳的什么什么，不如干脆毁灭掉好啦。
 兜兜转转，基层治理还是回到了什么。</p>
 <p>相对而言，以上这些还是能说的，那些不能说的就不在这里提了。</p>
@@ -169,25 +176,19 @@ href="https://www.zhihu.com/question/604397047/answer/3062464204">C919产业明�
 <h4 id="allow-variations">Allow Variations</h4>
 <p>允许其他观点以及什么的存在。</p>
 <p>但是保持距离（防御），在自己的人格没有承载能力的前提下，可以不允许其他声音进来，但是需要意识到其存在。</p>
-<section id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
+<div class="footnotes prose-sm">
 <ol>
-<li
-id="fn1"><p>「新二次元」指的是在传统动漫、游戏文化基础上，结合了现实生活（三次元）的新型文化现象和亚文化圈，表现为年轻人将二次元元素融入日常穿搭、社交（如小红书上的“破圈”玩法）、消费场景，并延伸出
+<li><div id="fn1">
+<p>「新二次元」指的是在传统动漫、游戏文化基础上，结合了现实生活（三次元）的新型文化现象和亚文化圈，表现为年轻人将二次元元素融入日常穿搭、社交（如小红书上的“破圈”玩法）、消费场景，并延伸出
 2.5
 次元（如Cosplay、偶像声优、手办）等更具沉浸感和跨界融合的潮流，展现了二次元「出圈」与「生活化」的趋势。——Gemini
-3 Flash<a href="#fnref1" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
+3 Flash <a href="#fnref1" class="footnote-back"
+aria-label="Back to content" role="doc-backlink">↩︎</a></p>
+</div></li>
 </ol>
-</section>
-<!--SECTION_END:BODY-->
+</div>
 
-<!--SECTION_START:BIB-->
-<!--SECTION_END:BIB-->
 
-<!--SECTION_START:NOTES-->
-<!--SECTION_END:NOTES-->
 
             <div style="text-align:center" class="font-content-serif">
                 ——完——

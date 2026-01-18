@@ -10,6 +10,19 @@
   </title>
   <link rel="stylesheet" href="/assets/css/app.css">
 
+<script type="text/javascript">
+  const eventSource = new EventSource("/sse");
+
+  eventSource.addEventListener("reload", (e) => {
+    window.location.reload();
+  });
+
+  eventSource.onerror = (err) => {
+    console.error("EventSource failed:", err);
+    eventSource.close();
+  };
+</script>
+
   
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
@@ -102,25 +115,19 @@
 
 
         <div class="card-body">
-          
-          <div class="card-body prose max-w-none">
-
-<!--SECTION_START:META-->
-{"autoEqnLabels":false,"autoSectionLabels":false,"bibliography":"D:/Blog/source/_bibs/SwineSensor.bib","ccsDelim":",","ccsLabelSep":"—","ccsTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[ccsLabelSep\\]</span><span class=\"math display\">\\[t\\]</span>","chapDelim":".","chapters":false,"chaptersDepth":"1","codeBlockCaptions":false,"cref":false,"crossrefYaml":"apps/pandox/priv/pandoc_cressref.yaml","csl":"d:/Blog/apps/pandox/priv/csl/GB7714.csl","eqLabels":"arabic","eqnBlockInlineMath":false,"eqnBlockTemplate":"<table>\n<colgroup>\n<col style=\"width: 90%\" />\n<col style=\"width: 10%\" />\n</colgroup>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><span class=\"math display\">\\[t\\]</span></td>\n<td style=\"text-align: right;\"><span class=\"math display\">\\[i\\]</span></td>\n</tr>\n</tbody>\n</table>","eqnDisplayTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnIndexTemplate":"<span class=\"math display\">\\[i\\]</span>","eqnInlineTableTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnInlineTemplate":"<span class=\"math display\">\\[e\\]</span><span class=\"math display\">\\[equationNumberTeX\\]</span>{<span class=\"math display\">\\[i\\]</span>}","eqnPrefix":"式","eqnPrefixTemplate":"<span class=\"math display\">\\[p\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTemplate":"<span class=\"math display\">\\[eqnTitle\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTitle":"式","equationNumberTeX":"\\tag","figLabels":"arabic","figPrefix":"图","figPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","figureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","figureTitle":"图","lastDelim":",","linkReferences":true,"listItemTitleDelim":".","listingTemplate":"<span class=\"math display\">\\[listingTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","listingTitle":"Listing","listings":false,"lofItemTemplate":"<span class=\"math display\">\\[lofItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lofItemTitle":"","lofTitle":"<h1>List of Figures</h1>","lolItemTemplate":"<span class=\"math display\">\\[lolItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lolItemTitle":"","lolTitle":"<h1>List of Listings</h1>","lotItemTemplate":"<span class=\"math display\">\\[lotItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lotItemTitle":"","lotTitle":"<h1>List of Tables</h1>","lstLabels":"arabic","lstPrefix":["lst.","lsts."],"lstPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","nameInLink":true,"numberSections":false,"pairDelim":",","rangeDelim":"-","refDelim":",","refIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span>","secHeaderDelim":"","secHeaderTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[secHeaderDelim[n]\\]</span><span class=\"math display\">\\[t\\]</span>","secLabels":"arabic","secPrefix":["sec.","secs."],"secPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","sectionsDepth":"0","subfigGrid":false,"subfigLabels":"alpha a","subfigureChildTemplate":"<span class=\"math display\">\\[i\\]</span>","subfigureRefIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span> (<span class=\"math display\">\\[s\\]</span>)","subfigureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>. <span class=\"math display\">\\[ccs\\]</span>","tableEqns":false,"tableTemplate":"<span class=\"math display\">\\[tableTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","tableTitle":"表","tblLabels":"arabic","tblPrefix":"表","tblPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","title":"关于 2022 参加年科创项目的简单介绍","titleDelim":":"}
-<!--SECTION_END:META-->
-
-<!--SECTION_START:SUMMARY-->
-<!--SECTION_END:SUMMARY-->
-
-<!--SECTION_START:TOC-->
-<ul>
+          <details class="dropdown">
+  <summary class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl btn-secondary">
+    目  录
+  </summary>
+  <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
 <li><a href="#参加经历" id="toc-参加经历">参加经历</a></li>
 <li><a href="#后续" id="toc-后续">后续</a></li>
 <li><a href="#附带原文" id="toc-附带原文">附带原文</a></li>
 </ul>
-<!--SECTION_END:TOC-->
+</details>
 
-<!--SECTION_START:BODY-->
+          <div class="card-body prose max-w-none">
+
 <p>本文大概分成两个部分，一个是参加竞赛的经历，还有一个是当时的部分原文。为什么要写成博客发上来，主要是因为这个想法挺好的（不仅仅是自封，也包括了和老师们的讨论后的结果），如果没有应用的话觉得怪可惜的。</p>
 <!-- more -->
 <p>在参加项目被刷下来之后，我把这个文档改了个名字给舍友了，他也没过，而且他研究生的研究课题和这个也没啥关系，所以我就自作主张的拿回来了。在本博客中，当事人的名字均用拼音简写代指，除非是公众人物。</p>
@@ -205,9 +212,9 @@ OpenPose 作为模型的 backbone
 <h5 id="quick-glance-to-solution">Quick glance to solution</h5>
 <p>【总览图略】</p>
 <p>通过较小的、可以粘附在猪身上而不对其造成太大影响的传感器，将皮肤导电程度以及其变化传输到监测单元（主控）进行分析，实时检测并且将结果以及原始数据持久化保存，如果检测到存在应激的情况，将自动报警并且返回个体的标识以及异常的生理数据本身。</p>
-<p>其中，监测单元可以架设在养殖场的某台设备上，也可以上传至云端与其他生理数据<a
-href="#fn1" class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a>进行联合检测以及整合分析。</p>
+<p>其中，监测单元可以架设在养殖场的某台设备上，也可以上传至云端与其他生理数据<sup><a
+href="#fn1" id="fnref1" class="footnote-ref"
+role="doc-noteref">1</a></sup>进行联合检测以及整合分析。</p>
 <h4 id="解决方案">解决方案</h4>
 <h5 id="引言">引言</h5>
 <p>随着畜牧集约化的发展，对家畜的生产性能要求逐步提高，<strong>应激</strong>这一消极现象以及其引发的后果也得到了重视。但是很多对应激的测量方式要么无法持续的实时检测，要么对家畜有所损害，测量应激的过程本身也导致了应激，所以无损检测这一概念因此出现。无损监测是指在不损害或不影响被监测对象的前提下，借助现代技术和设备对监测对象内部及表面的结构、性质、状态等进行监控和测试的方法。而畜牧业的无损检测就是在不损害或不影响的前提下对家畜进行检测。<span
@@ -244,9 +251,8 @@ sEMG 系统迁移并移植到动物作为连续工作的情绪监测系统也是
 <ul>
 <li>该器官/组织能够受神经作用，能够反映某种神经活动</li>
 <li>受神经调控的变化能够较轻易的被观测到</li>
-<li>其他环境因素对其的<strong>直接</strong>影响不大<a href="#fn2"
-class="footnote-ref" id="fnref2"
-role="doc-noteref"><sup>2</sup></a></li>
+<li>其他环境因素对其的<strong>直接</strong>影响不大<sup><a href="#fn2"
+id="fnref2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
 </ul>
 <p>启发我们的想法就是针对人类的姿势分析、骨骼提取以及后续分析的相关研究成果以及产品（详见前文），可以很轻易地联想到躯体战栗或强直代表着紧张。因此我们最开始的想法是针对猪或鸡的姿势进行分析。</p>
 <p>但是因为单纯的<strong>姿势估计</strong>（pose
@@ -266,6 +272,20 @@ API
 <h4 id="应用与价值">应用与价值</h4>
 <p>考虑到成本以及环境，我们是对比较有价值的个体进行监测，例如种公猪等。其一、种公猪需要不间断的监测而饲养员的精力有限，该系统可以部分的替代饲养员，减轻精力消耗以让其专注于更关键的任务而非维护上；其二、应激等刺激对于种公猪的影响更大，造成的精液品质影响后果更大、经济损失更加严重，本系统的架设可以及时预警、显著的减少应激因素对猪后续潜在的刺激。</p>
 <p>我们的项目具备了比较大的商业价值以及巨大的潜力，一旦落地对于动物福利等领域将带来很大的促进作用，并且可以能够有效的提高生产性能，可以促进产业的进一步发展。</p>
+<div class="footnotes prose-sm">
+<ol>
+<li><div id="fn1">
+<p>例如采食量、精液品质、胎次、日增重等等。 <a href="#fnref1"
+class="footnote-back" aria-label="Back to content"
+role="doc-backlink">↩︎</a></p>
+</div></li>
+<li><div id="fn2">
+<p>拿人类的排汗以及心率为例，排汗受神经系统的直接调控而心率不仅仅受神经系统的调控。
+<a href="#fnref2" class="footnote-back" aria-label="Back to content"
+role="doc-backlink">↩︎</a></p>
+</div></li>
+</ol>
+</div>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0"
 role="list">
 <div id="ref-NYGU201720025" class="csl-entry" role="listitem">
@@ -312,24 +332,7 @@ method for forensic identification[J]. Microscopy research and
 technique, 2022,85(5):1643–1653. </div>
 </div>
 </div>
-<section id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p>例如采食量、精液品质、胎次、日增重等等。<a
-href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li
-id="fn2"><p>拿人类的排汗以及心率为例，排汗受神经系统的直接调控而心率不仅仅受神经系统的调控。<a
-href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-<!--SECTION_END:BODY-->
 
-<!--SECTION_START:BIB-->
-<!--SECTION_END:BIB-->
-
-<!--SECTION_START:NOTES-->
-<!--SECTION_END:NOTES-->
 
             <div style="text-align:center" class="font-content-serif">
                 ——未完待续——

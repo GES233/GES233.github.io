@@ -10,6 +10,19 @@
   </title>
   <link rel="stylesheet" href="/assets/css/app.css">
 
+<script type="text/javascript">
+  const eventSource = new EventSource("/sse");
+
+  eventSource.addEventListener("reload", (e) => {
+    window.location.reload();
+  });
+
+  eventSource.onerror = (err) => {
+    console.error("EventSource failed:", err);
+    eventSource.close();
+  };
+</script>
+
   
   
   
@@ -48,40 +61,7 @@
   <div class="card-body">
     <a href="/2026/01/Paper-view-HemannMuKanren2013"><h3 class="card-title text-lg">论文翻译：µKanren —— 关系编程的最小化函数式核心</h3></a>
     <div class="prose">
-      <!--SECTION_START:META-->
-{"autoEqnLabels":false,"autoSectionLabels":false,"ccsDelim":",","ccsLabelSep":"—","ccsTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[ccsLabelSep\\]</span><span class=\"math display\">\\[t\\]</span>","chapDelim":".","chapters":false,"chaptersDepth":"1","codeBlockCaptions":false,"cref":false,"crossrefYaml":"apps/pandox/priv/pandoc_cressref.yaml","csl":"d:/Blog/apps/pandox/priv/csl/GB7714.csl","eqLabels":"arabic","eqnBlockInlineMath":false,"eqnBlockTemplate":"<table>\n<colgroup>\n<col style=\"width: 90%\" />\n<col style=\"width: 10%\" />\n</colgroup>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><span class=\"math display\">\\[t\\]</span></td>\n<td style=\"text-align: right;\"><span class=\"math display\">\\[i\\]</span></td>\n</tr>\n</tbody>\n</table>","eqnDisplayTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnIndexTemplate":"<span class=\"math display\">\\[i\\]</span>","eqnInlineTableTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnInlineTemplate":"<span class=\"math display\">\\[e\\]</span><span class=\"math display\">\\[equationNumberTeX\\]</span>{<span class=\"math display\">\\[i\\]</span>}","eqnPrefix":"式","eqnPrefixTemplate":"<span class=\"math display\">\\[p\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTemplate":"<span class=\"math display\">\\[eqnTitle\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTitle":"式","equationNumberTeX":"\\tag","figLabels":"arabic","figPrefix":"图","figPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","figureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","figureTitle":"图","lastDelim":",","linkReferences":true,"listItemTitleDelim":".","listingTemplate":"<span class=\"math display\">\\[listingTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","listingTitle":"Listing","listings":false,"lofItemTemplate":"<span class=\"math display\">\\[lofItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lofItemTitle":"","lofTitle":"<h1>List of Figures</h1>","lolItemTemplate":"<span class=\"math display\">\\[lolItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lolItemTitle":"","lolTitle":"<h1>List of Listings</h1>","lotItemTemplate":"<span class=\"math display\">\\[lotItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lotItemTitle":"","lotTitle":"<h1>List of Tables</h1>","lstLabels":"arabic","lstPrefix":["lst.","lsts."],"lstPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","nameInLink":true,"numberSections":false,"pairDelim":",","rangeDelim":"-","refDelim":",","refIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span>","secHeaderDelim":"","secHeaderTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[secHeaderDelim[n]\\]</span><span class=\"math display\">\\[t\\]</span>","secLabels":"arabic","secPrefix":["sec.","secs."],"secPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","sectionsDepth":"0","subfigGrid":false,"subfigLabels":"alpha a","subfigureChildTemplate":"<span class=\"math display\">\\[i\\]</span>","subfigureRefIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span> (<span class=\"math display\">\\[s\\]</span>)","subfigureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>. <span class=\"math display\">\\[ccs\\]</span>","tableEqns":false,"tableTemplate":"<span class=\"math display\">\\[tableTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","tableTitle":"表","tblLabels":"arabic","tblPrefix":"表","tblPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","titleDelim":":"}
-<!--SECTION_END:META-->
-
-<!--SECTION_START:SUMMARY-->
-<!--SECTION_END:SUMMARY-->
-
-<!--SECTION_START:TOC-->
-<ul>
-<li><a href="#摘要" id="toc-摘要">摘要</a></li>
-<li><a href="#正文" id="toc-正文">正文</a>
-<ul>
-<li><a href="#介绍" id="toc-介绍">介绍</a></li>
-<li><a href="#µkanren-语言" id="toc-µkanren-语言">µKanren 语言</a></li>
-<li><a href="#设计哲学" id="toc-设计哲学">设计哲学</a></li>
-<li><a href="#µkanren-实现" id="toc-µkanren-实现">µKanren 实现</a></li>
-<li><a href="#用户层函数" id="toc-用户层函数">用户层函数</a></li>
-<li><a href="#结论及未来的工作"
-id="toc-结论及未来的工作">结论及未来的工作</a></li>
-<li><a href="#致谢" id="toc-致谢">致谢</a></li>
-</ul></li>
-<li><a href="#附录" id="toc-附录">附录</a>
-<ul>
-<li><a href="#glossary" id="toc-glossary">Glossary</a></li>
-<li><a href="#a" id="toc-a">A</a></li>
-</ul></li>
-</ul>
-<!--SECTION_END:TOC-->
-
-<!--SECTION_START:BODY-->
-<p>Source: <a
-href="http://webyrd.net/scheme-2013/papers/HemannMuKanren2013.pdf"
-class="uri">http://webyrd.net/scheme-2013/papers/HemannMuKanren2013.pdf</a></p>
-
+      Source: http://webyrd.net/scheme-2013/papers/HemannMuKanren2013.pdf
     </div>
     <div class="card-actions justify-end">
       <div class="badge badge-accent">
@@ -113,7 +93,8 @@ class="uri">http://webyrd.net/scheme-2013/papers/HemannMuKanren2013.pdf</a></p>
   <div class="card-body">
     <a href="/2026/01/Gap-2025-2026"><h3 class="card-title text-lg">【杂七杂八】回望与展望</h3></a>
     <div class="prose">
-      
+      写这篇博文的动机就是视奸了很多群体，感觉精神负担有些大，因此赶紧吐出来恢复一下
+sanity 。
     </div>
     <div class="card-actions justify-end">
       <div class="badge badge-accent">
@@ -145,7 +126,9 @@ class="uri">http://webyrd.net/scheme-2013/papers/HemannMuKanren2013.pdf</a></p>
   <div class="card-body">
     <a href="/2025/10/VariationsOfYesterday-Thoughts"><h3 class="card-title text-lg">游戏模组思考随想</h3></a>
     <div class="prose">
-      
+      也不说套话了，其实 Minecraft 算是我接触的比较早的游戏（从 14 年还是 15
+年开始的），所以就一直玩。
+也加过服务器，但要么是闹掰了要么是腐竹懒得弄了，大多数时间都是一个人玩。
     </div>
     <div class="card-actions justify-end">
       <div class="badge badge-accent">
@@ -176,25 +159,7 @@ class="uri">http://webyrd.net/scheme-2013/papers/HemannMuKanren2013.pdf</a></p>
   <div class="card-body">
     <a href="/2025/10/RabbitRabbitDance-Project"><h3 class="card-title text-lg">复建计划</h3></a>
     <div class="prose">
-      <!--SECTION_START:META-->
-{"autoEqnLabels":false,"autoSectionLabels":false,"ccsDelim":",","ccsLabelSep":"—","ccsTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[ccsLabelSep\\]</span><span class=\"math display\">\\[t\\]</span>","chapDelim":".","chapters":false,"chaptersDepth":"1","codeBlockCaptions":false,"cref":false,"crossrefYaml":"apps/pandox/priv/pandoc_cressref.yaml","csl":"d:/Blog/apps/pandox/priv/csl/GB7714.csl","eqLabels":"arabic","eqnBlockInlineMath":false,"eqnBlockTemplate":"<table>\n<colgroup>\n<col style=\"width: 90%\" />\n<col style=\"width: 10%\" />\n</colgroup>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><span class=\"math display\">\\[t\\]</span></td>\n<td style=\"text-align: right;\"><span class=\"math display\">\\[i\\]</span></td>\n</tr>\n</tbody>\n</table>","eqnDisplayTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnIndexTemplate":"<span class=\"math display\">\\[i\\]</span>","eqnInlineTableTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnInlineTemplate":"<span class=\"math display\">\\[e\\]</span><span class=\"math display\">\\[equationNumberTeX\\]</span>{<span class=\"math display\">\\[i\\]</span>}","eqnPrefix":"式","eqnPrefixTemplate":"<span class=\"math display\">\\[p\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTemplate":"<span class=\"math display\">\\[eqnTitle\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTitle":"式","equationNumberTeX":"\\tag","figLabels":"arabic","figPrefix":"图","figPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","figureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","figureTitle":"图","lastDelim":",","linkReferences":true,"listItemTitleDelim":".","listingTemplate":"<span class=\"math display\">\\[listingTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","listingTitle":"Listing","listings":false,"lofItemTemplate":"<span class=\"math display\">\\[lofItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lofItemTitle":"","lofTitle":"<h1>List of Figures</h1>","lolItemTemplate":"<span class=\"math display\">\\[lolItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lolItemTitle":"","lolTitle":"<h1>List of Listings</h1>","lotItemTemplate":"<span class=\"math display\">\\[lotItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lotItemTitle":"","lotTitle":"<h1>List of Tables</h1>","lstLabels":"arabic","lstPrefix":["lst.","lsts."],"lstPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","nameInLink":true,"numberSections":false,"pairDelim":",","rangeDelim":"-","refDelim":",","refIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span>","secHeaderDelim":"","secHeaderTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[secHeaderDelim[n]\\]</span><span class=\"math display\">\\[t\\]</span>","secLabels":"arabic","secPrefix":["sec.","secs."],"secPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","sectionsDepth":"0","subfigGrid":false,"subfigLabels":"alpha a","subfigureChildTemplate":"<span class=\"math display\">\\[i\\]</span>","subfigureRefIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span> (<span class=\"math display\">\\[s\\]</span>)","subfigureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>. <span class=\"math display\">\\[ccs\\]</span>","tableEqns":false,"tableTemplate":"<span class=\"math display\">\\[tableTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","tableTitle":"表","tblLabels":"arabic","tblPrefix":"表","tblPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","titleDelim":":"}
-<!--SECTION_END:META-->
-
-<!--SECTION_START:SUMMARY-->
-<!--SECTION_END:SUMMARY-->
-
-<!--SECTION_START:TOC-->
-<ul>
-<li><a href="#计划原始安排" id="toc-计划原始安排">计划原始安排</a></li>
-<li><a href="#子项目" id="toc-子项目">子项目</a></li>
-<li><a href="#实际进展" id="toc-实际进展">实际进展</a></li>
-<li><a href="#后续进度" id="toc-后续进度">后续进度</a></li>
-</ul>
-<!--SECTION_END:TOC-->
-
-<!--SECTION_START:BODY-->
-<p>这也是个大计划，但是和其他博文不同的是，我会尽力在现实层面去做。</p>
-
+      这也是个大计划，但是和其他博文不同的是，我会尽力在现实层面去做。
     </div>
     <div class="card-actions justify-end">
       <div class="badge badge-accent">
@@ -225,7 +190,7 @@ class="uri">http://webyrd.net/scheme-2013/papers/HemannMuKanren2013.pdf</a></p>
   <div class="card-body">
     <a href="/2025/04/Plug-code-walkthrough"><h3 class="card-title text-lg">Plug 概览</h3></a>
     <div class="prose">
-      
+      代码以 Plug v1.7.10 （博客引擎的版本）为例。
     </div>
     <div class="card-actions justify-end">
       <div class="badge badge-accent">
@@ -257,24 +222,7 @@ class="uri">http://webyrd.net/scheme-2013/papers/HemannMuKanren2013.pdf</a></p>
   <div class="card-body">
     <a href="/2025/03/The-Broken-Script-startup"><h3 class="card-title text-lg">关于 The Broken Script 的一些信息</h3></a>
     <div class="prose">
-      <!--SECTION_START:META-->
-{"autoEqnLabels":false,"autoSectionLabels":false,"ccsDelim":",","ccsLabelSep":"—","ccsTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[ccsLabelSep\\]</span><span class=\"math display\">\\[t\\]</span>","chapDelim":".","chapters":false,"chaptersDepth":"1","codeBlockCaptions":false,"cref":false,"crossrefYaml":"apps/pandox/priv/pandoc_cressref.yaml","csl":"d:/Blog/apps/pandox/priv/csl/GB7714.csl","eqLabels":"arabic","eqnBlockInlineMath":false,"eqnBlockTemplate":"<table>\n<colgroup>\n<col style=\"width: 90%\" />\n<col style=\"width: 10%\" />\n</colgroup>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><span class=\"math display\">\\[t\\]</span></td>\n<td style=\"text-align: right;\"><span class=\"math display\">\\[i\\]</span></td>\n</tr>\n</tbody>\n</table>","eqnDisplayTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnIndexTemplate":"<span class=\"math display\">\\[i\\]</span>","eqnInlineTableTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnInlineTemplate":"<span class=\"math display\">\\[e\\]</span><span class=\"math display\">\\[equationNumberTeX\\]</span>{<span class=\"math display\">\\[i\\]</span>}","eqnPrefix":"式","eqnPrefixTemplate":"<span class=\"math display\">\\[p\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTemplate":"<span class=\"math display\">\\[eqnTitle\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTitle":"式","equationNumberTeX":"\\tag","figLabels":"arabic","figPrefix":"图","figPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","figureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","figureTitle":"图","lastDelim":",","linkReferences":true,"listItemTitleDelim":".","listingTemplate":"<span class=\"math display\">\\[listingTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","listingTitle":"Listing","listings":false,"lofItemTemplate":"<span class=\"math display\">\\[lofItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lofItemTitle":"","lofTitle":"<h1>List of Figures</h1>","lolItemTemplate":"<span class=\"math display\">\\[lolItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lolItemTitle":"","lolTitle":"<h1>List of Listings</h1>","lotItemTemplate":"<span class=\"math display\">\\[lotItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lotItemTitle":"","lotTitle":"<h1>List of Tables</h1>","lstLabels":"arabic","lstPrefix":["lst.","lsts."],"lstPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","nameInLink":true,"numberSections":false,"pairDelim":",","rangeDelim":"-","refDelim":",","refIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span>","secHeaderDelim":"","secHeaderTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[secHeaderDelim[n]\\]</span><span class=\"math display\">\\[t\\]</span>","secLabels":"arabic","secPrefix":["sec.","secs."],"secPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","sectionsDepth":"0","subfigGrid":false,"subfigLabels":"alpha a","subfigureChildTemplate":"<span class=\"math display\">\\[i\\]</span>","subfigureRefIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span> (<span class=\"math display\">\\[s\\]</span>)","subfigureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>. <span class=\"math display\">\\[ccs\\]</span>","tableEqns":false,"tableTemplate":"<span class=\"math display\">\\[tableTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","tableTitle":"表","tblLabels":"arabic","tblPrefix":"表","tblPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","titleDelim":":"}
-<!--SECTION_END:META-->
-
-<!--SECTION_START:SUMMARY-->
-<!--SECTION_END:SUMMARY-->
-
-<!--SECTION_START:TOC-->
-<ul>
-<li><a href="#基本信息" id="toc-基本信息">基本信息</a></li>
-<li><a href="#safe-or-unsafe-version"
-id="toc-safe-or-unsafe-version">safe or UNsafe version</a></li>
-</ul>
-<!--SECTION_END:TOC-->
-
-<!--SECTION_START:BODY-->
-<p><code>&lt;o&gt;</code></p>
-
+      &lt;o&gt;
     </div>
     <div class="card-actions justify-end">
       <div class="badge badge-accent">
@@ -305,26 +253,7 @@ id="toc-safe-or-unsafe-version">safe or UNsafe version</a></li>
   <div class="card-body">
     <a href="/2025/03/Qy-Editor-demo"><h3 class="card-title text-lg">在线编辑器的设计以及脚手架</h3></a>
     <div class="prose">
-      <!--SECTION_START:META-->
-{"autoEqnLabels":false,"autoSectionLabels":false,"ccsDelim":",","ccsLabelSep":"—","ccsTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[ccsLabelSep\\]</span><span class=\"math display\">\\[t\\]</span>","chapDelim":".","chapters":false,"chaptersDepth":"1","codeBlockCaptions":false,"cref":false,"crossrefYaml":"apps/pandox/priv/pandoc_cressref.yaml","csl":"d:/Blog/apps/pandox/priv/csl/GB7714.csl","eqLabels":"arabic","eqnBlockInlineMath":false,"eqnBlockTemplate":"<table>\n<colgroup>\n<col style=\"width: 90%\" />\n<col style=\"width: 10%\" />\n</colgroup>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><span class=\"math display\">\\[t\\]</span></td>\n<td style=\"text-align: right;\"><span class=\"math display\">\\[i\\]</span></td>\n</tr>\n</tbody>\n</table>","eqnDisplayTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnIndexTemplate":"<span class=\"math display\">\\[i\\]</span>","eqnInlineTableTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnInlineTemplate":"<span class=\"math display\">\\[e\\]</span><span class=\"math display\">\\[equationNumberTeX\\]</span>{<span class=\"math display\">\\[i\\]</span>}","eqnPrefix":"式","eqnPrefixTemplate":"<span class=\"math display\">\\[p\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTemplate":"<span class=\"math display\">\\[eqnTitle\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTitle":"式","equationNumberTeX":"\\tag","figLabels":"arabic","figPrefix":"图","figPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","figureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","figureTitle":"图","lastDelim":",","linkReferences":true,"listItemTitleDelim":".","listingTemplate":"<span class=\"math display\">\\[listingTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","listingTitle":"Listing","listings":false,"lofItemTemplate":"<span class=\"math display\">\\[lofItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lofItemTitle":"","lofTitle":"<h1>List of Figures</h1>","lolItemTemplate":"<span class=\"math display\">\\[lolItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lolItemTitle":"","lolTitle":"<h1>List of Listings</h1>","lotItemTemplate":"<span class=\"math display\">\\[lotItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lotItemTitle":"","lotTitle":"<h1>List of Tables</h1>","lstLabels":"arabic","lstPrefix":["lst.","lsts."],"lstPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","nameInLink":true,"numberSections":false,"pairDelim":",","rangeDelim":"-","refDelim":",","refIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span>","secHeaderDelim":"","secHeaderTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[secHeaderDelim[n]\\]</span><span class=\"math display\">\\[t\\]</span>","secLabels":"arabic","secPrefix":["sec.","secs."],"secPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","sectionsDepth":"0","subfigGrid":false,"subfigLabels":"alpha a","subfigureChildTemplate":"<span class=\"math display\">\\[i\\]</span>","subfigureRefIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span> (<span class=\"math display\">\\[s\\]</span>)","subfigureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>. <span class=\"math display\">\\[ccs\\]</span>","tableEqns":false,"tableTemplate":"<span class=\"math display\">\\[tableTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","tableTitle":"表","tblLabels":"arabic","tblPrefix":"表","tblPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","titleDelim":":"}
-<!--SECTION_END:META-->
-
-<!--SECTION_START:SUMMARY-->
-<!--SECTION_END:SUMMARY-->
-
-<!--SECTION_START:TOC-->
-<ul>
-<li><a href="#想法来源" id="toc-想法来源">想法来源</a></li>
-<li><a href="#本体" id="toc-本体">本体</a></li>
-<li><a href="#困境" id="toc-困境">困境</a></li>
-</ul>
-<!--SECTION_END:TOC-->
-
-<!--SECTION_START:BODY-->
-<p>Link: <a
-href="https://github.com/SynapticStrings/QyEditor">SynapticStrings/QyEditor:
-Lightweight synthesizer interface.</a></p>
-
+      Link: SynapticStrings/QyEditor: Lightweight synthesizer interface.
     </div>
     <div class="card-actions justify-end">
       <div class="badge badge-accent">
@@ -420,25 +349,7 @@ Lightweight synthesizer interface.</a></p>
   <div class="card-body">
     <a href="/2024/08/Wavenet-interpret"><h3 class="card-title text-lg">详解 WaveNet</h3></a>
     <div class="prose">
-      <!--SECTION_START:META-->
-{"autoEqnLabels":false,"autoSectionLabels":false,"bibliography":"D:/Blog/source/_bibs/MechineLearning.bib","ccsDelim":",","ccsLabelSep":"—","ccsTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[ccsLabelSep\\]</span><span class=\"math display\">\\[t\\]</span>","chapDelim":".","chapters":false,"chaptersDepth":"1","codeBlockCaptions":false,"cref":false,"crossrefYaml":"apps/pandox/priv/pandoc_cressref.yaml","csl":"d:/Blog/apps/pandox/priv/csl/GB7714.csl","eqLabels":"arabic","eqnBlockInlineMath":false,"eqnBlockTemplate":"<table>\n<colgroup>\n<col style=\"width: 90%\" />\n<col style=\"width: 10%\" />\n</colgroup>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><span class=\"math display\">\\[t\\]</span></td>\n<td style=\"text-align: right;\"><span class=\"math display\">\\[i\\]</span></td>\n</tr>\n</tbody>\n</table>","eqnDisplayTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnIndexTemplate":"<span class=\"math display\">\\[i\\]</span>","eqnInlineTableTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnInlineTemplate":"<span class=\"math display\">\\[e\\]</span><span class=\"math display\">\\[equationNumberTeX\\]</span>{<span class=\"math display\">\\[i\\]</span>}","eqnPrefix":"式","eqnPrefixTemplate":"<span class=\"math display\">\\[p\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTemplate":"<span class=\"math display\">\\[eqnTitle\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTitle":"式","equationNumberTeX":"\\tag","figLabels":"arabic","figPrefix":"图","figPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","figureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","figureTitle":"图","lastDelim":",","linkReferences":true,"listItemTitleDelim":".","listingTemplate":"<span class=\"math display\">\\[listingTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","listingTitle":"Listing","listings":false,"lofItemTemplate":"<span class=\"math display\">\\[lofItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lofItemTitle":"","lofTitle":"<h1>List of Figures</h1>","lolItemTemplate":"<span class=\"math display\">\\[lolItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lolItemTitle":"","lolTitle":"<h1>List of Listings</h1>","lotItemTemplate":"<span class=\"math display\">\\[lotItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lotItemTitle":"","lotTitle":"<h1>List of Tables</h1>","lstLabels":"arabic","lstPrefix":["lst.","lsts."],"lstPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","nameInLink":true,"numberSections":false,"pairDelim":",","rangeDelim":"-","refDelim":",","refIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span>","secHeaderDelim":"","secHeaderTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[secHeaderDelim[n]\\]</span><span class=\"math display\">\\[t\\]</span>","secLabels":"arabic","secPrefix":["sec.","secs."],"secPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","sectionsDepth":"0","subfigGrid":false,"subfigLabels":"alpha a","subfigureChildTemplate":"<span class=\"math display\">\\[i\\]</span>","subfigureRefIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span> (<span class=\"math display\">\\[s\\]</span>)","subfigureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>. <span class=\"math display\">\\[ccs\\]</span>","tableEqns":false,"tableTemplate":"<span class=\"math display\">\\[tableTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","tableTitle":"表","tblLabels":"arabic","tblPrefix":"表","tblPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","title":"详解 WaveNet","titleDelim":":"}
-<!--SECTION_END:META-->
-
-<!--SECTION_START:SUMMARY-->
-<!--SECTION_END:SUMMARY-->
-
-<!--SECTION_START:TOC-->
-<ul>
-<li><a href="#背景介绍" id="toc-背景介绍">背景介绍</a></li>
-<li><a href="#wavenet-的原理与结构"
-id="toc-wavenet-的原理与结构">WaveNet 的原理与结构</a></li>
-<li><a href="#代码实现" id="toc-代码实现">代码实现</a></li>
-</ul>
-<!--SECTION_END:TOC-->
-
-<!--SECTION_START:BODY-->
-<p>本文章介绍了基于自回归的音频生成模型 WaveNet 。</p>
-
+      本文章介绍了基于自回归的音频生成模型 WaveNet 。
     </div>
     <div class="card-actions justify-end">
       <div class="badge badge-accent">
@@ -470,41 +381,9 @@ id="toc-wavenet-的原理与结构">WaveNet 的原理与结构</a></li>
   <div class="card-body">
     <a href="/2024/08/Gershman-free-energy"><h3 class="card-title text-lg">【翻译】关于我们的大脑，自由能告诉了我们什么？</h3></a>
     <div class="prose">
-      <!--SECTION_START:META-->
-{"autoEqnLabels":false,"autoSectionLabels":false,"bibliography":"D:/Blog/source/_bibs/SamuelFEPIntro.bib","ccsDelim":",","ccsLabelSep":"—","ccsTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[ccsLabelSep\\]</span><span class=\"math display\">\\[t\\]</span>","chapDelim":".","chapters":false,"chaptersDepth":"1","codeBlockCaptions":false,"cref":false,"crossrefYaml":"apps/pandox/priv/pandoc_cressref.yaml","csl":"d:/Blog/apps/pandox/priv/csl/GB7714.csl","eqLabels":"arabic","eqnBlockInlineMath":false,"eqnBlockTemplate":"<table>\n<colgroup>\n<col style=\"width: 90%\" />\n<col style=\"width: 10%\" />\n</colgroup>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><span class=\"math display\">\\[t\\]</span></td>\n<td style=\"text-align: right;\"><span class=\"math display\">\\[i\\]</span></td>\n</tr>\n</tbody>\n</table>","eqnDisplayTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnIndexTemplate":"<span class=\"math display\">\\[i\\]</span>","eqnInlineTableTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnInlineTemplate":"<span class=\"math display\">\\[e\\]</span><span class=\"math display\">\\[equationNumberTeX\\]</span>{<span class=\"math display\">\\[i\\]</span>}","eqnPrefix":"式","eqnPrefixTemplate":"<span class=\"math display\">\\[p\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTemplate":"<span class=\"math display\">\\[eqnTitle\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTitle":"式","equationNumberTeX":"\\tag","figLabels":"arabic","figPrefix":"图","figPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","figureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","figureTitle":"图","lastDelim":",","linkReferences":true,"listItemTitleDelim":".","listingTemplate":"<span class=\"math display\">\\[listingTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","listingTitle":"Listing","listings":false,"lofItemTemplate":"<span class=\"math display\">\\[lofItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lofItemTitle":"","lofTitle":"<h1>List of Figures</h1>","lolItemTemplate":"<span class=\"math display\">\\[lolItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lolItemTitle":"","lolTitle":"<h1>List of Listings</h1>","lotItemTemplate":"<span class=\"math display\">\\[lotItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lotItemTitle":"","lotTitle":"<h1>List of Tables</h1>","lstLabels":"arabic","lstPrefix":["lst.","lsts."],"lstPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","nameInLink":true,"numberSections":false,"pairDelim":",","rangeDelim":"-","refDelim":",","refIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span>","secHeaderDelim":"","secHeaderTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[secHeaderDelim[n]\\]</span><span class=\"math display\">\\[t\\]</span>","secLabels":"arabic","secPrefix":["sec.","secs."],"secPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","sectionsDepth":"0","subfigGrid":false,"subfigLabels":"alpha a","subfigureChildTemplate":"<span class=\"math display\">\\[i\\]</span>","subfigureRefIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span> (<span class=\"math display\">\\[s\\]</span>)","subfigureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>. <span class=\"math display\">\\[ccs\\]</span>","tableEqns":false,"tableTemplate":"<span class=\"math display\">\\[tableTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","tableTitle":"表","tblLabels":"arabic","tblPrefix":"表","tblPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","title":"【翻译】关于我们的大脑，自由能告诉了我们什么？","titleDelim":":"}
-<!--SECTION_END:META-->
-
-<!--SECTION_START:SUMMARY-->
-<!--SECTION_END:SUMMARY-->
-
-<!--SECTION_START:TOC-->
-<ul>
-<li><a href="#引言" id="toc-引言">引言</a></li>
-<li><a href="#贝叶斯大脑假说"
-id="toc-贝叶斯大脑假说">贝叶斯大脑假说</a></li>
-<li><a href="#无约束自由能原理是贝叶斯推断"
-id="toc-无约束自由能原理是贝叶斯推断">无约束自由能原理是贝叶斯推断</a></li>
-<li><a href="#约束变分家族" id="toc-约束变分家族">约束变分家族</a></li>
-<li><a href="#预测性编码" id="toc-预测性编码">预测性编码</a></li>
-<li><a href="#主动推断" id="toc-主动推断">主动推断</a></li>
-<li><a href="#作为推断的计划"
-id="toc-作为推断的计划">作为推断的计划</a></li>
-<li><a href="#结论" id="toc-结论">结论</a></li>
-<li><a href="#致谢" id="toc-致谢">致谢</a></li>
-<li><a href="#其他信息" id="toc-其他信息">其他信息</a></li>
-</ul>
-<!--SECTION_END:TOC-->
-
-<!--SECTION_START:BODY-->
-<p>Source: <a
-href="https://gershmanlab.com/pubs/free_energy.pdf">free_energy.pdf</a></p>
-<blockquote>
-<p>自由能原理作为一种关于大脑功能的统一解释。
+      Source: free_energy.pdf 自由能原理作为一种关于大脑功能的统一解释。
 其和此前的统一理论，诸如贝叶斯推断、预测性编码以及主动学习密切相关并在某些情况下包含了它们。
-本文章旨在理清这些联系，揭示其独特性以及共同的预测。</p>
-</blockquote>
-<p>关键词：<strong>贝叶斯大脑</strong>；<strong>决策理论</strong>；<strong>变分推断</strong>；<strong>预测性编码</strong></p>
-
+本文章旨在理清这些联系，揭示其独特性以及
     </div>
     <div class="card-actions justify-end">
       <div class="badge badge-accent">
