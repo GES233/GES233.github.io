@@ -10,19 +10,6 @@
   </title>
   <link rel="stylesheet" href="/assets/css/app.css">
 
-<script type="text/javascript">
-  const eventSource = new EventSource("/sse");
-
-  eventSource.addEventListener("reload", (e) => {
-    window.location.reload();
-  });
-
-  eventSource.onerror = (err) => {
-    console.error("EventSource failed:", err);
-    eventSource.close();
-  };
-</script>
-
   
   
   
@@ -105,11 +92,18 @@
 
 
         <div class="card-body">
-          <details class="dropdown">
-  <summary class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl btn-secondary">
-    目  录
-  </summary>
-  <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          
+          <div class="card-body prose max-w-none">
+
+<!--SECTION_START:META-->
+{"autoEqnLabels":false,"autoSectionLabels":false,"ccsDelim":",","ccsLabelSep":"—","ccsTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[ccsLabelSep\\]</span><span class=\"math display\">\\[t\\]</span>","chapDelim":".","chapters":false,"chaptersDepth":"1","codeBlockCaptions":false,"cref":false,"crossrefYaml":"apps/pandox/priv/pandoc_cressref.yaml","csl":"d:/Blog/apps/pandox/priv/csl/GB7714.csl","eqLabels":"arabic","eqnBlockInlineMath":false,"eqnBlockTemplate":"<table>\n<colgroup>\n<col style=\"width: 90%\" />\n<col style=\"width: 10%\" />\n</colgroup>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><span class=\"math display\">\\[t\\]</span></td>\n<td style=\"text-align: right;\"><span class=\"math display\">\\[i\\]</span></td>\n</tr>\n</tbody>\n</table>","eqnDisplayTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnIndexTemplate":"<span class=\"math display\">\\[i\\]</span>","eqnInlineTableTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnInlineTemplate":"<span class=\"math display\">\\[e\\]</span><span class=\"math display\">\\[equationNumberTeX\\]</span>{<span class=\"math display\">\\[i\\]</span>}","eqnPrefix":"式","eqnPrefixTemplate":"<span class=\"math display\">\\[p\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTemplate":"<span class=\"math display\">\\[eqnTitle\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTitle":"式","equationNumberTeX":"\\tag","figLabels":"arabic","figPrefix":"图","figPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","figureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","figureTitle":"图","lastDelim":",","linkReferences":true,"listItemTitleDelim":".","listingTemplate":"<span class=\"math display\">\\[listingTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","listingTitle":"Listing","listings":false,"lofItemTemplate":"<span class=\"math display\">\\[lofItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lofItemTitle":"","lofTitle":"<h1>List of Figures</h1>","lolItemTemplate":"<span class=\"math display\">\\[lolItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lolItemTitle":"","lolTitle":"<h1>List of Listings</h1>","lotItemTemplate":"<span class=\"math display\">\\[lotItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lotItemTitle":"","lotTitle":"<h1>List of Tables</h1>","lstLabels":"arabic","lstPrefix":["lst.","lsts."],"lstPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","nameInLink":true,"numberSections":false,"pairDelim":",","rangeDelim":"-","refDelim":",","refIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span>","secHeaderDelim":"","secHeaderTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[secHeaderDelim[n]\\]</span><span class=\"math display\">\\[t\\]</span>","secLabels":"arabic","secPrefix":["sec.","secs."],"secPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","sectionsDepth":"0","subfigGrid":false,"subfigLabels":"alpha a","subfigureChildTemplate":"<span class=\"math display\">\\[i\\]</span>","subfigureRefIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span> (<span class=\"math display\">\\[s\\]</span>)","subfigureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>. <span class=\"math display\">\\[ccs\\]</span>","tableEqns":false,"tableTemplate":"<span class=\"math display\">\\[tableTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","tableTitle":"表","tblLabels":"arabic","tblPrefix":"表","tblPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","titleDelim":":"}
+<!--SECTION_END:META-->
+
+<!--SECTION_START:SUMMARY-->
+<!--SECTION_END:SUMMARY-->
+
+<!--SECTION_START:TOC-->
+<ul>
 <li><a href="#网络请求的抽象化"
 id="toc-网络请求的抽象化">网络请求的抽象化</a></li>
 <li><a href="#核心" id="toc-核心">核心</a></li>
@@ -118,10 +112,9 @@ id="toc-plug.builder"><code>Plug.Builder</code></a></li>
 <li><a href="#plug.router"
 id="toc-plug.router"><code>Plug.Router</code></a></li>
 </ul>
-</details>
+<!--SECTION_END:TOC-->
 
-          <div class="card-body prose max-w-none">
-
+<!--SECTION_START:BODY-->
 <p>代码以 Plug v1.7.10 （博客引擎的版本）为例。</p>
 <h3 id="网络请求的抽象化">网络请求的抽象化</h3>
 <ul>
@@ -165,9 +158,13 @@ id="响应请求过程的生命周期要用到的">响应请求过程的生命�
 </ul>
 <h3 id="plug.builder"><code>Plug.Builder</code></h3>
 <h3 id="plug.router"><code>Plug.Router</code></h3>
+<!--SECTION_END:BODY-->
 
+<!--SECTION_START:BIB-->
+<!--SECTION_END:BIB-->
 
-
+<!--SECTION_START:NOTES-->
+<!--SECTION_END:NOTES-->
 
             <div style="text-align:center" class="font-content-serif">
                 ——亟待更新——

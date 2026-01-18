@@ -10,19 +10,6 @@
   </title>
   <link rel="stylesheet" href="/assets/css/app.css">
 
-<script type="text/javascript">
-  const eventSource = new EventSource("/sse");
-
-  eventSource.addEventListener("reload", (e) => {
-    window.location.reload();
-  });
-
-  eventSource.onerror = (err) => {
-    console.error("EventSource failed:", err);
-    eventSource.close();
-  };
-</script>
-
   
   
   
@@ -105,22 +92,29 @@
 
 
         <div class="card-body">
-          <details class="dropdown">
-  <summary class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl btn-secondary">
-    目  录
-  </summary>
-  <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          
+          <div class="card-body prose max-w-none">
+
+<!--SECTION_START:META-->
+{"autoEqnLabels":false,"autoSectionLabels":false,"ccsDelim":",","ccsLabelSep":"—","ccsTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[ccsLabelSep\\]</span><span class=\"math display\">\\[t\\]</span>","chapDelim":".","chapters":false,"chaptersDepth":"1","codeBlockCaptions":false,"cref":false,"crossrefYaml":"apps/pandox/priv/pandoc_cressref.yaml","csl":"d:/Blog/apps/pandox/priv/csl/GB7714.csl","eqLabels":"arabic","eqnBlockInlineMath":false,"eqnBlockTemplate":"<table>\n<colgroup>\n<col style=\"width: 90%\" />\n<col style=\"width: 10%\" />\n</colgroup>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><span class=\"math display\">\\[t\\]</span></td>\n<td style=\"text-align: right;\"><span class=\"math display\">\\[i\\]</span></td>\n</tr>\n</tbody>\n</table>","eqnDisplayTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnIndexTemplate":"<span class=\"math display\">\\[i\\]</span>","eqnInlineTableTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnInlineTemplate":"<span class=\"math display\">\\[e\\]</span><span class=\"math display\">\\[equationNumberTeX\\]</span>{<span class=\"math display\">\\[i\\]</span>}","eqnPrefix":"式","eqnPrefixTemplate":"<span class=\"math display\">\\[p\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTemplate":"<span class=\"math display\">\\[eqnTitle\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTitle":"式","equationNumberTeX":"\\tag","figLabels":"arabic","figPrefix":"图","figPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","figureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","figureTitle":"图","lastDelim":",","linkReferences":true,"listItemTitleDelim":".","listingTemplate":"<span class=\"math display\">\\[listingTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","listingTitle":"Listing","listings":false,"lofItemTemplate":"<span class=\"math display\">\\[lofItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lofItemTitle":"","lofTitle":"<h1>List of Figures</h1>","lolItemTemplate":"<span class=\"math display\">\\[lolItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lolItemTitle":"","lolTitle":"<h1>List of Listings</h1>","lotItemTemplate":"<span class=\"math display\">\\[lotItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lotItemTitle":"","lotTitle":"<h1>List of Tables</h1>","lstLabels":"arabic","lstPrefix":["lst.","lsts."],"lstPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","nameInLink":true,"numberSections":false,"pairDelim":",","rangeDelim":"-","refDelim":",","refIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span>","secHeaderDelim":"","secHeaderTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[secHeaderDelim[n]\\]</span><span class=\"math display\">\\[t\\]</span>","secLabels":"arabic","secPrefix":["sec.","secs."],"secPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","sectionsDepth":"0","subfigGrid":false,"subfigLabels":"alpha a","subfigureChildTemplate":"<span class=\"math display\">\\[i\\]</span>","subfigureRefIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span> (<span class=\"math display\">\\[s\\]</span>)","subfigureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>. <span class=\"math display\">\\[ccs\\]</span>","tableEqns":false,"tableTemplate":"<span class=\"math display\">\\[tableTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","tableTitle":"表","tblLabels":"arabic","tblPrefix":"表","tblPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","titleDelim":":"}
+<!--SECTION_END:META-->
+
+<!--SECTION_START:SUMMARY-->
+<!--SECTION_END:SUMMARY-->
+
+<!--SECTION_START:TOC-->
+<ul>
 <li><a href="#想法来源" id="toc-想法来源">想法来源</a></li>
 <li><a href="#本体" id="toc-本体">本体</a></li>
 <li><a href="#困境" id="toc-困境">困境</a></li>
 </ul>
-</details>
+<!--SECTION_END:TOC-->
 
-          <div class="card-body prose max-w-none">
-
+<!--SECTION_START:BODY-->
 <p>Link: <a
 href="https://github.com/SynapticStrings/QyEditor">SynapticStrings/QyEditor:
 Lightweight synthesizer interface.</a></p>
+<!--more-->
 <h3 id="想法来源">想法来源</h3>
 <h4 id="关于与-diffsinger">关于与 DiffSinger</h4>
 <p>确定想要自己开发的 trigger 是看到 DiffSinger
@@ -131,8 +125,9 @@ href="https://dashichang.work/">大市唱</a> 和其成名曲<a
 href="https://www.bilibili.com/video/BV1j8411g7E5/">《摘苹果》</a>）。</p>
 <p>再加上自己想要实现能够在 Intel 显卡上运行用在 <a
 href="https://github.com/stakira/OpenUtau">OpenUTAU</a> 的 DiffSinger
-声库<sup><a href="#fn1" id="fnref1" class="footnote-ref"
-role="doc-noteref">1</a></sup>。但是不会 C♯ ，所以想要尝试自己踩坑。</p>
+声库<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>。但是不会 C♯
+，所以想要尝试自己踩坑。</p>
 <p>又因为之前配置能够在 I 卡运行 PyTorch 的 Python 环境的糟糕经历，加之
 Python 拉跨的速度与并发性能，果断放弃了使用 Python 来开发。</p>
 <p>查看资料发现 Elixir 生态存在运行 ONNX 的库（<a
@@ -184,17 +179,21 @@ crash quitely when loading ONNX model · Issue #42 · elixir-nx/ortex</a>
 <h4 id="tough-academic-issue">tough academic issue</h4>
 <h4 id="庞大的工作量">庞大的工作量</h4>
 <p>leverage AI, plz.</p>
-<div class="footnotes prose-sm">
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
 <ol>
-<li><div id="fn1">
-<p>OpenUTAU DiffSinger 声库实质上是 ONNX 模型 <a href="#fnref1"
-class="footnote-back" role="doc-backlink"
-aria-label="Back to content">↩︎</a></p>
-</div></li>
+<li id="fn1"><p>OpenUTAU DiffSinger 声库实质上是 ONNX 模型<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>
+</section>
+<!--SECTION_END:BODY-->
 
+<!--SECTION_START:BIB-->
+<!--SECTION_END:BIB-->
 
+<!--SECTION_START:NOTES-->
+<!--SECTION_END:NOTES-->
 
             <div style="text-align:center" class="font-content-serif">
                 ——亟待更新——

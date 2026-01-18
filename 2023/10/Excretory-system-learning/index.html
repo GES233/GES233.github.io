@@ -10,19 +10,6 @@
   </title>
   <link rel="stylesheet" href="/assets/css/app.css">
 
-<script type="text/javascript">
-  const eventSource = new EventSource("/sse");
-
-  eventSource.addEventListener("reload", (e) => {
-    window.location.reload();
-  });
-
-  eventSource.onerror = (err) => {
-    console.error("EventSource failed:", err);
-    eventSource.close();
-  };
-</script>
-
   
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
@@ -106,25 +93,32 @@
 
 
         <div class="card-body">
-          <details class="dropdown">
-  <summary class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl btn-secondary">
-    目  录
-  </summary>
-  <ul class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          
+          <div class="card-body prose max-w-none">
+
+<!--SECTION_START:META-->
+{"autoEqnLabels":false,"autoSectionLabels":false,"ccsDelim":",","ccsLabelSep":"—","ccsTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[ccsLabelSep\\]</span><span class=\"math display\">\\[t\\]</span>","chapDelim":".","chapters":false,"chaptersDepth":"1","codeBlockCaptions":false,"cref":false,"crossrefYaml":"apps/pandox/priv/pandoc_cressref.yaml","csl":"d:/Blog/apps/pandox/priv/csl/GB7714.csl","eqLabels":"arabic","eqnBlockInlineMath":false,"eqnBlockTemplate":"<table>\n<colgroup>\n<col style=\"width: 90%\" />\n<col style=\"width: 10%\" />\n</colgroup>\n<tbody>\n<tr>\n<td style=\"text-align: center;\"><span class=\"math display\">\\[t\\]</span></td>\n<td style=\"text-align: right;\"><span class=\"math display\">\\[i\\]</span></td>\n</tr>\n</tbody>\n</table>","eqnDisplayTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnIndexTemplate":"<span class=\"math display\">\\[i\\]</span>","eqnInlineTableTemplate":"<span class=\"math display\">\\[e\\]</span>","eqnInlineTemplate":"<span class=\"math display\">\\[e\\]</span><span class=\"math display\">\\[equationNumberTeX\\]</span>{<span class=\"math display\">\\[i\\]</span>}","eqnPrefix":"式","eqnPrefixTemplate":"<span class=\"math display\">\\[p\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTemplate":"<span class=\"math display\">\\[eqnTitle\\]</span>(<span class=\"math display\">\\[i\\]</span>)","eqnTitle":"式","equationNumberTeX":"\\tag","figLabels":"arabic","figPrefix":"图","figPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","figureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","figureTitle":"图","lastDelim":",","linkReferences":true,"listItemTitleDelim":".","listingTemplate":"<span class=\"math display\">\\[listingTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","listingTitle":"Listing","listings":false,"lofItemTemplate":"<span class=\"math display\">\\[lofItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lofItemTitle":"","lofTitle":"<h1>List of Figures</h1>","lolItemTemplate":"<span class=\"math display\">\\[lolItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lolItemTitle":"","lolTitle":"<h1>List of Listings</h1>","lotItemTemplate":"<span class=\"math display\">\\[lotItemTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[listItemTitleDelim\\]</span> <span class=\"math display\">\\[t\\]</span><br />\n","lotItemTitle":"","lotTitle":"<h1>List of Tables</h1>","lstLabels":"arabic","lstPrefix":["lst.","lsts."],"lstPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","nameInLink":true,"numberSections":false,"pairDelim":",","rangeDelim":"-","refDelim":",","refIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span>","secHeaderDelim":"","secHeaderTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[secHeaderDelim[n]\\]</span><span class=\"math display\">\\[t\\]</span>","secLabels":"arabic","secPrefix":["sec.","secs."],"secPrefixTemplate":"<span class=\"math display\">\\[p\\]</span> <span class=\"math display\">\\[i\\]</span>","sectionsDepth":"0","subfigGrid":false,"subfigLabels":"alpha a","subfigureChildTemplate":"<span class=\"math display\">\\[i\\]</span>","subfigureRefIndexTemplate":"<span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[suf\\]</span> (<span class=\"math display\">\\[s\\]</span>)","subfigureTemplate":"<span class=\"math display\">\\[figureTitle\\]</span> <span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>. <span class=\"math display\">\\[ccs\\]</span>","tableEqns":false,"tableTemplate":"<span class=\"math display\">\\[tableTitle\\]</span><span class=\"math display\">\\[i\\]</span><span class=\"math display\">\\[titleDelim\\]</span> <span class=\"math display\">\\[t\\]</span>","tableTitle":"表","tblLabels":"arabic","tblPrefix":"表","tblPrefixTemplate":"<span class=\"math display\">\\[p\\]</span><span class=\"math display\">\\[i\\]</span>","titleDelim":":"}
+<!--SECTION_END:META-->
+
+<!--SECTION_START:SUMMARY-->
+<!--SECTION_END:SUMMARY-->
+
+<!--SECTION_START:TOC-->
+<ul>
 <li><a href="#写在前面" id="toc-写在前面">写在前面</a></li>
 <li><a href="#学习过程" id="toc-学习过程">学习过程</a></li>
 <li><a href="#其他" id="toc-其他">其他</a></li>
 </ul>
-</details>
+<!--SECTION_END:TOC-->
 
-          <div class="card-body prose max-w-none">
-
+<!--SECTION_START:BODY-->
 <p>通过与 ChatGPT 的交流来学习一个领域的实例，本篇是关于排泄系统的。</p>
+<!--more-->
 <h3 id="写在前面">写在前面</h3>
 <p>以下是会话本身：</p>
 <blockquote>
-<p>我是一名兽医专业<sup><a href="#fn1" id="fnref1" class="footnote-ref"
-role="doc-noteref">1</a></sup>的学生，我想学习动物生理学下的排泄与泌尿，请你告诉我需要学习这个领域的先决条件以及该领域中最重要的20%知识，可以以知识点或问题的形式展示，我只需学习这些重要知识，能够让我对该领域的80%有充分和扎实的理解。</p>
+<p>我是一名兽医专业<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>的学生，我想学习动物生理学下的排泄与泌尿，请你告诉我需要学习这个领域的先决条件以及该领域中最重要的20%知识，可以以知识点或问题的形式展示，我只需学习这些重要知识，能够让我对该领域的80%有充分和扎实的理解。</p>
 </blockquote>
 <p>学习动物生理学中的排泄与泌尿领域需要一定的基础知识和理解。以下是一些先决条件和最重要的知识点或问题，它们可以帮助你对这个领域有扎实的理解：</p>
 <p><strong>先决条件：</strong></p>
@@ -187,9 +181,9 @@ href="http://mednur.com/physiology/urine234.html">近球小管的重吸收和分
 <ul>
 <li>泵：钠钾泵（管外侧）</li>
 <li>导致胞内与胞外（管内侧）产生浓度差，协同葡萄糖或氨基酸<strong>同向共转运</strong>，后者通过异化扩散离开细胞进入管外</li>
-<li>漏：前者导致管外静水压<sup><a href="#fn2" id="fnref2"
-class="footnote-ref"
-role="doc-noteref">2</a></sup>升高，进而导致了管壁细胞间紧密连接被撑开，水、钠离子可进入管腔</li>
+<li>漏：前者导致管外静水压<a href="#fn2" class="footnote-ref"
+id="fnref2"
+role="doc-noteref"><sup>2</sup></a>升高，进而导致了管壁细胞间紧密连接被撑开，水、钠离子可进入管腔</li>
 </ul></li>
 <li>与氢离子反向共转运（同时分泌氢离子）</li>
 </ul></li>
@@ -293,22 +287,23 @@ pH 平衡中的作用</h4>
 <h3 id="其他">其他</h3>
 <h4
 id="肾素-血管紧张素-醛固酮系统稳定机体的血压与体液平衡">肾素-血管紧张素-醛固酮系统稳定机体的血压与体液平衡</h4>
-<div class="footnotes prose-sm">
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
 <ol>
-<li><div id="fn1">
-<p>在兽医专业的视角下，对动物生理学的研究层次更加深刻。 <a
-href="#fnref1" class="footnote-back" role="doc-backlink"
-aria-label="Back to content">↩︎</a></p>
-</div></li>
-<li><div id="fn2">
-<p>与渗透压的不同之处在于没有细胞间隙并半透膜。 <a href="#fnref2"
-class="footnote-back" role="doc-backlink"
-aria-label="Back to content">↩︎</a></p>
-</div></li>
+<li id="fn1"><p>在兽医专业的视角下，对动物生理学的研究层次更加深刻。<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>与渗透压的不同之处在于没有细胞间隙并半透膜。<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>
+</section>
+<!--SECTION_END:BODY-->
 
+<!--SECTION_START:BIB-->
+<!--SECTION_END:BIB-->
 
+<!--SECTION_START:NOTES-->
+<!--SECTION_END:NOTES-->
 
             <div style="text-align:center" class="font-content-serif">
                 ——无限期停止撰写——
