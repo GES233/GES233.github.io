@@ -166,9 +166,9 @@ miniKanren 语言不同的地方。</p>
 </table>
 <h3 id="a">A</h3>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(<span class="fu">var </span>c) (<span class="kw">vector</span> c))</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(<span class="fu">var? </span>x) (<span class="kw">vector?</span> x))</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(<span class="fu">var==? </span>x1 x2) (== (<span class="kw">vector-ref</span> x1 <span class="dv">0</span>) (<span class="kw">vector-ref</span> x2 <span class="dv">0</span>)))</span>
+class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(var c) (<span class="kw">vector</span> c))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(var? x) (<span class="kw">vector?</span> x))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(var==? x1 x2) (== (<span class="kw">vector-ref</span> x1 <span class="dv">0</span>) (<span class="kw">vector-ref</span> x2 <span class="dv">0</span>)))</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">;; </span><span class="al">TBD</span></span></code></pre></div>
 <details>

@@ -216,13 +216,13 @@ class="sourceCode elixir"><code class="sourceCode elixir"><span id="cb1-1"><a hr
 ├─────────────────────────┤
 │       HTMLLoader        │  有 index.html
 │                         │  → 读取文件
-│                         │  → RESPONCE or pass
+│                         │  → RESPONSE or pass
 ├─────────────────────────┤
 │       Plug.Static       │  处理其他静态文件
-│                         │  → RESPONCE or pass
+│                         │  → RESPONSE or pass
 ├─────────────────────────┤
 │       :not_found        │  兜底
-│                         │  → RESPONCE (404)
+│                         │  → RESPONSE (404)
 └─────────────────────────┘</code></pre>
 <blockquote>
 <p><strong>注</strong>：</p>
@@ -237,7 +237,8 @@ class="sourceCode elixir"><code class="sourceCode elixir"><span id="cb1-1"><a hr
 <code>input |&gt; foo() |&gt; bar() ...</code> 的形式也是 FP
 语言的一种特色。</p>
 <p>作为对比，如果你用过 <a href="https://sanic.dev">Sanic</a>
-，你会发现，数据是：</p>
+，你会发现，数据存在 <span class="math inline">\(\mathrm{Request}
+\rightarrow \mathrm{Response}\)</span> 的转换。</p>
 <div class="sourceCode" id="cb3"><pre
 class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https://github.com/GES233/Chestnut</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># chestnut/infra/web/blueprints/plain/index.py</span></span>
@@ -260,8 +261,6 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a hr
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return.</span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="cf">await</span> render(request, <span class="st">&quot;launch.html&quot;</span>)</span></code></pre></div>
-<p>存在 <span class="math inline">\(\mathrm{Request} \rightarrow
-\mathrm{Responce}\)</span> 的转换。</p>
 <p>但在 Plug 中，这条线索是「同质性」的，名字叫做
 <code>%Plug.Conn{}</code> ，是「结构体」（可以粗暴地理解成 Python 的
 dataclass ，但是没有类，或者是附带着一些函数的 namedtuple）。</p>
@@ -276,7 +275,7 @@ dataclass ，但是没有类，或者是附带着一些函数的 namedtuple）�
 <p>本节标题源于此前看了 <a
 href="https://liaoxuefeng.com/books/python/web/web-framework/index.html">廖雪峰老师的博文</a>
 的思考。</p>
-<p>在实际应用环境下，往往需要面对：</p>
+<p>在实际应用环境下，往往需要面对如下情况：</p>
 <ul>
 <li>需要处理 <code>/users/1</code>, <code>/posts/114514</code>
 这样的动态路由，和存在不可变变量<a href="#fn2" class="footnote-ref"
@@ -285,16 +284,157 @@ role="doc-noteref"><sup>2</sup></a>一样，这里的「动态」是编写程序
 <li>某个包含表单的界面需要处理 GET 、 POST 等一系列方法</li>
 <li>涉及从数据库读取用户信息、鉴权、查看用户的请求、保存到数据库中的复杂请求</li>
 </ul>
-<p>等情况。</p>
 <p>如果执意要用 plug
 手搓应用，也不是不可以，但是有可能面对编写大量的重复代码、潜在的（编写时很难看到的）错误等情况。</p>
 <p>框架的本质，就是大量通用的预制代码，它来处理那些潜在的、繁琐的细节。</p>
 <h2 id="phoenix-做了什么">Phoenix 做了什么</h2>
-<h3 id="嵌入式-phoenix-应用">嵌入式 Phoenix 应用</h3>
+<h3 id="介绍">介绍</h3>
+<h2 id="项目实操">项目实操</h2>
+<blockquote>
+<p>Talk is cheap, show me the code.</p>
+</blockquote>
+<p>灵感来自于暂停的 <a
+href="https://github.com/GES233/MortalDrinksElixir">GES233/MortalDrinksElixir</a>
+，我本来想直接把项目搬过来的，但我到目前好没写好兼容 Elixir 对象的
+Scheme 风格 miniKanren 解释器和支持 2D/3D 混合画面的 JS Canvas
+渲染引擎。</p>
+<h3 id="小准备">小准备</h3>
+<h3 id="嵌入式-phoenix-liveview-应用">嵌入式 Phoenix LiveView 应用</h3>
+<p>WebUI 本体：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode elixir"><code class="sourceCode elixir"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">defmodule</span> <span class="cn">WebUI</span> <span class="kw">do</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defmodule</span> <span class="cn">TinyLive</span> <span class="kw">do</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">use</span> <span class="cn">Phoenix</span><span class="op">.</span><span class="cn">LiveView</span>, <span class="va">layout:</span> <span class="fu">{</span><span class="cn">__MODULE__</span>, <span class="va">:live</span><span class="fu">}</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> render<span class="fu">(</span><span class="st">&quot;live.html&quot;</span>, assigns<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      <span class="op">~</span>H<span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">      &lt;!DOCTYPE html&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">      &lt;html&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="st">        &lt;head&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="st">          &lt;meta name=&quot;csrf-token&quot; content={Plug.CSRFProtection.get_csrf_token()} /&gt;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="st">          &lt;title&gt;System Monitor&lt;/title&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="st">          &lt;style&gt;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="st">            body { background: #000; color: #0f0; font-family: &#39;Courier New&#39;, monospace; margin: 0; padding: 20px; }</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="st">            .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; height: 95vh; }</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="st">            .panel { border: 2px solid #333; padding: 10px; overflow: hidden; }</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="st">            .active { border-color: #0f0; box-shadow: 0 0 10px #0f0; }</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="st">            pre {</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="st">              font-family: &quot;CaskaydiaCove Nerd Font Mono&quot;, Consolas, &quot;Courier New&quot;, monospace;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="st">            }</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="st">          &lt;/style&gt;</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="st">          &lt;script src=&quot;https://cdn.jsdelivr.net/npm/phoenix@1.8.1/priv/static/phoenix.min.js&quot;&gt;&lt;/script&gt;</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="st">          &lt;script src=&quot;https://cdn.jsdelivr.net/npm/phoenix_live_view@1.1.19/priv/static/phoenix_live_view.min.js&quot;&gt;&lt;/script&gt;</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="st">          &lt;script&gt;</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="st">            if (!window.liveSocket) {</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="st">              let csrfToken = document.querySelector(&quot;meta[name=&#39;csrf-token&#39;]&quot;).getAttribute(&quot;content&quot;);</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="st">              window.liveSocket = new window.LiveView.LiveSocket(&quot;/live&quot;, window.Phoenix.Socket, {</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="st">                params: {_csrf_token: csrfToken}</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="st">              });</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="st">            }</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="st">            window.liveSocket.connect();</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="st">            window.liveSocket.enableDebug();</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="st">          &lt;/script&gt;</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="st">      &lt;/head&gt;</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="st">        &lt;body&gt;</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="st">          &lt;%= @inner_content %&gt;</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="st">        &lt;/body&gt;</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="st">      &lt;/html&gt;</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="st">      &quot;&quot;&quot;</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> render<span class="fu">(</span>assigns<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>      <span class="op">~</span>H<span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="st">      &lt;div class=&quot;grid&quot;&gt;</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="st">        &lt;div class=&quot;panel&quot;&gt;</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="st">          &lt;h3&gt;// SOURCE_CODE&lt;/h3&gt;</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="st">          &lt;%= @code_snippet %&gt;</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="st">        &lt;/div&gt;</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="st">        &lt;div class=&quot;panel active&quot;&gt;</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="st">          &lt;h3&gt;// VISUALIZATION&lt;/h3&gt;</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="st">          &lt;p&gt;Status: &lt;%= @status %&gt;&lt;/p&gt;</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="st">          &lt;p&gt;Tick: &lt;%= @tick %&gt;&lt;/p&gt;</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="st">        &lt;/div&gt;</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="st">      &lt;/div&gt;</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="st">      &quot;&quot;&quot;</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> mount<span class="fu">(</span>_params, _session, socket<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span><span class="va">:ok</span>, socket<span class="fu">}</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defmodule</span> <span class="cn">Router</span> <span class="kw">do</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>    <span class="im">use</span> <span class="cn">Phoenix</span><span class="op">.</span><span class="cn">Router</span></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> <span class="cn">Phoenix</span><span class="op">.</span><span class="cn">LiveView</span><span class="op">.</span><span class="cn">Router</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>    pipeline <span class="va">:browser</span> <span class="kw">do</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>      plug <span class="va">:accepts</span>, <span class="ot">[</span><span class="st">&quot;html&quot;</span><span class="ot">]</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>      plug <span class="va">:fetch_session</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>      plug <span class="va">:protect_from_forgery</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>      plug <span class="va">:put_secure_browser_headers</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>      plug <span class="va">:put_root_layout</span>, <span class="fu">{</span><span class="cn">TinyLive</span>, <span class="va">:live</span><span class="fu">}</span></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>    scope <span class="st">&quot;/&quot;</span> <span class="kw">do</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>      pipe_through <span class="va">:browser</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>      live <span class="st">&quot;/&quot;</span>, <span class="cn">TinyLive</span></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defmodule</span> <span class="cn">Endpoint</span> <span class="kw">do</span></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>    <span class="im">use</span> <span class="cn">Phoenix</span><span class="op">.</span><span class="cn">Endpoint</span>, <span class="va">otp_app:</span> <span class="va">:web_ui</span></span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>    socket <span class="st">&quot;/live&quot;</span>, <span class="cn">Phoenix</span><span class="op">.</span><span class="cn">LiveView</span><span class="op">.</span><span class="cn">Socket</span></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>    plug <span class="cn">Plug</span><span class="op">.</span><span class="cn">Session</span>,  </span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>      <span class="va">store:</span> <span class="va">:cookie</span>,  </span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>      <span class="va">key:</span> <span class="st">&quot;_web_ui_key&quot;</span>,  </span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>      <span class="va">signing_salt:</span> <span class="st">&quot;CUSTARD_PUDDING_VANILLA_ICECREAM_AND_STRAWBERRY_PANCAKE&quot;</span></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>    plug <span class="cn">WebUI</span><span class="op">.</span><span class="cn">Interface</span><span class="op">.</span><span class="cn">Router</span></span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defmodule</span> <span class="cn">ErrorHTML</span> <span class="kw">do</span></span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> render<span class="fu">(</span>template, _assigns<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>      <span class="cn">Phoenix</span><span class="op">.</span><span class="cn">Controller</span><span class="op">.</span>status_message_from_template<span class="fu">(</span>template<span class="fu">)</span></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<p>应用：</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode elixir"><code class="sourceCode elixir"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">defmodule</span> <span class="cn">YourApp</span><span class="op">.</span><span class="cn">Application</span> <span class="kw">do</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@moduledoc</span> <span class="cn">false</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="im">use</span> <span class="cn">Application</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> start<span class="fu">(</span>_start_type, _start_args<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cn">Application</span><span class="op">.</span>put_env<span class="fu">(</span><span class="va">:mord_ex</span>, <span class="cn">WebUI</span><span class="op">.</span><span class="cn">Endpoint</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      <span class="va">http:</span> <span class="ot">[</span><span class="va">ip:</span> <span class="fu">{</span><span class="dv">127</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span><span class="fu">}</span>, <span class="va">port:</span> <span class="dv">4000</span><span class="ot">]</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      <span class="va">server:</span> <span class="cn">true</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>      <span class="va">live_view:</span> <span class="ot">[</span><span class="va">signing_salt:</span> <span class="st">&quot;pNL)*&gt;._*uxE71Us0ULc&quot;</span><span class="ot">]</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>      <span class="va">secret_key_base:</span> <span class="st">&quot;7s7EGQuNjDzKANP7jD0KDCpUyuNvwQ612KHXR6X2v7V3ERJq9vi0p5U0rda3RbJB&quot;</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>      <span class="va">pubsub_server:</span> <span class="cn">WebUI</span><span class="op">.</span><span class="cn">PubSub</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>      <span class="va">adapter:</span> <span class="cn">Bandit</span><span class="op">.</span><span class="cn">PhoenixAdapter</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      <span class="va">render_errors:</span> <span class="ot">[</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">formats:</span> <span class="ot">[</span><span class="va">html:</span> <span class="cn">WebUI</span><span class="op">.</span><span class="cn">ErrorHTML</span><span class="ot">]</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">layout:</span> <span class="cn">false</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      <span class="ot">]</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">)</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    children <span class="op">=</span> <span class="ot">[</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span><span class="cn">Phoenix</span><span class="op">.</span><span class="cn">PubSub</span>, <span class="va">name:</span> <span class="cn">WebUI</span><span class="op">.</span><span class="cn">PubSub</span><span class="fu">}</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>      <span class="cn">WebUI</span><span class="op">.</span><span class="cn">Endpoint</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    opts <span class="op">=</span> <span class="ot">[</span><span class="va">strategy:</span> <span class="va">:one_for_one</span>, <span class="va">name:</span> <span class="cn">YourApp</span><span class="op">.</span><span class="cn">Supervisor</span><span class="ot">]</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="cn">Supervisor</span><span class="op">.</span>start_link<span class="fu">(</span>children, opts<span class="fu">)</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
 <h3 id="引入-html">引入 HTML</h3>
 <h3 id="前端资源">前端资源</h3>
 <h3 id="模块的解耦">模块的解耦</h3>
-<h2 id="试一下-phoenix-liveview">试一下 Phoenix LiveView</h2>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
