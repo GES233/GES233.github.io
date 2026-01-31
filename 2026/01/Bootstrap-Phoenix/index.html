@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charaset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>
+    面向萌新的 Phoenix 教程 - 自留地
+  </title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+
+  
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  
+  
+  
+
+
+
+</head>
+
+<body>
+  <header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10">
+    <div class="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-8">
+      <div class="flex-1">
+        <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
+      </div>
+      <ul class="menu menu-horizontal px-1">
+      <li>
+        <details>
+          <summary>欢迎</summary>
+          <ul class="bg-base-100 rounded-t-none p-2">
+            <li><a href="/about">关于</a></li>
+            <li><a href="/friends">友链</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+    </div>
+  </header>
+  <main class="w-full bg-base-200 py-12 px-4">
+    <div class="mx-auto max-w-4xl bg-base-100 rounded-lg shadow-sm p-8 sm:p-12">
+      <div class="card">
+
+<div>
+  <h2 class="card-title text-2xl">面向萌新的 Phoenix 教程</h2>
+
+  <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-3 text-base-content/80 text-sm">
+    <span class="inline-flex items-center gap-1.5" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Zm.75-10.25a.75.75 0 0 0-1.5 0v2.5h-2.5a.75.75 0 0 0 0 1.5h2.5v2.5a.75.75 0 0 0 1.5 0v-2.5h2.5a.75.75 0 0 0 0-1.5h-2.5v-2.5Z" />
+      </svg>
+      <span>2026-01-31</span>
+    </span>
+    <span class="inline-flex items-center gap-1.5" title="更新日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
+        <path d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L3.75 9.775a.75.75 0 0 0-.22.53l-.823 2.882a.75.75 0 0 0 .963.963l2.882-.823a.75.75 0 0 0 .53-.22l7.262-7.263a1.75 1.75 0 0 0 0-2.474ZM4.53 10.28l6.738-6.737a.25.25 0 0 1 .353 0l1.148 1.147a.25.25 0 0 1 0 .354L6.03 11.782l-1.77.506.506-1.77Z" />
+      </svg>
+      <span>2026-01-31</span>
+    </span>
+    <div>
+      
+    <div class="badge badge-info">
+      <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+      </svg>
+      <div title="进度" class="radial-progress bg-info text-base-100" style="--value:20; --size:1rem; --thickness: 2px;" aria-valuenow="20" role="progressbar">
+      </div>
+      20%
+    </div>
+
+  
+
+    </div>
+    <div class="badge badge-secondary">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+  </svg>
+  <small>Elixir</small>
+</div>
+
+<div class="badge badge-secondary">
+  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+  </svg>
+  <small>Phoenix</small>
+</div>
+
+  </div>
+
+
+        <div class="card-body">
+          
+          <div class="card-body prose max-w-none">
+
+<p>一个面向在 <code>mix phx.new</code> 后不知如何编写的萌新的教程。</p>
+<!--more-->
+<h2 id="写在前面">写在前面</h2>
+<p>RoR 类型的网络框架<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>，素来以开发效率高而闻名，因为其提供了大量的预制代码（脚手架）。但是这种「开发效率高」往往面对的是有丰富经验的资深开发者。</p>
+<p>但是从新入手的角度来讲，这些动辄数千行的预制代码反而变成了门槛。</p>
+<p>所以严格来讲，这个教程是面向和我一样被网上的宣传骗进来的萌新们，旨在从一种构建的角度来对
+Phoenix 进行学习。</p>
+<h3 id="prerequisite">Prerequisite</h3>
+<p>虽然是「面向萌新」，但如果想要看懂本文章，还是需要一点点的基础的。主要包括：</p>
+<ul>
+<li>对网络开发的基本认识
+<ul>
+<li>了解客户端、服务器、请求、响应等基本概念</li>
+<li>知道 MVC 的三个字母分别代表了什么</li>
+<li>了解 API 请求（网络概念上的）、HTML 以及 CSS/JavaScript 等概念</li>
+</ul></li>
+<li>了解一门编程语言，能够用该语言独自编写简单的程序
+<ul>
+<li>操作过该语言的包管理应用</li>
+</ul></li>
+<li>对 Erlang 或 Elixir 的基本了解
+<ul>
+<li>要知道 Application 是什么（这是和其他编程语言较大的不同）</li>
+<li>了解创建新应用/库的指令、可以添加依赖并且执行应用</li>
+</ul></li>
+</ul>
+<p>以下是加分项：</p>
+<ul>
+<li>编写过中型项目（~4000 行及以上）</li>
+<li>使用过其他的网络框架（<a
+href="https://fastapi.tiangolo.com/">FastAPI</a> 、 <a
+href="https://expressjs.com/">Express</a>）</li>
+</ul>
+<p>以及最重要的，<a href="https://elixir-lang.org/install.html">安装了
+Elixir</a> 。</p>
+<h2 id="从单文件-plug-服务开始">从单文件 Plug 服务开始</h2>
+<p>Plug 在 Elixir
+生态中的角色相对比较特殊，它不是一个服务器，也不是一个网络框架。它允许开发者可以根据其编写/组织对外部的请求连接进行一系列操作的「插头」来编写自己的网络应用。</p>
+<p>简单来说，它「规定」了一种可行的处理网络请求的乐高积木的形状以及组织方式，并且提供了部分预制的积木（和脚手架不同的是你只管用，不需要注意细节）。</p>
+<p>这种「协议」与「实现」解耦的方式，在 Elixir 的开发中非常常见。</p>
+<h3 id="从静态文件服务开始">从静态文件服务开始</h3>
+<p>为了直观理解，我们来看一段代码。这是一个基于 Plug 和 Bandit（一个 Web
+服务器适配器）的微型静态文件服务。</p>
+<p>对于没有 Erlang/Elixir/Scala
+等语言开发经历的人，看到下面的代码，可能觉得有点奇怪，但是完全可以试着猜一下这个子句函数/模块是干什么的。一般来讲，你所猜到的意思和实际的功能相差不会很大。</p>
+<p><em>来源于 <a
+href="https://github.com/GES233/simple_blog_engine">simple_blog_engine</a>
+中开发服务器的代码（移除了 SSE
+广播、从配置文件中读取等高阶功能）。</em></p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode elixir"><code class="sourceCode elixir"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">defmodule</span> <span class="cn">GES233</span><span class="op">.</span><span class="cn">SimpleServer</span> <span class="kw">do</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 想要运行，需要调用</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#     Bandit.start_link(plug: GES233.SimpleServer)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 这个函数。</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="im">use</span> <span class="cn">Plug</span><span class="op">.</span><span class="cn">Builder</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defmodule</span> <span class="cn">HTMLLoader</span> <span class="kw">do</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="im">use</span> <span class="cn">Plug</span><span class="op">.</span><span class="cn">Builder</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> init<span class="fu">(</span>opts<span class="fu">)</span>, <span class="va">do:</span> opts</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="ot">@root_path</span> <span class="st">&quot;priv/generated&quot;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> call<span class="fu">(</span>%<span class="cn">Plug</span><span class="op">.</span><span class="cn">Conn</span><span class="fu">{</span><span class="va">path_info:</span> path<span class="fu">}</span> <span class="op">=</span> conn, _opts<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      <span class="cf">cond</span> <span class="kw">do</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;index.html&quot;</span> <span class="kw">in</span> path <span class="op">-&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>          path <span class="op">=</span> <span class="st">&quot;</span><span class="ot">#{@root_path}</span><span class="st">/</span><span class="ot">#{</span><span class="cn">Enum</span><span class="op">.</span>join<span class="fu">(</span>path, <span class="st">&quot;/&quot;</span><span class="fu">)</span><span class="ot">}</span><span class="st">&quot;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>          html <span class="op">=</span> <span class="cn">File</span><span class="op">.</span>read!<span class="fu">(</span>path<span class="fu">)</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>          conn</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>          <span class="op">|&gt;</span> put_resp_content_type<span class="fu">(</span><span class="st">&quot;text/html; charset=utf-8&quot;</span><span class="fu">)</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>          <span class="op">|&gt;</span> resp<span class="fu">(</span><span class="dv">200</span>, html<span class="fu">)</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>          <span class="op">|&gt;</span> halt<span class="fu">()</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="cn">true</span> <span class="op">-&gt;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>          conn</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>      <span class="kw">end</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@assets_path</span> <span class="st">&quot;priv/assets/&quot;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  plug <span class="cn">Plug</span><span class="op">.</span><span class="cn">Logger</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  plug <span class="va">:redirect_index</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  plug <span class="cn">HTMLLoader</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  plug <span class="cn">Plug</span><span class="op">.</span><span class="cn">Static</span>, <span class="va">at:</span> <span class="st">&quot;/&quot;</span>, <span class="va">from:</span> <span class="ot">@assets_path</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  plug <span class="va">:not_found</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> redirect_index<span class="fu">(</span>%<span class="cn">Plug</span><span class="op">.</span><span class="cn">Conn</span><span class="fu">{</span><span class="va">path_info:</span> path<span class="fu">}</span> <span class="op">=</span> conn, _opts<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> path <span class="op">|&gt;</span> <span class="cn">Enum</span><span class="op">.</span>filter<span class="fu">(</span><span class="op">&amp;</span><span class="cn">String</span><span class="op">.</span>contains?<span class="fu">(</span><span class="op">&amp;</span><span class="dv">1</span>, <span class="st">&quot;.&quot;</span><span class="fu">))</span> <span class="kw">do</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>      <span class="ot">[]</span> <span class="op">-&gt;</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        %<span class="fu">{</span>conn <span class="op">|</span> <span class="va">path_info:</span> path <span class="op">++</span> <span class="ot">[</span><span class="st">&quot;index.html&quot;</span><span class="ot">]</span><span class="fu">}</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>      _ <span class="op">-&gt;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>        conn</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> not_found<span class="fu">(</span>conn, _<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    send_resp<span class="fu">(</span>conn, <span class="dv">404</span>, <span class="st">&quot;not found&quot;</span><span class="fu">)</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>这些代码需要设置好静态资源以及网页本体才可以正常运行，也需要在
+<code>mix.exs</code> 中添加对应依赖项。</p>
+</blockquote>
+<p>那一串的 <code>plug ...</code> ，其实就是一系列的「插头」：</p>
+<pre class="text"><code>          REQUEST
+             ↓
+┌─────────────────────────┐
+│       Plug.Logger       │  记录日志  
+├─────────────────────────┤
+│     :redirect_index     │  无文件后缀
+│                         │  → 加 index.html
+├─────────────────────────┤
+│       HTMLLoader        │  有 index.html
+│                         │  → 读取文件
+│                         │  → RESPONCE or pass
+├─────────────────────────┤
+│       Plug.Static       │  处理其他静态文件
+│                         │  → RESPONCE or pass
+├─────────────────────────┤
+│       :not_found        │  兜底
+│                         │  → RESPONCE (404)
+└─────────────────────────┘</code></pre>
+<blockquote>
+<p><strong>注</strong>：</p>
+<p>其实有更好的方式，请求先过 <code>Plug.Static</code> ，再把
+<code>:redirect_index</code> 以及 <code>HTMLLoader</code>
+的功能合二为一，再兜底。</p>
+<p>这么写的原因，一是我写这个业务的时候 Elixir
+还并不是很好；二是实际的应用有 <code>/sse</code>
+来负责重加载界面，请求先过 <code>:sse</code> ，再是以上这些 plugs。</p>
+</blockquote>
+<p>我们可以看到，有一个「线索」或「上下文」，横亘这一串积木之中。这种
+<code>input |&gt; foo() |&gt; bar() ...</code> 的形式也是 FP
+语言的一种特色。</p>
+<p>作为对比，如果你用过 <a href="https://sanic.dev">Sanic</a>
+，你会发现，数据是：</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># https://github.com/GES233/Chestnut</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># chestnut/infra/web/blueprints/plain/index.py</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sanic <span class="im">import</span> Blueprint</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sanic.request <span class="im">import</span> Request</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sanic.response <span class="im">import</span> HTTPResponse</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> .render <span class="im">import</span> launch_render <span class="im">as</span> render</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ....helpers.config.page <span class="im">import</span> PageConfig</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ....deps.i18n.language <span class="im">import</span> parseheaders</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> index(request: Request) <span class="op">-&gt;</span> HTTPResponse:</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Language.</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    language <span class="op">=</span> parseheaders(request.headers)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Page Info.</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    request.ctx.page_config.load_items(<span class="op">**</span>PageConfig.addtitle(role<span class="op">=</span><span class="st">&quot;Index&quot;</span>))</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Return.</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="cf">await</span> render(request, <span class="st">&quot;launch.html&quot;</span>)</span></code></pre></div>
+<p>存在 <span class="math inline">\(\mathrm{Request} \rightarrow
+\mathrm{Responce}\)</span> 的转换。</p>
+<p>但在 Plug 中，这条线索是「同质性」的，名字叫做
+<code>%Plug.Conn{}</code> ，是「结构体」（可以粗暴地理解成 Python 的
+dataclass ，但是没有类，或者是附带着一些函数的 namedtuple）。</p>
+<p>也因此，相比「乐高积木」更恰当的比喻是「透镜」：</p>
+<ul>
+<li>透过以及透出的光是同质性的</li>
+<li>单个透镜对光进行了处理</li>
+<li>一系列透镜可以组成复杂的仪器/设备</li>
+</ul>
+<p>但下文还是以「乐高积木」作为主要的比喻方式，因为大家（包括我）对积木更了解些。</p>
+<h3 id="框架的目的是降低开发复杂度">框架的目的是降低开发复杂度</h3>
+<p>本节标题源于此前看了 <a
+href="https://liaoxuefeng.com/books/python/web/web-framework/index.html">廖雪峰老师的博文</a>
+的思考。</p>
+<p>在实际应用环境下，往往需要面对：</p>
+<ul>
+<li>需要处理 <code>/users/1</code>, <code>/posts/114514</code>
+这样的动态路由，和存在不可变变量<a href="#fn2" class="footnote-ref"
+id="fnref2"
+role="doc-noteref"><sup>2</sup></a>一样，这里的「动态」是编写程序时无法确定的存在</li>
+<li>某个包含表单的界面需要处理 GET 、 POST 等一系列方法</li>
+<li>涉及从数据库读取用户信息、鉴权、查看用户的请求、保存到数据库中的复杂请求</li>
+</ul>
+<p>等情况。</p>
+<p>如果执意要用 plug
+手搓应用，也不是不可以，但是有可能面对编写大量的重复代码、潜在的（编写时很难看到的）错误等情况。</p>
+<p>框架的本质，就是大量通用的预制代码，它来处理那些潜在的、繁琐的细节。</p>
+<h2 id="phoenix-做了什么">Phoenix 做了什么</h2>
+<h3 id="嵌入式-phoenix-应用">嵌入式 Phoenix 应用</h3>
+<h3 id="引入-html">引入 HTML</h3>
+<h3 id="前端资源">前端资源</h3>
+<h3 id="模块的解耦">模块的解耦</h3>
+<h2 id="试一下-phoenix-liveview">试一下 Phoenix LiveView</h2>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>除了 RoR （Ruby on Rails）外，还有 Django 以及本教程的
+Phoenix 之类以 CoC（Convention Over Configuration）以及 DRY
+为主要指导思想的 MVC 框架。<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>很多人看了 Elixir
+教程后，肯定对这个感到很纳闷，所以专门点出来一下。<a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+
+            <div style="text-align:center" class="font-content-serif">
+                ——亟待更新——
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="mt-16 py-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 font-content-serif">
+      <p class="text-center text-sm text-base-content">
+        (c) 2026 GES233
+      </p>
+      <p class="text-center text-sm text-base-content">
+        Powered by <a href="https://github.com/GES233/simple_blog_engine"><code>GES233/simple_blog_engine</code></a>
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>
