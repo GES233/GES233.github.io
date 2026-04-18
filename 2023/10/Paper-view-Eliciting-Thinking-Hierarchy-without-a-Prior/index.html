@@ -1,14 +1,16 @@
-<!DOCTYPE html>
 <html lang="zh-CN">
+  <head>
+    <meta charaset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      【长期施工中】论文翻译：无先验知识下激发的思维层次
+    </title>
+    <link rel="stylesheet" href="/assets/app.css">
 
-<head>
-  <meta charaset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>
-    【长期施工中】论文翻译：无先验知识下激发的思维层次 - 自留地
-  </title>
-  <link rel="stylesheet" href="/assets/css/app.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 
   
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -19,112 +21,104 @@
 
 
 
-</head>
+<script>
+  // Automatically applied if saved in localStorage
+  if (localStorage.getItem("theme") === "noctilucent" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.setAttribute("data-theme", "noctilucent");
+  } else {
+    document.documentElement.setAttribute("data-theme", "core-cream-soup");
+  }
 
-<body>
-  <header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10">
-    <div class="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-8">
-      <div class="flex-1">
-        <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
-      </div>
-      <ul class="menu menu-horizontal px-1">
-      <li>
-        <details>
-          <summary>欢迎</summary>
-          <ul class="bg-base-100 rounded-t-none p-2">
-            <li><a href="/about">关于</a></li>
-            <li><a href="/friends">友链</a></li>
-          </ul>
-        </details>
-      </li>
-    </ul>
-    </div>
-  </header>
-  <main class="w-full bg-base-200 py-12 px-4">
-    <div class="mx-auto max-w-4xl bg-base-100 rounded-lg shadow-sm p-8 sm:p-12">
-      <div class="card">
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "noctilucent" ? "core-cream-soup" : "noctilucent";
 
-<div>
-  <h2 class="card-title text-2xl">【长期施工中】论文翻译：无先验知识下激发的思维层次</h2>
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  }
+</script>
 
-  <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-3 text-base-content/80 text-sm">
-    <span class="inline-flex items-center gap-1.5" title="创建日期">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
-        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Zm.75-10.25a.75.75 0 0 0-1.5 0v2.5h-2.5a.75.75 0 0 0 0 1.5h2.5v2.5a.75.75 0 0 0 1.5 0v-2.5h2.5a.75.75 0 0 0 0-1.5h-2.5v-2.5Z" />
-      </svg>
-      <span>2023-10-21</span>
-    </span>
-    <span class="inline-flex items-center gap-1.5" title="更新日期">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
-        <path d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L3.75 9.775a.75.75 0 0 0-.22.53l-.823 2.882a.75.75 0 0 0 .963.963l2.882-.823a.75.75 0 0 0 .53-.22l7.262-7.263a1.75 1.75 0 0 0 0-2.474ZM4.53 10.28l6.738-6.737a.25.25 0 0 1 .353 0l1.148 1.147a.25.25 0 0 1 0 .354L6.03 11.782l-1.77.506.506-1.77Z" />
-      </svg>
-      <span>2026-01-07</span>
-    </span>
-    <div>
-      
-    <div class="badge badge-info">
-      <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-      </svg>
-      <div title="进度" class="radial-progress bg-info text-base-100" style="--value:15; --size:1rem; --thickness: 2px;" aria-valuenow="15" role="progressbar">
-      </div>
-      15%
-    </div>
-
-  
-
-    </div>
-    <div class="badge badge-secondary">
-  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
-    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
-  </svg>
-  <small>论文</small>
+  </head>
+  <body>
+    <div class="fixed top-4 right-4 z-50">
+  <button onclick="toggleTheme()" class="btn btn-circle btn-ghost btn-sm bg-base-200/50 backdrop-blur" aria-label="Toggle Theme">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    </svg>
+  </button>
 </div>
 
-<div class="badge badge-secondary">
-  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
-    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
-  </svg>
-  <small>翻译</small>
-</div>
-
-<div class="badge badge-secondary">
-  <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
-    <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
-  </svg>
-  <small>先验知识</small>
-</div>
-
+<header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10">
+  <div class="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-8">
+    <div class="flex-1">
+      <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
+    </div>
+    <ul class="menu menu-horizontal px-1">
+    <li>
+      <details>
+        <summary>欢迎</summary>
+        <ul class="bg-base-100 rounded-t-none p-2">
+          <li><a href="/about">关于</a></li>
+          <li><a href="/friends">友链</a></li>
+          <li></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
   </div>
+</header>
+<div class="min-h-screen">
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <article class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8 md:p-12">
+      <header class="mb-8 md:mb-12 border-b border-base-300 pb-6 md:pb-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 tracking-tight">【长期施工中】论文翻译：无先验知识下激发的思维层次</h1>
+        <div class="flex flex-wrap items-center text-sm sm:text-base text-base-content/70 gap-4 mb-4">
+          <time class="flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-10-21 17:39:45</time>
+          <div class="badge badge-outline badge-sm">Work in Progress (15%)</div>
+        </div>
+        <div class="flex items-center flex-wrap text-sm gap-2 mt-2">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" /></svg>
+  <a href="/categories/翻译" class="text-primary hover:underline cursor-pointer">翻译</a><span class="mx-2 text-base-content/40">•</span><a href="/categories/文献整理" class="text-primary hover:underline cursor-pointer">文献整理</a><span class="mx-2 text-base-content/40">•</span><a href="/categories/文献整理-人文社科" class="text-primary hover:underline cursor-pointer">文献整理 / 人文社科</a><span class="mx-2 text-base-content/40">•</span><a href="/categories/文献整理-机器学习" class="text-primary hover:underline cursor-pointer">文献整理 / 机器学习</a>
+</div>
+<div class="flex items-center flex-wrap gap-2 mt-3">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" /></svg>
+  <a href="/tags/论文" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#论文</a> <a href="/tags/翻译" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#翻译</a> <a href="/tags/先验知识" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#先验知识</a>
+</div>
 
+      </header>
 
-        <div class="card-body">
-          
-          <div class="card-body prose max-w-none">
-
-<p>Source: <a href="https://arxiv.org/abs/2109.10619">[2109.10619]
+      <div class="prose prose-sm sm:prose-base lg:prose-lg max-w-none leading-relaxed
+                  prose-headings:font-bold
+                  prose-a:no-underline hover:prose-a:underline
+                  prose-img:rounded-lg prose-img:shadow-md
+                  prose-pre:rounded-lg
+                  prose-blockquote:border-l-4 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:not-italic">
+        <nav class="toc mb-8 p-4 bg-base-200 rounded-lg"><ul>
+<li><a href="#摘要" id="toc-摘要">摘要</a></li>
+<li><a href="#正文" id="toc-正文">正文</a></li>
+<li><a href="#附录" id="toc-附录">附录</a></li>
+<li><a href="#glossary" id="toc-glossary">Glossary</a></li>
+</ul></nav>
+        <p>Source: <a href="https://arxiv.org/abs/2109.10619">[2109.10619]
 Eliciting Thinking Hierarchy without a Prior (arxiv.org)</a></p>
-<!--more-->
 <h3 id="摘要">摘要</h3>
 <blockquote>
 <p>当我们运用群众的智慧时，一般是根据答案的受欢迎程度进行排名，尤其是在我们无法验证答案的情况下。然而，这在大多数人成体系的犯错的时候非常危险。这就产生了一个根本的问题：我们能够在没有任何的先验知识情况下根据回答的排序建立一个体系，其中排序并不取决于大多数，而取决于更老练的人？为解决该问题，我们提出了
 1) 一个描述人们思维层级（thinking hierarchy）的新模型；2)
 两个为了在没有任何先验知识的情况下得到认知层次的算法；3)
-基于以上理论框架一个新的基于开放回答的群智感知（crowdsourcing <a
-href="#fn1" class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a>
+基于以上理论框架一个新的基于开放回答的群智感知（crowdsourcing <sup><a
+href="#fn1" id="fnref1" class="footnote-ref"
+role="doc-noteref">1</a></sup>
 ）方法。除了理论依据（justifications）外，我们进行（conduct）了四个实证的群智感知研究，结果表明：
-a) 我们的研究的排名结果的准确度比基于简单多数票法（plurality voting<a
-href="#fn2" class="footnote-ref" id="fnref2"
-role="doc-noteref"><sup>2</sup></a>）要高很多（在一个问题中，多数回答有
-74 人的赞同（respondents）但正确回答仅有 3
+a) 我们的研究的排名结果的准确度比基于简单多数票法（plurality
+voting<sup><a href="#fn2" id="fnref2" class="footnote-ref"
+role="doc-noteref">2</a></sup>）要高很多（在一个问题中，多数回答有 74
+人的赞同（respondents）但正确回答仅有 3
 人赞同。我们的方法在没有先验知识的情况下把后者设为了最高）；b)
-我们的模型有很好的拟合优度（goodness-of-fit <a href="#fn3"
-class="footnote-ref" id="fnref3"
-role="doc-noteref"><sup>3</sup></a>），尤其是对于我们的排名首位的回答是正确的问题。据我们所知（To
+我们的模型有很好的拟合优度（goodness-of-fit <sup><a href="#fn3"
+id="fnref3" class="footnote-ref"
+role="doc-noteref">3</a></sup>），尤其是对于我们的排名首位的回答是正确的问题。据我们所知（To
 the best of our
 knowledge），我们第一个提出有在一般问题解决场景进行实证验证思维层级模型，也第一个提出在基于实证开放回答的方法，这种方法在没有任何先验知识的情况下击败了多数投票。</p>
 </blockquote>
@@ -133,9 +127,9 @@ knowledge），我们第一个提出有在一般问题解决场景进行实证�
 <p>群体的智慧比个体的在解决问题以及做决策上更好得到了广泛验证，尤其是在我们没有足够的先验知识去区分专家个体的情况下<span
 class="citation"
 data-cites="surowiecki2005wisdom budescu2015identifying weller2007cultural"><sup>[1–3]</sup></span>。多数表决是最常见的整合群体意见的方法。群体内的意见通常按照持有者的人数排名。然而，这在大多数人存在系统性偏见（systematically
-biased）的情况下非常危险。以下是我们进行的真实世界工作。我们问了来自顶级大学<a
-href="#fn4" class="footnote-ref" id="fnref4"
-role="doc-noteref"><sup>4</sup></a>的学生们以下的问题。</p>
+biased）的情况下非常危险。以下是我们进行的真实世界工作。我们问了来自顶级大学<sup><a
+href="#fn4" id="fnref4" class="footnote-ref"
+role="doc-noteref">4</a></sup>的学生们以下的问题。</p>
 <blockquote>
 <p>圆 A 的半径是圆 B 的三分之一。圆 A 绕圆 B 转一圈，试问圆 A
 转了几圈。（为避免翻译不清搬出原文：The radius of Circle A is 1/3 the
@@ -144,9 +138,9 @@ starting point. How many times will Circle A revolve in total?）</p>
 </blockquote>
 <p>我们收集到了以下回答：「1（11 人）、2（8 人）、3（134 人）、4（16
 人）以及6（27 人）」。如果按照多数投票的答案是 3
-，是大小球的半径之比。然而，正确答案是仅有 16 人回答的 4<a href="#fn5"
-class="footnote-ref" id="fnref5"
-role="doc-noteref"><sup>5</sup></a>。</p>
+，是大小球的半径之比。然而，正确答案是仅有 16 人回答的 4<sup><a
+href="#fn5" id="fnref5" class="footnote-ref"
+role="doc-noteref">5</a></sup>。</p>
 <p>在有像是来自每个回答者的专业水平的先验知识的情况下，我们或许就能找出正确答案。然而，有时获取（obtain）先验知识的成本很高、难度很大，尤其是在新领域下。</p>
 <p>为了弄清楚以上的问题，Prelec 等<span class="citation"
 data-cites="prelec2017solution"><sup>[4]</sup></span>提出了一个出乎意料很受欢迎的（surprisingly
@@ -252,7 +246,43 @@ var）</h5>
 </tbody>
 </table>
 </details>
-<div id="refs" class="references csl-bib-body" data-entry-spacing="0"
+        <div class="footnotes mt-12 pt-8 border-t border-base-300">
+  <h3 class="text-xl font-bold mb-4">Footnotes</h3>
+  <div class="footnotes prose-sm">
+<ol>
+<li><div id="fn1">
+<p>也可以翻译成「众包」（群众外包）。可以粗暴的理解为一大群携带智能设备的人，协作完成某项任务。
+<a href="#fnref1" class="footnote-back" aria-label="Back to content"
+role="doc-backlink">↩︎</a></p>
+</div></li>
+<li><div id="fn2">
+<p>指在选举制度中，一个候选者（可以是人、项目等等）的结果超过其他任何候选者（即获得复数（plurality））即可被选中。
+<a href="#fnref2" class="footnote-back" aria-label="Back to content"
+role="doc-backlink">↩︎</a></p>
+</div></li>
+<li><div id="fn3">
+<p>一个统计模型的拟合优度意味着它能够多么拟合观测值。 <a href="#fnref3"
+class="footnote-back" aria-label="Back to content"
+role="doc-backlink">↩︎</a></p>
+</div></li>
+<li><div id="fn4">
+<p>作者来自清华大学。 <a href="#fnref4" class="footnote-back"
+aria-label="Back to content" role="doc-backlink">↩︎</a></p>
+</div></li>
+<li><div id="fn5">
+<p>关于该问题的讨论可以参见<a
+href="https://math.stackexchange.com/questions/1351058/circle-revolutions-rolling-around-another-circle">geometry
+- Circle revolutions rolling around another circle - Mathematics Stack
+Exchange</a> 。 <a href="#fnref5" class="footnote-back"
+aria-label="Back to content" role="doc-backlink">↩︎</a></p>
+</div></li>
+</ol>
+</div>
+</div>
+
+        <div class="bibliography mt-12 pt-8 border-t border-base-300">
+  <h3 class="text-xl font-bold mb-4">References</h3>
+  <div id="refs" class="references csl-bib-body" data-entry-spacing="0"
 role="list">
 <div id="ref-surowiecki2005wisdom" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div><div
@@ -301,48 +331,22 @@ without verification[C]//Proceedings of the 2018 ACM Conference on
 Economics and Computation. </div>
 </div>
 </div>
-<section id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
-<ol>
-<li
-id="fn1"><p>也可以翻译成「众包」（群众外包）。可以粗暴的理解为一大群携带智能设备的人，协作完成某项任务。<a
-href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li
-id="fn2"><p>指在选举制度中，一个候选者（可以是人、项目等等）的结果超过其他任何候选者（即获得复数（plurality））即可被选中。<a
-href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>一个统计模型的拟合优度意味着它能够多么拟合观测值。<a
-href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>作者来自清华大学。<a href="#fnref4"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>关于该问题的讨论可以参见<a
-href="https://math.stackexchange.com/questions/1351058/circle-revolutions-rolling-around-another-circle">geometry
-- Circle revolutions rolling around another circle - Mathematics Stack
-Exchange</a> 。<a href="#fnref5" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
+</div>
 
-
-            <div style="text-align:center" class="font-content-serif">
-                ——亟待更新——
-              
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
+    </article>
   </main>
-  <footer class="mt-16 py-8">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 font-content-serif">
-      <p class="text-center text-sm text-base-content">
-        (c) 2026 GES233
-      </p>
-      <p class="text-center text-sm text-base-content">
-        Powered by <a href="https://github.com/GES233/simple_blog_engine"><code>GES233/simple_blog_engine</code></a>
-      </p>
-    </div>
-  </footer>
-</body>
+  <footer class="mt-16 border-t py-8">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <p class="text-center text-sm text-base-content">
+      (c) 2026 GES233
+    </p>
+    <p class="text-center text-sm text-base-content">
+      Powered by <a href="https://github.com/GES233/simple_blog_engine"><code>GES233/simple_blog_engine</code></a>
+    </p>
+  </div>
+</footer>
+</div>
 
+  </body>
 </html>

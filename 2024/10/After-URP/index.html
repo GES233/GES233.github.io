@@ -1,14 +1,16 @@
-<!DOCTYPE html>
 <html lang="zh-CN">
+  <head>
+    <meta charaset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      URP 参与感悟
+    </title>
+    <link rel="stylesheet" href="/assets/app.css">
 
-<head>
-  <meta charaset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>
-    URP 参与感悟 - 自留地
-  </title>
-  <link rel="stylesheet" href="/assets/css/app.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 
   
   
@@ -17,91 +19,77 @@
 
 
 
-</head>
+<script>
+  // Automatically applied if saved in localStorage
+  if (localStorage.getItem("theme") === "noctilucent" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.setAttribute("data-theme", "noctilucent");
+  } else {
+    document.documentElement.setAttribute("data-theme", "core-cream-soup");
+  }
 
-<body>
-  <header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10">
-    <div class="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-8">
-      <div class="flex-1">
-        <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
-      </div>
-      <ul class="menu menu-horizontal px-1">
-      <li>
-        <details>
-          <summary>欢迎</summary>
-          <ul class="bg-base-100 rounded-t-none p-2">
-            <li><a href="/about">关于</a></li>
-            <li><a href="/friends">友链</a></li>
-          </ul>
-        </details>
-      </li>
-    </ul>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "noctilucent" ? "core-cream-soup" : "noctilucent";
+
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  }
+</script>
+
+  </head>
+  <body>
+    <div class="fixed top-4 right-4 z-50">
+  <button onclick="toggleTheme()" class="btn btn-circle btn-ghost btn-sm bg-base-200/50 backdrop-blur" aria-label="Toggle Theme">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    </svg>
+  </button>
+</div>
+
+<header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10">
+  <div class="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-8">
+    <div class="flex-1">
+      <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
     </div>
-  </header>
-  <main class="w-full bg-base-200 py-12 px-4">
-    <div class="mx-auto max-w-4xl bg-base-100 rounded-lg shadow-sm p-8 sm:p-12">
-      <div class="card">
-
-<div>
-  <h2 class="card-title text-2xl">URP 参与感悟</h2>
-
-  <div class="flex flex-wrap items-center gap-x-6 gap-y-2 mt-3 text-base-content/80 text-sm">
-    <span class="inline-flex items-center gap-1.5" title="创建日期">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
-        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14Zm.75-10.25a.75.75 0 0 0-1.5 0v2.5h-2.5a.75.75 0 0 0 0 1.5h2.5v2.5a.75.75 0 0 0 1.5 0v-2.5h2.5a.75.75 0 0 0 0-1.5h-2.5v-2.5Z" />
-      </svg>
-      <span>2024-10-22</span>
-    </span>
-    <span class="inline-flex items-center gap-1.5" title="更新日期">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
-        <path d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L3.75 9.775a.75.75 0 0 0-.22.53l-.823 2.882a.75.75 0 0 0 .963.963l2.882-.823a.75.75 0 0 0 .53-.22l7.262-7.263a1.75 1.75 0 0 0 0-2.474ZM4.53 10.28l6.738-6.737a.25.25 0 0 1 .353 0l1.148 1.147a.25.25 0 0 1 0 .354L6.03 11.782l-1.77.506.506-1.77Z" />
-      </svg>
-      <span>2025-05-01</span>
-    </span>
-    <div>
-      
-    <div class="badge badge-info">
-      <svg class="size-[1rem]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-      </svg>
-      <div title="进度" class="radial-progress bg-info text-base-100" style="--value:50; --size:1rem; --thickness: 2px;" aria-valuenow="50" role="progressbar">
-      </div>
-      50%
-    </div>
-
-  
-
-    </div>
-    
+    <ul class="menu menu-horizontal px-1">
+    <li>
+      <details>
+        <summary>欢迎</summary>
+        <ul class="bg-base-100 rounded-t-none p-2">
+          <li><a href="/about">关于</a></li>
+          <li><a href="/friends">友链</a></li>
+          <li></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
   </div>
+</header>
+<div class="min-h-screen">
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <article class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8 md:p-12">
+      <header class="mb-8 md:mb-12 border-b border-base-300 pb-6 md:pb-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 tracking-tight">URP 参与感悟</h1>
+        <div class="flex flex-wrap items-center text-sm sm:text-base text-base-content/70 gap-4 mb-4">
+          <time class="flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2024-10-22 15:22:35</time>
+          <div class="badge badge-outline badge-sm">Work in Progress (50%)</div>
+        </div>
+        
+      </header>
 
-
-        <div class="card-body">
-          
-          <div class="card-body prose max-w-none">
-
-<style>
-  /* Reference: https://www.webhek.com/post/responsive-video-iframes-keeping-aspect-ratio-with-only-css/ */
-  /* 这个规则规定了iframe父元素容器的尺寸，我们要求它的宽高比应该是 25:14 */
-  .aspect-ratio {
-    position: relative;
-    /* heti 的容器下允许使用 100% */
-    width: 100%;
-    height: 0;
-    padding-bottom: 56%;
-    /* 高度应该是宽度的56% */
-  }
-
-  /* 设定iframe的宽度和高度，让iframe占满整个父元素容器 */
-  .aspect-ratio iframe {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-  }
-</style>
-<h3 id="关于-23-年">关于 23 年</h3>
+      <div class="prose prose-sm sm:prose-base lg:prose-lg max-w-none leading-relaxed
+                  prose-headings:font-bold
+                  prose-a:no-underline hover:prose-a:underline
+                  prose-img:rounded-lg prose-img:shadow-md
+                  prose-pre:rounded-lg
+                  prose-blockquote:border-l-4 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:not-italic">
+        <nav class="toc mb-8 p-4 bg-base-200 rounded-lg"><ul>
+<li><a href="#关于-23-年" id="toc-关于-23-年">关于 23 年</a></li>
+<li><a href="#研究流程" id="toc-研究流程">研究流程</a></li>
+<li><a href="#项目的副产物" id="toc-项目的副产物">项目的副产物</a></li>
+</ul></nav>
+        <h3 id="关于-23-年">关于 23 年</h3>
 <p>结束了为期一年的 URP
 项目，觉得不写点什么有点对不起自己，遂落指写点什么用作反思以及复盘。</p>
 <p>不可否认，在之前的一年，我是最摆的那个，也有好几次差点（或是已经）拖慢了进度。</p>
@@ -186,27 +174,22 @@ Verte）项目。弗朗索瓦丝·多尔多是20世纪著名的精神分析学�
 <p>对我个人而言，就是打开了精分的大门。</p>
 <p>在此之前，我没有想过我会被一些很枯燥的专业术语与概念拯救，</p>
 <p><code>TODO</code></p>
-
-
-            <div style="text-align:center" class="font-content-serif">
-                ——亟待更新——
-              
-            </div>
-          </div>
-        </div>
+        
+        
       </div>
-    </div>
+    </article>
   </main>
-  <footer class="mt-16 py-8">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 font-content-serif">
-      <p class="text-center text-sm text-base-content">
-        (c) 2026 GES233
-      </p>
-      <p class="text-center text-sm text-base-content">
-        Powered by <a href="https://github.com/GES233/simple_blog_engine"><code>GES233/simple_blog_engine</code></a>
-      </p>
-    </div>
-  </footer>
-</body>
+  <footer class="mt-16 border-t py-8">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <p class="text-center text-sm text-base-content">
+      (c) 2026 GES233
+    </p>
+    <p class="text-center text-sm text-base-content">
+      Powered by <a href="https://github.com/GES233/simple_blog_engine"><code>GES233/simple_blog_engine</code></a>
+    </p>
+  </div>
+</footer>
+</div>
 
+  </body>
 </html>

@@ -1,0 +1,207 @@
+<html lang="zh-CN">
+  <head>
+    <meta charaset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      在线编辑器的设计以及脚手架
+    </title>
+    <link rel="stylesheet" href="/assets/app.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  
+  
+  
+  
+
+
+
+<script>
+  // Automatically applied if saved in localStorage
+  if (localStorage.getItem("theme") === "noctilucent" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.setAttribute("data-theme", "noctilucent");
+  } else {
+    document.documentElement.setAttribute("data-theme", "core-cream-soup");
+  }
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "noctilucent" ? "core-cream-soup" : "noctilucent";
+
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  }
+</script>
+
+  </head>
+  <body>
+    <div class="fixed top-4 right-4 z-50">
+  <button onclick="toggleTheme()" class="btn btn-circle btn-ghost btn-sm bg-base-200/50 backdrop-blur" aria-label="Toggle Theme">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    </svg>
+  </button>
+</div>
+
+<header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10">
+  <div class="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-8">
+    <div class="flex-1">
+      <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
+    </div>
+    <ul class="menu menu-horizontal px-1">
+    <li>
+      <details>
+        <summary>欢迎</summary>
+        <ul class="bg-base-100 rounded-t-none p-2">
+          <li><a href="/about">关于</a></li>
+          <li><a href="/friends">友链</a></li>
+          <li></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+  </div>
+</header>
+<div class="min-h-screen">
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <article class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8 md:p-12">
+      <header class="mb-8 md:mb-12 border-b border-base-300 pb-6 md:pb-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 tracking-tight">在线编辑器的设计以及脚手架</h1>
+        <div class="flex flex-wrap items-center text-sm sm:text-base text-base-content/70 gap-4 mb-4">
+          <time class="flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2025-03-12 19:28:17</time>
+          <div class="badge badge-outline badge-sm">Work in Progress (10%)</div>
+        </div>
+        <div class="flex items-center flex-wrap text-sm gap-2 mt-2">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" /></svg>
+  <a href="/categories/Qy" class="text-primary hover:underline cursor-pointer">Qy</a>
+</div>
+<div class="flex items-center flex-wrap gap-2 mt-3">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" /></svg>
+  <a href="/tags/Elixir" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#Elixir</a> <a href="/tags/FBP" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#FBP</a>
+</div>
+
+      </header>
+
+      <div class="prose prose-sm sm:prose-base lg:prose-lg max-w-none leading-relaxed
+                  prose-headings:font-bold
+                  prose-a:no-underline hover:prose-a:underline
+                  prose-img:rounded-lg prose-img:shadow-md
+                  prose-pre:rounded-lg
+                  prose-blockquote:border-l-4 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:not-italic">
+        <nav class="toc mb-8 p-4 bg-base-200 rounded-lg"><ul>
+<li><a href="#想法来源" id="toc-想法来源">想法来源</a></li>
+<li><a href="#本体" id="toc-本体">本体</a></li>
+<li><a href="#困境" id="toc-困境">困境</a></li>
+</ul></nav>
+        <p>Link: <a
+href="https://github.com/SynapticStrings/QyEditor">SynapticStrings/QyEditor:
+Lightweight synthesizer interface.</a></p>
+<h3 id="想法来源">想法来源</h3>
+<h4 id="关于与-diffsinger">关于与 DiffSinger</h4>
+<p>确定想要自己开发的 trigger 是看到 DiffSinger
+交流群有一位视障的朋友关于 DiffSinger
+的无障碍支持提出了意见，我思维风暴了一下，自己本身确实有很多想法，想要构建出一个原型验证可行性，确定了实时
+WebUI 的方案（致敬传奇歌声合成软件<a
+href="https://dashichang.work/">大市唱</a> 和其成名曲<a
+href="https://www.bilibili.com/video/BV1j8411g7E5/">《摘苹果》</a>）。</p>
+<p>再加上自己想要实现能够在 Intel 显卡上运行用在 <a
+href="https://github.com/stakira/OpenUtau">OpenUTAU</a> 的 DiffSinger
+声库<sup><a href="#fn1" id="fnref1" class="footnote-ref"
+role="doc-noteref">1</a></sup>。但是不会 C♯ ，所以想要尝试自己踩坑。</p>
+<p>又因为之前配置能够在 I 卡运行 PyTorch 的 Python 环境的糟糕经历，加之
+Python 拉跨的速度与并发性能，果断放弃了使用 Python 来开发。</p>
+<p>查看资料发现 Elixir 生态存在运行 ONNX 的库（<a
+href="https://github.com/elixir-nx/ortex">elixir-nx/ortex</a>），发现其是
+<a href="https://github.com/pykeio/ort">pykeio/ort</a> 的 Elixir
+包装，后者可以通过 Execution Provider 在 I
+卡在运行，故确定了开发计划。</p>
+<p>大致如下：</p>
+<ul>
+<li><code>[DiffSinger]</code>
+手动在性能相对优越的设备编写脚本并且执行推理，确定能够通过 Ortex 在
+Elixir 生态使用 DiffSinger</li>
+<li><code>[Ortex]</code> 尝试自己搭建能够通过 OpenVINO EP 在 Intel GPU
+执行推理任务，修改 Ortex
+的源码使其可被调用，提交或是自己维护相关分支</li>
+<li><code>[QyEditor]</code> 实现编辑器本体
+<ul>
+<li>贝塞尔曲线编辑参数</li>
+<li>对声库内模型的查找以及组织来确定模型之间的依赖关系，实现更强的兼容</li>
+<li>分「演奏」与「调教」等环境，不同环境的设计思路和以往的应用完全不同，并且考虑无障碍支持</li>
+</ul></li>
+</ul>
+<p>很轻巧是吧？</p>
+<p>但是在第一步就出现问题了。</p>
+<p>在此之前一句话讲一下 DiffSinger
+：利用扩散模型来生成歌声的模型，其属于参数较多运算复杂的模型。</p>
+<p>（抱歉，写到这里发现自己缺乏很多相关的基础知识以至于无法很清晰地描述自己的问题以及困境）</p>
+<h4 id="comfyui-like-与流程操作">ComfyUI-like 与流程操作</h4>
+<p>既然选了 Elixir ，那么不加点什么符合这个语言调性的特征就不大好。</p>
+<p>我记得某次 José Valim 被问到有关 Elixir
+的应用场景时说到，只要和数据流有关的情景，理论上都可以选用 Elixir 。</p>
+<p>在 AI 绘图爆火的 23 年年初，我就想过要构建一个节点操作的方法。</p>
+<p>但那个时候对 FP 一窍不通，故选择 Python
+，但是在尝试哼哧哼哧写了很久的 <a
+href="https://github.com/GES233/Chestnut/tree/chestnut/chestnut/infra/helpers/fbp"><code>fbp</code></a>
+组件还没写完，ComfyUI 就诞生了（我假定你们知道这是什么）。</p>
+<p>也因此我自己写的 UI 就放弃了。</p>
+<p>但是这个想法一直存在。</p>
+<h3 id="本体">本体</h3>
+<p>目前负责调度的<a
+href="https://github.com/SynapticStrings/Orchid">内核</a>已经完成，因其泛用性，改成了
+<code>Orchid</code> 。</p>
+<p><del>QyXxx 则更专注。</del></p>
+<p>有一个负责实现增量生成的 Domain-agnostic 的应用 <a
+href="https://github.com/SynapticStrings/Quincunx">Quincunx</a>。</p>
+<h3 id="困境">困境</h3>
+<h4 id="onnx-segment-fault">ONNX Segment fault</h4>
+<p><del>参见 <a
+href="https://github.com/elixir-nx/ortex/issues/42">Elixir crash quitely
+when loading ONNX model · Issue #42 · elixir-nx/ortex</a> 。</del></p>
+<p>问题已经解决。</p>
+<figure>
+<img src="//image/Screenshot-2026-02-27-165145.png" alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<figure>
+<img src="//image/Screenshot-2026-02-27-164957.png" alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h4 id="tough-academic-issue">tough academic issue</h4>
+<h4 id="庞大的工作量">庞大的工作量</h4>
+<p>leverage AI, plz.</p>
+        <div class="footnotes mt-12 pt-8 border-t border-base-300">
+  <h3 class="text-xl font-bold mb-4">Footnotes</h3>
+  <div class="footnotes prose-sm">
+<ol>
+<li><div id="fn1">
+<p>OpenUTAU DiffSinger 声库实质上是 ONNX 模型 <a href="#fnref1"
+class="footnote-back" role="doc-backlink"
+aria-label="Back to content">↩︎</a></p>
+</div></li>
+</ol>
+</div>
+</div>
+
+        
+      </div>
+    </article>
+  </main>
+  <footer class="mt-16 border-t py-8">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <p class="text-center text-sm text-base-content">
+      (c) 2026 GES233
+    </p>
+    <p class="text-center text-sm text-base-content">
+      Powered by <a href="https://github.com/GES233/simple_blog_engine"><code>GES233/simple_blog_engine</code></a>
+    </p>
+  </div>
+</footer>
+</div>
+
+  </body>
+</html>

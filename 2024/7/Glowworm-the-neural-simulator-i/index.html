@@ -1,0 +1,148 @@
+<html lang="zh-CN">
+  <head>
+    <meta charaset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      萤火虫🪲——神经仿真的概念验证模型（一）
+    </title>
+    <link rel="stylesheet" href="/assets/app.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  
+  
+  
+  
+
+
+
+<script>
+  // Automatically applied if saved in localStorage
+  if (localStorage.getItem("theme") === "noctilucent" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.setAttribute("data-theme", "noctilucent");
+  } else {
+    document.documentElement.setAttribute("data-theme", "core-cream-soup");
+  }
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "noctilucent" ? "core-cream-soup" : "noctilucent";
+
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  }
+</script>
+
+  </head>
+  <body>
+    <div class="fixed top-4 right-4 z-50">
+  <button onclick="toggleTheme()" class="btn btn-circle btn-ghost btn-sm bg-base-200/50 backdrop-blur" aria-label="Toggle Theme">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    </svg>
+  </button>
+</div>
+
+<header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10">
+  <div class="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-8">
+    <div class="flex-1">
+      <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
+    </div>
+    <ul class="menu menu-horizontal px-1">
+    <li>
+      <details>
+        <summary>欢迎</summary>
+        <ul class="bg-base-100 rounded-t-none p-2">
+          <li><a href="/about">关于</a></li>
+          <li><a href="/friends">友链</a></li>
+          <li></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+  </div>
+</header>
+<div class="min-h-screen">
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <article class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8 md:p-12">
+      <header class="mb-8 md:mb-12 border-b border-base-300 pb-6 md:pb-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 tracking-tight">萤火虫🪲——神经仿真的概念验证模型（一）</h1>
+        <div class="flex flex-wrap items-center text-sm sm:text-base text-base-content/70 gap-4 mb-4">
+          <time class="flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2024-07-03 10:01:49</time>
+          <div class="badge badge-outline badge-sm">Work in Progress (20%)</div>
+        </div>
+        <div class="flex items-center flex-wrap text-sm gap-2 mt-2">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" /></svg>
+  <a href="/categories/Qy" class="text-primary hover:underline cursor-pointer">Qy</a><span class="mx-2 text-base-content/40">•</span><a href="/categories/长期计划" class="text-primary hover:underline cursor-pointer">长期计划</a>
+</div>
+<div class="flex items-center flex-wrap gap-2 mt-3">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" /></svg>
+  <a href="/tags/SNN" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#SNN</a>
+</div>
+
+      </header>
+
+      <div class="prose prose-sm sm:prose-base lg:prose-lg max-w-none leading-relaxed
+                  prose-headings:font-bold
+                  prose-a:no-underline hover:prose-a:underline
+                  prose-img:rounded-lg prose-img:shadow-md
+                  prose-pre:rounded-lg
+                  prose-blockquote:border-l-4 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:not-italic">
+        <nav class="toc mb-8 p-4 bg-base-200 rounded-lg"><ul>
+<li><a href="#缘起" id="toc-缘起">缘起</a></li>
+<li><a href="#taropaste" id="toc-taropaste">TaroPaste</a></li>
+<li><a href="#扳机" id="toc-扳机">扳机</a></li>
+<li><a href="#设计" id="toc-设计">设计</a></li>
+</ul></nav>
+        <p>项目地址：<a
+href="https://github.com/GES233/Glowworm">GES233/Glowworm: Simple neural
+simulation model.</a></p>
+<h3 id="缘起">缘起</h3>
+<h4 id="spikingnn">spikingnn</h4>
+<p>项目地址：<a href="http://spikingnn.net">spikingnn.net</a></p>
+<p>其中原网站因为未知原因无法访问，可以通过 <a
+href="https://web.archive.org/web/20190717080930/http://spikingnn.net/">WebArchive</a>
+下载相关资料。</p>
+<p>最早看到这个项目的时候是在 18
+年的下半年，我还记得当时在从辅导班回家的路上看那个 Word 文档的经历。
+但限于当时学识有限，没有看懂细节。</p>
+<p>再一次尝试分析这个是在 23 年的年初。</p>
+<p>在考研成绩出来之前，因为老师知道我会点代码的关系（我把实习作业都写成代码了，甚至有一个每次可以随机生成不同还正确的结果<del>，帮助了不少同学</del>），说是有一个课题，和脉冲神经网络相关的，想让我做做看。</p>
+<p>我就又想到了这个项目。</p>
+<p>但是访问网站发现已经打不开了。</p>
+<h3 id="taropaste">TaroPaste</h3>
+<p>这个和 <a href="/2023/6/Qy-project">Qy</a> 有关
+（说实话我到现在还没有彻底地搞明白具体的实现细节，只是有一个并不算明晰的大致思路）。
+我需要一个用于仿生的平台。</p>
+<p>确定这个子项目的时间是在 23
+年八月初，也就是去青岛玩的时候（只有放松自在的环境才可以给人灵感）。</p>
+<h4 id="分层架构">分层架构</h4>
+<p>关于 bandit 和 Thousand Island 。</p>
+<h3 id="扳机">扳机</h3>
+<h4 id="elixir-forum-上的贴子">Elixir-forum 上的贴子</h4>
+<h3 id="设计">设计</h3>
+<h4 id="复杂性在不同层面的体现">复杂性在不同层面的体现</h4>
+<h4 id="算力带来的仿真时间差异">算力带来的仿真时间差异</h4>
+        
+        
+      </div>
+    </article>
+  </main>
+  <footer class="mt-16 border-t py-8">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <p class="text-center text-sm text-base-content">
+      (c) 2026 GES233
+    </p>
+    <p class="text-center text-sm text-base-content">
+      Powered by <a href="https://github.com/GES233/simple_blog_engine"><code>GES233/simple_blog_engine</code></a>
+    </p>
+  </div>
+</footer>
+</div>
+
+  </body>
+</html>

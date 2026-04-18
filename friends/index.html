@@ -1,14 +1,16 @@
-<!DOCTYPE html>
 <html lang="zh-CN">
+  <head>
+    <meta charaset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      Page
+    </title>
+    <link rel="stylesheet" href="/assets/app.css">
 
-<head>
-  <meta charaset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>
-    友链 - 自留地
-  </title>
-  <link rel="stylesheet" href="/assets/css/app.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
 
   
   
@@ -17,140 +19,153 @@
 
 
 
-</head>
+<script>
+  // Automatically applied if saved in localStorage
+  if (localStorage.getItem("theme") === "noctilucent" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.setAttribute("data-theme", "noctilucent");
+  } else {
+    document.documentElement.setAttribute("data-theme", "core-cream-soup");
+  }
 
-<body>
-  <header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10">
-    <div class="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-8">
-      <div class="flex-1">
-        <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
-      </div>
-      <ul class="menu menu-horizontal px-1">
-      <li>
-        <details>
-          <summary>欢迎</summary>
-          <ul class="bg-base-100 rounded-t-none p-2">
-            <li><a href="/about">关于</a></li>
-            <li><a href="/friends">友链</a></li>
-          </ul>
-        </details>
-      </li>
-    </ul>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "noctilucent" ? "core-cream-soup" : "noctilucent";
+
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  }
+</script>
+
+  </head>
+  <body>
+    <div class="fixed top-4 right-4 z-50">
+  <button onclick="toggleTheme()" class="btn btn-circle btn-ghost btn-sm bg-base-200/50 backdrop-blur" aria-label="Toggle Theme">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    </svg>
+  </button>
+</div>
+
+<header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10 border-b border-base-200">
+  <div class="navbar max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 min-h-12 sm:min-h-16">
+    <div class="flex-1">
+      <a href="/" class="btn btn-ghost text-xl px-2"><kbd class="font-mono">GES233</kbd>'s Blog</a>
     </div>
-  </header>
-  <main class="w-full bg-base-200 py-12 px-4">
-    <div class="mx-auto max-w-4xl bg-base-100 rounded-lg shadow-sm p-8 sm:p-12">
-      <div class="card">
+    <div class="flex-none hidden sm:block">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href="/about" class="font-medium">关于</a></li>
+        <li><a href="/friends" class="font-medium">友链</a></li>
+      </ul>
+    </div>
+    <div class="flex-none sm:hidden dropdown dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </div>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a href="/about">关于</a></li>
+        <li><a href="/friends">友链</a></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</header>
 
-        <div class="card-body">
-          
-          <div class="card-body prose">
+<div class="bg-base-200 min-h-screen pb-16">
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <article class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8 md:p-12">
+      <header class="mb-8 md:mb-12 border-b border-base-300 pb-6 md:pb-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight"></h1>
+      </header>
 
-<h3 id="友链">友链</h3>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-<div class="card lg:card-side lg:h-72 bg-base-100 shadow-sm shadow-xl">
-<figure>
-<img src="https://q2.qlogo.cn/headimg_dl?dst_uin=1504322099&spec=100" alt="PONYJUN 的雅舍" />
-</figure>
-<div class="card-body">
-<h2 class="card-title">
-PONYJUN 的雅舍
-</h2>
-<p class="text-base-content/70">
-灯火阑珊处，无人知晓的低语是什么？独行的我，是谁在默默陪伴？
-</p>
-<div class="card-actions justify-end">
-<p><button class="btn btn-outline btn-primary"></p>
-<p><span class="status status-error"></span></p>
-<p><a a href="https://p.cnedge.net" target="_blank" rel="noopener">让我访问！</a>
-</button></p>
+      <div class="prose prose-sm sm:prose-base lg:prose-lg max-w-none leading-relaxed
+                  prose-headings:font-bold
+                  prose-a:no-underline hover:prose-a:underline">
+        <nav class="toc mb-8 p-4 bg-base-200 rounded-lg"><ul>
+<li><a href="#友链" id="toc-友链">友链</a></li>
+<li><a href="#请求" id="toc-请求">请求</a></li>
+</ul></nav>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 my-8 not-prose">
+  <div class="card lg:card-side bg-base-100 shadow-sm hover:shadow-md transition-all duration-300 border border-base-200 overflow-hidden h-full flex flex-col lg:flex-row">
+  <div class="w-full lg:w-48 h-48 lg:h-full shrink-0"><figure class="h-full"><img src="https://q2.qlogo.cn/headimg_dl?dst_uin=1504322099&spec=100" alt="PONYJUN 的雅舍" class="w-full h-full object-cover m-0" /></figure></div>
+  <div class="card-body p-6 flex flex-col justify-between">
+    <div>
+      <h2 class="card-title text-xl mb-1 mt-0">PONYJUN 的雅舍</h2>
+      <p class="text-base-content/70 text-sm mt-2 mb-0 leading-snug line-clamp-2">灯火阑珊处，无人知晓的低语是什么？独行的我，是谁在默默陪伴？</p>
+    </div>
+    <div class="card-actions justify-end mt-4">
+      <a href="https://p.cnedge.net" target="_blank" rel="noopener" class="btn btn-outline btn-primary btn-sm h-10 px-4">
+  <span class="w-2 h-2 rounded-full bg-error mr-2"></span>
+  让我访问！
+</a>
+
+    </div>
+  </div>
 </div>
+
+<div class="card lg:card-side bg-base-100 shadow-sm hover:shadow-md transition-all duration-300 border border-base-200 overflow-hidden h-full flex flex-col lg:flex-row">
+  <div class="w-full lg:w-48 h-48 lg:h-full shrink-0"><figure class="h-full"><img src="http://q.qlogo.cn/headimg_dl?dst_uin=2958445350&spec=640&img_type=jpg" alt="Yang's Blog" class="w-full h-full object-cover m-0" /></figure></div>
+  <div class="card-body p-6 flex flex-col justify-between">
+    <div>
+      <h2 class="card-title text-xl mb-1 mt-0">Yang's Blog</h2>
+      <p class="text-base-content/70 text-sm mt-2 mb-0 leading-snug line-clamp-2">Make a dent in the universe.</p>
+    </div>
+    <div class="card-actions justify-end mt-4">
+      <a href="https://kaeshi.top" target="_blank" rel="noopener" class="btn btn-outline btn-primary btn-sm h-10 px-4">
+  <span class="w-2 h-2 rounded-full bg-success mr-2"></span>
+  让我访问！
+</a>
+
+    </div>
+  </div>
 </div>
+
+<div class="card lg:card-side bg-base-100 shadow-sm hover:shadow-md transition-all duration-300 border border-base-200 overflow-hidden h-full flex flex-col lg:flex-row">
+  <div class="w-full lg:w-48 h-48 lg:h-full shrink-0"><figure class="h-full"><img src="https://kulipai.top/favicon.png" alt="KuLiPai Home" class="w-full h-full object-cover m-0" /></figure></div>
+  <div class="card-body p-6 flex flex-col justify-between">
+    <div>
+      <h2 class="card-title text-xl mb-1 mt-0">KuLiPai Home</h2>
+      
+    </div>
+    <div class="card-actions justify-end mt-4">
+      <a href="https://doc.kulipai.top" target="_blank" rel="noopener" class="btn btn-outline btn-primary btn-sm h-10 px-4">
+  <span class="w-2 h-2 rounded-full bg-success mr-2"></span>
+  让我访问！
+</a>
+
+    </div>
+  </div>
 </div>
-<div class="card lg:card-side lg:h-72 bg-base-100 shadow-sm shadow-xl">
-<figure>
-<img src="http://q.qlogo.cn/headimg_dl?dst_uin=2958445350&spec=640&img_type=jpg" alt="Yang's Blog" />
-</figure>
-<div class="card-body">
-<h2 class="card-title">
-Yang’s Blog
-</h2>
-<p class="text-base-content/70">
-Make a dent in the universe.
-</p>
-<div class="card-actions justify-end">
-<p><button class="btn btn-outline btn-primary"></p>
-<p><span class="status status-success"></span></p>
-<p><a a href="https://kaeshi.top" target="_blank" rel="noopener">让我访问！</a>
-</button></p>
+
 </div>
-</div>
-</div>
-<div class="card lg:card-side lg:h-72 bg-base-100 shadow-sm shadow-xl">
-<figure>
-<img src="https://kulipai.top/favicon.png" alt="KuLiPai Home" />
-</figure>
-<div class="card-body">
-<h2 class="card-title">
-KuLiPai Home
-</h2>
-<div class="card-actions justify-end">
-<p><button class="btn btn-outline btn-primary"></p>
-<p><span class="status status-success"></span></p>
-<p><a a href="https://doc.kulipai.top" target="_blank" rel="noopener">让我访问！</a>
-</button></p>
-</div>
-</div>
-</div>
-</div>
+
+        <h3 id="友链">友链</h3>
 <h3 id="请求">请求</h3>
 <p>暂不接受邮件。</p>
 <h4 id="本站信息">本站信息</h4>
-<div class="gap-6 my-8">
-<div class="card lg:card-side lg:h-72 bg-base-100 shadow-sm shadow-xl">
-<figure>
-<img src="https://avatars.githubusercontent.com/u/30802664?v=4" alt="自留地 - GES233's Blog" />
-</figure>
-<div class="card-body">
-<h2 class="card-title">
-自留地 - GES233’s Blog
-</h2>
-<p class="text-base-content/70">
-得以存在便是一个奇迹，能够思考就是一件乐事。
-</p>
-<div class="card-actions justify-end">
-<button disabled="disabled" class="btn btn-dash btn-secondary">
-<div class="status status-success">
-
-</div>
-<p>就是这儿！ </button></p>
-</div>
-</div>
-</div>
-</div>
 <ul>
 <li>站名：<code>自留地 - GES233's Blog</code></li>
 <li><a href="https://ges233.github.io">链接</a> 以及 <a
 href="https://avatars.githubusercontent.com/u/30802664?v=4">头像</a></li>
 <li>介绍：<code>得以存在便是一个奇迹，能够思考就是一件乐事。</code></li>
 </ul>
-
-
-          </div>
-        </div>
+        
+        
       </div>
-    </div>
-  <main>
-  <footer class="mt-16 border-t py-8">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-sm text-base-content">
+    </article>
+  </main>
+
+  <footer class="mt-8 py-8 border-t border-base-300">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm text-base-content/70 font-serif">
         (c) 2026 GES233
       </p>
-      <p class="text-center text-sm text-base-content">
-        Powered by <a href="https://github.com/GES233/simple_blog_engine"><code>GES233/simple_blog_engine</code></a>
+      <p class="text-center text-sm text-base-content/70 font-serif mt-2">
+        Powered by <a href="https://github.com/GES233/Greenhouse" class="hover:text-primary transition-colors"><code>Greenhouse</code></a>
       </p>
     </div>
   </footer>
-</body>
+</div>
 
+  </body>
 </html>

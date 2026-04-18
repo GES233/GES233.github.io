@@ -1,0 +1,251 @@
+<html lang="zh-CN">
+  <head>
+    <meta charaset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      论文翻译：µKanren —— 关系编程的最小化函数式核心
+    </title>
+    <link rel="stylesheet" href="/assets/app.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  
+  
+  
+
+
+
+<script>
+  // Automatically applied if saved in localStorage
+  if (localStorage.getItem("theme") === "noctilucent" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.setAttribute("data-theme", "noctilucent");
+  } else {
+    document.documentElement.setAttribute("data-theme", "core-cream-soup");
+  }
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "noctilucent" ? "core-cream-soup" : "noctilucent";
+
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  }
+</script>
+
+  </head>
+  <body>
+    <div class="fixed top-4 right-4 z-50">
+  <button onclick="toggleTheme()" class="btn btn-circle btn-ghost btn-sm bg-base-200/50 backdrop-blur" aria-label="Toggle Theme">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    </svg>
+  </button>
+</div>
+
+<header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10">
+  <div class="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-8">
+    <div class="flex-1">
+      <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
+    </div>
+    <ul class="menu menu-horizontal px-1">
+    <li>
+      <details>
+        <summary>欢迎</summary>
+        <ul class="bg-base-100 rounded-t-none p-2">
+          <li><a href="/about">关于</a></li>
+          <li><a href="/friends">友链</a></li>
+          <li></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+  </div>
+</header>
+<div class="min-h-screen">
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <article class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8 md:p-12">
+      <header class="mb-8 md:mb-12 border-b border-base-300 pb-6 md:pb-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 tracking-tight">论文翻译：µKanren —— 关系编程的最小化函数式核心</h1>
+        <div class="flex flex-wrap items-center text-sm sm:text-base text-base-content/70 gap-4 mb-4">
+          <time class="flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2026-01-11 13:13:27</time>
+          <div class="badge badge-outline badge-sm">Work in Progress (15%)</div>
+        </div>
+        <div class="flex items-center flex-wrap text-sm gap-2 mt-2">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" /></svg>
+  <a href="/categories/翻译" class="text-primary hover:underline cursor-pointer">翻译</a><span class="mx-2 text-base-content/40">•</span><a href="/categories/文献整理" class="text-primary hover:underline cursor-pointer">文献整理</a><span class="mx-2 text-base-content/40">•</span><a href="/categories/文献整理-逻辑编程" class="text-primary hover:underline cursor-pointer">文献整理 / 逻辑编程</a>
+</div>
+<div class="flex items-center flex-wrap gap-2 mt-3">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" /></svg>
+  <a href="/tags/论文" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#论文</a> <a href="/tags/翻译" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#翻译</a> <a href="/tags/miniKanren" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#miniKanren</a>
+</div>
+
+      </header>
+
+      <div class="prose prose-sm sm:prose-base lg:prose-lg max-w-none leading-relaxed
+                  prose-headings:font-bold
+                  prose-a:no-underline hover:prose-a:underline
+                  prose-img:rounded-lg prose-img:shadow-md
+                  prose-pre:rounded-lg
+                  prose-blockquote:border-l-4 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:not-italic">
+        <nav class="toc mb-8 p-4 bg-base-200 rounded-lg"><ul>
+<li><a href="#摘要" id="toc-摘要">摘要</a></li>
+<li><a href="#正文" id="toc-正文">正文</a>
+<ul>
+<li><a href="#介绍" id="toc-介绍">介绍</a></li>
+<li><a href="#µkanren-语言" id="toc-µkanren-语言">µKanren 语言</a></li>
+<li><a href="#设计哲学" id="toc-设计哲学">设计哲学</a></li>
+<li><a href="#µkanren-实现" id="toc-µkanren-实现">µKanren 实现</a></li>
+<li><a href="#用户层函数" id="toc-用户层函数">用户层函数</a></li>
+<li><a href="#结论及未来的工作"
+id="toc-结论及未来的工作">结论及未来的工作</a></li>
+<li><a href="#致谢" id="toc-致谢">致谢</a></li>
+</ul></li>
+<li><a href="#附录" id="toc-附录">附录</a>
+<ul>
+<li><a href="#glossary" id="toc-glossary">Glossary</a></li>
+<li><a href="#a" id="toc-a">A</a></li>
+</ul></li>
+</ul></nav>
+        <p>Source: <a
+href="http://webyrd.net/scheme-2013/papers/HemannMuKanren2013.pdf"
+class="uri">http://webyrd.net/scheme-2013/papers/HemannMuKanren2013.pdf</a></p>
+<h2 id="摘要">摘要</h2>
+<p>本论文提出了 µKanren ，关系编程/逻辑编程中的 miniKanren
+家族的最小语言。 其实现不到 40 行 Scheme 代码。</p>
+<p><strong>关键词</strong>：miniKanren 、关系编程（renational
+programming）、逻辑编程（logical programming）、Scheme</p>
+<h2 id="正文">正文</h2>
+<h3 id="介绍">介绍</h3>
+<p>miniKanren 是关系（逻辑）编程语言中这对同名家族的主要成员。
+其中很多关键设计决定是在 Prolog
+以及其他知名的第五代编程语言（5GL）影响下的反应。
+其中一个不同是，当典型的 Prolog 实现需要几千行 C 语言代码时，一个
+miniKanren 解释器仅仅需要不到一千行。 虽然 miniKanren
+语言存在很多的变体以及功能集（参见 https:// miniKanren.org
+），最早被发布的实现仅仅包含了 265 行 Scheme 代码。
+在这短短的百来行代码中，展现了可以和 Prolog
+的真子集的实现相比的表现力。</p>
+<p>不过，我们认为，在那 265 行的 miniKanren
+实现中还藏着一个小而美的关系编程语言亟待发掘。 我们相信 µKanren
+就是那个语言。 通过最小化那些紧密关联的算子……</p>
+<h3 id="µkanren-语言">µKanren 语言</h3>
+<p>在这里，我们简短地介绍 µKanren 程序的语法，尤其是其关注的领域和早期的
+miniKanren 语言不同的地方。</p>
+<h3 id="设计哲学">设计哲学</h3>
+<h3 id="µkanren-实现">µKanren 实现</h3>
+<h4 id="有限深度优先搜索">有限深度优先搜索</h4>
+<h4 id="无线流">无线流</h4>
+<h4 id="数据交织interleaving">数据交织（Interleaving）</h4>
+<h3 id="用户层函数">用户层函数</h3>
+<h4 id="重塑-minikanren-的控制符">重塑 miniKanren 的控制符</h4>
+<h3 id="结论及未来的工作">结论及未来的工作</h3>
+<p>在本论文中，我们介绍了 µKanren
+，一个羽量级的纯关系（逻辑）编程语言的实现。 µKanren 是 miniKanren
+家族的最小集。 其内核是纯函数的，没有任何宏，仅包括了 14 个定义以及 39
+行代码。 因此，我们相信该实现相比其他的 miniKanren
+家族，即更易于理解，也更开箱即用。</p>
+<p>由于它旨在成为一个最简练的实现方式，因此某些功能不可避免地会被舍弃。……</p>
+<h3 id="致谢">致谢</h3>
+<p>我们要向 Will Byrd 以及 Will Ness 因其提供的灵感表示感谢。
+我们同时也要感谢 Adam Foltzer 以及 Andre Kulenschimidt
+，他们在早期提出了评论以及建议。 我们在这里尤其要感谢 Chung-chieh Shan
+、 Jeremy Siek 、 Cameron Swords 以及 Sam Tobin-Hochstadt
+，因为他们协助阐明本文的表述方式。</p>
+<h2 id="附录">附录</h2>
+<h3 id="glossary">Glossary</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">原文</th>
+<th style="text-align: center;">翻译</th>
+<th style="text-align: center;">含义</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<h3 id="a">A</h3>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(<span class="fu">var </span>c) (<span class="kw">vector</span> c))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(<span class="fu">var? </span>x) (<span class="kw">vector?</span> x))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(<span class="fu">var==? </span>x1 x2) (== (<span class="kw">vector-ref</span> x1 <span class="dv">0</span>) (<span class="kw">vector-ref</span> x2 <span class="dv">0</span>)))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">;; </span><span class="al">TBD</span></span></code></pre></div>
+<details>
+<summary>
+<h3>
+生词
+</h3>
+</summary>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;">原文</th>
+<th style="text-align: center;">翻译</th>
+<th style="text-align: center;">原文</th>
+<th style="text-align: center;">翻译</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">critical</td>
+<td
+style="text-align: center;">緊要的，關鍵性的，危急的；批評的，批判的，評論性的</td>
+<td style="text-align: center;">eponymous</td>
+<td style="text-align: center;">同名的</td>
+</tr>
+<tr>
+<td style="text-align: center;">though</td>
+<td style="text-align: center;">雖然，儘管, 可是，不過，然而,
+可是，不過，然而</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">comprises</td>
+<td style="text-align: center;">包含</td>
+<td style="text-align: center;">directly portable</td>
+<td
+style="text-align: center;">直接便携的（無需複雜設定或安裝，開箱即用、可隨身攜帶、移動方便）</td>
+</tr>
+<tr>
+<td style="text-align: center;">bare-bones</td>
+<td style="text-align: center;">梗概</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</details>
+        
+        
+      </div>
+    </article>
+  </main>
+  <footer class="mt-16 border-t py-8">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <p class="text-center text-sm text-base-content">
+      (c) 2026 GES233
+    </p>
+    <p class="text-center text-sm text-base-content">
+      Powered by <a href="https://github.com/GES233/simple_blog_engine"><code>GES233/simple_blog_engine</code></a>
+    </p>
+  </div>
+</footer>
+</div>
+
+  </body>
+</html>
