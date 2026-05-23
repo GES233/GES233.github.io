@@ -1,0 +1,175 @@
+<html lang="zh-CN">
+  <head>
+    <meta charaset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      Home
+    </title>
+    <link rel="stylesheet" href="/assets/app.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  
+  
+  
+  
+
+
+
+<script>
+  // Automatically applied if saved in localStorage
+  if (localStorage.getItem("theme") === "noctilucent" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.setAttribute("data-theme", "noctilucent");
+  } else {
+    document.documentElement.setAttribute("data-theme", "core-cream-soup");
+  }
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "noctilucent" ? "core-cream-soup" : "noctilucent";
+
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  }
+</script>
+
+  </head>
+  <body>
+    <div class="fixed top-4 right-4 z-50">
+  <button onclick="toggleTheme()" class="btn btn-circle btn-ghost btn-sm bg-base-200/50 backdrop-blur" aria-label="Toggle Theme">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    </svg>
+  </button>
+</div>
+
+<header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10 border-b border-base-200">
+  <div class="navbar max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 min-h-12 sm:min-h-16">
+    <div class="flex-1">
+      <a href="/" class="btn btn-ghost text-xl px-2"><kbd class="font-mono">GES233</kbd>'s Blog</a>
+    </div>
+    <div class="flex-none hidden sm:block">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href="/about" class="font-medium">关于</a></li>
+        <li><a href="/friends" class="font-medium">友链</a></li>
+      </ul>
+    </div>
+    <div class="flex-none sm:hidden dropdown dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </div>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a href="/about">关于</a></li>
+        <li><a href="/friends">友链</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="bg-base-200 min-h-screen pb-16">
+  <div class="py-8 md:py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header class="mb-10 sm:mb-12">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-base-content">Recent Posts</h1>
+      </header>
+      <div class="grid gap-6 md:gap-8">
+        <article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+  <a href="/2024/8/Gershman-free-energy" class="block p-6 sm:p-8">
+    <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">【翻译】关于我们的大脑，自由能告诉了我们什么？</h2>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2024-08-07 20:25:49</time></div>
+  </a>
+</article>
+
+<article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+  <a href="/2024/7/Glowworm-the-neural-simulator-ii" class="block p-6 sm:p-8">
+    <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">萤火虫🪲——神经仿真的概念验证模型（二）</h2>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2024-07-21 22:20:50</time></div>
+  </a>
+</article>
+
+<article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+  <a href="/2024/7/Glowworm-the-neural-simulator-i" class="block p-6 sm:p-8">
+    <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">萤火虫🪲——神经仿真的概念验证模型（一）</h2>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2024-07-03 10:01:49</time></div>
+  </a>
+</article>
+
+<article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+  <a href="/2024/7/Models-of-synaptic-conductance-ii" class="block p-6 sm:p-8">
+    <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">【翻译】基于突触电导的建模（二）</h2>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2024-07-01 08:41:33</time></div>
+  </a>
+</article>
+
+<article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+  <a href="/2024/6/Rabbit-ear-headband" class="block p-6 sm:p-8">
+    <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">电动兔耳朵的设计（可能有实现）</h2>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2024-06-23 21:30:27</time></div>
+  </a>
+</article>
+
+<article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+  <a href="/2024/6/Interview-Note" class="block p-6 sm:p-8">
+    <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">访谈笔记：主体化与稳定的心智</h2>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2024-06-18 01:40:34</time></div>
+  </a>
+</article>
+
+<article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+  <a href="/2024/6/World-execute-me-lyrics-analyse" class="block p-6 sm:p-8">
+    <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">world.execute(me); 个人向歌词理解</h2>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2024-06-11 14:52:09</time></div>
+  </a>
+</article>
+
+<article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+  <a href="/2024/6/VividPuppet-the-Noval-Framework" class="block p-6 sm:p-8">
+    <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">VividPuppet🎭：动作生成框架</h2>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2024-06-10 15:00:28</time></div>
+  </a>
+</article>
+
+<article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+  <a href="/2024/1/Xylem-Presentation" class="block p-6 sm:p-8">
+    <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">管信课上的汇报</h2>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2024-01-19 16:30:47</time></div>
+  </a>
+</article>
+
+<article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+  <a href="/2024/1/Review-1st-term-at-CAU" class="block p-6 sm:p-8">
+    <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">个人感悟：来中农烟院的第一学期</h2>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2024-01-16 18:36:47</time></div>
+  </a>
+</article>
+
+      </div>
+      <div class="flex justify-center items-center gap-4 mt-10 pt-6 border-t border-base-300">
+  <a href="/" class="btn btn-sm btn-ghost">&larr; Newer</a>
+  <span class="text-sm text-base-content/60">2 / 4</span>
+  <a href="/page/3/" class="btn btn-sm btn-ghost">Older &rarr;</a>
+</div>
+
+    </div>
+  </div>
+
+  <footer class="mt-8 py-8 border-t border-base-300">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm text-base-content/70 font-serif">
+        (c) 2026 GES233
+      </p>
+      <p class="text-center text-sm text-base-content/70 font-serif mt-2">
+        Powered by <a href="https://github.com/GES233/Greenhouse" class="hover:text-primary transition-colors"><code>GES233/Greenhouse</code></a>
+      </p>
+    </div>
+  </footer>
+
+</div>
+
+    
+  </body>
+</html>

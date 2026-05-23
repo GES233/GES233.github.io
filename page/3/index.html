@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>
-      Categories: 专业课
+      Home
     </title>
     <link rel="stylesheet" href="/assets/app.css">
 
@@ -39,7 +39,15 @@
 
   </head>
   <body>
-    <header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10 border-b border-base-200">
+    <div class="fixed top-4 right-4 z-50">
+  <button onclick="toggleTheme()" class="btn btn-circle btn-ghost btn-sm bg-base-200/50 backdrop-blur" aria-label="Toggle Theme">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    </svg>
+  </button>
+</div>
+
+<header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10 border-b border-base-200">
   <div class="navbar max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 min-h-12 sm:min-h-16">
     <div class="flex-1">
       <a href="/" class="btn btn-ghost text-xl px-2"><kbd class="font-mono">GES233</kbd>'s Blog</a>
@@ -62,89 +70,91 @@
   </div>
 </header>
 
-<div class="fixed top-4 right-4 z-50">
-  <button onclick="toggleTheme()" class="btn btn-circle btn-ghost btn-sm bg-base-200/50 backdrop-blur" aria-label="Toggle Theme">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-    </svg>
-  </button>
-</div>
-
 <div class="bg-base-200 min-h-screen pb-16">
   <div class="py-8 md:py-12">
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <header class="mb-10 sm:mb-12">
-        <div class="text-sm font-bold text-primary mb-2 uppercase tracking-wider">categories</div>
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-base-content leading-tight tracking-tight">专业课</h1>
-        <p class="mt-4 text-base-content/70">9 posts in this categories</p>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-base-content">Recent Posts</h1>
       </header>
-
       <div class="grid gap-6 md:gap-8">
         <article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
+  <a href="/2023/10/Paper-view-Eliciting-Thinking-Hierarchy-without-a-Prior" class="block p-6 sm:p-8">
+    <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">【长期施工中】论文翻译：无先验知识下激发的思维层次</h2>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-10-21 17:39:45</time></div>
+  </a>
+</article>
+
+<article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
   <a href="/2023/10/Excretory-system-learning" class="block p-6 sm:p-8">
     <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">排泄系统相关</h2>
-    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-10-04 12:28:47</div>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-10-04 12:28:47</time></div>
   </a>
 </article>
 
 <article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
   <a href="/2023/8/Coagulantion" class="block p-6 sm:p-8">
     <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">生理性止血</h2>
-    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-08-13 17:55:30</div>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-08-13 17:55:30</time></div>
   </a>
 </article>
 
 <article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
   <a href="/2023/7/Calculate-of-pI" class="block p-6 sm:p-8">
     <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">等电点的计算</h2>
-    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-07-05 15:58:35</div>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-07-05 15:58:35</time></div>
   </a>
 </article>
 
 <article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
   <a href="/2023/6/Reproductive-hormone" class="block p-6 sm:p-8">
     <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">生殖激素</h2>
-    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-06-29 10:40:33</div>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-06-29 10:40:33</time></div>
   </a>
 </article>
 
 <article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
   <a href="/2023/6/Nucleic-acid" class="block p-6 sm:p-8">
     <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">核酸</h2>
-    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-06-28 21:37:30</div>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-06-28 21:37:30</time></div>
   </a>
 </article>
 
 <article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
   <a href="/2023/6/Genetics-intro-and-history" class="block p-6 sm:p-8">
     <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">遗传学简介以及历史</h2>
-    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-06-28 08:43:02</div>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-06-28 08:43:02</time></div>
   </a>
 </article>
 
 <article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
   <a href="/2023/6/Reproductive-organs" class="block p-6 sm:p-8">
     <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">两性生殖系统以及分化</h2>
-    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-06-27 08:32:07</div>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-06-27 08:32:07</time></div>
   </a>
 </article>
 
 <article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
   <a href="/2023/6/Animo-acid" class="block p-6 sm:p-8">
     <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">氨基酸</h2>
-    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-06-26 18:17:12</div>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-06-26 18:17:12</time></div>
   </a>
 </article>
 
 <article class="bg-base-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden">
   <a href="/2023/6/Nutrition-in-feed" class="block p-6 sm:p-8">
     <h2 class="text-xl sm:text-2xl font-bold text-base-content mb-2 group-hover:text-primary transition-colors">家畜饲料中的营养物质及其消化流程</h2>
-    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-06-26 10:43:35</div>
+    <div class="text-sm text-base-content/70 flex items-center mt-3"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2023-06-26 10:43:35</time></div>
   </a>
 </article>
 
       </div>
-    </main>
+      <div class="flex justify-center items-center gap-4 mt-10 pt-6 border-t border-base-300">
+  <a href="/page/2/" class="btn btn-sm btn-ghost">&larr; Newer</a>
+  <span class="text-sm text-base-content/60">3 / 4</span>
+  <a href="/page/4/" class="btn btn-sm btn-ghost">Older &rarr;</a>
+</div>
+
+    </div>
   </div>
 
   <footer class="mt-8 py-8 border-t border-base-300">
@@ -153,10 +163,11 @@
         (c) 2026 GES233
       </p>
       <p class="text-center text-sm text-base-content/70 font-serif mt-2">
-        Powered by <a href="https://github.com/GES233/Greenhouse" class="hover:text-primary transition-colors"><code>Greenhouse</code></a>
+        Powered by <a href="https://github.com/GES233/Greenhouse" class="hover:text-primary transition-colors"><code>GES233/Greenhouse</code></a>
       </p>
     </div>
   </footer>
+
 </div>
 
     
