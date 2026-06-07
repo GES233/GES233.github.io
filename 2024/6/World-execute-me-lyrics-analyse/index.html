@@ -150,46 +150,10 @@ retard ，我也是沾点。</p>
 <p>周一晚上视奸了黑名单想要把她放出来，在24年闹掰的时候拉黑的，对方不知道，但是她没跟我闹掰的时候跟我发的抖音的截图上有她的昵称，我就记住了。</p>
 <p>发现她换了很现充的情头，抖音签名也变成了24年3月的微信签名。</p>
 <p>其实我没点进主页看，关于签名是我看开头估计就知道全文是什么了，简简单单的「解除拉黑」，退出。</p>
-<p>凭借：</p>
-<pre><code>(define special_info
-    (fresh person info
-        (natural_language &quot;&quot;&quot;
-            {person}&#39;s {info} in social media start with
-            &quot;好好学习 good good study&quot;(the fulltext maybe is
-            &quot;好好学习 good good study\n\n多用点心 eat cake&quot; only has variations in comma/dot/enter/etc.)
-            &quot;&quot;&quot;
-    )
-)
-(define oral person status
-    (== person status)
-)</code></pre>
-<p>以及24年3月的：</p>
-<ul>
-<li><code>(oral she is_happiness)</code> <em>originating from oral
-accounts at that time</em></li>
-<li><code>(has person special_info) &amp;&amp;&amp; (== person she)</code>
-<em>on WeChat</em></li>
-</ul>
-<p>我们可以认为：</p>
-<pre><code>(define in_happiness_without_oral
-  (fresh info person
-    (has person special_info)
-  )
-)
-
-(define is_happiness person info oral_content
-    (conde
-        (oral person oral_content)
-        (in_happiness_without_oral)
-    )
-)</code></pre>
-<p>所以我们可以认为在当下：</p>
-<pre><code>&gt; (run* is_happiness (she special_info #f))
-=&gt; #s</code></pre>
 <p>一段高质量的亲密关系可以治愈一个人，在这也祝她幸福，我呢…
 暂时没什么魅力俘获哪位姑娘的芳心，也没什么资金去做中长期的心理咨询，因为行业的原因身边的人江湖气比较重，不是很能够完全放开防御治愈自己。</p>
 <p>不妨在工作之余继续推进下这个。</p>
-<p>2026-01-07</p>
+<p><em>编辑自 2026-06-07</em></p>
 <p>——分割线——</p>
 <p>私人的事儿说完了，接下来就是正文了，个人关于曲子本身的一些理解。</p>
 </details>
@@ -235,18 +199,18 @@ me in it and let me destroy myself。</p>
 </div>
 <p>对了，这首歌的一个很有特点的地方在于它还有一堆和歌词相对应的代码。</p>
 <p>所以接下来是相关的代码。 主要是负责声明包名还有写一些注释啥的。</p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> goddrinksjava</span><span class="op">;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> The program GodDrinksJava implements an application that</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> creates an empty simulated world with no meaning or purpose<span class="co">.</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> <span class="an">@author</span> momocashew</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">// 程序 `GodDrinksJava` 实现了一个没有意义以及目的、</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">// 用于创建空的仿真世界的应用程序。</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">package</span><span class="im"> goddrinksjava</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">/**</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> The program GodDrinksJava implements an application that</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> creates an empty simulated world with no meaning or purpose<span class="co">.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a> <span class="co">*</span> <span class="an">@author</span> momocashew</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a> <span class="co">*/</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">// 程序 `GodDrinksJava` 实现了一个没有意义以及目的、</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">// 用于创建空的仿真世界的应用程序。</span></span></code></pre></div>
 <p><code>GodDrinksJava</code> 是一个在 Java
 程序员群体里挺普遍的梗，意思是「上帝喝 Java」。</p>
 <p>在此处加一张梗图.jpg</p>
@@ -312,19 +276,19 @@ ChatGPT）：</p>
 <p>Set up our new world, and let’s begin the SIMULATION.</p>
 </blockquote>
 <p>四个小节反复两次，对应的代码如下：</p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GodDrinksJava <span class="op">{</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        Thing me <span class="op">=</span> <span class="kw">new</span> <span class="fu">Lovable</span><span class="op">(</span><span class="st">&quot;Me&quot;</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="kw">false</span><span class="op">);</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        Thing you <span class="op">=</span> <span class="kw">new</span> <span class="fu">Lovable</span><span class="op">(</span><span class="st">&quot;You&quot;</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="kw">false</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="kw">false</span><span class="op">);</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        World world <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">addThing</span><span class="op">(</span>me<span class="op">);</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">addThing</span><span class="op">(</span>you<span class="op">);</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">startSimulation</span><span class="op">();</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GodDrinksJava <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        Thing me <span class="op">=</span> <span class="kw">new</span> <span class="fu">Lovable</span><span class="op">(</span><span class="st">&quot;Me&quot;</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="kw">true</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="kw">false</span><span class="op">);</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        Thing you <span class="op">=</span> <span class="kw">new</span> <span class="fu">Lovable</span><span class="op">(</span><span class="st">&quot;You&quot;</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="kw">false</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="kw">false</span><span class="op">);</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        World world <span class="op">=</span> <span class="kw">new</span> <span class="fu">World</span><span class="op">(</span><span class="dv">5</span><span class="op">);</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">addThing</span><span class="op">(</span>me<span class="op">);</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">addThing</span><span class="op">(</span>you<span class="op">);</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">startSimulation</span><span class="op">();</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>歌词和对应的代码并不是一一对应的，在 <code>GodDrinksJava</code>
 中只有一个叫做 <code>mian</code> 的方法，没有返回值。</p>
 <p>最开始这几行的大致意思就是初始化那个 empty simulated world with no
@@ -360,16 +324,16 @@ AI
 ，然后从不同的角度给出了描述（不是声明）。</p>
 <p>但是这个新建的参数有点意思，我们可以先掰一个 <code>Lovable</code>
 对象出来。</p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Lovable <span class="kw">extends</span> Thing <span class="op">{</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Definate some properties.</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// constructor</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Lovable</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> var_1<span class="op">,</span> <span class="dt">boolean</span> var_2<span class="op">,</span> <span class="dt">int</span> var_3 <span class="dt">boolean</span> var_4<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> Lovable <span class="kw">extends</span> Thing <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Definate some properties.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// constructor</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Lovable</span><span class="op">(</span><span class="bu">String</span> name<span class="op">,</span> <span class="dt">int</span> var_1<span class="op">,</span> <span class="dt">boolean</span> var_2<span class="op">,</span> <span class="dt">int</span> var_3 <span class="dt">boolean</span> var_4<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>从歌词中的代码可以看出，这个构造函数需要五个参数：</p>
 <ol type="1">
 <li>可能是名字，但我觉得也可能是辨识符（<code>identifier</code>），因为它接受的是人称代词</li>
@@ -388,32 +352,32 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="
 <p>If I’m a sine wave, then you can sit on all my TANGENTS.</p>
 <p>If I approach infinity, then you can be my LIMITATIONS.</p>
 </blockquote>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GodDrinksJava <span class="op">{</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> PointSet<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>            you<span class="op">.</span><span class="fu">addAttribute</span><span class="op">(</span>me<span class="op">.</span><span class="fu">getDimensions</span><span class="op">().</span><span class="fu">toAttribute</span><span class="op">());</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">resetDimensions</span><span class="op">();</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> Circle<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>            you<span class="op">.</span><span class="fu">addAttribute</span><span class="op">(</span>me<span class="op">.</span><span class="fu">getCircumference</span><span class="op">().</span><span class="fu">toAttribute</span><span class="op">());</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">resetCircumference</span><span class="op">();</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> SineWave<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>            you<span class="op">.</span><span class="fu">addAction</span><span class="op">(</span><span class="st">&quot;sit&quot;</span><span class="op">,</span> me<span class="op">.</span><span class="fu">getTangent</span><span class="op">(</span>you<span class="op">.</span><span class="fu">getXPosition</span><span class="op">()));</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> <span class="bu">Sequence</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">setLimit</span><span class="op">(</span>you<span class="op">.</span><span class="fu">toLimit</span><span class="op">());</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GodDrinksJava <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> PointSet<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            you<span class="op">.</span><span class="fu">addAttribute</span><span class="op">(</span>me<span class="op">.</span><span class="fu">getDimensions</span><span class="op">().</span><span class="fu">toAttribute</span><span class="op">());</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">resetDimensions</span><span class="op">();</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> Circle<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>            you<span class="op">.</span><span class="fu">addAttribute</span><span class="op">(</span>me<span class="op">.</span><span class="fu">getCircumference</span><span class="op">().</span><span class="fu">toAttribute</span><span class="op">());</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">resetCircumference</span><span class="op">();</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> SineWave<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            you<span class="op">.</span><span class="fu">addAction</span><span class="op">(</span><span class="st">&quot;sit&quot;</span><span class="op">,</span> me<span class="op">.</span><span class="fu">getTangent</span><span class="op">(</span>you<span class="op">.</span><span class="fu">getXPosition</span><span class="op">()));</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> <span class="bu">Sequence</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">setLimit</span><span class="op">(</span>you<span class="op">.</span><span class="fu">toLimit</span><span class="op">());</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>这一段的节奏和音高都和 <a href="/#verse-i">Verse I</a>
 一样，着重讨论歌词。</p>
 <p>先说代码吧还是。</p>
@@ -424,10 +388,10 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="
 的破解版源代码。
 里边的类名特别特别长，就很恶心，就没有再深入了解，所以对于我说的这些，如有事实错误还请指出。</p>
 <p>这段通篇都是以下的结构：</p>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">{</span>me <span class="kw">instanceof</span> SomeClass<span class="op">}</span> <span class="op">{</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// do something.</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">{</span>me <span class="kw">instanceof</span> SomeClass<span class="op">}</span> <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// do something.</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>这个的意思是说如果 <code>me</code> 这个对象是类型
 <code>SomeClass</code> 的实例，可以很武断的理解成如果我是什么什么。
 那么会怎么怎么样。</p>
@@ -435,9 +399,9 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="
 <p>点是存在于空间中的，而维度是决定空间的一个很重要的性质。
 就是说我把我心底的东西给你了，你对我很重要，很重要。 可能这就是爱。</p>
 <p>再看了一下对应的代码（主要是其中的 <code>do something</code>）：</p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>you<span class="op">.</span><span class="fu">addAttribute</span><span class="op">(</span>me<span class="op">.</span><span class="fu">getDimensions</span><span class="op">().</span><span class="fu">toAttribute</span><span class="op">());</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>me<span class="op">.</span><span class="fu">resetDimensions</span><span class="op">();</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>you<span class="op">.</span><span class="fu">addAttribute</span><span class="op">(</span>me<span class="op">.</span><span class="fu">getDimensions</span><span class="op">().</span><span class="fu">toAttribute</span><span class="op">());</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>me<span class="op">.</span><span class="fu">resetDimensions</span><span class="op">();</span></span></code></pre></div>
 <p>Java 语言对于函数的命名风格好像是小驼峰，就像这样
 <code>thisIsLowerCamel</code> 。
 就是第一个单词小写，后面的单词首字母大写。</p>
@@ -480,10 +444,10 @@ class="math inline">\(\frac{\pi}{2}\)</span> 的相位</li>
 <p>如果我趋于无穷，那么你便可以成为我的极限。</p>
 </blockquote>
 <p>放代码。</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> <span class="bu">Sequence</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    me<span class="op">.</span><span class="fu">setLimit</span><span class="op">(</span>you<span class="op">.</span><span class="fu">toLimit</span><span class="op">());</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> <span class="bu">Sequence</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    me<span class="op">.</span><span class="fu">setLimit</span><span class="op">(</span>you<span class="op">.</span><span class="fu">toLimit</span><span class="op">());</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>通过序列来替代函数，序列的顺序体现数据的变化倾向。</p>
 <p>你变成的那个极限就是我这个序列的极限。</p>
 <p>暂时理解不能。</p>
@@ -495,24 +459,24 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href=
 <p>Oh we can travel, to AD, to BC.</p>
 <p>And we can unite, so deeply, so deeply.</p>
 </blockquote>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GodDrinksJava <span class="op">{</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        me<span class="op">.</span><span class="fu">toggleCurrent</span><span class="op">();</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        me<span class="op">.</span><span class="fu">canSee</span><span class="op">(</span><span class="kw">false</span><span class="op">);</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        me<span class="op">.</span><span class="fu">addFeeling</span><span class="op">(</span><span class="st">&quot;dizzy&quot;</span><span class="op">);</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">timeTravelForTwo</span><span class="op">(</span><span class="st">&quot;AD&quot;</span><span class="op">,</span> <span class="dv">617</span><span class="op">,</span> me<span class="op">,</span> you<span class="op">);</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">timeTravelForTwo</span><span class="op">(</span><span class="st">&quot;BC&quot;</span><span class="op">,</span> <span class="dv">3691</span><span class="op">,</span> me<span class="op">,</span> you<span class="op">);</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">unite</span><span class="op">(</span>me<span class="op">,</span> you<span class="op">);</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GodDrinksJava <span class="op">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        me<span class="op">.</span><span class="fu">toggleCurrent</span><span class="op">();</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        me<span class="op">.</span><span class="fu">canSee</span><span class="op">(</span><span class="kw">false</span><span class="op">);</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        me<span class="op">.</span><span class="fu">addFeeling</span><span class="op">(</span><span class="st">&quot;dizzy&quot;</span><span class="op">);</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">timeTravelForTwo</span><span class="op">(</span><span class="st">&quot;AD&quot;</span><span class="op">,</span> <span class="dv">617</span><span class="op">,</span> me<span class="op">,</span> you<span class="op">);</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">timeTravelForTwo</span><span class="op">(</span><span class="st">&quot;BC&quot;</span><span class="op">,</span> <span class="dv">3691</span><span class="op">,</span> me<span class="op">,</span> you<span class="op">);</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">unite</span><span class="op">(</span>me<span class="op">,</span> you<span class="op">);</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>好了，从比喻变成纯粹的幻想了。</p>
 <p>现在是幻想时刻.jpg</p>
 <p>这段话很难不让人联想嘛，懂得都懂，就… 性暗示意味还挺… 明显的（下一段
@@ -550,31 +514,31 @@ href="https://scp-wiki-cn.wikidot.com/scp-3999">SCP-3999——我于万物之中
 <p>If I can make you happy, I will run the execution.</p>
 <p>Though we are trapped in the strange strange simulation.</p>
 </blockquote>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GodDrinksJava <span class="op">{</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me<span class="op">.</span><span class="fu">getNumStimulationsAvailable</span><span class="op">()</span> <span class="op">&gt;=</span> you<span class="op">.</span><span class="fu">getNumStimulationsNeeded</span><span class="op">())</span> <span class="op">{</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            you<span class="op">.</span><span class="fu">setSatisfaction</span><span class="op">(</span>me<span class="op">.</span><span class="fu">toSatisfaction</span><span class="op">());</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>you<span class="op">.</span><span class="fu">getFeelingIndex</span><span class="op">(</span><span class="st">&quot;happy&quot;</span><span class="op">)</span> <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">requestExecution</span><span class="op">(</span>world<span class="op">);</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">lockThing</span><span class="op">(</span>me<span class="op">);</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">lockThing</span><span class="op">(</span>you<span class="op">);</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GodDrinksJava <span class="op">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me<span class="op">.</span><span class="fu">getNumStimulationsAvailable</span><span class="op">()</span> <span class="op">&gt;=</span> you<span class="op">.</span><span class="fu">getNumStimulationsNeeded</span><span class="op">())</span> <span class="op">{</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>            you<span class="op">.</span><span class="fu">setSatisfaction</span><span class="op">(</span>me<span class="op">.</span><span class="fu">toSatisfaction</span><span class="op">());</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>you<span class="op">.</span><span class="fu">getFeelingIndex</span><span class="op">(</span><span class="st">&quot;happy&quot;</span><span class="op">)</span> <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">requestExecution</span><span class="op">(</span>world<span class="op">);</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">lockThing</span><span class="op">(</span>me<span class="op">);</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">lockThing</span><span class="op">(</span>you<span class="op">);</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>咱一句一句来说。</p>
 <p>第一句这函数名确实有点抽象了，咱就用 Python 来重写。</p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> me.stimulations_available_num <span class="op">&gt;=</span> you.stimulations_needed_num:</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ONLY satisfaction.</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    you.satisfaction <span class="op">=</span> me.to_satisfaction()</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> me.stimulations_available_num <span class="op">&gt;=</span> you.stimulations_needed_num:</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ONLY satisfaction.</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    you.satisfaction <span class="op">=</span> me.to_satisfaction()</span></code></pre></div>
 <p>对应的中文意思是：</p>
 <blockquote>
 <p>如果我可以、如果我可以献给你所有的刺激，</p>
@@ -582,8 +546,8 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a h
 </blockquote>
 <p>就是你快乐的来源最好是我，控制欲的体现（？）</p>
 <p>下一句她怎么体现 make you happy 的代码，还挺有意思的。</p>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>you<span class="op">.</span><span class="fu">getFeelingIndex</span><span class="op">(</span><span class="st">&quot;happy&quot;</span><span class="op">)</span> <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span> <span class="op">{}</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>you<span class="op">.</span><span class="fu">getFeelingIndex</span><span class="op">(</span><span class="st">&quot;happy&quot;</span><span class="op">)</span> <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span><span class="op">)</span> <span class="op">{}</span></span></code></pre></div>
 <p>这应该是在前面的那个的基础上的一个条件吧。</p>
 <p>把 <code>get_happy()</code> 变成了 <code>getFeelingIndex</code>
 然后把高兴传参进去，得到这个情绪的排列顺序（？）。</p>
@@ -602,33 +566,33 @@ the strange strange simulation 。</p>
 <p><del>为后面心态爆炸开始图图做出了铺垫</del></p>
 <p>同样的一堆我是什么什么你怎么样。 也是一种递进的关系，相比之前的 verse
 。</p>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GodDrinksJava <span class="op">{</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> Eggplant<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>            you<span class="op">.</span><span class="fu">addAttribute</span><span class="op">(</span>me<span class="op">.</span><span class="fu">getNutrients</span><span class="op">().</span><span class="fu">toAttribute</span><span class="op">());</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">resetNutrients</span><span class="op">();</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> Tomato<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>            you<span class="op">.</span><span class="fu">addAttribute</span><span class="op">(</span>me<span class="op">.</span><span class="fu">getAntoxidants</span><span class="op">().</span><span class="fu">toAttribute</span><span class="op">());</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">resetAntoxidants</span><span class="op">();</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> TabbyCat<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">purr</span><span class="op">();</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>world<span class="op">.</span><span class="fu">getGod</span><span class="op">().</span><span class="fu">equals</span><span class="op">(</span>me<span class="op">))</span> <span class="op">{</span></span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">setProof</span><span class="op">(</span>you<span class="op">.</span><span class="fu">toProof</span><span class="op">());</span></span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GodDrinksJava <span class="op">{</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> Eggplant<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            you<span class="op">.</span><span class="fu">addAttribute</span><span class="op">(</span>me<span class="op">.</span><span class="fu">getNutrients</span><span class="op">().</span><span class="fu">toAttribute</span><span class="op">());</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">resetNutrients</span><span class="op">();</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> Tomato<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>            you<span class="op">.</span><span class="fu">addAttribute</span><span class="op">(</span>me<span class="op">.</span><span class="fu">getAntoxidants</span><span class="op">().</span><span class="fu">toAttribute</span><span class="op">());</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">resetAntoxidants</span><span class="op">();</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>me <span class="kw">instanceof</span> TabbyCat<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">purr</span><span class="op">();</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>world<span class="op">.</span><span class="fu">getGod</span><span class="op">().</span><span class="fu">equals</span><span class="op">(</span>me<span class="op">))</span> <span class="op">{</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>            me<span class="op">.</span><span class="fu">setProof</span><span class="op">(</span>you<span class="op">.</span><span class="fu">toProof</span><span class="op">());</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>大致和之前的差不多，就不再赘述了。</p>
 <h4 id="pre-chorus-ii">Pre-Chorus II</h4>
 <blockquote>
@@ -637,23 +601,23 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb15-1"><a href=
 <p>Oh switch my role, to S to M.</p>
 <p>So we can enter, the trance the trance.</p>
 </blockquote>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GodDrinksJava <span class="op">{</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        me<span class="op">.</span><span class="fu">toggleGender</span><span class="op">();</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">procreate</span><span class="op">(</span>me<span class="op">,</span> you<span class="op">);</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>        me<span class="op">.</span><span class="fu">toggleRoleBDSM</span><span class="op">();</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">makeHigh</span><span class="op">(</span>me<span class="op">);</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">makeHigh</span><span class="op">(</span>you<span class="op">);</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GodDrinksJava <span class="op">{</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        me<span class="op">.</span><span class="fu">toggleGender</span><span class="op">();</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">procreate</span><span class="op">(</span>me<span class="op">,</span> you<span class="op">);</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        me<span class="op">.</span><span class="fu">toggleRoleBDSM</span><span class="op">();</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">makeHigh</span><span class="op">(</span>me<span class="op">);</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">makeHigh</span><span class="op">(</span>you<span class="op">);</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>确实没想歪，那个 enter the trance 就是 orgasm 了。</p>
 <p>还有 procreate 的意思是繁衍后代。</p>
 <p>我是老师，这就是教培。</p>
@@ -680,14 +644,14 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href=
 <p>EXECUTION.</p>
 </blockquote>
 <p>总共八个小节，七个半小节的间奏和最后一句 <code>execution</code>。</p>
-<div class="sourceCode" id="cb17"><pre
-class="sourceCode java"><code class="sourceCode java"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GodDrinksJava <span class="op">{</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">execute</span><span class="op">(</span>me<span class="op">);</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> GodDrinksJava <span class="op">{</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span><span class="op">(</span><span class="bu">String</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        world<span class="op">.</span><span class="fu">execute</span><span class="op">(</span>me<span class="op">);</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>个人觉得 Elixir 的 <code>self()</code> 更适合。</p>
 <p>但是这种也可以体现这种处决不是处于自愿的，
 一种「我」因为痛苦被动选择了自我的处死。</p>
