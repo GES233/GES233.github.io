@@ -112,13 +112,16 @@ id="toc-结论及未来的工作">结论及未来的工作</a></li>
 <li><a href="#glossary" id="toc-glossary">Glossary</a></li>
 <li><a href="#a" id="toc-a">A</a></li>
 </ul></li>
+<li><a href="#额外补充" id="toc-额外补充">额外补充</a></li>
 </ul></nav>
         <p>Source: <a
 href="http://webyrd.net/scheme-2013/papers/HemannMuKanren2013.pdf"
 class="uri">http://webyrd.net/scheme-2013/papers/HemannMuKanren2013.pdf</a></p>
 <h2 id="摘要">摘要</h2>
 <p>本论文提出了 µKanren ，关系编程/逻辑编程中的 miniKanren
-家族的最小语言。 其实现不到 40 行 Scheme 代码。</p>
+家族的最小语言。 其实现不到 40 行 Scheme 代码。 我们在对最小化
+miniKanren 的需求的驱动，迭代开发出了一套完成的搜索策略。
+最终我们展示了……</p>
 <p><strong>关键词</strong>：miniKanren 、关系编程（renational
 programming）、逻辑编程（logical programming）、Scheme</p>
 <h2 id="正文">正文</h2>
@@ -128,16 +131,22 @@ programming）、逻辑编程（logical programming）、Scheme</p>
 以及其他知名的第五代编程语言（5GL）影响下的反应。
 其中一个不同是，当典型的 Prolog 实现需要几千行 C 语言代码时，一个
 miniKanren 解释器仅仅需要不到一千行。 虽然 miniKanren
-语言存在很多的变体以及功能集（参见 https:// miniKanren.org
-），最早被发布的实现仅仅包含了 265 行 Scheme 代码。
-在这短短的百来行代码中，展现了可以和 Prolog
+语言存在很多的变体以及功能集（参见 <a href="https://miniKanren.org"
+class="uri">https://miniKanren.org</a> ），最早被发布的实现仅仅包含了
+265 行 Scheme 代码。 在这短短的百来行代码中，展现了可以和 Prolog
 的真子集的实现相比的表现力。</p>
 <p>不过，我们认为，在那 265 行的 miniKanren
 实现中还藏着一个小而美的关系编程语言亟待发掘。 我们相信 µKanren
-就是那个语言。 通过最小化那些紧密关联的算子……</p>
+就是那个语言。
+通过最小化那些紧密关联的算子直到仅含关系编程的必需功能的程度，并将其大多数界面直接放在用户的控制下，我们极简化了其实现并且展示了剩余需建的角色以及相互关系。
+我们使整个实现函数式并且避免了宏、……</p>
 <h3 id="µkanren-语言">µKanren 语言</h3>
 <p>在这里，我们简短地介绍 µKanren 程序的语法，尤其是其关注的领域和早期的
-miniKanren 语言不同的地方。</p>
+miniKanren 语言不同的地方。 读者们……</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> (<span class="ex">define</span><span class="fu"> empty-state </span>&#39;(() <span class="op">.</span> <span class="dv">0</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> ((call/fresh (λ (q) (≡ q <span class="dv">5</span>))) empty-state)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>((((#(<span class="dv">0</span>) <span class="op">.</span> <span class="dv">5</span>)) <span class="op">.</span> <span class="dv">1</span>))</span></code></pre></div>
 <h3 id="设计哲学">设计哲学</h3>
 <h3 id="µkanren-实现">µKanren 实现</h3>
 <h4 id="有限深度优先搜索">有限深度优先搜索</h4>
@@ -172,12 +181,18 @@ miniKanren 语言不同的地方。</p>
 </tbody>
 </table>
 <h3 id="a">A</h3>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(<span class="fu">var </span>c) (<span class="kw">vector</span> c))</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(<span class="fu">var? </span>x) (<span class="kw">vector?</span> x))</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(<span class="fu">var==? </span>x1 x2) (== (<span class="kw">vector-ref</span> x1 <span class="dv">0</span>) (<span class="kw">vector-ref</span> x2 <span class="dv">0</span>)))</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">;; </span><span class="al">TBD</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode scheme"><code class="sourceCode scheme"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(<span class="fu">var </span>c) (<span class="kw">vector</span> c))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(<span class="fu">var? </span>x) (<span class="kw">vector?</span> x))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(<span class="fu">var==? </span>x1 x2) (== (<span class="kw">vector-ref</span> x1 <span class="dv">0</span>) (<span class="kw">vector-ref</span> x2 <span class="dv">0</span>)))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(<span class="fu">walk </span>u s) (</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  (<span class="kw">let</span> ())  <span class="co">;; ???</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    (<span class="kw">if</span> pr (walk (<span class="kw">cdr</span> ps) s) u)))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>(<span class="ex">define</span><span class="fu"> </span>(<span class="fu">ext-s </span>x v s) &#39;((,x <span class="op">.</span> ,y) <span class="op">.</span> ,s))</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">;; </span><span class="al">TBD</span></span></code></pre></div>
+<h2 id="额外补充">额外补充</h2>
 <details>
 <summary>
 <h3>
@@ -211,7 +226,7 @@ style="text-align: center;">緊要的，關鍵性的，危急的；批評的，�
 <td style="text-align: center;">though</td>
 <td style="text-align: center;">雖然，儘管, 可是，不過，然而,
 可是，不過，然而</td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">illuminated</td>
 <td style="text-align: center;"></td>
 </tr>
 <tr>
@@ -224,7 +239,7 @@ style="text-align: center;">直接便携的（無需複雜設定或安裝，開�
 <tr>
 <td style="text-align: center;">bare-bones</td>
 <td style="text-align: center;">梗概</td>
-<td style="text-align: center;"></td>
+<td style="text-align: center;">interrelationships</td>
 <td style="text-align: center;"></td>
 </tr>
 </tbody>
@@ -236,285 +251,285 @@ style="text-align: center;">直接便携的（無需複雜設定或安裝，開�
 Elixir 实现
 </h3>
 </summary>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode elixir"><code class="sourceCode elixir"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">defmodule</span> <span class="cn">Logic</span><span class="op">.</span><span class="cn">Core</span> <span class="kw">do</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@moduledoc</span> <span class="st">&quot;附带 occurs-check 以及 fair-search 的 microKanren 实现。&quot;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- 数据结构 ---</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defmodule</span> <span class="cn">Var</span> <span class="kw">do</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="ot">@moduledoc</span> <span class="st">&quot;逻辑变量。&quot;</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="ot">@type</span> t :: %<span class="cn">__MODULE__</span><span class="fu">{</span><span class="va">id:</span> integer<span class="fu">()}</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="ot">@type</span> maybe_term :: t<span class="fu">()</span> <span class="op">|</span> term<span class="fu">()</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">defstruct</span> <span class="ot">[</span><span class="va">:id</span><span class="ot">]</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> var?<span class="fu">(</span>%<span class="cn">__MODULE__</span><span class="fu">{})</span>, <span class="va">do:</span> <span class="cn">true</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> var?<span class="fu">(</span>_<span class="fu">)</span>, <span class="va">do:</span> <span class="cn">false</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 为了让日志更好看，实现 String.Chars 协议</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">defimpl</span> <span class="cn">String</span><span class="op">.</span><span class="cn">Chars</span> <span class="kw">do</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> to_string<span class="fu">(</span>%<span class="fu">{</span><span class="va">id:</span> id<span class="fu">})</span>, <span class="va">do:</span> <span class="st">&quot;?</span><span class="ot">#{</span>id<span class="ot">}</span><span class="st">&quot;</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defmodule</span> <span class="cn">State</span> <span class="kw">do</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="ot">@moduledoc &quot;&quot;&quot;</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">    状态结构体。</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="fu">    * </span><span class="in">`subst`</span><span class="co">: 替换表</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="fu">    * </span><span class="in">`counter`</span><span class="co">: 用于生成新逻辑变量的计数器</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="ot">&quot;&quot;&quot;</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="ot">@type</span> substitution :: %<span class="fu">{</span><span class="cn">Var</span><span class="op">.</span>t<span class="fu">()</span> <span class="op">=&gt;</span> term<span class="fu">()}</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="ot">@type</span> t :: %<span class="cn">__MODULE__</span><span class="fu">{</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>            <span class="va">subst:</span> substitution<span class="fu">()</span>,</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>            <span class="va">counter:</span> non_neg_integer<span class="fu">()</span>,</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>          <span class="fu">}</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="kw">defstruct</span> <span class="va">subst:</span> %<span class="fu">{}</span>, <span class="va">counter:</span> <span class="dv">0</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- 核心操作 ---</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> walk<span class="fu">(</span>%<span class="cn">Var</span><span class="fu">{}</span> <span class="op">=</span> u, subst<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> <span class="cn">Map</span><span class="op">.</span>fetch<span class="fu">(</span>subst, u<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span><span class="va">:ok</span>, v<span class="fu">}</span> <span class="op">-&gt;</span> walk<span class="fu">(</span>v, subst<span class="fu">)</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>      <span class="va">:error</span> <span class="op">-&gt;</span> u</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> walk<span class="fu">(</span>u, _<span class="fu">)</span>, <span class="va">do:</span> u</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> unify<span class="fu">(</span><span class="cn">Var</span><span class="op">.</span>maybe_term<span class="fu">()</span>, <span class="cn">Var</span><span class="op">.</span>maybe_term<span class="fu">()</span>, <span class="cn">State</span><span class="op">.</span>t<span class="fu">())</span> ::</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>          <span class="cn">nil</span> <span class="op">|</span> <span class="cn">State</span><span class="op">.</span>t<span class="fu">()</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> unify<span class="fu">(</span>u, v, %<span class="cn">State</span><span class="fu">{</span><span class="va">subst:</span> s<span class="fu">}</span> <span class="op">=</span> state<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> unify_terms<span class="fu">(</span>u, v, s<span class="fu">)</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> result <span class="kw">do</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>      <span class="cn">nil</span> <span class="op">-&gt;</span></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>        <span class="cn">nil</span></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>      new_subst <span class="op">-&gt;</span></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>        %<span class="fu">{</span>state <span class="op">|</span> <span class="va">subst:</span> new_subst<span class="fu">}</span></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> unify_terms<span class="fu">(</span>u, v, s<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    u <span class="op">=</span> walk<span class="fu">(</span>u, s<span class="fu">)</span></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> walk<span class="fu">(</span>v, s<span class="fu">)</span></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">cond</span> <span class="kw">do</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>      u <span class="op">==</span> v <span class="op">-&gt;</span></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>        s</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>      <span class="cn">Var</span><span class="op">.</span>var?<span class="fu">(</span>u<span class="fu">)</span> <span class="op">-&gt;</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>        ext_s<span class="fu">(</span>u, v, s<span class="fu">)</span></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>      <span class="cn">Var</span><span class="op">.</span>var?<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>        ext_s<span class="fu">(</span>v, u, s<span class="fu">)</span></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>      is_list<span class="fu">(</span>u<span class="fu">)</span> <span class="kw">and</span> is_list<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>        unify_lists<span class="fu">(</span>u, v, s<span class="fu">)</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>      is_tuple<span class="fu">(</span>u<span class="fu">)</span> <span class="kw">and</span> is_tuple<span class="fu">(</span>v<span class="fu">)</span> <span class="kw">and</span> tuple_size<span class="fu">(</span>u<span class="fu">)</span> <span class="op">==</span> tuple_size<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>        unify_terms<span class="fu">(</span><span class="cn">Tuple</span><span class="op">.</span>to_list<span class="fu">(</span>u<span class="fu">)</span>, <span class="cn">Tuple</span><span class="op">.</span>to_list<span class="fu">(</span>v<span class="fu">)</span>, s<span class="fu">)</span></span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>      <span class="cn">true</span> <span class="op">-&gt;</span></span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>        <span class="cn">nil</span></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> unify_lists<span class="fu">(</span><span class="ot">[]</span>, <span class="ot">[]</span>, s<span class="fu">)</span>, <span class="va">do:</span> s</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> unify_lists<span class="fu">(</span><span class="ot">[</span>u <span class="op">|</span> us<span class="ot">]</span>, <span class="ot">[</span>v <span class="op">|</span> vs<span class="ot">]</span>, s<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> unify_terms<span class="fu">(</span>u, v, s<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>      <span class="cn">nil</span> <span class="op">-&gt;</span> <span class="cn">nil</span></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>      s_prime <span class="op">-&gt;</span> unify_terms<span class="fu">(</span>us, vs, s_prime<span class="fu">)</span></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> unify_lists<span class="fu">(</span>_, _, _<span class="fu">)</span>, <span class="va">do:</span> <span class="cn">nil</span></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> ext_s<span class="fu">(</span>u, v, s<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> occurs?<span class="fu">(</span>u, v, s<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>      <span class="cn">nil</span></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>      <span class="cn">Map</span><span class="op">.</span>put<span class="fu">(</span>s, u, v<span class="fu">)</span></span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> occurs?<span class="fu">(</span>x, v, s<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> walk<span class="fu">(</span>v, s<span class="fu">)</span></span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>    <span class="cf">cond</span> <span class="kw">do</span></span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>      x <span class="op">==</span> v <span class="op">-&gt;</span></span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>        <span class="cn">true</span></span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>      <span class="cn">Var</span><span class="op">.</span>var?<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>        <span class="cn">false</span></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>      is_list<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>        occurs_list?<span class="fu">(</span>x, v, s<span class="fu">)</span></span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>      is_tuple<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>        v</span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>        <span class="op">|&gt;</span> <span class="cn">Tuple</span><span class="op">.</span>to_list<span class="fu">()</span></span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>        <span class="op">|&gt;</span> <span class="cn">Enum</span><span class="op">.</span>any?<span class="fu">(</span><span class="kw">fn</span> elem <span class="op">-&gt;</span> occurs?<span class="fu">(</span>x, elem, s<span class="fu">)</span> <span class="kw">end</span><span class="fu">)</span></span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>      <span class="cn">true</span> <span class="op">-&gt;</span></span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>        <span class="cn">false</span></span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> occurs_list?<span class="fu">(</span>_x, <span class="ot">[]</span>, _s<span class="fu">)</span>, <span class="va">do:</span> <span class="cn">false</span></span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> occurs_list?<span class="fu">(</span>x, <span class="ot">[</span>h <span class="op">|</span> t<span class="ot">]</span>, s<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>    occurs?<span class="fu">(</span>x, h, s<span class="fu">)</span> <span class="kw">or</span> occurs?<span class="fu">(</span>x, t, s<span class="fu">)</span></span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> occurs_list?<span class="fu">(</span>_x, _non_list_tail, _s<span class="fu">)</span>, <span class="va">do:</span> <span class="cn">false</span></span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- 一些搜索策略之类的 ---</span></span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@type</span> stream :: <span class="ot">[]</span> <span class="op">|</span> <span class="fu">{</span><span class="va">:mature</span>, <span class="cn">State</span><span class="op">.</span>t<span class="fu">()</span>, stream<span class="fu">()}</span> <span class="op">|</span> <span class="fu">{</span><span class="va">:immature</span>, <span class="fu">(</span><span class="op">-&gt;</span> stream<span class="fu">())}</span></span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@type</span> goal :: <span class="fu">(</span><span class="cn">State</span><span class="op">.</span>t<span class="fu">()</span> <span class="op">-&gt;</span> stream<span class="fu">())</span></span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> mzero :: stream<span class="fu">()</span></span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> mzero, <span class="va">do:</span> <span class="ot">[]</span></span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> unit<span class="fu">(</span><span class="cn">State</span><span class="op">.</span>t<span class="fu">())</span> :: stream<span class="fu">()</span></span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> unit<span class="fu">(</span>%<span class="cn">State</span><span class="fu">{}</span> <span class="op">=</span> state<span class="fu">)</span>, <span class="va">do:</span> <span class="fu">{</span><span class="va">:mature</span>, state, <span class="ot">[]</span><span class="fu">}</span></span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> mplus<span class="fu">(</span>stream<span class="fu">()</span>, stream<span class="fu">())</span> :: stream<span class="fu">()</span></span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> mplus<span class="fu">(</span><span class="ot">[]</span>, s2<span class="fu">)</span>, <span class="va">do:</span> s2</span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> mplus<span class="fu">({</span><span class="va">:immature</span>, f<span class="fu">}</span>, s2<span class="fu">)</span>, <span class="va">do:</span> <span class="fu">{</span><span class="va">:immature</span>, <span class="kw">fn</span> <span class="op">-&gt;</span> mplus<span class="fu">(</span>s2, f<span class="op">.</span><span class="fu">())</span> <span class="kw">end</span><span class="fu">}</span></span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> mplus<span class="fu">({</span><span class="va">:mature</span>, h, t<span class="fu">}</span>, s2<span class="fu">)</span>, <span class="va">do:</span> <span class="fu">{</span><span class="va">:mature</span>, h, mplus<span class="fu">(</span>t, s2<span class="fu">)}</span></span>
-<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> bind<span class="fu">(</span>stream<span class="fu">()</span>, goal<span class="fu">())</span> :: stream<span class="fu">()</span></span>
-<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> bind<span class="fu">(</span><span class="ot">[]</span>, _g<span class="fu">)</span>, <span class="va">do:</span> <span class="ot">[]</span></span>
-<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> bind<span class="fu">({</span><span class="va">:immature</span>, f<span class="fu">}</span>, g<span class="fu">)</span>, <span class="va">do:</span> <span class="fu">{</span><span class="va">:immature</span>, <span class="kw">fn</span> <span class="op">-&gt;</span> bind<span class="fu">(</span>f<span class="op">.</span><span class="fu">()</span>, g<span class="fu">)</span> <span class="kw">end</span><span class="fu">}</span></span>
-<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> bind<span class="fu">({</span><span class="va">:mature</span>, h, t<span class="fu">}</span>, g<span class="fu">)</span>, <span class="va">do:</span> mplus<span class="fu">(</span>g<span class="op">.</span><span class="fu">(</span>h<span class="fu">)</span>, bind<span class="fu">(</span>t, g<span class="fu">))</span></span>
-<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- Goals (Constructors) ---</span></span>
-<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> eq<span class="fu">(</span><span class="cn">Var</span><span class="op">.</span>maybe_term<span class="fu">()</span>, <span class="cn">Var</span><span class="op">.</span>maybe_term<span class="fu">())</span> :: goal<span class="fu">()</span></span>
-<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> eq<span class="fu">(</span>u, v<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fn</span> %<span class="cn">State</span><span class="fu">{}</span> <span class="op">=</span> state <span class="op">-&gt;</span></span>
-<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>      <span class="kw">case</span> unify<span class="fu">(</span>u, v, state<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>        <span class="cn">nil</span> <span class="op">-&gt;</span> mzero<span class="fu">()</span></span>
-<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>        new_state <span class="op">-&gt;</span> unit<span class="fu">(</span>new_state<span class="fu">)</span></span>
-<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>      <span class="kw">end</span></span>
-<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> conj<span class="fu">(</span>goal<span class="fu">()</span>, goal<span class="fu">())</span> :: goal<span class="fu">()</span></span>
-<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> conj<span class="fu">(</span>g1, g2<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fn</span> %<span class="cn">State</span><span class="fu">{}</span> <span class="op">=</span> state <span class="op">-&gt;</span> bind<span class="fu">(</span>g1<span class="op">.</span><span class="fu">(</span>state<span class="fu">)</span>, g2<span class="fu">)</span> <span class="kw">end</span></span>
-<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> disj<span class="fu">(</span>goal<span class="fu">()</span>, goal<span class="fu">())</span> :: goal<span class="fu">()</span></span>
-<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> disj<span class="fu">(</span>g1, g2<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fn</span> %<span class="cn">State</span><span class="fu">{}</span> <span class="op">=</span> state <span class="op">-&gt;</span> mplus<span class="fu">(</span>g1<span class="op">.</span><span class="fu">(</span>state<span class="fu">)</span>, g2<span class="op">.</span><span class="fu">(</span>state<span class="fu">))</span> <span class="kw">end</span></span>
-<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 负责将 goal 的求值推迟</span></span>
-<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> delay<span class="fu">((</span><span class="op">-&gt;</span> goal<span class="fu">()))</span> :: goal<span class="fu">()</span></span>
-<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> delay<span class="fu">(</span>goal_fun<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fn</span> %<span class="cn">State</span><span class="fu">{}</span> <span class="op">=</span> state <span class="op">-&gt;</span> <span class="fu">{</span><span class="va">:immature</span>, <span class="kw">fn</span> <span class="op">-&gt;</span> goal_fun<span class="op">.</span><span class="fu">()</span><span class="op">.</span><span class="fu">(</span>state<span class="fu">)</span> <span class="kw">end</span><span class="fu">}</span> <span class="kw">end</span></span>
-<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 把流推进到 mature 或 [] 为止</span></span>
-<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> pull<span class="fu">(</span><span class="ot">[]</span><span class="fu">)</span>, <span class="va">do:</span> <span class="ot">[]</span></span>
-<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> pull<span class="fu">({</span><span class="va">:immature</span>, f<span class="fu">})</span>, <span class="va">do:</span> pull<span class="fu">(</span>f<span class="op">.</span><span class="fu">())</span></span>
-<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> pull<span class="fu">({</span><span class="va">:mature</span>, _, _<span class="fu">}</span> <span class="op">=</span> s<span class="fu">)</span>, <span class="va">do:</span> s</span>
-<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> take<span class="fu">(</span>_stream, <span class="dv">0</span><span class="fu">)</span>, <span class="va">do:</span> <span class="ot">[]</span></span>
-<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> take<span class="fu">(</span>stream, n<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-196"><a href="#cb2-196" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> pull<span class="fu">(</span>stream<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-197"><a href="#cb2-197" aria-hidden="true" tabindex="-1"></a>      <span class="ot">[]</span> <span class="op">-&gt;</span> <span class="ot">[]</span></span>
-<span id="cb2-198"><a href="#cb2-198" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span><span class="va">:mature</span>, h, t<span class="fu">}</span> <span class="op">-&gt;</span> <span class="ot">[</span>h <span class="op">|</span> take<span class="fu">(</span>t, n <span class="op">-</span> <span class="dv">1</span><span class="fu">)</span><span class="ot">]</span></span>
-<span id="cb2-199"><a href="#cb2-199" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb2-200"><a href="#cb2-200" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-201"><a href="#cb2-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-202"><a href="#cb2-202" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> take_all<span class="fu">(</span>stream<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-203"><a href="#cb2-203" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> pull<span class="fu">(</span>stream<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-204"><a href="#cb2-204" aria-hidden="true" tabindex="-1"></a>      <span class="ot">[]</span> <span class="op">-&gt;</span> <span class="ot">[]</span></span>
-<span id="cb2-205"><a href="#cb2-205" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span><span class="va">:mature</span>, h, t<span class="fu">}</span> <span class="op">-&gt;</span> <span class="ot">[</span>h <span class="op">|</span> take_all<span class="fu">(</span>t<span class="fu">)</span><span class="ot">]</span></span>
-<span id="cb2-206"><a href="#cb2-206" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb2-207"><a href="#cb2-207" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-208"><a href="#cb2-208" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-209"><a href="#cb2-209" aria-hidden="true" tabindex="-1"></a>  <span class="co"># call_fresh 负责引入逻辑变量</span></span>
-<span id="cb2-210"><a href="#cb2-210" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> call_fresh<span class="fu">(</span>f<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-211"><a href="#cb2-211" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fn</span> %<span class="cn">State</span><span class="fu">{</span><span class="va">counter:</span> c<span class="fu">}</span> <span class="op">=</span> s <span class="op">-&gt;</span></span>
-<span id="cb2-212"><a href="#cb2-212" aria-hidden="true" tabindex="-1"></a>      <span class="co"># 1. 创建新变量</span></span>
-<span id="cb2-213"><a href="#cb2-213" aria-hidden="true" tabindex="-1"></a>      v <span class="op">=</span> %<span class="cn">Var</span><span class="fu">{</span><span class="va">id:</span> c<span class="fu">}</span></span>
-<span id="cb2-214"><a href="#cb2-214" aria-hidden="true" tabindex="-1"></a>      <span class="co"># 2. 获取用户闭包中的 Goal (f.(v) 返回的是 Goal)</span></span>
-<span id="cb2-215"><a href="#cb2-215" aria-hidden="true" tabindex="-1"></a>      goal <span class="op">=</span> f<span class="op">.</span><span class="fu">(</span>v<span class="fu">)</span></span>
-<span id="cb2-216"><a href="#cb2-216" aria-hidden="true" tabindex="-1"></a>      <span class="co"># 3. 更新计数器</span></span>
-<span id="cb2-217"><a href="#cb2-217" aria-hidden="true" tabindex="-1"></a>      new_state <span class="op">=</span> %<span class="fu">{</span>s <span class="op">|</span> <span class="va">counter:</span> c <span class="op">+</span> <span class="dv">1</span><span class="fu">}</span></span>
-<span id="cb2-218"><a href="#cb2-218" aria-hidden="true" tabindex="-1"></a>      <span class="co"># 4. === 关键修正 ===</span></span>
-<span id="cb2-219"><a href="#cb2-219" aria-hidden="true" tabindex="-1"></a>      <span class="co"># 必须在这里调用 goal 并传入 state，才能返回 Stream</span></span>
-<span id="cb2-220"><a href="#cb2-220" aria-hidden="true" tabindex="-1"></a>      goal<span class="op">.</span><span class="fu">(</span>new_state<span class="fu">)</span></span>
-<span id="cb2-221"><a href="#cb2-221" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb2-222"><a href="#cb2-222" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-223"><a href="#cb2-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-224"><a href="#cb2-224" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- Toolkit ---</span></span>
-<span id="cb2-225"><a href="#cb2-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-226"><a href="#cb2-226" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 深度 walk</span></span>
-<span id="cb2-227"><a href="#cb2-227" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> walk_star<span class="fu">(</span>v, s<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-228"><a href="#cb2-228" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> walk<span class="fu">(</span>v, s<span class="fu">)</span></span>
-<span id="cb2-229"><a href="#cb2-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-230"><a href="#cb2-230" aria-hidden="true" tabindex="-1"></a>    <span class="cf">cond</span> <span class="kw">do</span></span>
-<span id="cb2-231"><a href="#cb2-231" aria-hidden="true" tabindex="-1"></a>      <span class="cn">Var</span><span class="op">.</span>var?<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
-<span id="cb2-232"><a href="#cb2-232" aria-hidden="true" tabindex="-1"></a>        v</span>
-<span id="cb2-233"><a href="#cb2-233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-234"><a href="#cb2-234" aria-hidden="true" tabindex="-1"></a>      is_list<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
-<span id="cb2-235"><a href="#cb2-235" aria-hidden="true" tabindex="-1"></a>        walk_star_list<span class="fu">(</span>v, s<span class="fu">)</span></span>
-<span id="cb2-236"><a href="#cb2-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-237"><a href="#cb2-237" aria-hidden="true" tabindex="-1"></a>      is_tuple<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
-<span id="cb2-238"><a href="#cb2-238" aria-hidden="true" tabindex="-1"></a>        v <span class="op">|&gt;</span> <span class="cn">Tuple</span><span class="op">.</span>to_list<span class="fu">()</span> <span class="op">|&gt;</span> <span class="cn">Enum</span><span class="op">.</span>map<span class="fu">(</span><span class="op">&amp;</span>walk_star<span class="fu">(</span><span class="op">&amp;</span><span class="dv">1</span>, s<span class="fu">))</span> <span class="op">|&gt;</span> <span class="cn">List</span><span class="op">.</span>to_tuple<span class="fu">()</span></span>
-<span id="cb2-239"><a href="#cb2-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-240"><a href="#cb2-240" aria-hidden="true" tabindex="-1"></a>      <span class="cn">true</span> <span class="op">-&gt;</span></span>
-<span id="cb2-241"><a href="#cb2-241" aria-hidden="true" tabindex="-1"></a>        v</span>
-<span id="cb2-242"><a href="#cb2-242" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb2-243"><a href="#cb2-243" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-244"><a href="#cb2-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-245"><a href="#cb2-245" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> walk_star_list<span class="fu">(</span><span class="ot">[]</span>, _s<span class="fu">)</span>, <span class="va">do:</span> <span class="ot">[]</span></span>
-<span id="cb2-246"><a href="#cb2-246" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> walk_star_list<span class="fu">(</span><span class="ot">[</span>h <span class="op">|</span> t<span class="ot">]</span>, s<span class="fu">)</span>, <span class="va">do:</span> <span class="ot">[</span>walk_star<span class="fu">(</span>h, s<span class="fu">)</span> <span class="op">|</span> walk_star<span class="fu">(</span>t, s<span class="fu">)</span><span class="ot">]</span></span>
-<span id="cb2-247"><a href="#cb2-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-248"><a href="#cb2-248" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 把变量重命名成 _0, _1 ...</span></span>
-<span id="cb2-249"><a href="#cb2-249" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> reify_s<span class="fu">(</span>v, s<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-250"><a href="#cb2-250" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> walk<span class="fu">(</span>v, s<span class="fu">)</span></span>
-<span id="cb2-251"><a href="#cb2-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-252"><a href="#cb2-252" aria-hidden="true" tabindex="-1"></a>    <span class="cf">cond</span> <span class="kw">do</span></span>
-<span id="cb2-253"><a href="#cb2-253" aria-hidden="true" tabindex="-1"></a>      <span class="cn">Var</span><span class="op">.</span>var?<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span> <span class="cn">Map</span><span class="op">.</span>put<span class="fu">(</span>s, v, :<span class="st">&quot;_</span><span class="ot">#{</span>map_size<span class="fu">(</span>s<span class="fu">)</span><span class="ot">}</span><span class="st">&quot;</span><span class="fu">)</span></span>
-<span id="cb2-254"><a href="#cb2-254" aria-hidden="true" tabindex="-1"></a>      is_list<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span> reify_s_list<span class="fu">(</span>v, s<span class="fu">)</span></span>
-<span id="cb2-255"><a href="#cb2-255" aria-hidden="true" tabindex="-1"></a>      is_tuple<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span> v <span class="op">|&gt;</span> <span class="cn">Tuple</span><span class="op">.</span>to_list<span class="fu">()</span> <span class="op">|&gt;</span> <span class="cn">Enum</span><span class="op">.</span>reduce<span class="fu">(</span>s, <span class="op">&amp;</span>reify_s<span class="op">/</span><span class="dv">2</span><span class="fu">)</span></span>
-<span id="cb2-256"><a href="#cb2-256" aria-hidden="true" tabindex="-1"></a>      <span class="cn">true</span> <span class="op">-&gt;</span> s</span>
-<span id="cb2-257"><a href="#cb2-257" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
-<span id="cb2-258"><a href="#cb2-258" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-259"><a href="#cb2-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-260"><a href="#cb2-260" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> reify_s_list<span class="fu">(</span><span class="ot">[]</span>, s<span class="fu">)</span>, <span class="va">do:</span> s</span>
-<span id="cb2-261"><a href="#cb2-261" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> reify_s_list<span class="fu">(</span><span class="ot">[</span>h <span class="op">|</span> t<span class="ot">]</span>, s<span class="fu">)</span>, <span class="va">do:</span> reify_s<span class="fu">(</span>t, reify_s<span class="fu">(</span>h, s<span class="fu">))</span></span>
-<span id="cb2-262"><a href="#cb2-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-263"><a href="#cb2-263" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> reify<span class="fu">(</span>var, %<span class="cn">State</span><span class="fu">{</span><span class="va">subst:</span> s<span class="fu">})</span> <span class="kw">do</span></span>
-<span id="cb2-264"><a href="#cb2-264" aria-hidden="true" tabindex="-1"></a>    walked <span class="op">=</span> walk_star<span class="fu">(</span>var, s<span class="fu">)</span></span>
-<span id="cb2-265"><a href="#cb2-265" aria-hidden="true" tabindex="-1"></a>    walk_star<span class="fu">(</span>walked, reify_s<span class="fu">(</span>walked, %<span class="fu">{}))</span></span>
-<span id="cb2-266"><a href="#cb2-266" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-267"><a href="#cb2-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-268"><a href="#cb2-268" aria-hidden="true" tabindex="-1"></a>  <span class="co"># run：引入查询变量 q，跑 n 个答案</span></span>
-<span id="cb2-269"><a href="#cb2-269" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> run<span class="fu">(</span>n, f<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-270"><a href="#cb2-270" aria-hidden="true" tabindex="-1"></a>    call_fresh<span class="fu">(</span>f<span class="fu">)</span><span class="op">.</span><span class="fu">(</span>%<span class="cn">State</span><span class="fu">{})</span></span>
-<span id="cb2-271"><a href="#cb2-271" aria-hidden="true" tabindex="-1"></a>    <span class="op">|&gt;</span> take<span class="fu">(</span>n<span class="fu">)</span></span>
-<span id="cb2-272"><a href="#cb2-272" aria-hidden="true" tabindex="-1"></a>    <span class="op">|&gt;</span> <span class="cn">Enum</span><span class="op">.</span>map<span class="fu">(</span><span class="op">&amp;</span>reify<span class="fu">(</span>%<span class="cn">Var</span><span class="fu">{</span><span class="va">id:</span> <span class="dv">0</span><span class="fu">}</span>, <span class="op">&amp;</span><span class="dv">1</span><span class="fu">))</span></span>
-<span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> run_all<span class="fu">(</span>f<span class="fu">)</span> <span class="kw">do</span></span>
-<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a>    call_fresh<span class="fu">(</span>f<span class="fu">)</span><span class="op">.</span><span class="fu">(</span>%<span class="cn">State</span><span class="fu">{})</span> <span class="op">|&gt;</span> take_all<span class="fu">()</span> <span class="op">|&gt;</span> <span class="cn">Enum</span><span class="op">.</span>map<span class="fu">(</span><span class="op">&amp;</span>reify<span class="fu">(</span>%<span class="cn">Var</span><span class="fu">{</span><span class="va">id:</span> <span class="dv">0</span><span class="fu">}</span>, <span class="op">&amp;</span><span class="dv">1</span><span class="fu">))</span></span>
-<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
-<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode elixir"><code class="sourceCode elixir"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">defmodule</span> <span class="cn">Logic</span><span class="op">.</span><span class="cn">Core</span> <span class="kw">do</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@moduledoc</span> <span class="st">&quot;附带 occurs-check 以及 fair-search 的 microKanren 实现。&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- 数据结构 ---</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defmodule</span> <span class="cn">Var</span> <span class="kw">do</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="ot">@moduledoc</span> <span class="st">&quot;逻辑变量。&quot;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="ot">@type</span> t :: %<span class="cn">__MODULE__</span><span class="fu">{</span><span class="va">id:</span> integer<span class="fu">()}</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="ot">@type</span> maybe_term :: t<span class="fu">()</span> <span class="op">|</span> term<span class="fu">()</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">defstruct</span> <span class="ot">[</span><span class="va">:id</span><span class="ot">]</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> var?<span class="fu">(</span>%<span class="cn">__MODULE__</span><span class="fu">{})</span>, <span class="va">do:</span> <span class="cn">true</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> var?<span class="fu">(</span>_<span class="fu">)</span>, <span class="va">do:</span> <span class="cn">false</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 为了让日志更好看，实现 String.Chars 协议</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">defimpl</span> <span class="cn">String</span><span class="op">.</span><span class="cn">Chars</span> <span class="kw">do</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>      <span class="kw">def</span> to_string<span class="fu">(</span>%<span class="fu">{</span><span class="va">id:</span> id<span class="fu">})</span>, <span class="va">do:</span> <span class="st">&quot;?</span><span class="ot">#{</span>id<span class="ot">}</span><span class="st">&quot;</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defmodule</span> <span class="cn">State</span> <span class="kw">do</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="ot">@moduledoc &quot;&quot;&quot;</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">    状态结构体。</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="fu">    * </span><span class="in">`subst`</span><span class="co">: 替换表</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">    * </span><span class="in">`counter`</span><span class="co">: 用于生成新逻辑变量的计数器</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="ot">&quot;&quot;&quot;</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="ot">@type</span> substitution :: %<span class="fu">{</span><span class="cn">Var</span><span class="op">.</span>t<span class="fu">()</span> <span class="op">=&gt;</span> term<span class="fu">()}</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="ot">@type</span> t :: %<span class="cn">__MODULE__</span><span class="fu">{</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>            <span class="va">subst:</span> substitution<span class="fu">()</span>,</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>            <span class="va">counter:</span> non_neg_integer<span class="fu">()</span>,</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>          <span class="fu">}</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="kw">defstruct</span> <span class="va">subst:</span> %<span class="fu">{}</span>, <span class="va">counter:</span> <span class="dv">0</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- 核心操作 ---</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> walk<span class="fu">(</span>%<span class="cn">Var</span><span class="fu">{}</span> <span class="op">=</span> u, subst<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> <span class="cn">Map</span><span class="op">.</span>fetch<span class="fu">(</span>subst, u<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span><span class="va">:ok</span>, v<span class="fu">}</span> <span class="op">-&gt;</span> walk<span class="fu">(</span>v, subst<span class="fu">)</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>      <span class="va">:error</span> <span class="op">-&gt;</span> u</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> walk<span class="fu">(</span>u, _<span class="fu">)</span>, <span class="va">do:</span> u</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> unify<span class="fu">(</span><span class="cn">Var</span><span class="op">.</span>maybe_term<span class="fu">()</span>, <span class="cn">Var</span><span class="op">.</span>maybe_term<span class="fu">()</span>, <span class="cn">State</span><span class="op">.</span>t<span class="fu">())</span> ::</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>          <span class="cn">nil</span> <span class="op">|</span> <span class="cn">State</span><span class="op">.</span>t<span class="fu">()</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> unify<span class="fu">(</span>u, v, %<span class="cn">State</span><span class="fu">{</span><span class="va">subst:</span> s<span class="fu">}</span> <span class="op">=</span> state<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> unify_terms<span class="fu">(</span>u, v, s<span class="fu">)</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> result <span class="kw">do</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>      <span class="cn">nil</span> <span class="op">-&gt;</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>        <span class="cn">nil</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>      new_subst <span class="op">-&gt;</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>        %<span class="fu">{</span>state <span class="op">|</span> <span class="va">subst:</span> new_subst<span class="fu">}</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> unify_terms<span class="fu">(</span>u, v, s<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>    u <span class="op">=</span> walk<span class="fu">(</span>u, s<span class="fu">)</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> walk<span class="fu">(</span>v, s<span class="fu">)</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">cond</span> <span class="kw">do</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>      u <span class="op">==</span> v <span class="op">-&gt;</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>        s</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>      <span class="cn">Var</span><span class="op">.</span>var?<span class="fu">(</span>u<span class="fu">)</span> <span class="op">-&gt;</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>        ext_s<span class="fu">(</span>u, v, s<span class="fu">)</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>      <span class="cn">Var</span><span class="op">.</span>var?<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>        ext_s<span class="fu">(</span>v, u, s<span class="fu">)</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>      is_list<span class="fu">(</span>u<span class="fu">)</span> <span class="kw">and</span> is_list<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>        unify_lists<span class="fu">(</span>u, v, s<span class="fu">)</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>      is_tuple<span class="fu">(</span>u<span class="fu">)</span> <span class="kw">and</span> is_tuple<span class="fu">(</span>v<span class="fu">)</span> <span class="kw">and</span> tuple_size<span class="fu">(</span>u<span class="fu">)</span> <span class="op">==</span> tuple_size<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>        unify_terms<span class="fu">(</span><span class="cn">Tuple</span><span class="op">.</span>to_list<span class="fu">(</span>u<span class="fu">)</span>, <span class="cn">Tuple</span><span class="op">.</span>to_list<span class="fu">(</span>v<span class="fu">)</span>, s<span class="fu">)</span></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>      <span class="cn">true</span> <span class="op">-&gt;</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>        <span class="cn">nil</span></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> unify_lists<span class="fu">(</span><span class="ot">[]</span>, <span class="ot">[]</span>, s<span class="fu">)</span>, <span class="va">do:</span> s</span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> unify_lists<span class="fu">(</span><span class="ot">[</span>u <span class="op">|</span> us<span class="ot">]</span>, <span class="ot">[</span>v <span class="op">|</span> vs<span class="ot">]</span>, s<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> unify_terms<span class="fu">(</span>u, v, s<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>      <span class="cn">nil</span> <span class="op">-&gt;</span> <span class="cn">nil</span></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>      s_prime <span class="op">-&gt;</span> unify_terms<span class="fu">(</span>us, vs, s_prime<span class="fu">)</span></span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> unify_lists<span class="fu">(</span>_, _, _<span class="fu">)</span>, <span class="va">do:</span> <span class="cn">nil</span></span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> ext_s<span class="fu">(</span>u, v, s<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> occurs?<span class="fu">(</span>u, v, s<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>      <span class="cn">nil</span></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>      <span class="cn">Map</span><span class="op">.</span>put<span class="fu">(</span>s, u, v<span class="fu">)</span></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> occurs?<span class="fu">(</span>x, v, s<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> walk<span class="fu">(</span>v, s<span class="fu">)</span></span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>    <span class="cf">cond</span> <span class="kw">do</span></span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>      x <span class="op">==</span> v <span class="op">-&gt;</span></span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>        <span class="cn">true</span></span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>      <span class="cn">Var</span><span class="op">.</span>var?<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a>        <span class="cn">false</span></span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>      is_list<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>        occurs_list?<span class="fu">(</span>x, v, s<span class="fu">)</span></span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>      is_tuple<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>        v</span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>        <span class="op">|&gt;</span> <span class="cn">Tuple</span><span class="op">.</span>to_list<span class="fu">()</span></span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>        <span class="op">|&gt;</span> <span class="cn">Enum</span><span class="op">.</span>any?<span class="fu">(</span><span class="kw">fn</span> elem <span class="op">-&gt;</span> occurs?<span class="fu">(</span>x, elem, s<span class="fu">)</span> <span class="kw">end</span><span class="fu">)</span></span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>      <span class="cn">true</span> <span class="op">-&gt;</span></span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a>        <span class="cn">false</span></span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> occurs_list?<span class="fu">(</span>_x, <span class="ot">[]</span>, _s<span class="fu">)</span>, <span class="va">do:</span> <span class="cn">false</span></span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> occurs_list?<span class="fu">(</span>x, <span class="ot">[</span>h <span class="op">|</span> t<span class="ot">]</span>, s<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>    occurs?<span class="fu">(</span>x, h, s<span class="fu">)</span> <span class="kw">or</span> occurs?<span class="fu">(</span>x, t, s<span class="fu">)</span></span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> occurs_list?<span class="fu">(</span>_x, _non_list_tail, _s<span class="fu">)</span>, <span class="va">do:</span> <span class="cn">false</span></span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- 一些搜索策略之类的 ---</span></span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@type</span> stream :: <span class="ot">[]</span> <span class="op">|</span> <span class="fu">{</span><span class="va">:mature</span>, <span class="cn">State</span><span class="op">.</span>t<span class="fu">()</span>, stream<span class="fu">()}</span> <span class="op">|</span> <span class="fu">{</span><span class="va">:immature</span>, <span class="fu">(</span><span class="op">-&gt;</span> stream<span class="fu">())}</span></span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@type</span> goal :: <span class="fu">(</span><span class="cn">State</span><span class="op">.</span>t<span class="fu">()</span> <span class="op">-&gt;</span> stream<span class="fu">())</span></span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> mzero :: stream<span class="fu">()</span></span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> mzero, <span class="va">do:</span> <span class="ot">[]</span></span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> unit<span class="fu">(</span><span class="cn">State</span><span class="op">.</span>t<span class="fu">())</span> :: stream<span class="fu">()</span></span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> unit<span class="fu">(</span>%<span class="cn">State</span><span class="fu">{}</span> <span class="op">=</span> state<span class="fu">)</span>, <span class="va">do:</span> <span class="fu">{</span><span class="va">:mature</span>, state, <span class="ot">[]</span><span class="fu">}</span></span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> mplus<span class="fu">(</span>stream<span class="fu">()</span>, stream<span class="fu">())</span> :: stream<span class="fu">()</span></span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> mplus<span class="fu">(</span><span class="ot">[]</span>, s2<span class="fu">)</span>, <span class="va">do:</span> s2</span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> mplus<span class="fu">({</span><span class="va">:immature</span>, f<span class="fu">}</span>, s2<span class="fu">)</span>, <span class="va">do:</span> <span class="fu">{</span><span class="va">:immature</span>, <span class="kw">fn</span> <span class="op">-&gt;</span> mplus<span class="fu">(</span>s2, f<span class="op">.</span><span class="fu">())</span> <span class="kw">end</span><span class="fu">}</span></span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> mplus<span class="fu">({</span><span class="va">:mature</span>, h, t<span class="fu">}</span>, s2<span class="fu">)</span>, <span class="va">do:</span> <span class="fu">{</span><span class="va">:mature</span>, h, mplus<span class="fu">(</span>t, s2<span class="fu">)}</span></span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> bind<span class="fu">(</span>stream<span class="fu">()</span>, goal<span class="fu">())</span> :: stream<span class="fu">()</span></span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> bind<span class="fu">(</span><span class="ot">[]</span>, _g<span class="fu">)</span>, <span class="va">do:</span> <span class="ot">[]</span></span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> bind<span class="fu">({</span><span class="va">:immature</span>, f<span class="fu">}</span>, g<span class="fu">)</span>, <span class="va">do:</span> <span class="fu">{</span><span class="va">:immature</span>, <span class="kw">fn</span> <span class="op">-&gt;</span> bind<span class="fu">(</span>f<span class="op">.</span><span class="fu">()</span>, g<span class="fu">)</span> <span class="kw">end</span><span class="fu">}</span></span>
+<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> bind<span class="fu">({</span><span class="va">:mature</span>, h, t<span class="fu">}</span>, g<span class="fu">)</span>, <span class="va">do:</span> mplus<span class="fu">(</span>g<span class="op">.</span><span class="fu">(</span>h<span class="fu">)</span>, bind<span class="fu">(</span>t, g<span class="fu">))</span></span>
+<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- Goals (Constructors) ---</span></span>
+<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> eq<span class="fu">(</span><span class="cn">Var</span><span class="op">.</span>maybe_term<span class="fu">()</span>, <span class="cn">Var</span><span class="op">.</span>maybe_term<span class="fu">())</span> :: goal<span class="fu">()</span></span>
+<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> eq<span class="fu">(</span>u, v<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fn</span> %<span class="cn">State</span><span class="fu">{}</span> <span class="op">=</span> state <span class="op">-&gt;</span></span>
+<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a>      <span class="kw">case</span> unify<span class="fu">(</span>u, v, state<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a>        <span class="cn">nil</span> <span class="op">-&gt;</span> mzero<span class="fu">()</span></span>
+<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a>        new_state <span class="op">-&gt;</span> unit<span class="fu">(</span>new_state<span class="fu">)</span></span>
+<span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a>      <span class="kw">end</span></span>
+<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> conj<span class="fu">(</span>goal<span class="fu">()</span>, goal<span class="fu">())</span> :: goal<span class="fu">()</span></span>
+<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> conj<span class="fu">(</span>g1, g2<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fn</span> %<span class="cn">State</span><span class="fu">{}</span> <span class="op">=</span> state <span class="op">-&gt;</span> bind<span class="fu">(</span>g1<span class="op">.</span><span class="fu">(</span>state<span class="fu">)</span>, g2<span class="fu">)</span> <span class="kw">end</span></span>
+<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> disj<span class="fu">(</span>goal<span class="fu">()</span>, goal<span class="fu">())</span> :: goal<span class="fu">()</span></span>
+<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> disj<span class="fu">(</span>g1, g2<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fn</span> %<span class="cn">State</span><span class="fu">{}</span> <span class="op">=</span> state <span class="op">-&gt;</span> mplus<span class="fu">(</span>g1<span class="op">.</span><span class="fu">(</span>state<span class="fu">)</span>, g2<span class="op">.</span><span class="fu">(</span>state<span class="fu">))</span> <span class="kw">end</span></span>
+<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 负责将 goal 的求值推迟</span></span>
+<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a>  <span class="ot">@spec</span> delay<span class="fu">((</span><span class="op">-&gt;</span> goal<span class="fu">()))</span> :: goal<span class="fu">()</span></span>
+<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> delay<span class="fu">(</span>goal_fun<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fn</span> %<span class="cn">State</span><span class="fu">{}</span> <span class="op">=</span> state <span class="op">-&gt;</span> <span class="fu">{</span><span class="va">:immature</span>, <span class="kw">fn</span> <span class="op">-&gt;</span> goal_fun<span class="op">.</span><span class="fu">()</span><span class="op">.</span><span class="fu">(</span>state<span class="fu">)</span> <span class="kw">end</span><span class="fu">}</span> <span class="kw">end</span></span>
+<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 把流推进到 mature 或 [] 为止</span></span>
+<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> pull<span class="fu">(</span><span class="ot">[]</span><span class="fu">)</span>, <span class="va">do:</span> <span class="ot">[]</span></span>
+<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> pull<span class="fu">({</span><span class="va">:immature</span>, f<span class="fu">})</span>, <span class="va">do:</span> pull<span class="fu">(</span>f<span class="op">.</span><span class="fu">())</span></span>
+<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> pull<span class="fu">({</span><span class="va">:mature</span>, _, _<span class="fu">}</span> <span class="op">=</span> s<span class="fu">)</span>, <span class="va">do:</span> s</span>
+<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> take<span class="fu">(</span>_stream, <span class="dv">0</span><span class="fu">)</span>, <span class="va">do:</span> <span class="ot">[]</span></span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> take<span class="fu">(</span>stream, n<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> pull<span class="fu">(</span>stream<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a>      <span class="ot">[]</span> <span class="op">-&gt;</span> <span class="ot">[]</span></span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span><span class="va">:mature</span>, h, t<span class="fu">}</span> <span class="op">-&gt;</span> <span class="ot">[</span>h <span class="op">|</span> take<span class="fu">(</span>t, n <span class="op">-</span> <span class="dv">1</span><span class="fu">)</span><span class="ot">]</span></span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> take_all<span class="fu">(</span>stream<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> pull<span class="fu">(</span>stream<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a>      <span class="ot">[]</span> <span class="op">-&gt;</span> <span class="ot">[]</span></span>
+<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a>      <span class="fu">{</span><span class="va">:mature</span>, h, t<span class="fu">}</span> <span class="op">-&gt;</span> <span class="ot">[</span>h <span class="op">|</span> take_all<span class="fu">(</span>t<span class="fu">)</span><span class="ot">]</span></span>
+<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a>  <span class="co"># call_fresh 负责引入逻辑变量</span></span>
+<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> call_fresh<span class="fu">(</span>f<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fn</span> %<span class="cn">State</span><span class="fu">{</span><span class="va">counter:</span> c<span class="fu">}</span> <span class="op">=</span> s <span class="op">-&gt;</span></span>
+<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a>      <span class="co"># 1. 创建新变量</span></span>
+<span id="cb3-213"><a href="#cb3-213" aria-hidden="true" tabindex="-1"></a>      v <span class="op">=</span> %<span class="cn">Var</span><span class="fu">{</span><span class="va">id:</span> c<span class="fu">}</span></span>
+<span id="cb3-214"><a href="#cb3-214" aria-hidden="true" tabindex="-1"></a>      <span class="co"># 2. 获取用户闭包中的 Goal (f.(v) 返回的是 Goal)</span></span>
+<span id="cb3-215"><a href="#cb3-215" aria-hidden="true" tabindex="-1"></a>      goal <span class="op">=</span> f<span class="op">.</span><span class="fu">(</span>v<span class="fu">)</span></span>
+<span id="cb3-216"><a href="#cb3-216" aria-hidden="true" tabindex="-1"></a>      <span class="co"># 3. 更新计数器</span></span>
+<span id="cb3-217"><a href="#cb3-217" aria-hidden="true" tabindex="-1"></a>      new_state <span class="op">=</span> %<span class="fu">{</span>s <span class="op">|</span> <span class="va">counter:</span> c <span class="op">+</span> <span class="dv">1</span><span class="fu">}</span></span>
+<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a>      <span class="co"># 4. === 关键修正 ===</span></span>
+<span id="cb3-219"><a href="#cb3-219" aria-hidden="true" tabindex="-1"></a>      <span class="co"># 必须在这里调用 goal 并传入 state，才能返回 Stream</span></span>
+<span id="cb3-220"><a href="#cb3-220" aria-hidden="true" tabindex="-1"></a>      goal<span class="op">.</span><span class="fu">(</span>new_state<span class="fu">)</span></span>
+<span id="cb3-221"><a href="#cb3-221" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-224"><a href="#cb3-224" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- Toolkit ---</span></span>
+<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 深度 walk</span></span>
+<span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> walk_star<span class="fu">(</span>v, s<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> walk<span class="fu">(</span>v, s<span class="fu">)</span></span>
+<span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a>    <span class="cf">cond</span> <span class="kw">do</span></span>
+<span id="cb3-231"><a href="#cb3-231" aria-hidden="true" tabindex="-1"></a>      <span class="cn">Var</span><span class="op">.</span>var?<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
+<span id="cb3-232"><a href="#cb3-232" aria-hidden="true" tabindex="-1"></a>        v</span>
+<span id="cb3-233"><a href="#cb3-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a>      is_list<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
+<span id="cb3-235"><a href="#cb3-235" aria-hidden="true" tabindex="-1"></a>        walk_star_list<span class="fu">(</span>v, s<span class="fu">)</span></span>
+<span id="cb3-236"><a href="#cb3-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-237"><a href="#cb3-237" aria-hidden="true" tabindex="-1"></a>      is_tuple<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span></span>
+<span id="cb3-238"><a href="#cb3-238" aria-hidden="true" tabindex="-1"></a>        v <span class="op">|&gt;</span> <span class="cn">Tuple</span><span class="op">.</span>to_list<span class="fu">()</span> <span class="op">|&gt;</span> <span class="cn">Enum</span><span class="op">.</span>map<span class="fu">(</span><span class="op">&amp;</span>walk_star<span class="fu">(</span><span class="op">&amp;</span><span class="dv">1</span>, s<span class="fu">))</span> <span class="op">|&gt;</span> <span class="cn">List</span><span class="op">.</span>to_tuple<span class="fu">()</span></span>
+<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-240"><a href="#cb3-240" aria-hidden="true" tabindex="-1"></a>      <span class="cn">true</span> <span class="op">-&gt;</span></span>
+<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a>        v</span>
+<span id="cb3-242"><a href="#cb3-242" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-243"><a href="#cb3-243" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-244"><a href="#cb3-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> walk_star_list<span class="fu">(</span><span class="ot">[]</span>, _s<span class="fu">)</span>, <span class="va">do:</span> <span class="ot">[]</span></span>
+<span id="cb3-246"><a href="#cb3-246" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> walk_star_list<span class="fu">(</span><span class="ot">[</span>h <span class="op">|</span> t<span class="ot">]</span>, s<span class="fu">)</span>, <span class="va">do:</span> <span class="ot">[</span>walk_star<span class="fu">(</span>h, s<span class="fu">)</span> <span class="op">|</span> walk_star<span class="fu">(</span>t, s<span class="fu">)</span><span class="ot">]</span></span>
+<span id="cb3-247"><a href="#cb3-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-248"><a href="#cb3-248" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 把变量重命名成 _0, _1 ...</span></span>
+<span id="cb3-249"><a href="#cb3-249" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> reify_s<span class="fu">(</span>v, s<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-250"><a href="#cb3-250" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> walk<span class="fu">(</span>v, s<span class="fu">)</span></span>
+<span id="cb3-251"><a href="#cb3-251" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-252"><a href="#cb3-252" aria-hidden="true" tabindex="-1"></a>    <span class="cf">cond</span> <span class="kw">do</span></span>
+<span id="cb3-253"><a href="#cb3-253" aria-hidden="true" tabindex="-1"></a>      <span class="cn">Var</span><span class="op">.</span>var?<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span> <span class="cn">Map</span><span class="op">.</span>put<span class="fu">(</span>s, v, :<span class="st">&quot;_</span><span class="ot">#{</span>map_size<span class="fu">(</span>s<span class="fu">)</span><span class="ot">}</span><span class="st">&quot;</span><span class="fu">)</span></span>
+<span id="cb3-254"><a href="#cb3-254" aria-hidden="true" tabindex="-1"></a>      is_list<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span> reify_s_list<span class="fu">(</span>v, s<span class="fu">)</span></span>
+<span id="cb3-255"><a href="#cb3-255" aria-hidden="true" tabindex="-1"></a>      is_tuple<span class="fu">(</span>v<span class="fu">)</span> <span class="op">-&gt;</span> v <span class="op">|&gt;</span> <span class="cn">Tuple</span><span class="op">.</span>to_list<span class="fu">()</span> <span class="op">|&gt;</span> <span class="cn">Enum</span><span class="op">.</span>reduce<span class="fu">(</span>s, <span class="op">&amp;</span>reify_s<span class="op">/</span><span class="dv">2</span><span class="fu">)</span></span>
+<span id="cb3-256"><a href="#cb3-256" aria-hidden="true" tabindex="-1"></a>      <span class="cn">true</span> <span class="op">-&gt;</span> s</span>
+<span id="cb3-257"><a href="#cb3-257" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-258"><a href="#cb3-258" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-259"><a href="#cb3-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-260"><a href="#cb3-260" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> reify_s_list<span class="fu">(</span><span class="ot">[]</span>, s<span class="fu">)</span>, <span class="va">do:</span> s</span>
+<span id="cb3-261"><a href="#cb3-261" aria-hidden="true" tabindex="-1"></a>  <span class="kw">defp</span> reify_s_list<span class="fu">(</span><span class="ot">[</span>h <span class="op">|</span> t<span class="ot">]</span>, s<span class="fu">)</span>, <span class="va">do:</span> reify_s<span class="fu">(</span>t, reify_s<span class="fu">(</span>h, s<span class="fu">))</span></span>
+<span id="cb3-262"><a href="#cb3-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-263"><a href="#cb3-263" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> reify<span class="fu">(</span>var, %<span class="cn">State</span><span class="fu">{</span><span class="va">subst:</span> s<span class="fu">})</span> <span class="kw">do</span></span>
+<span id="cb3-264"><a href="#cb3-264" aria-hidden="true" tabindex="-1"></a>    walked <span class="op">=</span> walk_star<span class="fu">(</span>var, s<span class="fu">)</span></span>
+<span id="cb3-265"><a href="#cb3-265" aria-hidden="true" tabindex="-1"></a>    walk_star<span class="fu">(</span>walked, reify_s<span class="fu">(</span>walked, %<span class="fu">{}))</span></span>
+<span id="cb3-266"><a href="#cb3-266" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-267"><a href="#cb3-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-268"><a href="#cb3-268" aria-hidden="true" tabindex="-1"></a>  <span class="co"># run：引入查询变量 q，跑 n 个答案</span></span>
+<span id="cb3-269"><a href="#cb3-269" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> run<span class="fu">(</span>n, f<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-270"><a href="#cb3-270" aria-hidden="true" tabindex="-1"></a>    call_fresh<span class="fu">(</span>f<span class="fu">)</span><span class="op">.</span><span class="fu">(</span>%<span class="cn">State</span><span class="fu">{})</span></span>
+<span id="cb3-271"><a href="#cb3-271" aria-hidden="true" tabindex="-1"></a>    <span class="op">|&gt;</span> take<span class="fu">(</span>n<span class="fu">)</span></span>
+<span id="cb3-272"><a href="#cb3-272" aria-hidden="true" tabindex="-1"></a>    <span class="op">|&gt;</span> <span class="cn">Enum</span><span class="op">.</span>map<span class="fu">(</span><span class="op">&amp;</span>reify<span class="fu">(</span>%<span class="cn">Var</span><span class="fu">{</span><span class="va">id:</span> <span class="dv">0</span><span class="fu">}</span>, <span class="op">&amp;</span><span class="dv">1</span><span class="fu">))</span></span>
+<span id="cb3-273"><a href="#cb3-273" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-274"><a href="#cb3-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-275"><a href="#cb3-275" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> run_all<span class="fu">(</span>f<span class="fu">)</span> <span class="kw">do</span></span>
+<span id="cb3-276"><a href="#cb3-276" aria-hidden="true" tabindex="-1"></a>    call_fresh<span class="fu">(</span>f<span class="fu">)</span><span class="op">.</span><span class="fu">(</span>%<span class="cn">State</span><span class="fu">{})</span> <span class="op">|&gt;</span> take_all<span class="fu">()</span> <span class="op">|&gt;</span> <span class="cn">Enum</span><span class="op">.</span>map<span class="fu">(</span><span class="op">&amp;</span>reify<span class="fu">(</span>%<span class="cn">Var</span><span class="fu">{</span><span class="va">id:</span> <span class="dv">0</span><span class="fu">}</span>, <span class="op">&amp;</span><span class="dv">1</span><span class="fu">))</span></span>
+<span id="cb3-277"><a href="#cb3-277" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div>
 </details>
         
         
