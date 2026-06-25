@@ -49,25 +49,30 @@
   </button>
 </div>
 
-<header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10">
-  <div class="navbar bg-base-100 shadow-sm px-4 sm:px-6 lg:px-8">
+<header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10 border-b border-base-200">
+  <div class="navbar max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 min-h-12 sm:min-h-16">
     <div class="flex-1">
-      <a  href="/" class="btn btn-ghost text-xl"><kbd>GES233</kbd>'s Blog</a>
+      <a href="/" class="btn btn-ghost text-xl px-2"><kbd class="font-mono">GES233</kbd>'s Blog</a>
     </div>
-    <ul class="menu menu-horizontal px-1">
-    <li>
-      <details>
-        <summary>欢迎</summary>
-        <ul class="bg-base-100 rounded-t-none p-2">
-          <li><a href="/about">关于</a></li>
-          <li><a href="/friends">友链</a></li>
-          <li></li>
-        </ul>
-      </details>
-    </li>
-  </ul>
+    <div class="flex-none hidden sm:block">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href="/about" class="font-medium">关于</a></li>
+        <li><a href="/friends" class="font-medium">友链</a></li>
+      </ul>
+    </div>
+    <div class="flex-none sm:hidden dropdown dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </div>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a href="/about">关于</a></li>
+        <li><a href="/friends">友链</a></li>
+        <li></li>
+      </ul>
+    </div>
   </div>
 </header>
+
 <div class="min-h-screen">
   <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
     <article class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8 md:p-12">
@@ -252,29 +257,29 @@ var）</h5>
 <ol>
 <li><div id="fn1">
 <p>也可以翻译成「众包」（群众外包）。可以粗暴的理解为一大群携带智能设备的人，协作完成某项任务。
-<a href="#fnref1" class="footnote-back" role="doc-backlink"
-aria-label="Back to content">↩︎</a></p>
+<a href="#fnref1" class="footnote-back" aria-label="Back to content"
+role="doc-backlink">↩︎</a></p>
 </div></li>
 <li><div id="fn2">
 <p>指在选举制度中，一个候选者（可以是人、项目等等）的结果超过其他任何候选者（即获得复数（plurality））即可被选中。
-<a href="#fnref2" class="footnote-back" role="doc-backlink"
-aria-label="Back to content">↩︎</a></p>
+<a href="#fnref2" class="footnote-back" aria-label="Back to content"
+role="doc-backlink">↩︎</a></p>
 </div></li>
 <li><div id="fn3">
 <p>一个统计模型的拟合优度意味着它能够多么拟合观测值。 <a href="#fnref3"
-class="footnote-back" role="doc-backlink"
-aria-label="Back to content">↩︎</a></p>
+class="footnote-back" aria-label="Back to content"
+role="doc-backlink">↩︎</a></p>
 </div></li>
 <li><div id="fn4">
 <p>作者来自清华大学。 <a href="#fnref4" class="footnote-back"
-role="doc-backlink" aria-label="Back to content">↩︎</a></p>
+aria-label="Back to content" role="doc-backlink">↩︎</a></p>
 </div></li>
 <li><div id="fn5">
 <p>关于该问题的讨论可以参见<a
 href="https://math.stackexchange.com/questions/1351058/circle-revolutions-rolling-around-another-circle">geometry
 - Circle revolutions rolling around another circle - Mathematics Stack
 Exchange</a> 。 <a href="#fnref5" class="footnote-back"
-role="doc-backlink" aria-label="Back to content">↩︎</a></p>
+aria-label="Back to content" role="doc-backlink">↩︎</a></p>
 </div></li>
 </ol>
 </div>
