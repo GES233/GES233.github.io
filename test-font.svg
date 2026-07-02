@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" width="105.00mm" height="148.00mm" viewBox="0.0000 -0.0000 59.7508 84.2202"><rect width="100%" height="100%" fill="white"/>
+<style type="text/css">
+<![CDATA[
+tspan { white-space: pre; }
+]]>
+</style>
+<g transform="translate(2.8453, 3.9740)">
+<text font-family="Microsoft YaHei" font-size="2.2001" text-anchor="start" fill="black">
+<tspan>测试中文 Test ABC</tspan>
+</text>
+</g>
+<g transform="translate(2.8453, 6.5828)">
+<text font-family="SimSun" font-size="2.2001" text-anchor="start" fill="black">
+<tspan>测试中文 Test ABC</tspan>
+</text>
+</g>
+<g transform="translate(2.8453, 9.1024)">
+<text font-family="SimHei" font-size="2.2001" text-anchor="start" fill="black">
+<tspan>测试中文 Test ABC</tspan>
+</text>
+</g>
+<g transform="translate(2.8453, 11.6478)">
+<text font-family="serif" font-size="2.2001" text-anchor="start" fill="black">
+<tspan>测试中文 Test ABC (default)</tspan>
+</text>
+</g>
+<g transform="translate(4.6947, 82.0382)">
+<a xlink:href="https://lilypond.org/">
+<rect x="0.0000" y="-0.4748" width="50.3614" height="2.0024" fill="none" stroke="none" stroke-width="0.0"/>
+</a>
+</g>
+<g transform="translate(4.6947, 82.0382)">
+<text font-family="serif" font-size="2.2001" text-anchor="start" fill="black">
+<tspan>Music engraving by LilyPond 2.24.4—www.lilypond.org</tspan>
+</text>
+</g>
+</svg>

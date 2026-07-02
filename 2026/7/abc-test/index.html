@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>
-      VividPuppet🎭：动作生成框架 - 自留地
+      ABC 乐谱测试 - 自留地
     </title>
     <link rel="stylesheet" href="/assets/app.css">
 
@@ -14,6 +14,26 @@
 
   
   
+  
+    <script src="/assets/abcjs-plugin-min.js" type="text/javascript"></script>
+    <script src="/assets/abcjs/abcjs-basic-min.js"></script>
+    <script>
+      // Render ABC notation code blocks to sheet music
+      document.addEventListener("DOMContentLoaded", function() {
+        var abcBlocks = document.querySelectorAll("pre.abc code");
+        abcBlocks.forEach(function(code) {
+          var pre = code.parentElement;
+          var abcText = code.textContent;
+          var paper = document.createElement("div");
+          paper.className = "abc-rendered";
+          pre.parentNode.replaceChild(paper, pre);
+          ABCJS.renderAbc(paper, abcText, {
+            responsive: "resize",
+            staffwidth: 720
+          });
+        });
+      });
+    </script>
   
   
 
@@ -75,18 +95,14 @@
   <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
     <article class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8 md:p-12">
       <header class="mb-8 md:mb-12 border-b border-base-300 pb-6 md:pb-8">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 tracking-tight">VividPuppet🎭：动作生成框架</h1>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 tracking-tight">ABC 乐谱测试</h1>
         <div class="flex flex-wrap items-center text-sm sm:text-base text-base-content/70 gap-4 mb-4">
-          <time class="flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2024-06-10 15:00:28</time>
-          <div class="badge badge-outline badge-sm">Work in Progress (1%)</div>
+          <time class="flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2026-07-02 18:46:58</time>
+          <div class="badge badge-outline badge-sm">Final</div>
         </div>
-        <div class="flex items-center flex-wrap text-sm gap-2 mt-2">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" /></svg>
-  <a href="/categories/Qy" class="text-primary hover:underline cursor-pointer">Qy</a><span class="mx-2 text-base-content/40">•</span><a href="/categories/长期计划" class="text-primary hover:underline cursor-pointer">长期计划</a>
-</div>
-<div class="flex items-center flex-wrap gap-2 mt-3">
+        <div class="flex items-center flex-wrap gap-2 mt-3">
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" /></svg>
-  <a href="/tags/计划中" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#计划中</a>
+  <a href="/tags/音乐" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#音乐</a> <a href="/tags/测试" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#测试</a>
 </div>
 
       </header>
@@ -98,55 +114,30 @@
                   prose-pre:rounded-lg
                   prose-blockquote:border-l-4 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:not-italic">
         <nav class="toc mb-8 p-4 bg-base-200 rounded-lg"><ul>
-<li><a href="#一瞥" id="toc-一瞥">一瞥</a></li>
-<li><a href="#框架图" id="toc-框架图">框架图</a></li>
-<li><a href="#用例" id="toc-用例">用例</a></li>
+<li><a href="#春天的芭蕾" id="toc-春天的芭蕾">春天的芭蕾</a></li>
+<li><a href="#简单音阶" id="toc-简单音阶">简单音阶</a></li>
 </ul></nav>
-        <p><em>A generic simulation framework based on action
-emulating.</em></p>
-<p>基于动作仿真的通用模拟框架。</p>
-<h3 id="一瞥">一瞥</h3>
-<p><code>VividPuppet</code> 是去年的<a
-href="/2023/6/Qy-project">Qy项目</a>的子计划（目前还是 ppt
-阶段，我也没想好要怎么实现），其基于对生物动作的抽象与仿真，提供了在包括动画、游戏等不同场景下使用不同的适配器生成具有逼真而精细的动作的内容的框架。</p>
-<h4 id="木偶还是木偶">木偶还是木偶？</h4>
-<p>原话忘了，反正这个小标题是照着姜文关于观众对《让子弹飞》的解读的回应弄的，火锅不是火锅，麻匪不是麻匪什么的<sup><a
-href="#fn1" id="fnref1" class="footnote-ref"
-role="doc-noteref">1</a></sup>。</p>
-<p>起这个名字是因为之前受关于神经科学的书籍的影响，他们把生物的思维活动比喻成剧院。
-这个比喻真的超级妙，而且我也打算通过在一定程度上复现这种表现来使生成的动作更加「自然」（以人类的视角）的倾向。
-所以就确定了 VividPuppet 这个名字。</p>
-<h4 id="不止控制回路">不止控制回路</h4>
-<h4 id="为什么是-elixir">为什么是 Elixir ？</h4>
-<p>一方面是通过 Elixir 的宏来写 DSL
-比较方便，可以实现比较优雅的语法；另一方面是 BEAM
-在设计之初可能就考虑到了类似于建模仿真的情况（但其实不是）。</p>
-<h3 id="框架图">框架图</h3>
-<p>TODO: <del>整完这张图</del> 先搞明白到底怎么实现吧哥</p>
-<p><img src="/svg/Vivid-Puppet-overview.svg" alt="Vivid-Puppet-overview" /></p>
-<h3 id="用例">用例</h3>
-<p>这一部分虽然是用例，但是更多的是从使用场景的角度来思考这种框架应该如何实现。</p>
-<h4
-id="跨语言附加情感的多模态语音合成">跨语言、附加情感的多模态语音合成</h4>
-<p><em>人话版本：附带口型的语音合成。</em></p>
-<h4 id="情绪建模与表情展示">情绪建模与表情展示</h4>
-<p><em>人话版本：自动化的看板娘</em></p>
-<h4 id="角色无关的动作捕捉与重现">角色无关的动作捕捉与重现</h4>
-<p><em>人话版本：让大长腿模型与 Q
-版模型可以无需修改使用同一套动作。</em></p>
-        <div class="footnotes mt-12 pt-8 border-t border-base-300">
-  <h3 class="text-xl font-bold mb-4">Footnotes</h3>
-  <div class="footnotes prose-sm">
-<ol>
-<li><div id="fn1">
-<p>好像是黄四郎的那句，「刀进了肚子，那凉粉还是凉粉？」 <a
-href="#fnref1" class="footnote-back" aria-label="Back to content"
-role="doc-backlink">↩︎</a></p>
-</div></li>
-</ol>
-</div>
-</div>
-
+        <h2 id="春天的芭蕾">春天的芭蕾</h2>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode abc"><code class="sourceCode abc"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fl">X:1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fl">T:春天的芭蕾 (片段)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fl">C:胡廷江</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fl">M:3/4</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fl">L:1/4</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fl">K:D</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>A2A<span class="ch">|</span>B2B<span class="ch">|</span>c3-<span class="ch">|</span>c3<span class="ch">|</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dt">w: 啊—— 啊——</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>A2A<span class="ch">|</span>B2B<span class="ch">|</span>c3-<span class="ch">|</span>c3<span class="ch">|</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dt">w: 春 天 的 芭 蕾</span></span></code></pre></div>
+<h2 id="简单音阶">简单音阶</h2>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode abc"><code class="sourceCode abc"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fl">X:2</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fl">T:C大调音阶</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fl">M:4/4</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fl">L:1/4</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fl">K:C</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>CDEF<span class="ch">|</span>GABc<span class="ch">|</span></span></code></pre></div>
+        
         
       </div>
     </article>
@@ -184,6 +175,15 @@ role="doc-backlink">↩︎</a></p>
 
 </div>
 
+    
+    <script>
+      (function() {
+        var es = new EventSource("/sse");
+        es.addEventListener("reload", function(e) {
+          window.location.reload();
+        });
+      })();
+    </script>
     
   </body>
 </html>

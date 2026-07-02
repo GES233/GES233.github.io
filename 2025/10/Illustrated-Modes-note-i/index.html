@@ -1,0 +1,338 @@
+<html lang="zh-CN">
+  <head>
+    <meta charaset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      Illustrated Modes 学习笔记（一） - 自留地
+    </title>
+    <link rel="stylesheet" href="/assets/app.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  
+  
+  
+    <script src="/assets/abcjs-plugin-min.js" type="text/javascript"></script>
+    <script src="/assets/abcjs/abcjs-basic-min.js"></script>
+    <script>
+      // Render ABC notation code blocks to sheet music
+      document.addEventListener("DOMContentLoaded", function() {
+        var abcBlocks = document.querySelectorAll("pre.abc code");
+        abcBlocks.forEach(function(code) {
+          var pre = code.parentElement;
+          var abcText = code.textContent;
+          var paper = document.createElement("div");
+          paper.className = "abc-rendered";
+          pre.parentNode.replaceChild(paper, pre);
+          ABCJS.renderAbc(paper, abcText, {
+            responsive: "resize",
+            staffwidth: 720
+          });
+        });
+      });
+    </script>
+  
+  
+
+
+
+<script>
+  // Automatically applied if saved in localStorage
+  if (localStorage.getItem("theme") === "noctilucent" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.setAttribute("data-theme", "noctilucent");
+  } else {
+    document.documentElement.setAttribute("data-theme", "core-cream-soup");
+  }
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "noctilucent" ? "core-cream-soup" : "noctilucent";
+
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  }
+</script>
+
+  </head>
+  <body>
+    <div class="fixed top-4 right-4 z-50">
+  <button onclick="toggleTheme()" class="btn btn-circle btn-ghost btn-sm bg-base-200/50 backdrop-blur" aria-label="Toggle Theme">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    </svg>
+  </button>
+</div>
+
+<header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10 border-b border-base-200">
+  <div class="navbar max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 min-h-12 sm:min-h-16">
+    <div class="flex-1">
+      <a href="/" class="btn btn-ghost text-xl px-2"><kbd class="font-mono">GES233</kbd>'s Blog</a>
+    </div>
+    <div class="flex-none hidden sm:block">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href="/about" class="font-medium">关于</a></li>
+        <li><a href="/friends" class="font-medium">友链</a></li>
+      </ul>
+    </div>
+    <div class="flex-none sm:hidden dropdown dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </div>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a href="/about">关于</a></li>
+        <li><a href="/friends">友链</a></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="bg-base-200 min-h-screen pb-16">
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <article class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8 md:p-12">
+      <header class="mb-8 md:mb-12 border-b border-base-300 pb-6 md:pb-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 tracking-tight">Illustrated Modes 学习笔记（一）</h1>
+        <div class="flex flex-wrap items-center text-sm sm:text-base text-base-content/70 gap-4 mb-4">
+          <time class="flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2025-10-30 14:59:47</time>
+          <div class="badge badge-outline badge-sm">Work in Progress (5%)</div>
+        </div>
+        <div class="flex items-center flex-wrap text-sm gap-2 mt-2">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" /></svg>
+  <a href="/categories/学习笔记" class="text-primary hover:underline cursor-pointer">学习笔记</a><span class="mx-2 text-base-content/40">•</span><a href="/categories/音乐理论-调式" class="text-primary hover:underline cursor-pointer">音乐理论 / 调式</a>
+</div>
+
+      </header>
+
+      <div class="prose prose-sm sm:prose-base lg:prose-lg max-w-none leading-relaxed
+                  prose-headings:font-bold
+                  prose-a:no-underline hover:prose-a:underline
+                  prose-img:rounded-lg prose-img:shadow-md
+                  prose-pre:rounded-lg
+                  prose-blockquote:border-l-4 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:not-italic">
+        <nav class="toc mb-8 p-4 bg-base-200 rounded-lg"><ul>
+<li><a href="#写在前头" id="toc-写在前头">写在前头</a>
+<ul>
+<li><a href="#调式地图" id="toc-调式地图">调式地图</a></li>
+<li><a href="#整体路线" id="toc-整体路线">整体路线</a></li>
+</ul></li>
+<li><a href="#prerequiste-基本概念"
+id="toc-prerequiste-基本概念">Prerequiste &amp; 基本概念</a>
+<ul>
+<li><a href="#前置知识" id="toc-前置知识">前置知识</a></li>
+<li><a href="#杂七杂八" id="toc-杂七杂八">杂七杂八</a></li>
+<li><a href="#magic-glue" id="toc-magic-glue">Magic glue</a></li>
+<li><a href="#pedal-point" id="toc-pedal-point">Pedal point</a></li>
+<li><a href="#赋予和弦色彩" id="toc-赋予和弦色彩">赋予和弦色彩</a></li>
+<li><a href="#针对调式的展示"
+id="toc-针对调式的展示">针对调式的展示</a></li>
+</ul></li>
+<li><a href="#音阶的和声化" id="toc-音阶的和声化">音阶的和声化</a>
+<ul>
+<li><a href="#音阶" id="toc-音阶">音阶</a></li>
+<li><a href="#第一组和弦" id="toc-第一组和弦">第一组和弦</a></li>
+<li><a href="#第二组和弦" id="toc-第二组和弦">第二组和弦</a></li>
+</ul></li>
+</ul></nav>
+        <blockquote>
+<p><strong>【声明】</strong></p>
+<p>本系列不透露 <em>Illustrated Modes</em>
+系列的任何内容，仅作为笔记，如果您对书中内容感兴趣请联系 <a
+href="https://briancallimusic.com/en/libros">Brain Callipari</a>
+购买。</p>
+<p>如果您执着于在线免费的音乐理论教程，这里强烈推荐<a
+href="https://music-theory.aizcutei.com/">自由派音乐理论</a> 。</p>
+</blockquote>
+<h2 id="写在前头">写在前头</h2>
+<p><a
+href="https://briancallimusic.com/en/libros#modos-eng">本书</a>的副标题，<em>Diagrams
+for Composing Modal Music</em> 。
+意味为了创作调式音乐的图，也就是在内容上，以图片而非乐谱为主，因此本读书笔记也将绘制大量的图片。</p>
+<p>「调式音乐」一般是和「调性音乐」作区分。
+和调性音乐针对调内的单个主音进行与发展不同的是，调式音乐在一个充斥着特定范围的环境内探索。
+正如同存在主线的小游戏与<strong>开放世界冒险游戏</strong><sup><a
+href="#fn1" id="fnref1" class="footnote-ref"
+role="doc-noteref">1</a></sup>。</p>
+<h3 id="调式地图">调式地图</h3>
+<p>阿根廷电影制作人 <a href="https://www.instagram.com/sebadecaro/">Seba
+De Caro</a> 曾经说过对他而言很难提前剧透一部电影。
+虽然情节都是千篇一律的「一个英雄碰到了什么坏事，然后他把那些坏蛋都干掉了」或者是「船沉了」。</p>
+<p>但是总有一些难以难说的存在是没法剧透的。
+包括但不限于镜头、色彩、剪辑、音乐、演员的微表情的视听语言，以及其引发的情感活动。</p>
+<p>因此也就是说，
+<del>他不会在这里一下子给你一张图表，然后让你死记硬背（中式教育TV这一块）。</del>
+比起记住结果，我们更需要经历过程。重复演绎发现以及应用这些规律的活动。</p>
+<p>我想到了此前看到 B
+站的某条评论，具体内容忘了，大意是学习音乐、美术之类能够给人以美学体验的范畴的存在的过程，本质上就是个体基于前人的经验，「再创作」与「再摸索」的过程。
+你从意识上知道这些音在一起比较好听，这些元素如此堆叠更美。
+然后你实践并且再现了这个过程，那么你相比于单纯的「知道」了解更加深刻也更加感性。</p>
+<p>因为美的感受，归根到底，还是感性的存在。</p>
+<p>那么我们再回到这个「调式地图」当中，这本书的内容，本质上就是「再摸索」进而使认识逐渐清晰的过程。</p>
+<h3 id="整体路线">整体路线</h3>
+<p>本书推荐按照顺序阅读。</p>
+<p>其思路如下：</p>
+<ol type="1">
+<li>将一个音阶和声化<sup><a href="#fn2" id="fnref2" class="footnote-ref"
+role="doc-noteref">2</a></sup>以构建和弦</li>
+<li>我们将从零开始创建一个音阶，以理解每个音符的角色/作用（value of each
+note）</li>
+<li>从音阶中获得调式</li>
+<li>梳理整个过程，学习所有大调、旋律调式和和声调式</li>
+</ol>
+<h2 id="prerequiste-基本概念">Prerequiste &amp; 基本概念</h2>
+<p>先强调了非官方与图片属性，同时还说明了专注于调式（尤其是基于十二平均律的当代西方音乐<sup><a
+href="#fn3" id="fnref3" class="footnote-ref"
+role="doc-noteref">3</a></sup>体系下的）的声音。</p>
+<h3 id="前置知识">前置知识</h3>
+<ul>
+<li>了解最基本的概念
+<ul>
+<li>音符是什么</li>
+<li>音阶是什么</li>
+<li>知道 ♯ 以及 ♭ 的意思</li>
+<li>知道八度</li>
+<li>了解节奏、拍号</li>
+</ul></li>
+<li>你得有个乐器，还得会弹/拉/吹（敲就算了，毕竟不是打击乐）
+<ul>
+<li>能够演奏想要演奏的音符</li>
+<li>能够演奏和弦（包括大小增减属和弦）</li>
+</ul></li>
+<li>最好还会搞搞 MIDI
+<ul>
+<li>能够看懂钢琴卷帘窗</li>
+<li>速度记号（BPM / 节拍）</li>
+</ul></li>
+<li>五线谱<sup><a href="#fn4" id="fnref4" class="footnote-ref"
+role="doc-noteref">4</a></sup>
+<ul>
+<li>能够看懂谱号调号音符</li>
+</ul></li>
+</ul>
+<h3 id="杂七杂八">杂七杂八</h3>
+<p>介绍了<strong>和声节奏</strong>，在别的书里会提到。</p>
+<blockquote>
+<p>长时间保持一个和弦的音响，然后快速连续地响起许多小和弦会改变色彩</p>
+</blockquote>
+<p>并且还有<strong>同音异名</strong>，建议根据具体情况考虑。</p>
+<p>关于<strong>转调类型</strong>，作者认为过于严格的贴标签会束缚创造，但也强调不要放弃对
+modulations 的学习，否则容易陷入独自造轮子的困境。
+简单来讲就是将其视为工具而非约束。</p>
+<h3 id="magic-glue">Magic glue</h3>
+<p><del>（先等一下再考虑实现通过 Lilypond 渲染）</del></p>
+<p>放弃 Lilypond 选择 ABC ``</p>
+<h3 id="pedal-point">Pedal point</h3>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode abc"><code class="sourceCode abc"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fl">M:4/4</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>K<span class="ch">:</span>C</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fl">V:1 clef=treble name=&quot;Pedal&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>^f z ^f z ^f z ^f z <span class="ch">|^</span>f z ^f z ^f z ^f z <span class="ch">|</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fl">V:2 cled=treble name=&quot;Chord&quot;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ch">[</span>CEG<span class="ch">]</span>4 <span class="ch">[</span>D^FB<span class="ch">]</span>4 <span class="ch">|</span> <span class="ch">[</span>B^FA<span class="ch">]</span>4 <span class="ch">[</span>CEG<span class="ch">]</span>4 <span class="ch">|</span></span></code></pre></div>
+<h3 id="赋予和弦色彩">赋予和弦色彩</h3>
+<blockquote>
+<p>作为可能对外访问的笔记，本笔记的方案与 Illustrated Modes
+的方案不会一致。</p>
+</blockquote>
+<p>韩信带进化，等到我会玩 DOT
+了再添加，目前搞了一套配色方案，但那只是一个风格的<del>，而调式音乐的配色可能需要全一点</del>。</p>
+<p>但书中的文字内容我还是转述下吧，等到后期再改一改。</p>
+<p>关于音：</p>
+<ul>
+<li>原书中，采用方形来表示音</li>
+<li>两个方形间，<code>1</code> 表示全音，<code>1/2</code> 表示半音</li>
+<li>这样一系列的音就可以构成一个 scale</li>
+</ul>
+<p>关于和弦：</p>
+<ul>
+<li>用圆来表示</li>
+<li>中间的内容是音名</li>
+<li>颜色代表和弦的属性
+<ul>
+<li>大和弦</li>
+<li>小和弦</li>
+<li>增和弦</li>
+<li>减和弦</li>
+<li>属和弦</li>
+</ul></li>
+</ul>
+<h3 id="针对调式的展示">针对调式的展示</h3>
+<p>建议看原书。</p>
+<h2 id="音阶的和声化">音阶的和声化</h2>
+<p>对于制作调式音乐来说，能够从音阶中获取和声是最基本的。</p>
+<h3 id="音阶">音阶</h3>
+<p>【钢琴的白键】</p>
+<p>【乐理即数学】</p>
+<p>【转调】</p>
+<h3 id="第一组和弦">第一组和弦</h3>
+<p>【和弦】</p>
+<p>【五度圈】</p>
+<h3 id="第二组和弦">第二组和弦</h3>
+        <div class="footnotes mt-12 pt-8 border-t border-base-300">
+  <h3 class="text-xl font-bold mb-4">Footnotes</h3>
+  <div class="footnotes prose-sm">
+<ol>
+<li><div id="fn1">
+<p>你说得对，但是后面忘了。 <a href="#fnref1" class="footnote-back"
+aria-label="Back to content" role="doc-backlink">↩︎</a></p>
+</div></li>
+<li><div id="fn2">
+<p>可以通过将音阶的每个音符用作和弦的根音，然后在音阶中采用其他音调来构建和弦的其余部分，从而创建和声音阶。
+<a href="#fnref2" class="footnote-back" aria-label="Back to content"
+role="doc-backlink">↩︎</a></p>
+</div></li>
+<li><div id="fn3">
+<p>我不知道怎么描述这个概念。 <a href="#fnref3" class="footnote-back"
+aria-label="Back to content" role="doc-backlink">↩︎</a></p>
+</div></li>
+<li><div id="fn4">
+<p>书中没有提及，但我想加。 <a href="#fnref4" class="footnote-back"
+aria-label="Back to content" role="doc-backlink">↩︎</a></p>
+</div></li>
+</ol>
+</div>
+</div>
+
+        
+      </div>
+    </article>
+
+    <!-- Gitalk -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+  <div id="gitalk-container" class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8"></div>
+</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2/js/md5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+  new Gitalk({
+    clientID: 'Ov23li78dSQzypk6bmfu',
+    clientSecret: '8e5aae2556b97bc40f530ce57d61ad0c62544092',
+    repo: 'ges233.github.io',
+    owner: 'GES233',
+    admin: ['GES233'],
+    id: md5(location.pathname),
+    distractionFreeMode: false
+  }).render("gitalk-container")
+</script>
+
+  </main>
+  <footer class="mt-8 py-8 border-t border-base-300">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm text-base-content/70 font-serif">
+        (c) 2026 GES233
+      </p>
+      <p class="text-center text-sm text-base-content/70 font-serif mt-2">
+        Powered by <a href="https://github.com/GES233/Greenhouse" class="hover:text-primary transition-colors"><code>GES233/Greenhouse</code></a>
+      </p>
+    </div>
+  </footer>
+
+</div>
+
+    
+  </body>
+</html>

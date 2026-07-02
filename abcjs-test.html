@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body>
+<div id="paper"></div>
+<script src="../assets/vendor/abcjs/abcjs-basic-min.js"></script>
+<script>
+var el = document.getElementById("paper");
+var abc = "X:1\nT:Test\nM:4/4\nK:C\nCDEF|GABc|";
+try {
+  var result = ABCJS.renderAbc(el, abc, { responsive: "resize" });
+  el.innerHTML += "<p>renderAbc returned: " + (result ? result.length + " tunes" : "null/undefined") + "</p>";
+} catch(e) {
+  el.innerHTML = "<p>ERROR: " + e.message + "</p>";
+}
+</script>
+</body>
+</html>
