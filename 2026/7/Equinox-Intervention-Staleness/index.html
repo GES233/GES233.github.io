@@ -1,0 +1,281 @@
+<html lang="zh-CN">
+  <head>
+    <meta charaset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      SVS 编辑器在音符编辑事件下参数静默干预失效及其解决思路思考 - 自留地
+    </title>
+    <link rel="stylesheet" href="/assets/app.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  
+  
+  
+  
+
+
+
+<script>
+  // Automatically applied if saved in localStorage
+  if (localStorage.getItem("theme") === "noctilucent" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.setAttribute("data-theme", "noctilucent");
+  } else {
+    document.documentElement.setAttribute("data-theme", "core-cream-soup");
+  }
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "noctilucent" ? "core-cream-soup" : "noctilucent";
+
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  }
+</script>
+
+  </head>
+  <body>
+    <div class="fixed top-4 right-4 z-50">
+  <button onclick="toggleTheme()" class="btn btn-circle btn-ghost btn-sm bg-base-200/50 backdrop-blur" aria-label="Toggle Theme">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    </svg>
+  </button>
+</div>
+
+<header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10 border-b border-base-200">
+  <div class="navbar max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 min-h-12 sm:min-h-16">
+    <div class="flex-1">
+      <a href="/" class="btn btn-ghost text-xl px-2"><kbd class="font-mono">GES233</kbd>'s Blog</a>
+    </div>
+    <div class="flex-none hidden sm:block">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href="/about" class="font-medium">关于</a></li>
+        <li><a href="/friends" class="font-medium">友链</a></li>
+      </ul>
+    </div>
+    <div class="flex-none sm:hidden dropdown dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </div>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a href="/about">关于</a></li>
+        <li><a href="/friends">友链</a></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="bg-base-200 min-h-screen pb-16">
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <article class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8 md:p-12">
+      <header class="mb-8 md:mb-12 border-b border-base-300 pb-6 md:pb-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 tracking-tight">SVS 编辑器在音符编辑事件下参数静默干预失效及其解决思路思考</h1>
+        <div class="flex flex-wrap items-center text-sm sm:text-base text-base-content/70 gap-4 mb-4">
+          <time class="flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2026-07-02 18:46:57</time>
+          <div class="badge badge-outline badge-sm">Final</div>
+        </div>
+        <div class="flex items-center flex-wrap text-sm gap-2 mt-2">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" /></svg>
+  <a href="/categories/Qy" class="text-primary hover:underline cursor-pointer">Qy</a>
+</div>
+<div class="flex items-center flex-wrap gap-2 mt-3">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" /></svg>
+  <a href="/tags/Elixir" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#Elixir</a> <a href="/tags/SVS编辑器" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#SVS编辑器</a> <a href="/tags/Frame-Content-Thoery" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#Frame/Content Thoery</a>
+</div>
+
+      </header>
+
+      <div class="prose prose-sm sm:prose-base lg:prose-lg max-w-none leading-relaxed
+                  prose-headings:font-bold
+                  prose-a:no-underline hover:prose-a:underline
+                  prose-img:rounded-lg prose-img:shadow-md
+                  prose-pre:rounded-lg
+                  prose-blockquote:border-l-4 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:not-italic">
+        <nav class="toc mb-8 p-4 bg-base-200 rounded-lg"><ul>
+<li><a href="#上下文" id="toc-上下文">上下文</a>
+<ul>
+<li><a href="#开发背景" id="toc-开发背景">开发背景</a></li>
+<li><a href="#问题描述" id="toc-问题描述">问题描述</a></li>
+<li><a href="#原始场景i" id="toc-原始场景i">原始场景I</a></li>
+<li><a href="#原始场景ii" id="toc-原始场景ii">原始场景II</a></li>
+<li><a href="#他山之石" id="toc-他山之石">他山之石？</a></li>
+<li><a href="#新的问题音符边界不匹配"
+id="toc-新的问题音符边界不匹配">新的问题：音符边界不匹配</a></li>
+</ul></li>
+<li><a href="#解决方案" id="toc-解决方案">解决方案</a>
+<ul>
+<li><a href="#基于时间线的-delta-map"
+id="toc-基于时间线的-delta-map">基于时间线的 Delta-Map</a></li>
+<li><a href="#projection---artifact---resolution---adopt-循环"
+id="toc-projection---artifact---resolution---adopt-循环">Projection
+-&gt; Artifact -&gt; Resolution -&gt; Adopt 循环</a></li>
+<li><a href="#操作边界的重新梳理以及解耦"
+id="toc-操作边界的重新梳理以及解耦">操作边界的重新梳理以及解耦</a></li>
+</ul></li>
+<li><a href="#感悟" id="toc-感悟">感悟</a>
+<ul>
+<li><a href="#放弃对于绝对简洁的执念"
+id="toc-放弃对于绝对简洁的执念">放弃对于「绝对简洁」的执念</a></li>
+</ul></li>
+</ul></nav>
+        <p>相关仓库： <a
+href="https://github.com/GES233/EquinoxEditor">EquinoxEditor</a> 。</p>
+<h2 id="上下文">上下文</h2>
+<p>首先介绍一下这个问题是怎么来的。</p>
+<p>我在高中期间有一系列想法，笼统来说就是编一个歌声合成（恕下文用 SVS
+代替）编辑器以及引擎，并且确定了一套基于「基于生理学的中间参数」的适配协议（参见
+<a href="/2023/6/Qy-project">Qy 项目介绍</a>）。</p>
+<h3 id="开发背景">开发背景</h3>
+<p>我本以为这个 idea 会束之高阁，但在 24
+年的下半年，因为一些个人变故我选择重新开始推进它。
+并且编写了一些简单的代码以及脚手架，但因为编码水平的限制没有什么实际进展，后续因为准备毕业加之尝试搭建
+DiffSinger 推理管线失败的关系也被搁置了。</p>
+<p>在 25 年的下半年，我突然想继续推进，并且基于此完成了 <a
+href="https://github.com/SynapticStrings/Orchid">Orchid</a>
+，以及及其相关的 <a
+href="https://github.com/SynapticStrings/OrchidSymbiont">OrchidSymbiont</a>
+、 <a
+href="https://github.com/SynapticStrings/OrchidStratum">OrchidStratum</a>
+以及 <a
+href="https://github.com/SynapticStrings/OrchidIntervention">OrchidIntervention</a>
+。也通过了 <a href="https://livebook.dev">Livebook</a> 跑通了 DiffSinger
+的管线。</p>
+<p>至少就<a
+href="#equinox旧qyeditor的思想">我最开始的想法</a>而言，是实现了。但是并没有和目前的
+SVS
+编辑器的横向对比以及对其他用户而言所见即所得的效果。因此我想要继续开发完成编辑器。</p>
+<p>经过了几个原型的编写后，我想依照 DDD
+（领域驱动设计）的思路开发。我当时的思路是这样的：</p>
+<ol type="1">
+<li>完成领域建模并编写代码</li>
+<li>绑定此前编写的 Orchid
+调度引擎并设计歌声合成编辑器的引擎协议并且自己写几个</li>
+<li>实现 UI</li>
+</ol>
+<p>但是在编写领域代码的时候，碰到问题了。更具体一点的话，是参数序列在音符编辑（诸如修改歌词、批量断开/连接等复杂场景）时的保留与否。</p>
+<h4 id="equinox旧qyeditor的思想">Equinox（旧QyEditor）的思想</h4>
+<p>我需要介绍一下我开发的思路，从某种意义上讲，这个脱胎于 Qy
+的思想，不过更原始、更不泛用。</p>
+<p>大概包含几点：</p>
+<ul>
+<li>SVS
+本质上是从及其抽象的符号到一段音频的过程，但是这个过程中存在大量（可量化）的中间参数</li>
+<li>不能是黑箱——用户对中间参数有着完全的控制权（intervention）</li>
+<li>复杂的模型的推理管线可以抽象成 DAG<sup><a href="#fn1" id="fnref1"
+class="footnote-ref" role="doc-noteref">1</a></sup> （有向无环图）</li>
+<li>（不是约束而是想法/特征）需要设计增量生成，特别是基于 ML
+的模型/管线</li>
+</ul>
+<h3 id="问题描述">问题描述</h3>
+<p>考虑一个日常操作：用户在编辑器中画了一条 pitch 曲线、手调了几个辅音的
+preutterance（提前量），然后发现歌词打错了——“着”应该读 zhuo 不是
+zhao。</p>
+<p>改完歌词之后，G2P（歌词转音素）重新运行。原来的音素序列
+<code>[tʂ, a, ʊ]</code> 变成了 <code>[tʂ, u, ɔ]</code>。但用户之前对
+<code>/a/</code> 的 timing 调整，现在静默地应用到了 <code>/u/</code>
+上。</p>
+<p>这就是 <strong>干预静默失效（Silent Intervention
+Staleness）</strong>：上游参数变化导致下游用户编辑失效，且失效过程没有反馈、没有警告、没有回滚。用户听出来不对劲时，已经不知道是哪次编辑出的问题。</p>
+<blockquote>
+<p><em>以上片段由 AI 总结，实际上我的原始想法是很多个 scenarios</em></p>
+</blockquote>
+<h3 id="原始场景i">原始场景I</h3>
+<blockquote>
+<p><em>sol la ti</em> -&gt; <em>sol la si</em></p>
+</blockquote>
+<h3 id="原始场景ii">原始场景II</h3>
+<blockquote>
+<p>音素批量变化——以多音字的替换为例</p>
+</blockquote>
+<h3 id="他山之石">他山之石？</h3>
+<blockquote>
+<p>其实本节主要介绍其他的 SVS
+编辑器是怎么解决类似情况的，但我貌似没找到直接解决这个的。</p>
+</blockquote>
+<h3 id="新的问题音符边界不匹配">新的问题：音符边界不匹配</h3>
+<p>单独看 preutterance（辅音提前量）的问题，似乎只是一个参数溢出的边界
+case：</p>
+<p>歌词从 ti 改成 si，<code>/s/</code> 的 preutterance 比
+<code>/t/</code> 长。如果前面的音符很短，这个辅音就溢出了——它的 onset
+时间早于前一个音符的结束时间。</p>
+<p>但这不是参数问题，是模型问题。在<strong>所有</strong> SVS
+编辑器里，音符边界和音素边界是耦合的：一个音符 =
+一个音素单元。preutterance
+溢出意味着一个音素的时间范围跨过了音符边界——这个音素到底属于哪个音符？属于前面的音符（声学上下文的一部分）还是后面的音符（发音的一部分）？</p>
+<p>更极端的是
+melisma（一字多音）。比方说一个很极端的花腔女高音，一个音节横跨很多个音符。更不要说
+Vocaloid 常见的操作技法：拆音。</p>
+<p>这两个问题的共同根源：<strong>slot-indexed data has no identity when
+the index is recomputed</strong>。preutterance
+溢出是因为”音素的时间范围”不是 slot 能表达的；melisma
+是因为”一个音素跨多个音符”时 slot 根本不唯一。</p>
+<blockquote>
+<p><em>以上片段依旧由 AI 总结，实际怎么样容我想一想该怎么写</em></p>
+</blockquote>
+<h2 id="解决方案">解决方案</h2>
+<h3 id="基于时间线的-delta-map">基于时间线的 Delta-Map</h3>
+<h3 id="projection---artifact---resolution---adopt-循环">Projection
+-&gt; Artifact -&gt; Resolution -&gt; Adopt 循环</h3>
+<h3 id="操作边界的重新梳理以及解耦">操作边界的重新梳理以及解耦</h3>
+<h4 id="乐谱与语音学领域的区分">乐谱与语音学领域的区分</h4>
+<h4 id="参数身份的重定义">参数身份的重定义</h4>
+<h2 id="感悟">感悟</h2>
+<h3 id="放弃对于绝对简洁的执念">放弃对于「绝对简洁」的执念</h3>
+        <div class="footnotes mt-12 pt-8 border-t border-base-300">
+  <h3 class="text-xl font-bold mb-4">Footnotes</h3>
+  <div class="footnotes prose-sm">
+<ol>
+<li><div id="fn1">
+<p>原始想法是「可编辑的节点图」 <a href="#fnref1" class="footnote-back"
+role="doc-backlink" aria-label="Back to content">↩︎</a></p>
+</div></li>
+</ol>
+</div>
+</div>
+
+        
+      </div>
+    </article>
+
+    <!-- Gitalk -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+  <div id="gitalk-container" class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8"></div>
+</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2/js/md5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+  new Gitalk({
+    clientID: 'Ov23li78dSQzypk6bmfu',
+    clientSecret: '8e5aae2556b97bc40f530ce57d61ad0c62544092',
+    repo: 'ges233.github.io',
+    owner: 'GES233',
+    admin: ['GES233'],
+    id: md5(location.pathname),
+    distractionFreeMode: false
+  }).render("gitalk-container")
+</script>
+
+  </main>
+  <footer class="mt-8 py-8 border-t border-base-300">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm text-base-content/70 font-serif">
+        (c) 2026 GES233
+      </p>
+      <p class="text-center text-sm text-base-content/70 font-serif mt-2">
+        Powered by <a href="https://github.com/GES233/Greenhouse" class="hover:text-primary transition-colors"><code>GES233/Greenhouse</code></a>
+      </p>
+    </div>
+  </footer>
+
+</div>
+
+    
+  </body>
+</html>
