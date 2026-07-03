@@ -15,7 +15,7 @@
   
   
   
-    <script src="/assets/abcjs-plugin-min.js" type="text/javascript"></script>
+    <script src="/assets/abcjs/abcjs-plugin-min.js" type="text/javascript"></script>
     <script src="/assets/abcjs/abcjs-basic-min.js"></script>
     <script>
       // Render ABC notation code blocks to sheet music
@@ -223,13 +223,13 @@ modulations 的学习，否则容易陷入独自造轮子的困境。
 简单来讲就是将其视为工具而非约束。</p>
 <h3 id="magic-glue">Magic glue</h3>
 <p><del>（先等一下再考虑实现通过 Lilypond 渲染）</del></p>
-<p>放弃 Lilypond 选择 ABC ``</p>
+<p>放弃 Lilypond 选择 ABC</p>
 <h3 id="pedal-point">Pedal point</h3>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode abc"><code class="sourceCode abc"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fl">M:4/4</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>K<span class="ch">:</span>C</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fl">V:1 clef=treble name=&quot;Pedal&quot;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>^f z ^f z ^f z ^f z <span class="ch">|^</span>f z ^f z ^f z ^f z <span class="ch">|</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>^F z ^F z ^F z ^F z <span class="ch">|^</span>F z ^F z ^F z ^F z <span class="ch">|</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fl">V:2 cled=treble name=&quot;Chord&quot;</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ch">[</span>CEG<span class="ch">]</span>4 <span class="ch">[</span>D^FB<span class="ch">]</span>4 <span class="ch">|</span> <span class="ch">[</span>B^FA<span class="ch">]</span>4 <span class="ch">[</span>CEG<span class="ch">]</span>4 <span class="ch">|</span></span></code></pre></div>
 <h3 id="赋予和弦色彩">赋予和弦色彩</h3>
@@ -277,20 +277,20 @@ class="sourceCode abc"><code class="sourceCode abc"><span id="cb1-1"><a href="#c
 <ol>
 <li><div id="fn1">
 <p>你说得对，但是后面忘了。 <a href="#fnref1" class="footnote-back"
-aria-label="Back to content" role="doc-backlink">↩︎</a></p>
+role="doc-backlink" aria-label="Back to content">↩︎</a></p>
 </div></li>
 <li><div id="fn2">
 <p>可以通过将音阶的每个音符用作和弦的根音，然后在音阶中采用其他音调来构建和弦的其余部分，从而创建和声音阶。
-<a href="#fnref2" class="footnote-back" aria-label="Back to content"
-role="doc-backlink">↩︎</a></p>
+<a href="#fnref2" class="footnote-back" role="doc-backlink"
+aria-label="Back to content">↩︎</a></p>
 </div></li>
 <li><div id="fn3">
 <p>我不知道怎么描述这个概念。 <a href="#fnref3" class="footnote-back"
-aria-label="Back to content" role="doc-backlink">↩︎</a></p>
+role="doc-backlink" aria-label="Back to content">↩︎</a></p>
 </div></li>
 <li><div id="fn4">
 <p>书中没有提及，但我想加。 <a href="#fnref4" class="footnote-back"
-aria-label="Back to content" role="doc-backlink">↩︎</a></p>
+role="doc-backlink" aria-label="Back to content">↩︎</a></p>
 </div></li>
 </ol>
 </div>
