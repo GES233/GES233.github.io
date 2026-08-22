@@ -1,0 +1,184 @@
+<html lang="zh-CN">
+  <head>
+    <meta charaset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      随想（一） - 自留地
+    </title>
+    <link rel="stylesheet" href="/assets/app.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  
+  
+  
+  
+
+
+
+<script>
+  // Automatically applied if saved in localStorage
+  if (localStorage.getItem("theme") === "noctilucent" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.setAttribute("data-theme", "noctilucent");
+  } else {
+    document.documentElement.setAttribute("data-theme", "core-cream-soup");
+  }
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "noctilucent" ? "core-cream-soup" : "noctilucent";
+
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  }
+</script>
+
+  </head>
+  <body>
+    <div class="fixed top-4 right-4 z-50">
+  <button onclick="toggleTheme()" class="btn btn-circle btn-ghost btn-sm bg-base-200/50 backdrop-blur" aria-label="Toggle Theme">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    </svg>
+  </button>
+</div>
+
+<header class="bg-base-100/80 backdrop-blur-sm sticky top-0 z-10 border-b border-base-200">
+  <div class="navbar max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 min-h-12 sm:min-h-16">
+    <div class="flex-1">
+      <a href="/" class="btn btn-ghost text-xl px-2"><kbd class="font-mono">GES233</kbd>'s Blog</a>
+    </div>
+    <div class="flex-none hidden sm:block">
+      <ul class="menu menu-horizontal px-1">
+        <li><a href="/about" class="font-medium">关于</a></li>
+        <li><a href="/friends" class="font-medium">友链</a></li>
+      </ul>
+    </div>
+    <div class="flex-none sm:hidden dropdown dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </div>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a href="/about">关于</a></li>
+        <li><a href="/friends">友链</a></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="bg-base-200 min-h-screen pb-16">
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <article class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8 md:p-12">
+      <header class="mb-8 md:mb-12 border-b border-base-300 pb-6 md:pb-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 tracking-tight">随想（一）</h1>
+        <div class="flex flex-wrap items-center text-sm sm:text-base text-base-content/70 gap-4 mb-4">
+          <time class="flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2026-08-22 21:29:28</time>
+          <div class="badge badge-outline badge-sm">Final</div>
+        </div>
+        
+      </header>
+
+      <div class="prose prose-sm sm:prose-base lg:prose-lg max-w-none leading-relaxed
+                  prose-headings:font-bold
+                  prose-a:no-underline hover:prose-a:underline
+                  prose-img:rounded-lg prose-img:shadow-md
+                  prose-pre:rounded-lg
+                  prose-blockquote:border-l-4 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:not-italic">
+        
+        <blockquote>
+<p><em>就不在空间发了，不想太占据别人的时间线。</em></p>
+</blockquote>
+<p>Hermes Agent 相比于其他的 Harness
+有一个显著的不同点，就是其会对模型上次会话的 Trajectory
+进行回顾以及整理，以提取出有价值的东西（比方说遇到的问题以及解决方案等等）。</p>
+<p>我在整理哔哩哔哩收藏夹的时候发现，在 24
+年我观看的视频的占比以及收藏夹的内容变化出现了比较大的改变，且可以定位到原因。</p>
+<p>对于前者，那时我每个周末都需要花费两到三个小时坐公交，为了消磨时间从倾向于通过网页端看长视频变成了倾向于看短视频，并且因为那段时间的心境存在比较大的变化，因此看的视频倾向于猎奇（或是抽象（原教旨主义的））。</p>
+<p>接下来是下一个方面，虽然此前我也看舞蹈区，但是在收藏夹的占比并不高，此前也有意识去控制这类泛娱乐的内容。但是从两年前（24年夏天）开始，泛擦边内容的占比就高了起来。后面也尝试使用抖音（还先清理了下关注列表），其实当时也有一种想法（或是幻想）万一能够看到她呢？</p>
+<p>但是并没有，那很好。</p>
+<p>不过也因此「沾染」上刷短视频了。</p>
+<p>从现在回看，我仿佛退化成了一种吞咽、吐出互联网大粪的一只蛆虫，依靠
+limbic brain
+驱动自己的言行以及认知。包括但不限于在几个群里搬运一系列有毒的内容（包括一系列撕裂议题）并，也就是「搬屎」，偶尔看着
+B 站推送的强烈度（甚至可以说是仇恨内容）哈气。</p>
+<p>这毫无疑问是有毒的，接触这些有毒的信息素会进一步的腐蚀你的心智，但当你的处境并不很好，你还是会经常性的陷进去。</p>
+<p>怎么办呢？</p>
+<p>回到最开始，我认为定期地回顾自己是有必要的。</p>
+<p>我尝试写过日记，但后面往往弃之一旁，不愿意回看。</p>
+<p>现在回想，24年年中有很多心态上的、很微妙的变化，这导致了现状。</p>
+<p>其中一点是对于「看见」与「被看见」的错误认知。</p>
+<p>我看见了我很因为那段关系受伤，我为了确保我看见了，我选择不停地强调、反刍它，但是这又加重了负面影响。属于典型的恶性循环。</p>
+<p>表面上是「看见」「不忽视」，但是走了另一个极端，不停地反刍，让事件、让创伤如滚雪球一般越滚越大。
+夹杂着其他毫无关联的关系、经历以及事情。</p>
+<p>这不好。</p>
+<p>另外一点是「夹着尾巴做人」下的 NEET 化倾向。</p>
+<p>NEET 是 <em>Not in Education, Employment, or Training</em>
+的缩写。</p>
+<p>我本来的想法是完全杜绝和当事人接触的可能性，因为24年的夏天我是在恐慌与应激中度过的，当事人会依照我再其
+Steam 主页的留言来做手笔（虽说我建议她删掉，但是她刻意留着）。
+<del>例如趁██████隐晦地动员████来扩大████，再固定证据到████机关████，最后拿着████████来羞辱我；亦或是直接动用社会████，将其变成████████，同时在████推波助澜，让我背上████、被████，然后被学校████或████，以及可能夹带的、具有时间上的长尾效应的████。</del></p>
+<p>这并不是迫害妄想，这些人有这个能力。
+我现在敢说出来的原因是已经过了追溯期了，其实半年就到了，但当时准备把精力花在毕业（或考研）上。</p>
+<p>回到躲着她这件事，我的效果也不错，因为我的策略是「避免和一切其他同学接触」，那一整年在教室外就见过不到十次。烟院是个小地方，学生也就几千号人，很不容易了。</p>
+<p>但是后面我发现我更倾向于窝在宿舍里，而不是走出去，外部环境的刺激可以更快摆脱抑郁的心境，我基本上一整年都在那种背景下。</p>
+<p>我很想休学，但是学段限制无法休学，我也想过退学，但是退了学后又能去哪里呢？</p>
+<p>最后算是硬扛到符合毕业要求，并且顺利毕业了，如高中政治课本的第一章一样，完成了劳动力市场下从「具有学历的劳动力」到「可能具备工作价值」的「惊险的跳跃」。<strong>这可真是一个惊险的跳跃！</strong></p>
+<p>毕业后在驾校练科二，又认识了一个小姑娘，和她玩得不错，说实话。</p>
+<p><del>颇为可惜的是，</del>没发生啥，顶多说说 sao
+话，最越界也就是抱了下她（不过是从后面抱起来的那种）。不得不承认，和她的相处真有点治愈了我，但我没有跟她说或是告白。因为本来就是图相互开心，一下子原神家庭心里创伤的，干哪去了。</p>
+<p>最后她没考过科二，我也快离开烟台了，就送了她一杯奶茶，葡萄奶盖，浅浅爆了点金币。
+然后看到教练发朋友圈说她顺利拿证了。</p>
+<p>以前的事情说完了，现在突然提主要是因为前几天突然梦见那几个人了。</p>
+<p>再加上工作以来从来没有关于工作的博文（甚至是不怎么写博客了），以及发觉自己在工作上摆烂很厉害，所以想要拾起来，就有了这篇。</p>
+<p>回到开头，我在观察到自己收藏夹的变化后，删掉了一些过于密集的舞蹈区（或手势舞、饭拍什么的）视频，以期望和之前一样。</p>
+<p>但，这意味着要试图 cosplay
+那个过去的、没有这些经历这些挣扎这些创伤的自己吗？</p>
+<p>不是，当然不是。发生了就是发生了，无法改变。</p>
+<p>但是我可以去尽力整合好那个没有受伤的，和受了伤的自己。不让自己活在过去的阴影里，但也绝不会允许类似的事情再次发生。</p>
+<p>今天清理收藏的事情呢，作为一种信号，来提醒自己不要让自己变成互联网舆论场以及集体情绪的吸粪车与造粪机。</p>
+        
+        
+      </div>
+    </article>
+
+    <!-- Gitalk -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+  <div id="gitalk-container" class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8"></div>
+</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2/js/md5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+  new Gitalk({
+    clientID: 'Ov23li78dSQzypk6bmfu',
+    clientSecret: '8e5aae2556b97bc40f530ce57d61ad0c62544092',
+    repo: 'ges233.github.io',
+    owner: 'GES233',
+    admin: ['GES233'],
+    id: md5(location.pathname),
+    distractionFreeMode: false
+  }).render("gitalk-container")
+</script>
+
+  </main>
+  <footer class="mt-8 py-8 border-t border-base-300">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm text-base-content/70 font-serif">
+        (c) 2026 GES233
+      </p>
+      <p class="text-center text-sm text-base-content/70 font-serif mt-2">
+        Powered by <a href="https://github.com/GES233/Greenhouse" class="hover:text-primary transition-colors"><code>GES233/Greenhouse</code></a>
+      </p>
+    </div>
+  </footer>
+
+</div>
+
+    
+  </body>
+</html>
