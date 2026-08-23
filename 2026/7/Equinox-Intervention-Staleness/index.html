@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>
-      SVS 编辑器的干预静默失效：为什么改个歌词你的手调参数就丢了 - 自留地
+      SVS 编辑器的干预静默失效及解决方案 - 自留地
     </title>
     <link rel="stylesheet" href="/assets/app.css">
 
@@ -95,7 +95,7 @@
   <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
     <article class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8 md:p-12">
       <header class="mb-8 md:mb-12 border-b border-base-300 pb-6 md:pb-8">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 tracking-tight">SVS 编辑器的干预静默失效：为什么改个歌词你的手调参数就丢了</h1>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 tracking-tight">SVS 编辑器的干预静默失效及解决方案</h1>
         <div class="flex flex-wrap items-center text-sm sm:text-base text-base-content/70 gap-4 mb-4">
           <time class="flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2026-07-12 18:46:57</time>
           <div class="badge badge-outline badge-sm">Work in Progress (20%)</div>
@@ -106,7 +106,7 @@
 </div>
 <div class="flex items-center flex-wrap gap-2 mt-3">
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" /></svg>
-  <a href="/tags/Elixir" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#Elixir</a> <a href="/tags/SVS编辑器" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#SVS编辑器</a> <a href="/tags/Intervention-Anchoring" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#Intervention Anchoring</a>
+  <a href="/tags/Elixir" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#Elixir</a> <a href="/tags/SVS编辑器" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#SVS编辑器</a>
 </div>
 
       </header>
@@ -122,9 +122,12 @@
 <ul>
 <li><a href="#开发背景" id="toc-开发背景">开发背景</a></li>
 </ul></li>
-<li><a href="#问题" id="toc-问题">问题</a></li>
+<li><a href="#问题" id="toc-问题">问题</a>
+<ul>
+<li><a href="#描述" id="toc-描述">描述</a></li>
 <li><a href="#为什么难" id="toc-为什么难">为什么难</a></li>
-<li><a href="#同行怎么做" id="toc-同行怎么做">同行怎么做</a>
+</ul></li>
+<li><a href="#他山之石" id="toc-他山之石">他山之石</a>
 <ul>
 <li><a href="#utau" id="toc-utau">UTAU</a></li>
 <li><a href="#synthv" id="toc-synthv">SynthV</a></li>
@@ -133,42 +136,26 @@ OpenUTAU</a></li>
 </ul></li>
 <li><a href="#解决思路" id="toc-解决思路">解决思路</a>
 <ul>
-<li><a href="#序列真相timeline-seqid"
-id="toc-序列真相timeline-seqid">序列真相：Timeline + SeqID</a></li>
-<li><a href="#锚定notetriplet-2-of-3-exact-match"
-id="toc-锚定notetriplet-2-of-3-exact-match">锚定：NoteTriplet + 2-of-3
-exact match</a></li>
-<li><a href="#墓碑与-gc" id="toc-墓碑与-gc">墓碑与 GC</a></li>
-<li><a href="#结构层-vs-语义层" id="toc-结构层-vs-语义层">结构层 vs
-语义层</a></li>
-<li><a href="#引擎契约" id="toc-引擎契约">引擎契约</a></li>
+<li><a href="#zongzi" id="toc-zongzi">Zongzi</a></li>
+<li><a href="#tamale-coconut" id="toc-tamale-coconut">Tamale &amp;
+Coconut</a></li>
 </ul></li>
-<li><a href="#缺憾" id="toc-缺憾">缺憾</a></li>
-<li><a href="#感悟" id="toc-感悟">感悟</a></li>
 </ul></nav>
-        <p>相关仓库：<del><a
-href="https://github.com/SynapticStrings/Zongzi">Zongzi</a>（本文所述机制的实现）</del>
-<a href="https://github.com/SynapticStrings/Tamal">Tamale</a>
-（更通用的纯函数三方合并引擎） &amp; <a
-href="https://github.com/GES233/Coconut">Coconut</a>（重构的第一版），
-<a
-href="https://github.com/GES233/EquinoxEditor">EquinoxEditor</a>。</p>
-<blockquote>
-<p>由于目前引擎合并还在进行，并且没有稳定，因此本文内容可能产生较大变化。</p>
-<p>我还是光介绍 Tamale 以及 Coconut 吧？Zongzi
-的技术债耦合有些厉害，并且不大好扩展或重构。</p>
+        <blockquote>
+<p>由于目前引擎合并以及干预语义设计还在进行中且没有稳定，因此本文内容可能产生较大变化。</p>
 </blockquote>
 <h2 id="上下文">上下文</h2>
 <p>首先介绍一下这个问题是怎么来的。</p>
 <p>我在高中期间有一系列想法，笼统来说就是编一个歌声合成（恕下文用 SVS
-代替）编辑器以及引擎，并且确定了一套基于「基于生理学的中间参数」的适配协议（参见
+代替）编辑器以及引擎，并且因此产出了一套基于「基于生理学的中间参数」的适配协议（参见
 <a href="/2023/6/Qy-project">Qy 项目介绍</a>）。</p>
 <h3 id="开发背景">开发背景</h3>
 <p>我本以为这个 idea 会束之高阁，但在 24
 年的下半年，因为一些个人变故我选择重新开始推进它。
-并且编写了一些简单的代码以及脚手架，但因为编码水平的限制没有什么实际进展，后续因为准备毕业加之尝试搭建
+我编写了一些简单的代码以及脚手架，但因为编码水平的限制没有什么实际进展，后续因为准备毕业加之尝试搭建
 DiffSinger 推理管线失败的关系也被搁置了。</p>
-<p>在 25 年的下半年，我突然想继续推进，并且基于此完成了 <a
+<p>在 25 年的下半年，我突然想继续推进，并且基于此完成了 DAG
+（有向无环图）调度引擎 <a
 href="https://github.com/SynapticStrings/Orchid">Orchid</a>
 ，以及及其相关的 <a
 href="https://github.com/SynapticStrings/OrchidSymbiont">OrchidSymbiont</a>
@@ -177,7 +164,7 @@ href="https://github.com/SynapticStrings/OrchidStratum">OrchidStratum</a>
 以及 <a
 href="https://github.com/SynapticStrings/OrchidIntervention">OrchidIntervention</a>
 。也通过了 <a href="https://livebook.dev">Livebook</a> 跑通了 DiffSinger
-的管线。</p>
+的管线（基于 Ortex 包装 <code>.onnx</code>）。</p>
 <p>至少就<a
 href="#equinox旧qyeditor的思想">我最开始的想法</a>而言，是实现了。但是并没有和目前的
 SVS
@@ -198,13 +185,14 @@ SVS
 <ul>
 <li>SVS
 本质上是从及其抽象的符号到一段音频的过程，但是这个过程中存在大量（可量化）的中间参数</li>
-<li>不能是黑箱——用户对中间参数有着完全的控制权（intervention）</li>
+<li>不能是黑箱——用户对中间参数有着完全的控制权，可以随意干预（intervention）具备清晰语义且可干预的参数</li>
 <li>复杂的模型的推理管线可以抽象成 DAG<sup><a href="#fn1" id="fnref1"
-class="footnote-ref" role="doc-noteref">1</a></sup> （有向无环图）</li>
-<li>（不是约束而是想法/特征）需要设计增量生成，特别是基于 ML
+class="footnote-ref" role="doc-noteref">1</a></sup></li>
+<li>（不是约束而是自然产生的想法/特征）需要设计增量生成，特别是基于 ML
 的模型/管线</li>
 </ul>
 <h2 id="问题">问题</h2>
+<h3 id="描述">描述</h3>
 <p>考虑一个日常操作：你在编辑器中画了一条 pitch 曲线、手调了几个辅音的
 preutterance（提前量），然后发现歌词打错了——“着”应该读 zhuo 不是
 zhao。</p>
@@ -216,7 +204,7 @@ Staleness）</strong>：上游参数变化导致下游用户编辑失效，且�
 <p>更一般地：爬一个音阶（sol la ti → sol la
 si），改一个唱名，整个音素序列可能被 G2P 重写。或者多音字替换——“长”读
 chang 还是 zhang，只改一个字，所有对这个音素的手调都可能悄悄错位。</p>
-<h2 id="为什么难">为什么难</h2>
+<h3 id="为什么难">为什么难</h3>
 <p>根源一句话：<strong>slot-indexed data has no identity when the index
 is recomputed</strong>。</p>
 <p>大多数 SVS 编辑器的参数是”绑在第 N 个音符上”的——用索引或 note ID 做
@@ -234,7 +222,7 @@ bug，是数据模型层面的缺陷：你存的不是”对 <code>/a/</code> �
 极端的花腔女高音一个音节横跨十几个音符。Vocaloid
 的拆音技法也是同理。一个音素跨多个音符时，slot
 根本不唯一——无论你用”第几个音符”还是”第几个音素”做 key，都是错的。</p>
-<h2 id="同行怎么做">同行怎么做</h2>
+<h2 id="他山之石">他山之石</h2>
 <h3 id="utau">UTAU</h3>
 <p>没有内置 G2P。歌词到音素的映射是 voicebank 的 oto.ini 做 WAV
 文件名匹配——你写 ti，就找 ti.wav。所以不存在”G2P
@@ -251,11 +239,11 @@ staleness 反馈。OpenUTAU 的 .ustx 格式下曲线是 timeline 的，但 G2P
 重跑后音符级参数依然被覆盖。</p>
 <p><strong>共同点</strong>：四个编辑器都在不同程度上遇到干预静默失效，没有一个主动检测或警告。</p>
 <h2 id="解决思路">解决思路</h2>
-<p>我开发了 <a
-href="https://github.com/SynapticStrings/Zongzi">Zongzi</a>——一个 Elixir
-库，为 SVS
-编辑器提供干预锚定和失效检测的基础设施。不跑渲染，只定义契约和纯逻辑。</p>
-<h3 id="序列真相timeline-seqid">序列真相：Timeline + SeqID</h3>
+<h3 id="zongzi">Zongzi</h3>
+<p><a href="https://github.com/SynapticStrings/Zongzi">Zongzi</a>
+是一个为 SVS 编辑器提供干预锚定和失效检测的基础设施的 Elixir
+库。不执行具体的渲染动作，只定义契约和纯逻辑。</p>
+<h4 id="序列真相timeline-seqid">序列真相：Timeline + SeqID</h4>
 <p>先把”音符的顺序”和”音符的内容”拆开。</p>
 <p>Timeline 维护一条 seq_id
 的显式有序链表（<code>note_order</code>），独立于 Note 的生命周期。SeqID
@@ -264,8 +252,8 @@ SeqID 上，而非 Note.id。</p>
 <p>借鉴了 Sequence CRDT（RGA
 系），但剃掉分布式共识部分——单用户编辑不需要 clock 同步。SeqID 由
 Timeline 自持 counter 生成，跨会话序列化安全。</p>
-<h3 id="锚定notetriplet-2-of-3-exact-match">锚定：NoteTriplet + 2-of-3
-exact match</h3>
+<h4 id="锚定notetriplet-2-of-3-exact-match">锚定：NoteTriplet + 2-of-3
+exact match</h4>
 <p>Intervention 锚在三个 SeqID
 上：<code>{prev_seq, current_seq, next_seq}</code>。</p>
 <p>当 Timeline 变更后（音符被切分、拖拽、合并、删除），rebase 用
@@ -308,12 +296,12 @@ exact match</h3>
 </table>
 <p>方向由 channel strategy 决定——pitch 曲线尾巴往 <code>:prev</code>
 找，phoneme timing offset 往 <code>:next</code> 找。各论各的。</p>
-<h3 id="墓碑与-gc">墓碑与 GC</h3>
+<h4 id="墓碑与-gc">墓碑与 GC</h4>
 <p>Merge 或 delete 音符后，原 SeqID 变成<strong>墓碑</strong>——保留在
 note_order
 中维持邻接稳定性，但不再对应活跃音符。如果某次渲染后用户确认无
 conflict，手动执行 GC 回收未被任何 intervention 引用的墓碑。</p>
-<h3 id="结构层-vs-语义层">结构层 vs 语义层</h3>
+<h4 id="结构层-vs-语义层">结构层 vs 语义层</h4>
 <p>锚定只能回答”锚还在不在”（结构），回答不了”载荷还有没有效”（语义）。改了歌词，SeqID
 不变、邻接不变、rebase 返回 3/3——但 G2P 重跑后 phoneme timing
 已经过期。</p>
@@ -323,7 +311,7 @@ snapshot（如音素边界的秒值表），渲染时比对当前投影。一致
 delta，不一致 → conflict 上浮。</p>
 <p>比对是 exact 的，不引入 tolerance。tolerance 就是 fuzzy match
 的后门——和 2-of-3 exact 的纪律一致。</p>
-<h3 id="引擎契约">引擎契约</h3>
+<h4 id="引擎契约">引擎契约</h4>
 <p>Zongzi 不跑渲染。只定义 <code>Engine.render/1</code> 回调——引擎消费
 notes + interventions + tempo，产出 artifact。resolve
 在引擎内发生，zongzi 不关心内部实现是 DAG 还是 pipeline。</p>
@@ -333,11 +321,28 @@ notes + interventions + tempo，产出 artifact。resolve
                     render → artifact
                        ↓
               adopt / 挂新 intervention → …</code></pre>
-<h2 id="缺憾">缺憾</h2>
-<ul>
-<li>TODO / 缺乏针对但音符内部变化的结构检测（e.g. 修改时长）</li>
-</ul>
-<h2 id="感悟">感悟</h2>
+<h3 id="tamale-coconut">Tamale &amp; Coconut</h3>
+<p><a href="https://github.com/SynapticStrings/Tamal">Tamale</a>
+（更通用的纯函数三方合并引擎） &amp; <a
+href="https://github.com/GES233/Coconut">Coconut</a>（重构的第一版）</p>
+<h4 id="保留的机制">保留的机制</h4>
+<p>保留了结构层与语义层的两阶段流程以及引擎流程，但是丢弃了三元组音符的
+2/3 匹配以及时间线上 SeqID 定位。</p>
+<h4 id="tamale">Tamale</h4>
+<blockquote>
+<p><em>El tamal (del náhuatl tamalli) es un alimento de origen
+mesoamericano del periodo precolombino, elaborado a partir de una masa
+de harina de maíz sazonada y envuelta en hojas de plátano o de la
+mazorca del maíz, y cocida al vapor o en el horno.</em></p>
+<p>玉米粽子（tamal）是源于前哥伦布时期的中美洲食物，由调味玉米粉面团包裹在香蕉叶或玉米皮中制成，通过蒸或烤箱烹制而成。</p>
+</blockquote>
+<p>这个名字是因为和 zongzi 的介绍对应，其也是站在 zongzi
+<del>的尸体</del>上的产物，或者说，继任者。</p>
+<p>其实这是根据 zongzi 源码以及 Claude Fable 的评审意见丢给 Kimi
+做出来的。
+有意抛弃了领域代码并且保持抽象，最后得到了约一千行的项目。</p>
+<p>TODO</p>
+<h4 id="coconut">Coconut</h4>
 <p>TODO</p>
         <div class="footnotes mt-12 pt-8 border-t border-base-300">
   <h3 class="text-xl font-bold mb-4">Footnotes</h3>
