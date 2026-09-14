@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>
-      VividPuppet🎭：动作生成框架 - 自留地
+      随想（二） - 自留地
     </title>
     <link rel="stylesheet" href="/assets/app.css">
 
@@ -75,20 +75,12 @@
   <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
     <article class="bg-base-100 rounded-xl shadow-sm p-6 sm:p-8 md:p-12">
       <header class="mb-8 md:mb-12 border-b border-base-300 pb-6 md:pb-8">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 tracking-tight">VividPuppet🎭：动作生成框架</h1>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-4 tracking-tight">随想（二）</h1>
         <div class="flex flex-wrap items-center text-sm sm:text-base text-base-content/70 gap-4 mb-4">
-          <time class="flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2024-06-10 15:00:28</time>
-          <div class="badge badge-outline badge-sm">Work in Progress (1%)</div>
+          <time class="flex items-center"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>2026-09-14 20:29:29</time>
+          <div class="badge badge-outline badge-sm">Final</div>
         </div>
-        <div class="flex items-center flex-wrap text-sm gap-2 mt-2">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" /></svg>
-  <a href="/categories/Qy" class="text-primary hover:underline cursor-pointer">Qy</a><span class="mx-2 text-base-content/40">•</span><a href="/categories/长期计划" class="text-primary hover:underline cursor-pointer">长期计划</a>
-</div>
-<div class="flex items-center flex-wrap gap-2 mt-3">
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-base-content/60"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" /></svg>
-  <a href="/tags/计划中" class="badge badge-ghost badge-sm hover:badge-primary transition-colors">#计划中</a>
-</div>
-
+        
       </header>
 
       <div class="prose prose-sm sm:prose-base lg:prose-lg max-w-none leading-relaxed
@@ -98,55 +90,33 @@
                   prose-pre:rounded-lg
                   prose-blockquote:border-l-4 prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:not-italic">
         <nav class="toc mb-8 p-4 bg-base-200 rounded-lg"><ul>
-<li><a href="#一瞥" id="toc-一瞥">一瞥</a></li>
-<li><a href="#框架图" id="toc-框架图">框架图</a></li>
-<li><a href="#用例" id="toc-用例">用例</a></li>
+<li><a href="#近期" id="toc-近期">近期</a></li>
+<li><a href="#博客内容" id="toc-博客内容">博客内容</a></li>
 </ul></nav>
-        <p><em>A generic simulation framework based on action
-emulating.</em></p>
-<p>基于动作仿真的通用模拟框架。</p>
-<h3 id="一瞥">一瞥</h3>
-<p><code>VividPuppet</code> 是去年的<a
-href="/2023/6/Qy-project">Qy项目</a>的子计划（目前还是 ppt
-阶段，我也没想好要怎么实现），其基于对生物动作的抽象与仿真，提供了在包括动画、游戏等不同场景下使用不同的适配器生成具有逼真而精细的动作的内容的框架。</p>
-<h4 id="木偶还是木偶">木偶还是木偶？</h4>
-<p>原话忘了，反正这个小标题是照着姜文关于观众对《让子弹飞》的解读的回应弄的，火锅不是火锅，麻匪不是麻匪什么的<sup><a
-href="#fn1" id="fnref1" class="footnote-ref"
-role="doc-noteref">1</a></sup>。</p>
-<p>起这个名字是因为之前受关于神经科学的书籍的影响，他们把生物的思维活动比喻成剧院。
-这个比喻真的超级妙，而且我也打算通过在一定程度上复现这种表现来使生成的动作更加「自然」（以人类的视角）的倾向。
-所以就确定了 VividPuppet 这个名字。</p>
-<h4 id="不止控制回路">不止控制回路</h4>
-<h4 id="为什么是-elixir">为什么是 Elixir ？</h4>
-<p>一方面是通过 Elixir 的宏来写 DSL
-比较方便，可以实现比较优雅的语法；另一方面是 BEAM
-在设计之初可能就考虑到了类似于建模仿真的情况（但其实不是）。</p>
-<h3 id="框架图">框架图</h3>
-<p>TODO: <del>整完这张图</del> 先搞明白到底怎么实现吧哥</p>
-<p><img src="/svg/Vivid-Puppet-overview.svg" alt="Vivid-Puppet-overview" /></p>
-<h3 id="用例">用例</h3>
-<p>这一部分虽然是用例，但是更多的是从使用场景的角度来思考这种框架应该如何实现。</p>
-<h4
-id="跨语言附加情感的多模态语音合成">跨语言、附加情感的多模态语音合成</h4>
-<p><em>人话版本：附带口型的语音合成。</em></p>
-<h4 id="情绪建模与表情展示">情绪建模与表情展示</h4>
-<p><em>人话版本：自动化的看板娘</em></p>
-<h4 id="角色无关的动作捕捉与重现">角色无关的动作捕捉与重现</h4>
-<p><em>人话版本：让大长腿模型与 Q
-版模型可以无需修改使用同一套动作。</em></p>
-        <div class="footnotes mt-12 pt-8 border-t border-base-300">
-  <h3 class="text-xl font-bold mb-4">Footnotes</h3>
-  <div class="footnotes prose-sm">
-<ol>
-<li><div id="fn1">
-<p>好像是黄四郎的那句，「刀进了肚子，那凉粉还是凉粉？」 <a
-href="#fnref1" class="footnote-back" role="doc-backlink"
-aria-label="Back to content">↩︎</a></p>
-</div></li>
-</ol>
-</div>
-</div>
-
+        <p>两件事吧，一个是说下最近的情况发发牢骚，还有一个是后面博客的内容。</p>
+<h3 id="近期">近期</h3>
+<h4 id="工作">工作</h4>
+<p>之前一直没怎么在博客写工作，这算是第一次专门讲。</p>
+<p>首先一点是我终于也是被弄到工地去了，经典开局，在我这里被延长到了一年多。</p>
+<p>Well，因此在目前的岗位，待调岗，没有活，真好啊，用了另一个同事的话来说：
+<em>终于过了人的生活</em> 。</p>
+<p>有一个背景，我们单位所在的集团发了篇文，说要提升项目的各类关键岗位的主体员工（非劳务）占比，然后我作为25届唯一一个在机关的（还有一位是在财务口，职能部门），照理说我也能去职能部门，但阴差阳错来到了业务部门，对于业务部门来说，到项目是迟早的事。</p>
+<p>苦不苦无所谓，之前做毕设掉了层皮。倒是让我头疼的有两个地方，一个是行李太多太多了，还有一个是最好的安全员也产生不了什么很
+significant 的成果，上限也就在哪了。</p>
+<p>只能是使出六分的功力在本职工作上，不让自己坐牢；剩下的，一方面学会和三教九流打交道，另一方面搞点副业，多多扒分（哦对了，飞〇〇钱）。</p>
+<h4 id="misc">Misc</h4>
+<p>列举一下最近做的杂活：</p>
+<ul>
+<li>狠狠爆数百金币狂蹬 AI （GPT 5.6 Sol 、 Kimi K3）来 <a
+href="https://github.com/GES233/EquinoxEditor">开发编辑器</a>
+，完整几组重构以及更多的 feature ，目前就剩 UI 了</li>
+<li>购买 DJI Action 4</li>
+<li>使用 Action4 录制的街景（+ COLMAP +
+3DGS）重建了楼下一小片的街景，走通了流程</li>
+</ul>
+<h3 id="博客内容">博客内容</h3>
+<p>之前挖了很多坑，也没填，后面可能会多写点小文章，放到一个大系列里边。</p>
+        
         
       </div>
     </article>

@@ -20,11 +20,33 @@
     <script type='importmap'>
       {
         "imports": {
-          "@fullcalendar/core": "https://esm.sh/@fullcalendar/core@6.1.20",
-          "@fullcalendar/daygrid": "https://esm.sh/@fullcalendar/daygrid@6.1.20"
+          "preact": "https://cdn.jsdelivr.net/npm/preact@10.29.1/dist/preact.mjs",
+          "preact/hooks": "https://cdn.jsdelivr.net/npm/preact@10.29.1/hooks/dist/hooks.mjs",
+          "preact/jsx-runtime": "https://cdn.jsdelivr.net/npm/preact@10.29.1/jsx-runtime/dist/jsxRuntime.mjs",
+          "preact/compat": "https://cdn.jsdelivr.net/npm/preact@10.29.1/compat/dist/compat.mjs",
+          "preact/compat/client": "https://cdn.jsdelivr.net/npm/preact@10.29.1/compat/client.mjs",
+          "temporal-polyfill/fns/ZonedDateTime": "https://cdn.jsdelivr.net/npm/temporal-polyfill@1.0.1/fns/ZonedDateTime.js",
+          "temporal-polyfill/fns/PlainDateTime": "https://cdn.jsdelivr.net/npm/temporal-polyfill@1.0.1/fns/PlainDateTime.js",
+          "temporal-polyfill/fns/Instant": "https://cdn.jsdelivr.net/npm/temporal-polyfill@1.0.1/fns/Instant.js",
+          "temporal-utils": "https://cdn.jsdelivr.net/npm/temporal-utils@1.0.1/dist/index.js",
+          "temporal-utils/protected": "https://cdn.jsdelivr.net/npm/temporal-utils@1.0.1/dist/utils.js",
+          "temporal-utils/utils": "https://cdn.jsdelivr.net/npm/temporal-utils@1.0.1/dist/protected.js",
+          "temporal-utils/protected-error-messages": "https://cdn.jsdelivr.net/npm/temporal-utils@1.0.1/dist/protected-error-messages.js",
+          "@full-ui/headless-calendar": "https://cdn.jsdelivr.net/npm/@full-ui/headless-calendar@7.0.2/index.js",
+          "fullcalendar": "https://cdn.jsdelivr.net/npm/fullcalendar@7.0.2/index.js",
+          "fullcalendar/locales/zh-cn": "https://cdn.jsdelivr.net/npm/fullcalendar@7.0.2/locales/zh-cn/index.js",
+          "fullcalendar/themes/classic": "https://cdn.jsdelivr.net/npm/fullcalendar@7.0.2/themes/classic/index.js",
+          "fullcalendar/interaction": "https://cdn.jsdelivr.net/npm/fullcalendar@7.0.2/interaction.js",
+          "fullcalendar/daygrid": "https://cdn.jsdelivr.net/npm/fullcalendar@7.0.2/daygrid.js",
+          "fullcalendar/timegrid": "https://cdn.jsdelivr.net/npm/fullcalendar@7.0.2/timegrid.js",
+          "fullcalendar/list": "https://cdn.jsdelivr.net/npm/fullcalendar@7.0.2/list.js"
         }
       }
     </script>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@7.0.2/skeleton.css' rel='stylesheet' />
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@7.0.2/themes/classic/theme.css' rel='stylesheet' />
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@7.0.2/themes/classic/palette.css' rel='stylesheet' />
+    <style>#calendar { min-height: 400px; }</style>
     <script type='module' src='/assets/fullcalendar.js'></script>
   
 
@@ -205,6 +227,70 @@ href="https://github.com/fullcalendar/fullcalendar">fullcalendar/fullcalendar
   {
     "title": "少碰撕裂议题，睡眠最重要",
     "start": "2026-05-23"
+  },
+  {
+    "title": "两组 40s 平板支撑",
+    "start": "2026-08-04"
+  },
+  {
+    "title": "平板 45s×2+20s，跑步 1.58km @6.1",
+    "start": "2026-08-06"
+  },
+  {
+    "title": "平板 1min/休息/40s，跑步 1.51km @6.6",
+    "start": "2026-08-07"
+  },
+  {
+    "title": "骑车 40min",
+    "start": "2026-08-08"
+  },
+  {
+    "title": "平板 36s/48s/20s",
+    "start": "2026-08-09"
+  },
+  {
+    "title": "平板 45s/休息1min/26s/休息3min/40s",
+    "start": "2026-08-12"
+  },
+  {
+    "title": "平板支撑 40s×3",
+    "start": "2026-08-13"
+  },
+  {
+    "title": "平板/超人起身/超人式组合",
+    "start": "2026-08-14"
+  },
+  {
+    "title": "平板/摆/高抬腿组合",
+    "start": "2026-08-15"
+  },
+  {
+    "title": "平板可到 65s，改计划",
+    "start": "2026-08-16"
+  },
+  {
+    "title": "空体支撑（退阶）+ 超人式",
+    "start": "2026-08-18"
+  },
+  {
+    "title": "20个波比跳",
+    "start": "2026-08-19"
+  },
+  {
+    "title": "空体支撑（退阶）+ 超人式多组",
+    "start": "2026-08-20"
+  },
+  {
+    "title": "空体支撑（退阶）+ 超人式多组",
+    "start": "2026-08-22"
+  },
+  {
+    "title": "骑车 14km Zone 2",
+    "start": "2026-08-23"
+  },
+  {
+    "title": "空体支撑 + 超人式 + 波比跳 + 平板摸肩",
+    "start": "2026-08-24"
   }
 ]
 </script>
@@ -249,6 +335,15 @@ href="https://github.com/fullcalendar/fullcalendar">fullcalendar/fullcalendar
 
 </div>
 
+    
+    <script>
+      (function() {
+        var es = new EventSource("/sse");
+        es.addEventListener("reload", function(e) {
+          window.location.reload();
+        });
+      })();
+    </script>
     
   </body>
 </html>
